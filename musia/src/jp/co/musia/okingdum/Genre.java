@@ -5,6 +5,12 @@ public class Genre {
 	private String genre_id;
 	private String genre_name;
 	
+	/**
+	 * 
+	 * @param genre_id : ƒWƒƒƒ“ƒ‹ID
+	 * @param genre_name@: ƒWƒƒƒ“ƒ‹–¼
+	 *
+	 */
 	public Genre(String genre_id, String genre_name) {
 		this.genre_id = genre_id;
 		this.genre_name = genre_name;
