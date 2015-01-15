@@ -9,10 +9,10 @@ public class Album {
 	
 	/**
 	 * 
-	 * @param album_id
-	 * @param product_id
-	 * @param album_name
-	 * @param artist_name
+	 * @param album_id : アルバムＩＤ
+	 * @param product_id : 商品ＩＤ
+	 * @param album_name : アルバム名
+	 * @param artist_name　: アーティスト名
 	 *
 	 */
 	public Album(String album_id, String product_id, String album_name,
