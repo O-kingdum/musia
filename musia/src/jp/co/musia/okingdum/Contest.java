@@ -15,11 +15,11 @@ public class Contest {
 	 * 
 	 * @param contest_id : コンテストID
 	 * @param contest_name : コンテスト名
-	 * @param enterprise_name : 開催企業名
-	 * @param start_date : 開始日時
-	 * @param end_date : 終了日時
-	 * @param members : 参加人数
-	 * @param requirements : 参加条件
+	 * @param enterprise_name : 募集企業名
+	 * @param start_date : 募集開始日
+	 * @param end_date : 募集終了日
+	 * @param members : 採用人数
+	 * @param requirements : 募集要項
 	 * @param remarks : 備考
 	 * 
 	 */
