@@ -206,7 +206,24 @@ public class Validator {
 		// バリデーション判定初期化
 		this.valid = true;
 		
-		
+		/* product_name Validation */
+		if(StringUtils.isEmpty(product_name)) {
+			valid = false;
+			errmsg.add("楽曲名を入力してください。");
+		} else {
+			if(product_name.length() > 20) {
+				errmsg.add("楽曲名は20文字以内で入力してください。");
+			}
+		}
+		/* price Validation */
+		if(StringUtils.isEmpty(price)) {
+			valid = false;
+			errmsg.add("価格を入力してください。");
+		} else {
+			if(!price.matches("[0-9]{1,6}")) {
+				errmsg.add("価格は半角数字6文字以内で入力して下さい。");
+			}
+		}
 		
 		return valid;
 	}
