@@ -199,7 +199,7 @@ public class Validator {
 		
 		return valid;
 	}
-	
+	/* 1/25 途中 */
 	public boolean getPostMusicValidation(String product_name, String price) {
 		// エラーメッセージリスト初期化
 		this.errmsg = new ArrayList<String>();
