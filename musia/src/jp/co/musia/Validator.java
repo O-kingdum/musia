@@ -2,7 +2,6 @@ package jp.co.musia;
 
 import java.util.ArrayList;
 import org.apache.commons.lang3.StringUtils;
-import javax.servlet.http.HttpServletRequest;
 
 public class Validator {
 
@@ -23,13 +22,11 @@ public class Validator {
 	 * @param value String: 楽曲名
 	 * @return　valid boolean: バリデーション判定
 	 */
-	public boolean getSearchMusic(HttpServletRequest request) {
+	public boolean getSearchMusic(String value) {
 		// エラーメッセージリスト初期化
 		this.errmsg = new ArrayList<String>();
 		// バリデーション判定初期化
 		this.valid = true;
-		// 検索ワード取得
-		String value = request.getParameter("search_value");
 		
 		if(StringUtils.isEmpty(value)) {
 			valid = false;
@@ -49,15 +46,11 @@ public class Validator {
 	 * @param password String:　パスワード
 	 * @return valid boolean:　バリデーション判定
 	 */
-	public boolean getLoginValidation(HttpServletRequest request) {
+	public boolean getLoginValidation(String email, String password) {
 		// エラーメッセージリスト初期化
 		this.errmsg = new ArrayList<String>();
 		// バリデーション判定初期化
 		this.valid = true;
-		// email取得
-		String email = request.getParameter("email");
-		// パスワード取得
-		String password = request.getParameter("password");
 		
 		/* email Validation */
 		if(StringUtils.isEmpty(email)) {	// 空またはnull
@@ -104,10 +97,6 @@ public class Validator {
 		this.errmsg = new ArrayList<String>();
 		// バリデーション判定初期化
 		this.valid = true;
-		// 口座番号
-		String bank_number;
-		//
-		
 		
 		/* bank_number Validation */
 		if(StringUtils.isEmpty(bank_number)) {
