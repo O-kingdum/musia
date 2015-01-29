@@ -1,7 +1,8 @@
 package jp.co.musia;
 
-import java.util.ArrayList;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
 
 public class Validator {
 
@@ -9,219 +10,219 @@ public class Validator {
 	private boolean valid;
 	
 	/**
-	 * getErrMsgƒƒ\ƒbƒh : ƒGƒ‰[ƒƒbƒZ[ƒW‚Ìæ“¾
+	 * getErrMsgï¿½ï¿½ï¿½\ï¿½bï¿½h : ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½Ìæ“¾
 	 * 
-	 * @return errmsg ArrayList<String>: ƒoƒŠƒf[ƒVƒ‡ƒ“ƒGƒ‰[ƒƒbƒZ[ƒWƒŠƒXƒg
+	 * @return errmsg ArrayList<String>: ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½Xï¿½g
 	 */
 	public ArrayList<String> getErrMsg() {
 		return this.errmsg;
 	}
 	/**
-	 * getSearchMusicƒƒ\ƒbƒh : Šy‹ÈŒŸõ“ü—Í‚É‘Î‚·‚éƒoƒŠƒf[ƒVƒ‡ƒ“
+	 * getSearchMusicï¿½ï¿½ï¿½\ï¿½bï¿½h : ï¿½yï¿½ÈŒï¿½ï¿½ï¿½ï¿½ï¿½Í‚É‘Î‚ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 	 * 
-	 * @param value String: Šy‹È–¼
-	 * @return@valid boolean: ƒoƒŠƒf[ƒVƒ‡ƒ“”»’è
+	 * @param value String: ï¿½yï¿½È–ï¿½
+	 * @returnï¿½@valid boolean: ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public boolean getSearchMusic(String value) {
-		// ƒGƒ‰[ƒƒbƒZ[ƒWƒŠƒXƒg‰Šú‰»
+		// ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½
 		this.errmsg = new ArrayList<String>();
-		// ƒoƒŠƒf[ƒVƒ‡ƒ“”»’è‰Šú‰»
+		// ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è‰ï¿½ï¿½
 		this.valid = true;
 		
 		if(StringUtils.isEmpty(value)) {
 			valid = false;
-			errmsg.add("Šy‹È–¼‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+			errmsg.add("ï¿½yï¿½È–ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 		} else {
 			if(value.length() > 20) {
 				valid = false;
-				errmsg.add("Šy‹È–¼‚Í20•¶šˆÈ“à‚Å“ü—Í‚µ‚Ä‰º‚³‚¢B");
+				errmsg.add("ï¿½yï¿½È–ï¿½ï¿½ï¿½20ï¿½ï¿½ï¿½ï¿½ï¿½È“ï¿½ï¿½Å“ï¿½Í‚ï¿½ï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 			}
 		}
 		return valid;
 	}
 	/**
-	 * getLoginValidationƒƒ\ƒbƒh : ƒƒOƒCƒ“‚Ì“ü—Í‚É‘Î‚·‚éƒoƒŠƒf[ƒVƒ‡ƒ“
+	 * getLoginValidationï¿½ï¿½ï¿½\ï¿½bï¿½h : ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Ì“ï¿½Í‚É‘Î‚ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 	 * 
-	 * @param email String: ƒ[ƒ‹ƒAƒhƒŒƒX
-	 * @param password String:@ƒpƒXƒ[ƒh
-	 * @return valid boolean:@ƒoƒŠƒf[ƒVƒ‡ƒ“”»’è
+	 * @param email String: ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Aï¿½hï¿½ï¿½ï¿½X
+	 * @param password String:ï¿½@ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½h
+	 * @return valid boolean:ï¿½@ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public boolean getLoginValidation(String email, String password) {
-		// ƒGƒ‰[ƒƒbƒZ[ƒWƒŠƒXƒg‰Šú‰»
+		// ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½
 		this.errmsg = new ArrayList<String>();
-		// ƒoƒŠƒf[ƒVƒ‡ƒ“”»’è‰Šú‰»
+		// ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è‰ï¿½ï¿½
 		this.valid = true;
 		
 		/* email Validation */
-		if(StringUtils.isEmpty(email)) {	// ‹ó‚Ü‚½‚Ínull
+		if(StringUtils.isEmpty(email)) {	// ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½null
 			valid = false;
-			errmsg.add("ƒ[ƒ‹ƒAƒhƒŒƒX‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+			errmsg.add("ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Aï¿½hï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 		} else {
 			if(!email.matches("[0-9a-zA-Z]+")) {
 				valid = false;
-				errmsg.add("ƒ[ƒ‹ƒAƒhƒŒƒX‚Í”¼Šp‰p”š‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+				errmsg.add("ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Aï¿½hï¿½ï¿½ï¿½Xï¿½Í”ï¿½ï¿½pï¿½pï¿½ï¿½ï¿½ï¿½ï¿½Å“ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 			}			
 			if(email.length() > 50) {
 				valid = false;
-				errmsg.add("ƒ[ƒ‹ƒAƒhƒŒƒX‚Í50•¶šˆÈ“à‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+				errmsg.add("ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Aï¿½hï¿½ï¿½ï¿½Xï¿½ï¿½50ï¿½ï¿½ï¿½ï¿½ï¿½È“ï¿½ï¿½Å“ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 			}
 		}
 		/* password Validation */
-		if(StringUtils.isEmpty(password)) {	// ‹ó‚Ü‚½‚Ínull
+		if(StringUtils.isEmpty(password)) {	// ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½null
 			valid = false;
-			errmsg.add("ƒpƒXƒ[ƒh‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+			errmsg.add("ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 		} else {
 			if(!password.matches("[0-9a-zA-Z]+")) {
 				valid = false;
-				errmsg.add("ƒpƒXƒ[ƒh‚Í”¼Šp‰p”š‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+				errmsg.add("ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½Í”ï¿½ï¿½pï¿½pï¿½ï¿½ï¿½ï¿½ï¿½Å“ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 			}
 			if(password.length() >= 6 && password.length() <= 8) {
 				valid = false;
-				errmsg.add("ƒpƒXƒ[ƒh‚Í6~8•¶š‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+				errmsg.add("ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½6~8ï¿½ï¿½ï¿½ï¿½ï¿½Å“ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 			}
 		}
 		return valid;
 	}
 	/**
-	 * getBankAddValidationƒƒ\ƒbƒh : ‹âsŒûÀ“o˜^ˆ—‚É‘Î‚·‚éƒoƒŠƒf[ƒVƒ‡ƒ“
+	 * getBankAddValidationï¿½ï¿½ï¿½\ï¿½bï¿½h : ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½oï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½É‘Î‚ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 	 * 
-	 * @param bank_number String: ŒûÀ”Ô†
-	 * @param branch_code String: x“X”Ô†
-	 * @param bank_persons String: ŒûÀ–¼‹`l
-	 * @param bank_name String: ‹âs–¼
-	 * @return valid boolean: ƒoƒŠƒf[ƒVƒ‡ƒ“”»’è
+	 * @param bank_number String: ï¿½ï¿½ï¿½ï¿½Ôï¿½
+	 * @param branch_code String: ï¿½xï¿½Xï¿½Ôï¿½
+	 * @param bank_persons String: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½l
+	 * @param bank_name String: ï¿½ï¿½sï¿½ï¿½
+	 * @return valid boolean: ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public boolean getBankAddValidation(String bank_number, String branch_code,
 			String bank_persons, String bank_name) {
-		// ƒGƒ‰[ƒƒbƒZ[ƒWƒŠƒXƒg‰Šú‰»
+		// ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½
 		this.errmsg = new ArrayList<String>();
-		// ƒoƒŠƒf[ƒVƒ‡ƒ“”»’è‰Šú‰»
+		// ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è‰ï¿½ï¿½
 		this.valid = true;
 		
 		/* bank_number Validation */
 		if(StringUtils.isEmpty(bank_number)) {
 			valid = false;
-			errmsg.add("ŒûÀ”Ô†‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");			
+			errmsg.add("ï¿½ï¿½ï¿½ï¿½Ôï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");			
 		} else {
 			if(!bank_number.matches("[0-9]{1,10}")) {
 				valid = false;
-				errmsg.add("ŒûÀ”Ô†‚Í”¼Šp”š10•¶šˆÈ“à‚Å“ü—Í‚µ‚Ä‰º‚³‚¢B");
+				errmsg.add("ï¿½ï¿½ï¿½ï¿½Ôï¿½ï¿½Í”ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½10ï¿½ï¿½ï¿½ï¿½ï¿½È“ï¿½ï¿½Å“ï¿½Í‚ï¿½ï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 			}
 		}
 		/* branch_code Validation */
 		if(StringUtils.isEmpty(branch_code)) {
 			valid = false;
-			errmsg.add("x“X”Ô†‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+			errmsg.add("ï¿½xï¿½Xï¿½Ôï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 		} else {
 			if(!branch_code.matches("[0-9]{3}")) {
 				valid = false;
-				errmsg.add("x“X”Ô†‚Í”¼Šp”š3•¶šˆÈ“à‚Å“ü—Í‚µ‚Ä‰º‚³‚¢B");				
+				errmsg.add("ï¿½xï¿½Xï¿½Ôï¿½ï¿½Í”ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½È“ï¿½ï¿½Å“ï¿½Í‚ï¿½ï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");				
 			}
 		}
 		/* bank_persons Validation */
 		if(StringUtils.isEmpty(bank_persons)) {
 			valid = false;
-			errmsg.add("ŒûÀ–¼‹`l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");			
+			errmsg.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½lï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");			
 		} else {
 			if(bank_persons.length() > 20) {
 				valid = false;
-				errmsg.add("ŒûÀ–¼‹`l‚Í20•¶šˆÈ“à‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");				
+				errmsg.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½lï¿½ï¿½20ï¿½ï¿½ï¿½ï¿½ï¿½È“ï¿½ï¿½Å“ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");				
 			}
 		}
 		/* bank_name Validation */
 		if(StringUtils.isEmpty(bank_name)) {
 			valid = false;
-			errmsg.add("‹âs–¼‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B");				
+			errmsg.add("ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");				
 		}
 		
 		return valid;
 	}
 	/**
-	 * getCreditAddValidationƒƒ\ƒbƒh : ƒNƒŒƒWƒbƒgƒJ[ƒh“o˜^ˆ—‚É‘Î‚·‚éƒoƒŠƒf[ƒVƒ‡ƒ“
+	 * getCreditAddValidationï¿½ï¿½ï¿½\ï¿½bï¿½h : ï¿½Nï¿½ï¿½ï¿½Wï¿½bï¿½gï¿½Jï¿½[ï¿½hï¿½oï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½É‘Î‚ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 	 * 
-	 * @param card_number String : ƒNƒŒƒWƒbƒgƒJ[ƒh”Ô†
-	 * @param limit_date String : —LŒøŠúŒÀ
-	 * @param card_company : ƒNƒŒƒWƒbƒgƒJ[ƒh‰ïĞ 
-	 * @param sec_code : ƒZƒLƒ…ƒŠƒeƒBƒR[ƒh
-	 * @param card_persons : ƒJ[ƒh–¼‹`l
-	 * @return valid boolean : ƒoƒŠƒf[ƒVƒ‡ƒ“”»’è
+	 * @param card_number String : ï¿½Nï¿½ï¿½ï¿½Wï¿½bï¿½gï¿½Jï¿½[ï¿½hï¿½Ôï¿½
+	 * @param limit_date String : ï¿½Lï¿½ï¿½ï¿½ï¿½
+	 * @param card_company : ï¿½Nï¿½ï¿½ï¿½Wï¿½bï¿½gï¿½Jï¿½[ï¿½hï¿½ï¿½ï¿½ 
+	 * @param sec_code : ï¿½Zï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½eï¿½Bï¿½Rï¿½[ï¿½h
+	 * @param card_persons : ï¿½Jï¿½[ï¿½hï¿½ï¿½ï¿½`ï¿½l
+	 * @return valid boolean : ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public boolean getCreditAddValidation(String card_number, String limit_date, String card_company,
 			String sec_code, String card_persons) {
-		// ƒGƒ‰[ƒƒbƒZ[ƒWƒŠƒXƒg‰Šú‰»
+		// ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½
 		this.errmsg = new ArrayList<String>();
-		// ƒoƒŠƒf[ƒVƒ‡ƒ“”»’è‰Šú‰»
+		// ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è‰ï¿½ï¿½
 		this.valid = true;
 		
 		/* card_number Validation */
 		if(StringUtils.isEmpty(card_number)) {
 			valid = false;
-			errmsg.add("ƒNƒŒƒWƒbƒgƒJ[ƒh”Ô†‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+			errmsg.add("ï¿½Nï¿½ï¿½ï¿½Wï¿½bï¿½gï¿½Jï¿½[ï¿½hï¿½Ôï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 		} else {
 			if(!card_number.matches("[0-9]{16}")) {
 				valid = false;
-				errmsg.add("ƒNƒŒƒWƒbƒgƒJ[ƒh”Ô†‚Í”¼Šp”š16•¶š‚Å“ü—Í‚µ‚Ä‰º‚³‚¢B");
+				errmsg.add("ï¿½Nï¿½ï¿½ï¿½Wï¿½bï¿½gï¿½Jï¿½[ï¿½hï¿½Ôï¿½ï¿½Í”ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½16ï¿½ï¿½ï¿½ï¿½ï¿½Å“ï¿½Í‚ï¿½ï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 			}
 		}
 		/* limit_date Validation */
 		if(StringUtils.isEmpty(limit_date)) {
 			valid = false;
-			errmsg.add("—LŒøŠúŒÀ‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B");
+			errmsg.add("ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 		} else {
 			if(!card_number.matches("[0-9]{4}-{1}[0-9]{2}")) {
 				valid = false;
-				errmsg.add("—LŒøŠúŒÀ‚ÌŒ`®‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñB");
+				errmsg.add("ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ÌŒ`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B");
 			}
 		}
-		/*@card_company@*/
+		/*ï¿½@card_companyï¿½@*/
 		if(StringUtils.isEmpty(card_company)) {
 			valid = false;
-			errmsg.add("ƒNƒŒƒWƒbƒgƒJ[ƒh‰ïĞ‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+			errmsg.add("ï¿½Nï¿½ï¿½ï¿½Wï¿½bï¿½gï¿½Jï¿½[ï¿½hï¿½ï¿½Ğ‚ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B");
 		}
 		/* sec_code Validation */
 		if(StringUtils.isEmpty(sec_code)) {
 			valid = false;
-			errmsg.add("ƒZƒLƒ…ƒŠƒeƒBƒR[ƒh‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+			errmsg.add("ï¿½Zï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½eï¿½Bï¿½Rï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B");
 		} else {
 			if(!card_number.matches("[0-9]{3}")) {
-				errmsg.add("ƒZƒLƒ…ƒŠƒeƒBƒR[ƒh‚Í”¼Šp”š3•¶š‚Å“ü—Í‚µ‚Ä‰º‚³‚¢B");
+				errmsg.add("ï¿½Zï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½eï¿½Bï¿½Rï¿½[ï¿½hï¿½Í”ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½Å“ï¿½Í‚ï¿½ï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 			}
 		}
 		/* card_persons Validation */
 		if(StringUtils.isEmpty(card_persons)) {
 			valid = false;
-			errmsg.add("ƒJ[ƒh–¼‹`l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+			errmsg.add("ï¿½Jï¿½[ï¿½hï¿½ï¿½ï¿½`ï¿½lï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 		} else {
 			if(!card_number.matches("[A-Z]+ [A-Z]+")) {
-				errmsg.add("ƒJ[ƒh–¼‹`l‚ÌŒ`®‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·B");
+				errmsg.add("ï¿½Jï¿½[ï¿½hï¿½ï¿½ï¿½`ï¿½lï¿½ÌŒ`ï¿½ï¿½ï¿½ï¿½ï¿½Ôˆï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½B");
 			}
 		}
 		
 		return valid;
 	}
-	/* 1/25 “r’† */
+	/* 1/25 ï¿½rï¿½ï¿½ */
 	public boolean getPostMusicValidation(String product_name, String price) {
-		// ƒGƒ‰[ƒƒbƒZ[ƒWƒŠƒXƒg‰Šú‰»
+		// ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½
 		this.errmsg = new ArrayList<String>();
-		// ƒoƒŠƒf[ƒVƒ‡ƒ“”»’è‰Šú‰»
+		// ï¿½oï¿½ï¿½ï¿½fï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è‰ï¿½ï¿½
 		this.valid = true;
 		
 		/* product_name Validation */
 		if(StringUtils.isEmpty(product_name)) {
 			valid = false;
-			errmsg.add("Šy‹È–¼‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+			errmsg.add("ï¿½yï¿½È–ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 		} else {
 			if(product_name.length() > 20) {
-				errmsg.add("Šy‹È–¼‚Í20•¶šˆÈ“à‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+				errmsg.add("ï¿½yï¿½È–ï¿½ï¿½ï¿½20ï¿½ï¿½ï¿½ï¿½ï¿½È“ï¿½ï¿½Å“ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 			}
 		}
 		/* price Validation */
 		if(StringUtils.isEmpty(price)) {
 			valid = false;
-			errmsg.add("‰¿Ši‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+			errmsg.add("ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 		} else {
 			if(!price.matches("[0-9]{1,6}")) {
-				errmsg.add("‰¿Ši‚Í”¼Šp”š6•¶šˆÈ“à‚Å“ü—Í‚µ‚Ä‰º‚³‚¢B");
+				errmsg.add("ï¿½ï¿½ï¿½iï¿½Í”ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½6ï¿½ï¿½ï¿½ï¿½ï¿½È“ï¿½ï¿½Å“ï¿½Í‚ï¿½ï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
 			}
 		}
 		
