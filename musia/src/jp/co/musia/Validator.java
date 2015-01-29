@@ -10,219 +10,217 @@ public class Validator {
 	private boolean valid;
 	
 	/**
-	 * getErrMsg���\�b�h : �G���[���b�Z�[�W�̎擾
+	 * getErrMsgメソッド : エラーメッセージの取得
 	 * 
-	 * @return errmsg ArrayList<String>: �o���f�[�V�����G���[���b�Z�[�W���X�g
+	 * @return errmsg ArrayList<String>: エラーメッセージリスト
 	 */
 	public ArrayList<String> getErrMsg() {
 		return this.errmsg;
 	}
 	/**
-	 * getSearchMusic���\�b�h : �y�Ȍ�����͂ɑ΂���o���f�[�V����
+	 * getSearchMusicメソッド : 楽曲検索に対するバリデーション
 	 * 
-	 * @param value String: �y�Ȗ�
-	 * @return�@valid boolean: �o���f�[�V��������
+	 * @param value String: 検索ワード
+	 * @return valid boolean: バリデーション判定
 	 */
 	public boolean getSearchMusic(String value) {
-		// �G���[���b�Z�[�W���X�g����
 		this.errmsg = new ArrayList<String>();
-		// �o���f�[�V�������菉��
 		this.valid = true;
 		
 		if(StringUtils.isEmpty(value)) {
 			valid = false;
-			errmsg.add("�y�Ȗ����͂��Ă��������B");
+			errmsg.add("楽曲名を入力してください。");
 		} else {
 			if(value.length() > 20) {
 				valid = false;
-				errmsg.add("�y�Ȗ���20�����ȓ��œ�͂��ĉ������B");
+				errmsg.add("�ｽy�ｽﾈ厄ｿｽ�ｽ�ｽ20�ｽ�ｽ�ｽ�ｽ�ｽﾈ難ｿｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄ会ｿｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 			}
 		}
 		return valid;
 	}
 	/**
-	 * getLoginValidation���\�b�h : ���O�C�����̓�͂ɑ΂���o���f�[�V����
+	 * getLoginValidation�ｽ�ｽ�ｽ\�ｽb�ｽh : �ｽ�ｽ�ｽO�ｽC�ｽ�ｽ�ｽ�ｽ�ｽﾌ難ｿｽﾍに対ゑｿｽ�ｽ�ｽo�ｽ�ｽ�ｽf�ｽ[�ｽV�ｽ�ｽ�ｽ�ｽ
 	 * 
-	 * @param email String: ���[���A�h���X
-	 * @param password String:�@�p�X���[�h
-	 * @return valid boolean:�@�o���f�[�V��������
+	 * @param email String: �ｽ�ｽ�ｽ[�ｽ�ｽ�ｽA�ｽh�ｽ�ｽ�ｽX
+	 * @param password String:�ｽ@�ｽp�ｽX�ｽ�ｽ�ｽ[�ｽh
+	 * @return valid boolean:�ｽ@�ｽo�ｽ�ｽ�ｽf�ｽ[�ｽV�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ
 	 */
 	public boolean getLoginValidation(String email, String password) {
-		// �G���[���b�Z�[�W���X�g����
+		// �ｽG�ｽ�ｽ�ｽ[�ｽ�ｽ�ｽb�ｽZ�ｽ[�ｽW�ｽ�ｽ�ｽX�ｽg�ｽ�ｽ�ｽ�ｽ
 		this.errmsg = new ArrayList<String>();
-		// �o���f�[�V�������菉��
+		// �ｽo�ｽ�ｽ�ｽf�ｽ[�ｽV�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ闖会ｿｽ�ｽ
 		this.valid = true;
 		
 		/* email Validation */
-		if(StringUtils.isEmpty(email)) {	// ��܂���null
+		if(StringUtils.isEmpty(email)) {	// �ｽ�ｽﾜゑｿｽ�ｽ�ｽnull
 			valid = false;
-			errmsg.add("���[���A�h���X���͂��Ă��������B");
+			errmsg.add("�ｽ�ｽ�ｽ[�ｽ�ｽ�ｽA�ｽh�ｽ�ｽ�ｽX�ｽ�ｽ�ｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 		} else {
 			if(!email.matches("[0-9a-zA-Z]+")) {
 				valid = false;
-				errmsg.add("���[���A�h���X�͔��p�p�����œ�͂��Ă��������B");
+				errmsg.add("�ｽ�ｽ�ｽ[�ｽ�ｽ�ｽA�ｽh�ｽ�ｽ�ｽX�ｽﾍ費ｿｽ�ｽp�ｽp�ｽ�ｽ�ｽ�ｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 			}			
 			if(email.length() > 50) {
 				valid = false;
-				errmsg.add("���[���A�h���X��50�����ȓ��œ�͂��Ă��������B");
+				errmsg.add("�ｽ�ｽ�ｽ[�ｽ�ｽ�ｽA�ｽh�ｽ�ｽ�ｽX�ｽ�ｽ50�ｽ�ｽ�ｽ�ｽ�ｽﾈ難ｿｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 			}
 		}
 		/* password Validation */
-		if(StringUtils.isEmpty(password)) {	// ��܂���null
+		if(StringUtils.isEmpty(password)) {	// �ｽ�ｽﾜゑｿｽ�ｽ�ｽnull
 			valid = false;
-			errmsg.add("�p�X���[�h���͂��Ă��������B");
+			errmsg.add("�ｽp�ｽX�ｽ�ｽ�ｽ[�ｽh�ｽ�ｽ�ｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 		} else {
 			if(!password.matches("[0-9a-zA-Z]+")) {
 				valid = false;
-				errmsg.add("�p�X���[�h�͔��p�p�����œ�͂��Ă��������B");
+				errmsg.add("�ｽp�ｽX�ｽ�ｽ�ｽ[�ｽh�ｽﾍ費ｿｽ�ｽp�ｽp�ｽ�ｽ�ｽ�ｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 			}
 			if(password.length() >= 6 && password.length() <= 8) {
 				valid = false;
-				errmsg.add("�p�X���[�h��6~8�����œ�͂��Ă��������B");
+				errmsg.add("�ｽp�ｽX�ｽ�ｽ�ｽ[�ｽh�ｽ�ｽ6~8�ｽ�ｽ�ｽ�ｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 			}
 		}
 		return valid;
 	}
 	/**
-	 * getBankAddValidation���\�b�h : ��s����o�^�����ɑ΂���o���f�[�V����
+	 * getBankAddValidation�ｽ�ｽ�ｽ\�ｽb�ｽh : �ｽ�ｽs�ｽ�ｽ�ｽ�ｽo�ｽ^�ｽ�ｽ�ｽ�ｽ�ｽﾉ対ゑｿｽ�ｽ�ｽo�ｽ�ｽ�ｽf�ｽ[�ｽV�ｽ�ｽ�ｽ�ｽ
 	 * 
-	 * @param bank_number String: ����ԍ�
-	 * @param branch_code String: �x�X�ԍ�
-	 * @param bank_persons String: ������`�l
-	 * @param bank_name String: ��s��
-	 * @return valid boolean: �o���f�[�V��������
+	 * @param bank_number String: �ｽ�ｽ�ｽ�ｽﾔ搾ｿｽ
+	 * @param branch_code String: �ｽx�ｽX�ｽﾔ搾ｿｽ
+	 * @param bank_persons String: �ｽ�ｽ�ｽ�ｽ�ｽ�ｽ`�ｽl
+	 * @param bank_name String: �ｽ�ｽs�ｽ�ｽ
+	 * @return valid boolean: �ｽo�ｽ�ｽ�ｽf�ｽ[�ｽV�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ
 	 */
 	public boolean getBankAddValidation(String bank_number, String branch_code,
 			String bank_persons, String bank_name) {
-		// �G���[���b�Z�[�W���X�g����
+		// �ｽG�ｽ�ｽ�ｽ[�ｽ�ｽ�ｽb�ｽZ�ｽ[�ｽW�ｽ�ｽ�ｽX�ｽg�ｽ�ｽ�ｽ�ｽ
 		this.errmsg = new ArrayList<String>();
-		// �o���f�[�V�������菉��
+		// �ｽo�ｽ�ｽ�ｽf�ｽ[�ｽV�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ闖会ｿｽ�ｽ
 		this.valid = true;
 		
 		/* bank_number Validation */
 		if(StringUtils.isEmpty(bank_number)) {
 			valid = false;
-			errmsg.add("����ԍ����͂��Ă��������B");			
+			errmsg.add("�ｽ�ｽ�ｽ�ｽﾔ搾ｿｽ�ｽ�ｽ�ｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");			
 		} else {
 			if(!bank_number.matches("[0-9]{1,10}")) {
 				valid = false;
-				errmsg.add("����ԍ��͔��p����10�����ȓ��œ�͂��ĉ������B");
+				errmsg.add("�ｽ�ｽ�ｽ�ｽﾔ搾ｿｽ�ｽﾍ費ｿｽ�ｽp�ｽ�ｽ�ｽ�ｽ10�ｽ�ｽ�ｽ�ｽ�ｽﾈ難ｿｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄ会ｿｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 			}
 		}
 		/* branch_code Validation */
 		if(StringUtils.isEmpty(branch_code)) {
 			valid = false;
-			errmsg.add("�x�X�ԍ����͂��Ă��������B");
+			errmsg.add("�ｽx�ｽX�ｽﾔ搾ｿｽ�ｽ�ｽ�ｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 		} else {
 			if(!branch_code.matches("[0-9]{3}")) {
 				valid = false;
-				errmsg.add("�x�X�ԍ��͔��p����3�����ȓ��œ�͂��ĉ������B");				
+				errmsg.add("�ｽx�ｽX�ｽﾔ搾ｿｽ�ｽﾍ費ｿｽ�ｽp�ｽ�ｽ�ｽ�ｽ3�ｽ�ｽ�ｽ�ｽ�ｽﾈ難ｿｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄ会ｿｽ�ｽ�ｽ�ｽ�ｽ�ｽB");				
 			}
 		}
 		/* bank_persons Validation */
 		if(StringUtils.isEmpty(bank_persons)) {
 			valid = false;
-			errmsg.add("������`�l���͂��Ă��������B");			
+			errmsg.add("�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ`�ｽl�ｽ�ｽ�ｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");			
 		} else {
 			if(bank_persons.length() > 20) {
 				valid = false;
-				errmsg.add("������`�l��20�����ȓ��œ�͂��Ă��������B");				
+				errmsg.add("�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ`�ｽl�ｽ�ｽ20�ｽ�ｽ�ｽ�ｽ�ｽﾈ難ｿｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");				
 			}
 		}
 		/* bank_name Validation */
 		if(StringUtils.isEmpty(bank_name)) {
 			valid = false;
-			errmsg.add("��s����I�����Ă��������B");				
+			errmsg.add("�ｽ�ｽs�ｽ�ｽ�ｽ�ｽI�ｽ�ｽ�ｽ�ｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");				
 		}
 		
 		return valid;
 	}
 	/**
-	 * getCreditAddValidation���\�b�h : �N���W�b�g�J�[�h�o�^�����ɑ΂���o���f�[�V����
+	 * getCreditAddValidation�ｽ�ｽ�ｽ\�ｽb�ｽh : �ｽN�ｽ�ｽ�ｽW�ｽb�ｽg�ｽJ�ｽ[�ｽh�ｽo�ｽ^�ｽ�ｽ�ｽ�ｽ�ｽﾉ対ゑｿｽ�ｽ�ｽo�ｽ�ｽ�ｽf�ｽ[�ｽV�ｽ�ｽ�ｽ�ｽ
 	 * 
-	 * @param card_number String : �N���W�b�g�J�[�h�ԍ�
-	 * @param limit_date String : �L����
-	 * @param card_company : �N���W�b�g�J�[�h��� 
-	 * @param sec_code : �Z�L�����e�B�R�[�h
-	 * @param card_persons : �J�[�h���`�l
-	 * @return valid boolean : �o���f�[�V��������
+	 * @param card_number String : �ｽN�ｽ�ｽ�ｽW�ｽb�ｽg�ｽJ�ｽ[�ｽh�ｽﾔ搾ｿｽ
+	 * @param limit_date String : �ｽL�ｽ�ｽ�ｽ�ｽ
+	 * @param card_company : �ｽN�ｽ�ｽ�ｽW�ｽb�ｽg�ｽJ�ｽ[�ｽh�ｽ�ｽ�ｽ 
+	 * @param sec_code : �ｽZ�ｽL�ｽ�ｽ�ｽ�ｽ�ｽe�ｽB�ｽR�ｽ[�ｽh
+	 * @param card_persons : �ｽJ�ｽ[�ｽh�ｽ�ｽ�ｽ`�ｽl
+	 * @return valid boolean : �ｽo�ｽ�ｽ�ｽf�ｽ[�ｽV�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ
 	 */
 	public boolean getCreditAddValidation(String card_number, String limit_date, String card_company,
 			String sec_code, String card_persons) {
-		// �G���[���b�Z�[�W���X�g����
+		// �ｽG�ｽ�ｽ�ｽ[�ｽ�ｽ�ｽb�ｽZ�ｽ[�ｽW�ｽ�ｽ�ｽX�ｽg�ｽ�ｽ�ｽ�ｽ
 		this.errmsg = new ArrayList<String>();
-		// �o���f�[�V�������菉��
+		// �ｽo�ｽ�ｽ�ｽf�ｽ[�ｽV�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ闖会ｿｽ�ｽ
 		this.valid = true;
 		
 		/* card_number Validation */
 		if(StringUtils.isEmpty(card_number)) {
 			valid = false;
-			errmsg.add("�N���W�b�g�J�[�h�ԍ����͂��Ă��������B");
+			errmsg.add("�ｽN�ｽ�ｽ�ｽW�ｽb�ｽg�ｽJ�ｽ[�ｽh�ｽﾔ搾ｿｽ�ｽ�ｽ�ｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 		} else {
 			if(!card_number.matches("[0-9]{16}")) {
 				valid = false;
-				errmsg.add("�N���W�b�g�J�[�h�ԍ��͔��p����16�����œ�͂��ĉ������B");
+				errmsg.add("�ｽN�ｽ�ｽ�ｽW�ｽb�ｽg�ｽJ�ｽ[�ｽh�ｽﾔ搾ｿｽ�ｽﾍ費ｿｽ�ｽp�ｽ�ｽ�ｽ�ｽ16�ｽ�ｽ�ｽ�ｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄ会ｿｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 			}
 		}
 		/* limit_date Validation */
 		if(StringUtils.isEmpty(limit_date)) {
 			valid = false;
-			errmsg.add("�L������I�����Ă��������B");
+			errmsg.add("�ｽL�ｽ�ｽ�ｽ�ｽ�ｽ�ｽI�ｽ�ｽ�ｽ�ｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 		} else {
 			if(!card_number.matches("[0-9]{4}-{1}[0-9]{2}")) {
 				valid = false;
-				errmsg.add("�L�����̌`��������������܂���B");
+				errmsg.add("�ｽL�ｽ�ｽ�ｽ�ｽ�ｽﾌ形�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽﾜゑｿｽ�ｽ�ｽB");
 			}
 		}
-		/*�@card_company�@*/
+		/*�ｽ@card_company�ｽ@*/
 		if(StringUtils.isEmpty(card_company)) {
 			valid = false;
-			errmsg.add("�N���W�b�g�J�[�h��Ђ��I������Ă��܂���B");
+			errmsg.add("�ｽN�ｽ�ｽ�ｽW�ｽb�ｽg�ｽJ�ｽ[�ｽh�ｽ�ｽﾐゑｿｽ�ｽI�ｽ�ｽ�ｽ�ｽ�ｽ�ｽﾄゑｿｽ�ｽﾜゑｿｽ�ｽ�ｽB");
 		}
 		/* sec_code Validation */
 		if(StringUtils.isEmpty(sec_code)) {
 			valid = false;
-			errmsg.add("�Z�L�����e�B�R�[�h����͂���Ă��܂���B");
+			errmsg.add("�ｽZ�ｽL�ｽ�ｽ�ｽ�ｽ�ｽe�ｽB�ｽR�ｽ[�ｽh�ｽ�ｽ�ｽ�ｽﾍゑｿｽ�ｽ�ｽﾄゑｿｽ�ｽﾜゑｿｽ�ｽ�ｽB");
 		} else {
 			if(!card_number.matches("[0-9]{3}")) {
-				errmsg.add("�Z�L�����e�B�R�[�h�͔��p����3�����œ�͂��ĉ������B");
+				errmsg.add("�ｽZ�ｽL�ｽ�ｽ�ｽ�ｽ�ｽe�ｽB�ｽR�ｽ[�ｽh�ｽﾍ費ｿｽ�ｽp�ｽ�ｽ�ｽ�ｽ3�ｽ�ｽ�ｽ�ｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄ会ｿｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 			}
 		}
 		/* card_persons Validation */
 		if(StringUtils.isEmpty(card_persons)) {
 			valid = false;
-			errmsg.add("�J�[�h���`�l���͂��Ă��������B");
+			errmsg.add("�ｽJ�ｽ[�ｽh�ｽ�ｽ�ｽ`�ｽl�ｽ�ｽ�ｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 		} else {
 			if(!card_number.matches("[A-Z]+ [A-Z]+")) {
-				errmsg.add("�J�[�h���`�l�̌`�����Ԉ���Ă��܂��B");
+				errmsg.add("�ｽJ�ｽ[�ｽh�ｽ�ｽ�ｽ`�ｽl�ｽﾌ形�ｽ�ｽ�ｽ�ｽ�ｽﾔ茨ｿｽ�ｽ�ｽﾄゑｿｽ�ｽﾜゑｿｽ�ｽB");
 			}
 		}
 		
 		return valid;
 	}
-	/* 1/25 �r�� */
+	/* 1/25 �ｽr�ｽ�ｽ */
 	public boolean getPostMusicValidation(String product_name, String price) {
-		// �G���[���b�Z�[�W���X�g����
+		// �ｽG�ｽ�ｽ�ｽ[�ｽ�ｽ�ｽb�ｽZ�ｽ[�ｽW�ｽ�ｽ�ｽX�ｽg�ｽ�ｽ�ｽ�ｽ
 		this.errmsg = new ArrayList<String>();
-		// �o���f�[�V�������菉��
+		// �ｽo�ｽ�ｽ�ｽf�ｽ[�ｽV�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ闖会ｿｽ�ｽ
 		this.valid = true;
 		
 		/* product_name Validation */
 		if(StringUtils.isEmpty(product_name)) {
 			valid = false;
-			errmsg.add("�y�Ȗ����͂��Ă��������B");
+			errmsg.add("�ｽy�ｽﾈ厄ｿｽ�ｽ�ｽ�ｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 		} else {
 			if(product_name.length() > 20) {
-				errmsg.add("�y�Ȗ���20�����ȓ��œ�͂��Ă��������B");
+				errmsg.add("�ｽy�ｽﾈ厄ｿｽ�ｽ�ｽ20�ｽ�ｽ�ｽ�ｽ�ｽﾈ難ｿｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 			}
 		}
 		/* price Validation */
 		if(StringUtils.isEmpty(price)) {
 			valid = false;
-			errmsg.add("���i���͂��Ă��������B");
+			errmsg.add("�ｽ�ｽ�ｽi�ｽ�ｽ�ｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 		} else {
 			if(!price.matches("[0-9]{1,6}")) {
-				errmsg.add("���i�͔��p����6�����ȓ��œ�͂��ĉ������B");
+				errmsg.add("�ｽ�ｽ�ｽi�ｽﾍ費ｿｽ�ｽp�ｽ�ｽ�ｽ�ｽ6�ｽ�ｽ�ｽ�ｽ�ｽﾈ難ｿｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄ会ｿｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
 			}
 		}
 		
