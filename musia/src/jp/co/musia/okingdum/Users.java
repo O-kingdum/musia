@@ -2,6 +2,7 @@ package jp.co.musia.okingdum;
 
 public class Users {
 
+	private String user_id;
 	private String mail;
 	private String name;
 	private String password;
@@ -15,7 +16,7 @@ public class Users {
 	private String bank_name;
 	
 	/**
-	 * 
+	 * @param user_id : ユーザID
 	 * @param mail : メールアドレス
 	 * @param name : ユーザ名
 	 * @param password : パスワード
@@ -28,10 +29,10 @@ public class Users {
 	 * @param bank_persons : 口座名義人
 	 * @param bank_name : 銀行名
 	 */
-	public Users(String mail, String name, String password, int sex,
-			String birthday, String self_introduction, String entry_date,
-			int bank_number, int branch_code, String bank_persons,
-			String bank_name) {
+	public Users(String user_id, String mail, String name, String password,
+			int sex, String birthday, String self_introduction, String entry_date,
+			int bank_number, int branch_code, String bank_persons, String bank_name) {
+		this.user_id = user_id;
 		this.mail = mail;
 		this.name = name;
 		this.password = password;
@@ -45,7 +46,6 @@ public class Users {
 		this.bank_name = bank_name;
 	}
 	
-
 	/**
 	 * 新規登録
 	 * 
@@ -64,6 +64,13 @@ public class Users {
 		this.birthday = birthday;
 	}
 
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
 
 	public String getMail() {
 		return mail;
