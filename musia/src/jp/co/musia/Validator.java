@@ -23,8 +23,8 @@ public class Validator {
 	/**
 	 * getSearchMusicメソッド : 楽曲検索に対するバリデーション
 	 * 
-	 * @param value String: 検索ワード
-	 * @return valid boolean: バリデーション判定
+	 * @param request : 入力(検索ワード)
+	 * @return valid boolean: true:成功/ false:失敗
 	 */
 	public boolean getSearchMusic(HttpServletRequest request) {
 		
@@ -47,9 +47,8 @@ public class Validator {
 	/**
 	 * getLoginValidationメソッド : ログイン処理に対するバリデーション
 	 * 
-	 * @param email String: メールアドレス
-	 * @param password String: パスワード
-	 * @return valid boolean:　バリデーション判定
+	 * @param request : 入力(メールアドレス,パスワード)
+	 * @return valid boolean :　true:成功/ false:失敗
 	 */
 	public boolean getLoginValidation(HttpServletRequest request) {
 		this.errmsg = new ArrayList<String>();
@@ -93,11 +92,8 @@ public class Validator {
 	/**
 	 * getBankAddValidationメソッド : 銀行口座　追加処理
 	 * 
-	 * @param bank_number String: 口座番号
-	 * @param branch_code String: 支店番号
-	 * @param bank_persons String: 口座名義人
-	 * @param bank_name String: 銀行名
-	 * @return valid boolean: バリデーション判定
+	 * @param request : 入力(口座番号,支店番号,口座名義人,銀行名)
+	 * @return valid boolean :　true:成功/ false:失敗
 	 */
 	public boolean getBankAddValidation(HttpServletRequest request) {
 		this.errmsg = new ArrayList<String>();
@@ -145,67 +141,72 @@ public class Validator {
 		/* bank_name Validation */
 		if(StringUtils.isEmpty(bank_name)) {
 			valid = false;
-			errmsg.add("銀行名を入力してください。");				
+			errmsg.add("銀行名を選択してください。");				
 		}
-		
 		return valid;
 	}
 	/**
 	 * getCreditAddValidationメソッド : クレジットカード　追加処理
 	 * 
-	 * @param card_number String : クレジットカード番号
-	 * @param limit_date String : 有効期限
-	 * @param card_company : カード会社 
-	 * @param sec_code : セキュリティコード
-	 * @param card_persons : カード名義人
-	 * @return valid boolean : バリデーション判定
+	 * @param request : 入力(クレジットカード番号,有効期限,カード会社,セキュリティコード,カード名義人)
+	 * @return valid boolean :　true:成功/ false:失敗
 	 */
-	public boolean getCreditAddValidation(String card_number, String limit_date, String card_company,
-			String sec_code, String card_persons) {
+	public boolean getCreditAddValidation(HttpServletRequest request) {
 		this.errmsg = new ArrayList<String>();
 		this.valid = true;
+		
+		// クレジットカード番号取得
+		String card_number = request.getParameter("card_number");
+		// 有効期限取得
+		String limit_date = request.getParameter("limit_date");
+		// カード会社取得
+		String card_company = request.getParameter("card_company");
+		// セキュリティコード取得
+		String sec_code = request.getParameter("sec_code");
+		// カード名義人取得
+		String card_persons = request.getParameter("card_persons");
 		
 		/* card_number Validation */
 		if(StringUtils.isEmpty(card_number)) {
 			valid = false;
-			errmsg.add("�ｽN�ｽ�ｽ�ｽW�ｽb�ｽg�ｽJ�ｽ[�ｽh�ｽﾔ搾ｿｽ�ｽ�ｽ�ｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
+			errmsg.add("クレジットカード番号を入力してください。");
 		} else {
 			if(!card_number.matches("[0-9]{16}")) {
 				valid = false;
-				errmsg.add("�ｽN�ｽ�ｽ�ｽW�ｽb�ｽg�ｽJ�ｽ[�ｽh�ｽﾔ搾ｿｽ�ｽﾍ費ｿｽ�ｽp�ｽ�ｽ�ｽ�ｽ16�ｽ�ｽ�ｽ�ｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄ会ｿｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
+				errmsg.add("クレジットカード番号は半角数字16文字で入力してください。");
 			}
 		}
 		/* limit_date Validation */
 		if(StringUtils.isEmpty(limit_date)) {
 			valid = false;
-			errmsg.add("�ｽL�ｽ�ｽ�ｽ�ｽ�ｽ�ｽI�ｽ�ｽ�ｽ�ｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
+			errmsg.add("有効期限を入力してください。");
 		} else {
-			if(!card_number.matches("[0-9]{4}-{1}[0-9]{2}")) {
+			if(!limit_date.matches("[0-9]{4}-{1}[0-9]{2}")) {
 				valid = false;
-				errmsg.add("�ｽL�ｽ�ｽ�ｽ�ｽ�ｽﾌ形�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽﾜゑｿｽ�ｽ�ｽB");
+				errmsg.add("有効期限の形式が間違っています。");
 			}
 		}
-		/*�ｽ@card_company�ｽ@*/
+		/* card_company Validation */
 		if(StringUtils.isEmpty(card_company)) {
 			valid = false;
-			errmsg.add("�ｽN�ｽ�ｽ�ｽW�ｽb�ｽg�ｽJ�ｽ[�ｽh�ｽ�ｽﾐゑｿｽ�ｽI�ｽ�ｽ�ｽ�ｽ�ｽ�ｽﾄゑｿｽ�ｽﾜゑｿｽ�ｽ�ｽB");
+			errmsg.add("カード会社名を入力してください。");
 		}
 		/* sec_code Validation */
 		if(StringUtils.isEmpty(sec_code)) {
 			valid = false;
-			errmsg.add("�ｽZ�ｽL�ｽ�ｽ�ｽ�ｽ�ｽe�ｽB�ｽR�ｽ[�ｽh�ｽ�ｽ�ｽ�ｽﾍゑｿｽ�ｽ�ｽﾄゑｿｽ�ｽﾜゑｿｽ�ｽ�ｽB");
+			errmsg.add("セキュリティコードを入力してください。");
 		} else {
-			if(!card_number.matches("[0-9]{3}")) {
-				errmsg.add("�ｽZ�ｽL�ｽ�ｽ�ｽ�ｽ�ｽe�ｽB�ｽR�ｽ[�ｽh�ｽﾍ費ｿｽ�ｽp�ｽ�ｽ�ｽ�ｽ3�ｽ�ｽ�ｽ�ｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄ会ｿｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
+			if(!sec_code.matches("[0-9]{3}")) {
+				errmsg.add("セキュリティコードは半角数字3文字で入力してください。");
 			}
 		}
 		/* card_persons Validation */
 		if(StringUtils.isEmpty(card_persons)) {
 			valid = false;
-			errmsg.add("�ｽJ�ｽ[�ｽh�ｽ�ｽ�ｽ`�ｽl�ｽ�ｽ�ｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
+			errmsg.add("カード名義人を入力してください。");
 		} else {
-			if(!card_number.matches("[A-Z]+ [A-Z]+")) {
-				errmsg.add("�ｽJ�ｽ[�ｽh�ｽ�ｽ�ｽ`�ｽl�ｽﾌ形�ｽ�ｽ�ｽ�ｽ�ｽﾔ茨ｿｽ�ｽ�ｽﾄゑｿｽ�ｽﾜゑｿｽ�ｽB");
+			if(!card_persons.matches("[A-Z]+ [A-Z]+")) {
+				errmsg.add("カード名義人の形式が間違っています。");
 			}
 		}
 		
