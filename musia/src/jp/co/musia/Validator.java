@@ -209,7 +209,6 @@ public class Validator {
 				errmsg.add("カード名義人の形式が間違っています。");
 			}
 		}
-		
 		return valid;
 	}
 	/* 1/25 �ｽr�ｽ�ｽ */
