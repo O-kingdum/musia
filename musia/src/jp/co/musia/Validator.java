@@ -4,7 +4,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
-
 public class Validator {
 
 	// エラーメッセージリスト
@@ -211,32 +210,38 @@ public class Validator {
 		}
 		return valid;
 	}
-	/* 1/25 �ｽr�ｽ�ｽ */
-	public boolean getPostMusicValidation(String product_name, String price) {
-		// �ｽG�ｽ�ｽ�ｽ[�ｽ�ｽ�ｽb�ｽZ�ｽ[�ｽW�ｽ�ｽ�ｽX�ｽg�ｽ�ｽ�ｽ�ｽ
+	
+	/**
+	 * getPostMusicValidationメソッド: 
+	 * 
+	 * @param request : 入力（商品名,価格）
+	 * @return valid boolean :　true:成功/ false:失敗
+	 */
+	public boolean getPostMusicValidation(HttpServletRequest request) {
 		this.errmsg = new ArrayList<String>();
-		// �ｽo�ｽ�ｽ�ｽf�ｽ[�ｽV�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ闖会ｿｽ�ｽ
 		this.valid = true;
+		
+		String product_name = request.getParameter("product_name");
+		String price = request.getParameter("price");
 		
 		/* product_name Validation */
 		if(StringUtils.isEmpty(product_name)) {
 			valid = false;
-			errmsg.add("�ｽy�ｽﾈ厄ｿｽ�ｽ�ｽ�ｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
+			errmsg.add("楽曲名を入力してください。");
 		} else {
 			if(product_name.length() > 20) {
-				errmsg.add("�ｽy�ｽﾈ厄ｿｽ�ｽ�ｽ20�ｽ�ｽ�ｽ�ｽ�ｽﾈ難ｿｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
+				errmsg.add("楽曲名は20文字以内で入力してください。");
 			}
 		}
 		/* price Validation */
 		if(StringUtils.isEmpty(price)) {
 			valid = false;
-			errmsg.add("�ｽ�ｽ�ｽi�ｽ�ｽ�ｽﾍゑｿｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
+			errmsg.add("価格を入力してください。");
 		} else {
 			if(!price.matches("[0-9]{1,6}")) {
-				errmsg.add("�ｽ�ｽ�ｽi�ｽﾍ費ｿｽ�ｽp�ｽ�ｽ�ｽ�ｽ6�ｽ�ｽ�ｽ�ｽ�ｽﾈ難ｿｽ�ｽﾅ難ｿｽﾍゑｿｽ�ｽﾄ会ｿｽ�ｽ�ｽ�ｽ�ｽ�ｽB");
+				errmsg.add("価格は半角数字6桁以内で入力してください。");
 			}
 		}
-		
 		return valid;
 	}
 }
