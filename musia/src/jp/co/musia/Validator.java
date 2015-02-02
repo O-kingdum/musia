@@ -212,7 +212,7 @@ public class Validator {
 	}
 	
 	/**
-	 * getPostMusicValidationメソッド: 
+	 * getPostMusicValidationメソッド: 商品登録処理
 	 * 
 	 * @param request : 入力（商品名,価格）
 	 * @return valid boolean :　true:成功/ false:失敗
