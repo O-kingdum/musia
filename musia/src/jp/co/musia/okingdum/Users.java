@@ -16,18 +16,18 @@ public class Users {
 	private String bank_name;
 	
 	/**
-	 * @param user_id : ƒ†[ƒUID
-	 * @param mail : ƒ[ƒ‹ƒAƒhƒŒƒX
-	 * @param name : ƒ†[ƒU–¼
-	 * @param password : ƒpƒXƒ[ƒh
-	 * @param sex : «•Ê
-	 * @param birthday@: ¶”NŒ“ú
-	 * @param self_introduction : ©ŒÈĞ‰î•¶
-	 * @param entry_date : “o˜^“ú
-	 * @param bank_number : ŒûÀ”Ô†
-	 * @param branch_code : x“X”Ô†
-	 * @param bank_persons : ŒûÀ–¼‹`l
-	 * @param bank_name : ‹âs–¼
+	 * @param user_id : ãƒ¦ãƒ¼ã‚¶ID
+	 * @param mail : ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹
+	 * @param name : ãƒ¦ãƒ¼ã‚¶å
+	 * @param password : ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
+	 * @param sex : æ€§åˆ¥
+	 * @param birthday : èª•ç”Ÿæ—¥
+	 * @param self_introduction : è‡ªå·±ç´¹ä»‹
+	 * @param entry_date : ç™»éŒ²æ—¥
+	 * @param bank_number : å£åº§ç•ªå·
+	 * @param branch_code : æ”¯åº—ç•ªå·
+	 * @param bank_persons : å£åº§åç¾©äºº
+	 * @param bank_name : éŠ€è¡Œå
 	 */
 	public Users(String user_id, String mail, String name, String password,
 			int sex, String birthday, String self_introduction, String entry_date,
@@ -46,24 +46,6 @@ public class Users {
 		this.bank_name = bank_name;
 	}
 	
-	/**
-	 * V‹K“o˜^
-	 * 
-	 * @param mail : ƒ[ƒ‹ƒAƒhƒŒƒX
-	 * @param name : ƒ†[ƒU–¼
-	 * @param password : ƒpƒXƒ[ƒh
-	 * @param sex : «•Ê
-	 * @param birthday@: ¶”NŒ“ú
-	 */
-	public Users(String mail, String name, String password, int sex,
-			String birthday) {
-		this.mail = mail;
-		this.name = name;
-		this.password = password;
-		this.sex = sex;
-		this.birthday = birthday;
-	}
-
 	public String getUser_id() {
 		return user_id;
 	}
