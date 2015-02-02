@@ -210,7 +210,6 @@ public class Validator {
 		}
 		return valid;
 	}
-	
 	/**
 	 * getPostMusicValidationメソッド: 商品登録処理
 	 * 
