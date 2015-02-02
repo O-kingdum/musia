@@ -3,8 +3,8 @@ package jp.co.musia.okingdum;
 public class Users {
 
 	private String user_id;
-	private String mail;
-	private String name;
+	private String email;
+	private String user_name;
 	private String password;
 	private int sex;
 	private String birthday;
@@ -17,8 +17,8 @@ public class Users {
 	
 	/**
 	 * @param user_id : ユーザID
-	 * @param mail : メールアドレス
-	 * @param name : ユーザ名
+	 * @param email : メールアドレス
+	 * @param user_name : ユーザ名
 	 * @param password : パスワード
 	 * @param sex : 性別
 	 * @param birthday : 誕生日
@@ -29,12 +29,12 @@ public class Users {
 	 * @param bank_persons : 口座名義人
 	 * @param bank_name : 銀行名
 	 */
-	public Users(String user_id, String mail, String name, String password,
+	public Users(String user_id, String email, String user_name, String password,
 			int sex, String birthday, String self_introduction, String entry_date,
 			int bank_number, int branch_code, String bank_persons, String bank_name) {
 		this.user_id = user_id;
-		this.mail = mail;
-		this.name = name;
+		this.email = email;
+		this.user_name = user_name;
 		this.password = password;
 		this.sex = sex;
 		this.birthday = birthday;
@@ -54,20 +54,20 @@ public class Users {
 		this.user_id = user_id;
 	}
 
-	public String getMail() {
-		return mail;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getName() {
-		return name;
+	public String getUser_name() {
+		return user_name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUser_name(String name) {
+		this.user_name = name;
 	}
 
 	public String getPassword() {

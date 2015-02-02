@@ -89,6 +89,47 @@ public class Validator {
 		return valid;
 	}
 	/**
+	 * getCreateUserメソッド : 新規ユーザ登録バリデーション
+	 * 
+	 * @param request
+	 * @return
+	 */
+	public boolean getCreateUser(HttpServletRequest request) {
+		this.errmsg = new ArrayList<String>();
+		this.valid = true;
+		
+		String email = request.getParameter("email");
+		String user_name = request.getParameter("user_name");
+		String password = request.getParameter("password");
+		String sex = request.getParameter("sex");
+		String birthday = request.getParameter("birthday");
+		
+		/* email Validation */
+		if(StringUtils.isEmpty(email)) {
+			valid = false;
+			errmsg.add("メールアドレスを入力してください。");
+		} else {
+			if(!email.matches("[0-9a-zA-Z]+")) {
+				valid = false;
+				errmsg.add("メールアドレスは半角英数字で入力してください。");
+			}			
+			if(email.length() > 50) {
+				valid = false;
+				errmsg.add("メールアドレスは50文字以内で入力してください。");
+			}
+		}
+		/* user_name Validation */
+		if(StringUtils.isEmpty(user_name)) {
+			
+		} else {
+			
+		}
+		
+		
+		
+		return true;
+	}
+	/**
 	 * getBankAddValidationメソッド : 銀行口座　追加処理
 	 * 
 	 * @param request : 入力(口座番号,支店番号,口座名義人,銀行名)
