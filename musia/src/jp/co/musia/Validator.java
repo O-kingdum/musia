@@ -120,13 +120,48 @@ public class Validator {
 		}
 		/* user_name Validation */
 		if(StringUtils.isEmpty(user_name)) {
-			
+			valid = false;
+			errmsg.add("ユーザ名を入力してください。");
 		} else {
-			
+			if(user_name.length() > 20) {
+				valid = false;
+				errmsg.add("ユーザ名は20文字以内で入力してください。");
+			}
 		}
-		
-		
-		
+		/* password Validation */
+		if(StringUtils.isEmpty(password)) {
+			valid = false;
+			errmsg.add("パスワードを入力してください。");
+		} else {
+			if(!password.matches("[0-9a-zA-Z]+")) {
+				valid = false;
+				errmsg.add("パスワードは半角英数字で入力してください。");
+			}
+			if(password.length() >= 6 && password.length() <= 8) {
+				valid = false;
+				errmsg.add("パスワードは6文字~8文字で入力してください。");
+			}
+		}
+		/* sex Validation */
+		if(StringUtils.isEmpty(sex)) {
+			valid = false;
+			errmsg.add("性別を選択してください。");
+		} else {
+			if(!sex.matches("[0-1]{1}")) {
+				valid = false;
+				errmsg.add("性別で選択された値が不正です。");
+			}
+		}
+		/* birthday Validation */
+		if(StringUtils.isEmpty(birthday)) {
+			valid = false;
+			errmsg.add("誕生日を入力してください。");			
+		} else {
+			if(!birthday.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}")) {
+				valid = false;
+				errmsg.add("誕生日の形式が正しくありません。");
+			}
+		}
 		return true;
 	}
 	/**

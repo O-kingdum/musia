@@ -15,36 +15,6 @@ public class Users {
 	private String bank_persons;
 	private String bank_name;
 	
-	/**
-	 * @param user_id : ユーザID
-	 * @param email : メールアドレス
-	 * @param user_name : ユーザ名
-	 * @param password : パスワード
-	 * @param sex : 性別
-	 * @param birthday : 誕生日
-	 * @param self_introduction : 自己紹介
-	 * @param entry_date : 登録日
-	 * @param bank_number : 口座番号
-	 * @param branch_code : 支店番号
-	 * @param bank_persons : 口座名義人
-	 * @param bank_name : 銀行名
-	 */
-	public Users(String user_id, String email, String user_name, String password,
-			int sex, String birthday, String self_introduction, String entry_date,
-			int bank_number, int branch_code, String bank_persons, String bank_name) {
-		this.user_id = user_id;
-		this.email = email;
-		this.user_name = user_name;
-		this.password = password;
-		this.sex = sex;
-		this.birthday = birthday;
-		this.self_introduction = self_introduction;
-		this.entry_date = entry_date;
-		this.bank_number = bank_number;
-		this.branch_code = branch_code;
-		this.bank_persons = bank_persons;
-		this.bank_name = bank_name;
-	}
 	
 	public String getUser_id() {
 		return user_id;
