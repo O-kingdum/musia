@@ -6,22 +6,6 @@ public class Album {
 	private String product_id;
 	private String album_name;
 	private String artist_name;
-	
-	/**
-	 * 
-	 * @param album_id : アルバムＩＤ
-	 * @param product_id : 商品ＩＤ
-	 * @param album_name : アルバム名
-	 * @param artist_name　: アーティスト名
-	 *
-	 */
-	public Album(String album_id, String product_id, String album_name,
-			String artist_name) {
-		this.album_id = album_id;
-		this.product_id = product_id;
-		this.album_name = album_name;
-		this.artist_name = artist_name;
-	}
 
 	public String getAlbum_id() {
 		return album_id;

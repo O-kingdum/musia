@@ -7,25 +7,6 @@ public class Contest_Music {
 	private String contest_admin_id;
 	private int contest_examination;
 	private String record_date;
-	
-	/**
-	 * 
-	 * @param contest_id : コンテストID
-	 * @param product_id : 商品ID
-	 * @param contest_admin_id : コンテスト登録管理者ID
-	 * @param contest_examination : コンテスト審査状況
-	 * @param record_date : 登録日付
-	 */
-	public Contest_Music(String contest_id, String product_id,
-			String contest_admin_id, int contest_examination,
-			String record_date) {
-		super();
-		this.contest_id = contest_id;
-		this.product_id = product_id;
-		this.contest_admin_id = contest_admin_id;
-		this.contest_examination = contest_examination;
-		this.record_date = record_date;
-	}
 
 	public String getContest_id() {
 		return contest_id;

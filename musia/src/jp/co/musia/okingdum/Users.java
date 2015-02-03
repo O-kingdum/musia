@@ -15,7 +15,6 @@ public class Users {
 	private String bank_persons;
 	private String bank_name;
 	
-	
 	public String getUser_id() {
 		return user_id;
 	}

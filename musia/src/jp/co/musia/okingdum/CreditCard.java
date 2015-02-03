@@ -8,26 +8,6 @@ public class CreditCard {
 	private String card_company;
 	private int sec_cord;
 	private String card_persons;
-	
-	/**
-	 * 
-	 * @param credit_id : クレジットカードID
-	 * @param card_number : クレジットカード番号
-	 * @param limit_date : 有効期限
-	 * @param card_company : クレジットカード会社
-	 * @param sec_cord : セキュリティコード
-	 * @param card_persons : カード名義人
-	 * 
-	 */
-	public CreditCard(String credit_id, int card_number, String limit_date,
-			String card_company, int sec_cord, String card_persons) {
-		this.credit_id = credit_id;
-		this.card_number = card_number;
-		this.limit_date = limit_date;
-		this.card_company = card_company;
-		this.sec_cord = sec_cord;
-		this.card_persons = card_persons;
-	}
 
 	public String getCredit_id() {
 		return credit_id;

@@ -6,22 +6,6 @@ public class Sales {
 	private String user_id;
 	private String sale_date;
 	private int total_amount;
-	
-	/**
-	 * 
-	 * @param sale_id : ”„ãID
-	 * @param user_id : ƒ†[ƒUID
-	 * @param sale_date : ”„ã“ú
-	 * @param total_amount : ”„ã‡Œv
-	 *
-	 */
-	public Sales(String sale_id, String user_id, String sale_date,
-			int total_amount) {
-		this.sale_id = sale_id;
-		this.user_id = user_id;
-		this.sale_date = sale_date;
-		this.total_amount = total_amount;
-	}
 
 	public String getSale_id() {
 		return sale_id;
