@@ -7,6 +7,7 @@ import jp.co.musia.okingdum.ProductsBean;
 
 public class ProductsDao extends Dao{
 
+	/* 2/4途中 */
 	public int insertProducts(ProductsBean products) {
 		
 		int ret = 0;
@@ -42,41 +43,61 @@ public class ProductsDao extends Dao{
 			// エラーフラグ
 			if(ret < 1) {
 				ret = -1;
-			}	
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return ret;
 	}
-	
-	public int deleteProducts(ProductsBean products) {
-		return 0;
-	}
-	
-	public int softdeleteProducts(ProductsBean products) {
+	/**
+	 * deleteProductsメソッド
+	 * 
+	 * @param products : product_id
+	 * @param flg boolen : true:完全削除/false:ソフトデリート
+	 * @return ret : -1~0:異常終了　0以上:正常終了
+	 */
+	public int deleteProducts(ProductsBean products, boolean flg) {
 		
 		int ret = 0;
-		String sql = "UPDATE t_products SET f_delflg = 1"
-				+ " WHERE f_product_id="+ products.getProduct_id() +";";
+		String sql = "";
 		
-		try	{
+		if(flg) {
+			// 完全消去
+			sql = "DELETE FROM t_products WHERE f_product_id="
+					+ products.getProduct_id() +";";
+		} else {
+			// ソフトデリート
+			sql = "UPDATE t_products SET f_delflg = 1"
+					+ " WHERE f_product_id="+ products.getProduct_id() +";";
+		}
+		
+		try {
 			// コネクション作成
 			this.getConnection();
 			// ステートメント作成
 			st = con.createStatement();
 			// クエリ発行
 			ret = st.executeUpdate(sql);
+			// エラーフラグ
+			if(ret < 1) {
+				ret = -1;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return ret;
 	}
 	
-	public int updateProducts() {
+	public int updateProducts(ProductsBean products) {
+		
+		String sql = "UPDATE t_products SET f_genre_id=?,";
 		return 0;
 	}
 	
-	public ArrayList<Object> selectProducts() {
-		return new ArrayList<Object>();
+	public ProductsBean selectProducts() {
+		
+		String sql = "SELECT";
+		
+		return null;
 	}
 }
