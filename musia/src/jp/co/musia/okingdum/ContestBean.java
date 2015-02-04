@@ -1,6 +1,6 @@
 package jp.co.musia.okingdum;
 
-public class Contest {
+public class ContestBean {
 
 	private String contest_id;
 	private String contest_name;

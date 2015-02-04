@@ -1,6 +1,6 @@
 package jp.co.musia.okingdum;
 
-public class Admin {
+public class AdminBean {
 
 	private String admin_id;
 	private String admin_password;

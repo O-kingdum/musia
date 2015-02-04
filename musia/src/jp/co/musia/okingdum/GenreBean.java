@@ -1,6 +1,6 @@
 package jp.co.musia.okingdum;
 
-public class Genre {
+public class GenreBean {
 	
 	private String genre_id;
 	private String genre_name;
