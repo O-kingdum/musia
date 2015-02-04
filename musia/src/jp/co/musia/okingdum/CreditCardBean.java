@@ -1,6 +1,6 @@
 package jp.co.musia.okingdum;
 
-public class CreditCard {
+public class CreditCardBean {
 
 	private String credit_id;
 	private int card_number;

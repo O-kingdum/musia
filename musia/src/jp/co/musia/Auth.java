@@ -3,12 +3,12 @@ package jp.co.musia;
 import javax.servlet.http.HttpServletRequest;
 
 import jp.co.musia.dao.UserDao;
-import jp.co.musia.okingdum.Users;
+import jp.co.musia.okingdum.UsersBean;
 
 public class Auth {
 
 	private static boolean login = false;
-	private static Users user;
+	private static UsersBean user;
 	private static UserDao dao;
 	
 	private static void setAuth(boolean accept) {
@@ -23,7 +23,7 @@ public class Auth {
 		
 		int ret = 0;
 		
-		user = new Users();
+		user = new UsersBean();
 		user.setEmail(request.getParameter("email"));
 		user.setPassword(request.getParameter("password"));
 		
