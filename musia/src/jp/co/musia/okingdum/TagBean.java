@@ -1,6 +1,6 @@
 package jp.co.musia.okingdum;
 
-public class Tag {
+public class TagBean {
 	
 	private String tag_id;
 	private String tag_name;

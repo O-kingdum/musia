@@ -1,6 +1,6 @@
 package jp.co.musia.okingdum;
 
-public class Products {
+public class ProductsBean {
 
 	private String product_id;
 	private String user_id;

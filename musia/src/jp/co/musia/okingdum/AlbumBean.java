@@ -1,6 +1,6 @@
 package jp.co.musia.okingdum;
 
-public class Album {
+public class AlbumBean {
 
 	private String album_id;
 	private String product_id;

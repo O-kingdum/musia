@@ -1,6 +1,6 @@
 package jp.co.musia.okingdum;
 
-public class Users {
+public class UsersBean {
 
 	private String user_id;
 	private String email;

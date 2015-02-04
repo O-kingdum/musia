@@ -1,6 +1,6 @@
 package jp.co.musia.okingdum;
 
-public class Check_List {
+public class Check_ListBean {
 
 	private String list_id;
 	private String check_list;

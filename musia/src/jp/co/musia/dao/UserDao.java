@@ -1,6 +1,6 @@
 package jp.co.musia.dao;
 
-import jp.co.musia.okingdum.Users;
+import jp.co.musia.okingdum.UsersBean;
 
 import java.sql.SQLException;
 import java.text.*;
@@ -16,7 +16,7 @@ public class UserDao extends Dao {
      * @param user Users : Usersクラス
      * @return int : インサートの結果 成功した場合は1,失敗した場合は-1を返す
      */
-    public int insertUser(Users user) {
+    public int insertUser(UsersBean user) {
 
         // 結果を格納
         int ret = 0;
@@ -100,7 +100,7 @@ public class UserDao extends Dao {
         }
     }
 
-    private String changeUserData (Users user) {
+    private String changeUserData (UsersBean user) {
 
         String user_id = "M000001"; // テスト
         String mail = user.getMail();
@@ -161,7 +161,7 @@ public class UserDao extends Dao {
         String birthday = "2015-01-01";
 
 
-        Users user1 = new Users(mail, name, passwd, sex, birthday);
+        UsersBean user1 = new UsersBean(mail, name, passwd, sex, birthday);
 
 
         ud.insertUser(user1);
