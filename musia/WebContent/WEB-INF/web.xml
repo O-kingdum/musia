@@ -11,7 +11,7 @@
  
 	<servlet>
 		<servlet-name>MusiaServlet</servlet-name>
-    	<servlet-class>jp.ac.musia.MusiaServlet</servlet-class>
+    	<servlet-class>jp.co.musia.MusiaServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
     	<servlet-name>MusiaServlet</servlet-name>
