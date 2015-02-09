@@ -1,0 +1,8 @@
+diff a/musia/WebContent/WEB-INF/web.xml b/musia/WebContent/WEB-INF/web.xml	(rejected hunks)
+@@ -7,5 +7,4 @@
+     <welcome-file>/view/index.jsp</welcome-file>
+   </welcome-file-list>
+ 
+->>>>>>> web
+ </web-app>
+\ No newline at end of file
