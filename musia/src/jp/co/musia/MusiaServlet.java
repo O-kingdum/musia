@@ -124,6 +124,30 @@ public class MusiaServlet extends HttpServlet {
 			request.getRequestDispatcher("cart.jsp").forward(request, response);
 			
 		}
+		else if ("/decision/buyselect".equals(request.getRequestURI()))		// お支払選択ページ
+		{
+			
+			request.getRequestDispatcher("buyselect.jsp").forward(request, response);
+			
+		}
+		else if ("/decision/changeorder".equals(request.getRequestURI()))		// 注文情報変更ページ
+		{
+			
+			request.getRequestDispatcher("changeorder.jsp").forward(request, response);
+			
+		}
+		else if ("/decision/download".equals(request.getRequestURI()))		// 購入確定ダウンロードページ
+		{
+			
+			request.getRequestDispatcher("download.jsp").forward(request, response);
+			
+		}
+		else if ("/contest".equals(request.getRequestURI()))		// 購入確定ダウンロードページ
+		{
+			
+			request.getRequestDispatcher("contest.jsp").forward(request, response);
+			
+		}
 		
 		response.sendRedirect("/");
 	}
