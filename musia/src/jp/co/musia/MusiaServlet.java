@@ -142,7 +142,13 @@ public class MusiaServlet extends HttpServlet {
 			request.getRequestDispatcher("download.jsp").forward(request, response);
 			
 		}
-		else if ("/contest".equals(request.getRequestURI()))		// 購入確定ダウンロードページ
+		else if ("/contest".equals(request.getRequestURI()))		// コンテストページ
+		{
+			
+			request.getRequestDispatcher("contest.jsp").forward(request, response);
+			
+		}
+		else if ("/contest".equals(request.getRequestURI()))		// コンテストページ
 		{
 			
 			request.getRequestDispatcher("contest.jsp").forward(request, response);
