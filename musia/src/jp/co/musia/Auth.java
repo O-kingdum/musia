@@ -62,6 +62,11 @@ public class Auth {
 		}
 	}
 	
+	/**
+	 * logoutAuthメソッド: ログアウト処理
+	 * 
+	 * @return void
+	 */
 	public static void logoutAuth() {
 		setAuth(false);
 		return;
