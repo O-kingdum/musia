@@ -94,9 +94,11 @@ public class ProductsDao extends Dao{
 		return 0;
 	}
 	
-	public ProductsBean selectProducts() {
+	public ProductsBean selectProducts(ProductsBean products) {
 		
-		String sql = "SELECT";
+		String sql = "SELECT * FROM t_products WHERE t_product_id=?;";
+		
+		
 		
 		return null;
 	}
