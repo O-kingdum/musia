@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h1>高良テスト</h1>
-
+	<p>追加テスト</p>
+    <p>oooooohara</p>
 </body>
 </html>
