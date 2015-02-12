@@ -69,6 +69,7 @@ public class Auth {
 	 */
 	public static void logoutAuth() {
 		setAuth(false);
+		session.invalidate();
 		return;
 	}
 }
