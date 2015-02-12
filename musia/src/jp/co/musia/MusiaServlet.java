@@ -32,7 +32,7 @@ public class MusiaServlet extends HttpServlet {
 		if ("/signup".equals(request.getRequestURI()))		//　新規登録
 		{
 			
-			request.getRequestDispatcher("signup.jsp").forward(request, response);
+			request.getRequestDispatcher("/view/signup/index.jsp").forward(request, response);
 		
 		}
 		else if ("/decision/options".equals(request.getRequestURI()))	// マイページ
@@ -140,7 +140,7 @@ public class MusiaServlet extends HttpServlet {
 		else if ("/contest".equals(request.getRequestURI()))		// コンテストページ
 		{
 			
-			request.getRequestDispatcher("contest.jsp").forward(request, response);
+			request.getRequestDispatcher("/view/contest/index.jsp").forward(request, response);
 			
 		}
 		else if ("/inquiry".equals(request.getRequestURI()))		// お問い合わせページ
