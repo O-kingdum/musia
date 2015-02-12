@@ -1,7 +1,6 @@
-package jp.ca.musia.filter;
+package jp.co.musia.filter;
 
 import java.io.IOException;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -9,20 +8,17 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletResponse;
-
-import jp.co.musia.Auth;
 
 /**
- * Servlet Filter implementation class UserLoginFilter
+ * Servlet Filter implementation class EncodeFilter
  */
-@WebFilter("/UserLoginFilter")
-public class UserLoginFilter implements Filter {
+@WebFilter("/EncodeFilter")
+public class EncodeFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public UserLoginFilter() {
+    public EncodeFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -40,9 +36,8 @@ public class UserLoginFilter implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 
-		if(!Auth.checkAuth()) {
-			((HttpServletResponse)response).sendRedirect("/");
-		}
+		// エンコード UTF-8
+		request.setCharacterEncoding("UTF-8");
 		
 		// pass the request along the filter chain
 		chain.doFilter(request, response);

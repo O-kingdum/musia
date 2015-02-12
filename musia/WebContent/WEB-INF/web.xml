@@ -6,7 +6,7 @@
       EncodeFilter
     </filter-name>
     <filter-class>
-      jp.ac.musia.filter.EncodeFilter
+      jp.co.musia.filter.EncodeFilter
     </filter-class>
 	</filter>
 	<filter-mapping>
@@ -14,7 +14,7 @@
       EncodeFilter
     </filter-name>
     <url-pattern>
-      /*
+      *
     </url-pattern>
 	</filter-mapping>
   
