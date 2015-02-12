@@ -91,6 +91,8 @@ public class ProductsDao extends Dao{
 	public int updateProducts(ProductsBean products) {
 		
 		String sql = "UPDATE t_products SET f_genre_id=?,";
+		
+		
 		return 0;
 	}
 	
