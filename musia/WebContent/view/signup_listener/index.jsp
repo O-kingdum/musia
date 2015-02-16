@@ -1,57 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<%
-  request.setCharacterEncoding("UTF-8");
-%>
 <jsp:include page="/template/template.jsp">
-  <jsp:param value="新規登録 | MUSIA" name="siteTitle" />
+  <jsp:param value="リスナー登録 | MUSIA" name="siteTitle" />
   <jsp:param value="../../css/vendor/reset.css" name="resetCss" />
   <jsp:param value="../../css/main.css" name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
-        <h2 class="article-title">MUSIA - 新規登録</h2>
+        <h2 class="article-title">MUSIA - リスナー登録</h2>
         <form class="article-form" action="#" method="#">
           <fieldset>
-            <legend>新規登録情報</legend>
+            <legend>リスナー登録情報</legend>
             <table>
-              <caption>新規登録</caption>
+              <caption>リスナー登録</caption>
               <tr>
                 <th class="article-form-header">
-                  <label for="user-name">ユーザ名</label>
+                  <label for="name">ユーザ名</label>
                 </th>
                 <td class="article-form-data">
-                  <input id="user-name" type="text" name="lname"
+                  <input id="name" type="text" name="lname" autofocus=""
+                  required>
+                </td>
+              </tr>
+              <tr>
+                <th class="article-form-header">
+                  <label for="email">メールアドレス</label>
+                </th>
+                <td class="article-form-data">
+                  <input id="email" type="email" name="mail"
                   autofocus="" required>
                 </td>
               </tr>
               <tr>
                 <th class="article-form-header">
-                  <label for="user-email">メールアドレス</label>
+                  <label for="password">パスワード</label>
                 </th>
                 <td class="article-form-data">
-                  <input id="user-email" type="email" name="mail"
+                  <input id="password" type="password" name="passwd"
                   autofocus="" required>
-                </td>
-              </tr>
-              <tr>
-                <th class="article-form-header">
-                  <label for="user-password">パスワード</label>
-                </th>
-                <td class="article-form-data">
-                  <input id="user-password" type="password"
-                  name="passwd" autofocus="" required>
                 </td>
               </tr>
               <tr>
                 <th class="article-form-header">性別</th>
                 <td class="article-form-data">
-                  <input id="user-female" type="radio" name="sex"
+                  <input id="female" type="radio" name="sex"
                   value="female" checked="checked">
-                  <label for="user-female">女性</label>
-                  <input id="user-male" type="radio" name="sex"
-                  value="male">
-                  <label for="user-male">男性</label>
+                  <label for="female">女性</label>
+                  <input id="male" type="radio" name="sex" value="male">
+                  <label for="male">男性</label>
                 </td>
               </tr>
               <tr>
@@ -115,7 +111,7 @@
             </table>
           </fieldset>
           <p class="article-form-submit">
-            <input type="submit" name="#" value="新規登録">
+            <input type="submit" name="#" value="次へ">
           </p>
         </form>
       </article>
