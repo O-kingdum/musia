@@ -28,7 +28,7 @@
                 </th>
                 <td class="article-form-data">
                   <textarea id="comment" type="text" name="comment"
-                  autofocus="" required>コメント内容を、入力してください。</textarea>
+                    autofocus="" required>コメント内容を、入力してください。</textarea>
                 </td>
               </tr>
               <tr>
