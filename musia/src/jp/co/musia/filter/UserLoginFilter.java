@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.musia.Auth;
@@ -42,7 +43,7 @@ public class UserLoginFilter implements Filter {
 
 		// ログインチェック
 		if(!Auth.checkAuth()) {
-			((HttpServletResponse)response).sendRedirect("/");
+			((HttpServletResponse)response).sendRedirect(((HttpServletRequest)request).getContextPath() + "/");
 		}
 		
 		// pass the request along the filter chain
