@@ -102,6 +102,13 @@ public class TagDao extends Dao {
 		return ret;
 	}
 	
+	
+	/**
+	 * selectTagメソッド
+	 * 
+	 * @param array ArrayList<Object> TagBean
+	 * @return retarr ArrayList<Object> 検索結果
+	 */
 	public ArrayList<Object> selectTag(ArrayList<Object> array) {
 		
 		String sql = "SELECT t_tag WHERE f_tag_id in('";
@@ -131,7 +138,6 @@ public class TagDao extends Dao {
 		{
 			e.printStackTrace();
 		}
-		
-		return array;
+		return retarr;
 	}
 }
