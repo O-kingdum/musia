@@ -1,4 +1,4 @@
-package jp.co.musia;
+package jp.co.musia.okingdum;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

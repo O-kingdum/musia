@@ -1,9 +1,9 @@
-package jp.co.musia.dao;
+package jp.co.musia.okingdum.dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import jp.co.musia.okingdum.ProductsBean;
+import jp.co.musia.okingdum.Bean.ProductsBean;
 
 public class ProductsDao extends Dao{
 

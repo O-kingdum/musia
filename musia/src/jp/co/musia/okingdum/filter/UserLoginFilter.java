@@ -1,6 +1,7 @@
-package jp.co.musia.filter;
+package jp.co.musia.okingdum.filter;
 
 import java.io.IOException;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -8,17 +9,21 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import jp.co.musia.okingdum.Auth;
 
 /**
- * Servlet Filter implementation class EncodeFilter
+ * Servlet Filter implementation class UserLoginFilter
  */
-@WebFilter("/EncodeFilter")
-public class EncodeFilter implements Filter {
+@WebFilter("/UserLoginFilter")
+public class UserLoginFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public EncodeFilter() {
+    public UserLoginFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -36,8 +41,10 @@ public class EncodeFilter implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 
-		// エンコード UTF-8
-		request.setCharacterEncoding("UTF-8");
+		// ログインチェック
+		if(!Auth.checkAuth()) {
+			((HttpServletResponse)response).sendRedirect(((HttpServletRequest)request).getContextPath() + "/");
+		}
 		
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
