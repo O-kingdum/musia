@@ -1,4 +1,4 @@
-package jp.co.musia.dao;
+package jp.co.musia.okingdum.dao;
 
 import jp.co.musia.okingdum.UsersBean;
 

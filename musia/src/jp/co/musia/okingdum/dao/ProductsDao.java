@@ -1,4 +1,4 @@
-package jp.co.musia.dao;
+package jp.co.musia.okingdum.dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
