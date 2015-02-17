@@ -5,6 +5,11 @@ import java.util.ArrayList;
 
 import jp.co.musia.okingdum.Bean.TagBean;
 
+/**
+ * 
+ * @author watanabe.yuta
+ *
+ */
 public class TagDao extends Dao {
 
 	/**
