@@ -1,4 +1,4 @@
-package jp.co.musia.filter;
+package jp.co.musia.okingdum.filter;
 
 import java.io.IOException;
 import javax.servlet.Filter;
