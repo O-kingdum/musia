@@ -3,7 +3,7 @@ package jp.co.musia;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import jp.co.musia.okingdum.UsersBean;
+import jp.co.musia.okingdum.Bean.UsersBean;
 import jp.co.musia.okingdum.dao.UserDao;
 
 public class Auth {

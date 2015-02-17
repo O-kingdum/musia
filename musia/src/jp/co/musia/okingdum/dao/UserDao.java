@@ -1,6 +1,6 @@
 package jp.co.musia.okingdum.dao;
 
-import jp.co.musia.okingdum.UsersBean;
+import jp.co.musia.okingdum.Bean.UsersBean;
 
 import java.sql.SQLException;
 import java.text.*;

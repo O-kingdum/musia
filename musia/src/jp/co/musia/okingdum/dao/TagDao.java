@@ -2,7 +2,7 @@ package jp.co.musia.okingdum.dao;
 
 import java.sql.SQLException;
 
-import jp.co.musia.okingdum.TagBean;
+import jp.co.musia.okingdum.Bean.TagBean;
 
 public class TagDao extends Dao {
 

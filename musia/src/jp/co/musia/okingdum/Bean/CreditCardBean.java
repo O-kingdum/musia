@@ -1,4 +1,4 @@
-package jp.co.musia.okingdum;
+package jp.co.musia.okingdum.Bean;
 
 public class CreditCardBean {
 
