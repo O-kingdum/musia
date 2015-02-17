@@ -1,4 +1,4 @@
-package jp.co.musia;
+package jp.co.musia.okingdum;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
