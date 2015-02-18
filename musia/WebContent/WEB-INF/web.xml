@@ -6,7 +6,7 @@
       		EncodeFilter
     	</filter-name>
     	<filter-class>
-      		jp.co.musia.filter.EncodeFilter
+      		jp.co.musia.okingdum.filter.EncodeFilter
    		</filter-class>
 	</filter>
 	<filter-mapping>
@@ -22,7 +22,7 @@
       		LoginFilter
     	</filter-name>
     	<filter-class>
-      		jp.co.musia.filter.UserLoginFilter
+      		jp.co.musia.okingdum.filter.UserLoginFilter
    		</filter-class>
 	</filter>
 	<filter-mapping>
