@@ -7,22 +7,24 @@ import java.text.*;
 import java.util.*;
 
 /**
- * Created by Tkray on 15/01/28.
+ * UserDaoクラス
+ * @author Tkray
  */
 public class UserDao extends Dao {
     /**
      * insertUserメソッド : t_usersテーブルにインサートを行う
      *
-     * @param user Users : Usersクラス
-     * @return int : インサートの結果 成功した場合は1,失敗した場合は-1を返す
+     * @param user Users : UserBeanオブジェクト
+     * @return int : 成功：1 失敗：0 データベースの失敗：-1
      */
-    public int insertUser(UsersBean user) {
+    @SuppressWarnings("finally")
+	public int insertUser(UsersBean user) {
 
         // 結果を格納
         int ret = 0;
 
-        String mail = user.getMail();
-        String user_name = user.getName();
+        String mail = user.getEmail();
+        String user_name = user.getUser_name();
         String passwd = user.getPassword();
         int sex = user.getSex();
         String birthday = user.getBirthday();
@@ -83,7 +85,7 @@ public class UserDao extends Dao {
                 ret = 1;
             } else {
                 System.out.println("インサートに失敗しました");
-                ret =  -1;
+                ret =  0;
             }
 
         }catch (SQLException e) {
@@ -100,11 +102,20 @@ public class UserDao extends Dao {
         }
     }
 
-    private String changeUserData (UsersBean user) {
+    /**
+     * changeUserDataメソッド : 指定ユーザの情報を変更する
+     *
+     * @param user UserBeanオブジェクト
+     * @return 成功：1 失敗:0 データベースの失敗:-1
+     */
+    @SuppressWarnings("finally")
+	public int changeUserData (UsersBean user) {
+        
+        int ret = 0;
 
-        String user_id = "M000001"; // テスト
-        String mail = user.getMail();
-        String name = user.getName();
+        String user_id = user.getUser_id(); // テスト
+        String mail = user.getEmail();
+        String name = user.getUser_name();
         String password = user.getPassword();
         int sex = user.getSex();
         String birthday = user.getBirthday();
@@ -114,12 +125,11 @@ public class UserDao extends Dao {
         String bank_persons = user.getBank_persons();
         String bank_name = user.getBank_name();
 
-
+        String sql = "update t_users " +
+                "set f_mail = ?,f_name = ?, f_password = ?,f_birthday = ?, f_self_introduction = ?, f_bank_number = ?, f_branch_code = ?, f_bank_persons = ?, f_bank_name = ? " +
+                "WHERE f_user_id = ?";
+        
         try {
-            String sql = "update t_users " +
-                    "set f_mail = ?,f_name = ?, f_password = ?,f_birthday = ?, f_self_introduction = ?, f_bank_number = ?, f_branch_code = ?, f_bank_persons = ?, f_bank_name = ? " +
-                    "WHERE f_user_id = ?";
-
             // DBに接続
             this.getConnection();
 
@@ -132,22 +142,32 @@ public class UserDao extends Dao {
             ps.setString(4, birthday);
             ps.setString(5, self_introduction);
             ps.setInt(6, bank_number);
-            ps.setint(7, branch_code);
+            ps.setInt(7, branch_code);
             ps.setString(8, bank_persons);
             ps.setString(9, bank_name);
             ps.setString(10, user_id);
+            
+            //SQLを実行
+            ret = ps.executeUpdate();
+            
+            if(ret == 1) {
+                System.out.println("アップデートに成功しました");
+            }else {
+                System.out.println("アップデートに失敗しました");
+                ret = 0;
+            }
 
-
+        }catch (SQLException e) {
+            e.printStackTrace();
+            ret = -1;
         }catch (Exception e) {
             e.printStackTrace();
+            ret = -1;
+        } finally {
+        	this.close();
+        	return ret;
         }
-
-
-
-
-
-
-        return null;
+        
     }
 
 
@@ -161,10 +181,10 @@ public class UserDao extends Dao {
         String birthday = "2015-01-01";
 
 
-        UsersBean user1 = new UsersBean(mail, name, passwd, sex, birthday);
+        UsersBean user1 = new UsersBean();
 
-
-        ud.insertUser(user1);
+        //ud.insertUser(user1);
+        ud.changeUserData(user1);
     }
 }
 
