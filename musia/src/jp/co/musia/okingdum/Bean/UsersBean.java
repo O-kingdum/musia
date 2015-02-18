@@ -16,6 +16,24 @@ public class UsersBean {
 	private String bank_persons;
 	private String bank_name;
 	
+	public UsersBean() {
+		
+	}
+	
+	public UsersBean(String user_id,String email,String user_name,String password,String birthday,String self_introduction,String entry_date,int bank_number,int branch_code,String bank_persons,String bank_name) {
+		this.user_id = user_id;
+		this.email = email;
+		this.user_name = user_name;
+		this.password = password;
+		this.birthday = birthday;
+		this.self_introduction = self_introduction;
+		this.entry_date = entry_date;
+		this.bank_number = bank_number;
+		this.branch_code = branch_code;
+		this.bank_persons = bank_persons;
+		this.bank_name = bank_name;
+	}
+	
 	public String getUser_id() {
 		return user_id;
 	}

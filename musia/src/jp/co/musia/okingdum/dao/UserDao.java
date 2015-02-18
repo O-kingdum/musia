@@ -1,10 +1,14 @@
 package jp.co.musia.okingdum.dao;
 
+import jp.co.musia.okingdum.Bean.AdminBean;
 import jp.co.musia.okingdum.Bean.UsersBean;
 
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.*;
 import java.util.*;
+import java.util.Date;
+
+import com.sun.jmx.snmp.Timestamp;
 
 /**
  * UserDaoクラス
@@ -167,24 +171,99 @@ public class UserDao extends Dao {
         	this.close();
         	return ret;
         }
-        
     }
+    
+    /**
+	 * selectUserメソッド 受け取ったUsersBeanオブジェクトのidからそれ以外の値を取得し、ArrayListに格納しリターンする
+	 * 
+	 * @param user
+	 *            UsersBeanオブジェクト
+	 * @return 成功:ArrayListにUsersBeanオブジェクトを格納　失敗:nullのArrayList
+	 */
+	@SuppressWarnings("finally")
+	public ArrayList<Object> selectUser(ArrayList<Object> array) {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+		ArrayList<Object> retarr = new ArrayList<Object>();
+		String sql = "SELECT * FROM t_users WHERE f_user_id in('";
+		
+		for(int i = 0; i < array.size(); i++) {
+			sql += ((UsersBean)array.get(i)).getUser_id() + "','";
+		}
+		sql += "');";
+		
+		try {
+			// コネクション作成
+			this.getConnection();
+			// プリコンパイル
+			ps = con.prepareStatement(sql);
+			// クエリ発行
+			rs = ps.executeQuery();
+			while(rs.next()){
+				retarr.add(new UsersBean(
+						rs.getString("f_user_id"),
+						rs.getString("f_mail"),
+						rs.getString("f_name"),
+						rs.getString("f_password"),
+						rs.getString("f_birthday"),
+						rs.getString("f_self_introduction"),
+						//タイムスタンプ型をdate型のentry_date変数に格納
+						sdf.format(rs.getTimestamp("f_entry_date")),
+						rs.getInt("f_bank_number"),
+						rs.getInt("f_branch_code"),
+						rs.getString("f_bank_persons"),
+						rs.getString("f_bank_name")
+						)
+				);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			retarr = null;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			retarr = null;
+		} finally {
+			this.close();
+			return retarr;
+		}
+	}
 
 
     public static void main(String[] args) {
         UserDao ud = new UserDao();
 
+        String id = "M000001";
+        String id2 = "M000002";
+        /*
         String mail = "aaa@gmail.com";
         String name = "hoge";
         int sex = 0;
         String passwd = "12345678";
         String birthday = "2015-01-01";
+        */
 
 
         UsersBean user1 = new UsersBean();
+        UsersBean user2 = new UsersBean();
+        user1.setUser_id(id);
+        user2.setUser_id(id2);
+        ArrayList<Object> array = new ArrayList<Object>();
+        array.add(user1);
+        array.add(user2);
+        ArrayList<Object> ret =ud.selectUser(array);
+        
+        for (int i = 0; i < ret.size(); i++) {
+        	UsersBean user = (UsersBean)ret.get(i);
+        	System.out.println(user.getEmail());
+            System.out.println(user.getEntry_date());
+		}
+        user1 = (UsersBean) ret.get(0);
 
         //ud.insertUser(user1);
-        ud.changeUserData(user1);
+        //ud.changeUserData(user1);
     }
 }
 

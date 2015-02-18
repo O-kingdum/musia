@@ -132,10 +132,10 @@ public class AdminDao extends Dao {
 	 *            AdminBeanオブジェクト
 	 * @return 成功:ArrayListにAdminBeanオブジェクトを格納　失敗:nullのArrayList
 	 */
-	public AdminBean selectAdmin(AdminBean admin) {
+	public ArrayList<AdminBean> selectAdmin(AdminBean admin) {
 
 		ArrayList<AdminBean> ret = new ArrayList<AdminBean>();
-		String sql = "SELECT * FROM t_admin WHERE t_admin_id=?;";
+		String sql = "SELECT * FROM t_admin WHERE f_admin_id=?;";
 		try {
 			// コネクション作成
 			this.getConnection();
@@ -158,7 +158,7 @@ public class AdminDao extends Dao {
 			e.printStackTrace();
 			ret = null;
 		}
-		return admin;
+		return ret;
 	}
 
 }
