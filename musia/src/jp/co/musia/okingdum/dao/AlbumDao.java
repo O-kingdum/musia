@@ -3,22 +3,21 @@ package jp.co.musia.okingdum.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import jp.co.musia.okingdum.Bean.AdminBean;
+import jp.co.musia.okingdum.Bean.AlbumBean;
 
-public class AdminDao extends Dao {
-
+public class AlbumDao extends Dao {
 	/**
-	 * insertAdminメソッド : adminを追加する
+	 * insertAlbumメソッド : albumを追加する
 	 * 
-	 * @param admin
-	 *            AdminBeanオブジェクト
+	 * @param album
+	 *            AlbumBeanオブジェクト
 	 * @return 成功:1 失敗:-1
 	 */
 	@SuppressWarnings("finally")
-	public int insertAdmin(AdminBean admin) {
+	public int insertAlbum(AlbumBean album) {
 
 		int ret = 0;
-		String sql = "INSERT INTO t_admin VALUES(?, ?)";
+		String sql = "INSERT INTO t_album VALUES(?,?,?,?)";
 
 		try {
 			// コネクション作成
@@ -26,8 +25,10 @@ public class AdminDao extends Dao {
 			// プリコンパイル
 			ps = con.prepareStatement(sql);
 
-			ps.setString(1, admin.getAdmin_id());
-			ps.setString(2, admin.getAdmin_password());
+			ps.setString(1, album.getAlbum_id());
+			ps.setString(2, album.getProduct_id());
+			ps.setString(3, album.getAlbum_name());
+			ps.setString(4, album.getArtist_name());
 
 			// クエリ発行
 			ret = ps.executeUpdate();
@@ -50,25 +51,25 @@ public class AdminDao extends Dao {
 	}
 
 	/**
-	 * deleteAdminメソッド
+	 * deleteAlbumメソッド
 	 * 
-	 * @param admin
-	 *            AdminBeanオブジェクト
+	 * @param album
+	 *            AlbumBeanオブジェクト
 	 * @param flg
 	 *            boolen : true:完全削除/false:ソフトデリート
 	 * @return 成功:1 失敗: 0以下
 	 */
 	@SuppressWarnings("finally")
-	public int deleteAdmin(AdminBean admin, boolean flg) {
+	public int deleteAlbum(AlbumBean album, boolean flg) {
 
 		int ret = 0;
 		String sql = "";
 
 		if (flg) {
-			sql = "UPDATE t_admin SEt f_delflg = 1;";
+			sql = "UPDATE t_album SET f_delflg = 1;";
 		} else {
-			sql = "UPDATE t_admin SEt f_delflg = 1 WHERE f_admin_id ="
-					+ admin.getAdmin_id() + ";";
+			sql = "UPDATE t_album SET f_delflg = 1 WHERE f_album_id ="
+					+ album.getAlbum_id() + ";";
 		}
 
 		try {
@@ -95,24 +96,28 @@ public class AdminDao extends Dao {
 	}
 
 	/**
-	 * updateAdminメソッド
+	 * updateAlbumメソッド
 	 * 
-	 * @param admin
-	 *            AdminBeanオブジェクト
+	 * @param album
+	 *            AlbumBeanオブジェクト
 	 * @return 成功:1 失敗:-1
 	 */
 	@SuppressWarnings("finally")
-	public int updateAdmin(AdminBean admin) {
+	public int updateAlbum(AlbumBean album) {
 
 		int ret = 0;
-		String sql = "UPDATE t_products SET f_genre_id=?,";
+		String sql = "UPDATE t_album SET f_album_id=?,f_product_id=?, f_album_name=?,f_artist_name=? WHERE f_album_id=?;";
 
 		try {
 			// コネクション作成
 			this.getConnection();
 			// プリコンパイル
 			ps = con.prepareStatement(sql);
-			ps.setString(1, admin.getAdmin_id());
+			ps.setString(1, album.getAlbum_id());
+			ps.setString(2, album.getProduct_id());
+			ps.setString(3, album.getAlbum_name());
+			ps.setString(4, album.getArtist_name());
+			ps.setString(5, album.getAlbum_id());
 
 			// クエリ発行
 			ret = ps.executeUpdate();
@@ -134,42 +139,48 @@ public class AdminDao extends Dao {
 	}
 
 	/**
-	 * selectAdminメソッド 受け取ったAdminBeanオブジェクトのidからそれ以外の値を取得し、ArrayListに格納しリターンする
+	 * selectAlbumメソッド
 	 * 
-	 * @param admin
-	 *            AdminBeanオブジェクト
-	 * @return 成功:ArrayListにAdminBeanオブジェクトを格納　失敗:nullのArrayList
+	 * @param array
+	 * @return 成功:ArrayListにオブジェクトを格納　失敗:nullのArrayList
 	 */
 	@SuppressWarnings("finally")
-	public ArrayList<AdminBean> selectAdmin(AdminBean admin) {
+	public ArrayList<Object> selectAlbum(ArrayList<Object> array) {
 
-		ArrayList<AdminBean> ret = new ArrayList<AdminBean>();
-		String sql = "SELECT * FROM t_admin WHERE f_admin_id=?;";
+		ArrayList<Object> retarr = new ArrayList<Object>();
+		String sql = "SELECT * FROM t_album WHERE f_album_id in('";
+
+		for (int i = 0; i < array.size(); i++) {
+			sql += ((AlbumBean) array.get(i)).getAlbum_id() + "','";
+		}
+		sql += "');";
+
 		try {
 			// コネクション作成
 			this.getConnection();
 			// プリコンパイル
 			ps = con.prepareStatement(sql);
-			ps.setString(1, admin.getAdmin_id());
-
 			// クエリ発行
 			rs = ps.executeQuery();
-			rs.next();
-
-			admin.setAdmin_password(rs.getString("f_admin_password"));
-			ret.add(admin);
+			while (rs.next()) {
+				retarr.add(new AlbumBean(
+						rs.getString("f_album_id"), 
+						rs.getString("f_product_id"), 
+						rs.getString("f_album_name"), 
+						rs.getString("f_artist_name")
+				));
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			ret = null;
+			retarr = null;
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			ret = null;
+			retarr = null;
 		} finally {
 			this.close();
-			return ret;
+			return retarr;
 		}
 	}
-
 }

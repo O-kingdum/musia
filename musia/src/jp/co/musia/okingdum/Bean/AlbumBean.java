@@ -6,6 +6,18 @@ public class AlbumBean {
 	private String product_id;
 	private String album_name;
 	private String artist_name;
+	
+	public AlbumBean() {
+		
+	}
+	
+	public AlbumBean(String album_id,String product_id,String album_name,String artist_name) {
+		this.album_id = album_id;
+		this.product_id = product_id;
+		this.album_name = album_name;
+		this.artist_name = artist_name;
+	}
+	
 
 	public String getAlbum_id() {
 		return album_id;
