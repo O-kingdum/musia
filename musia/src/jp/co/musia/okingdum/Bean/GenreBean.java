@@ -5,6 +5,11 @@ public class GenreBean {
 	private String genre_id;
 	private String genre_name;
 	
+	public GenreBean(String genre_id, String genre_name) {
+		this.genre_id = genre_id;
+		this.genre_name = genre_name;
+	}
+
 	public String getGenre_id() {
 		return genre_id;
 	}

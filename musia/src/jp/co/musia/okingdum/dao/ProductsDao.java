@@ -5,6 +5,11 @@ import java.util.ArrayList;
 
 import jp.co.musia.okingdum.Bean.ProductsBean;
 
+/**
+ * 
+ * @author watanabe.yuta
+ *
+ */
 public class ProductsDao extends Dao{
 
 	/* 2/4途中 */

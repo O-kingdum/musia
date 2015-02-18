@@ -17,6 +17,11 @@ import jp.co.musia.okingdum.Auth;
 /**
  * Servlet Filter implementation class UserLoginFilter
  */
+/**
+ * 
+ * @author watanabe.yuta
+ *
+ */
 @WebFilter("/UserLoginFilter")
 public class UserLoginFilter implements Filter {
 

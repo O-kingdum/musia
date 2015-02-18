@@ -12,6 +12,11 @@ import javax.servlet.annotation.WebFilter;
 /**
  * Servlet Filter implementation class EncodeFilter
  */
+/**
+ * 
+ * @author watanabe.yuta
+ *
+ */
 @WebFilter("/EncodeFilter")
 public class EncodeFilter implements Filter {
 
