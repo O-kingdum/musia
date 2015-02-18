@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import jp.co.musia.okingdum.Bean.GenreBean;
+import jp.co.musia.okingdum.Bean.TagBean;
 
 /**
  * 
@@ -40,6 +41,11 @@ public class GenreDao extends Dao {
 			e.printStackTrace();
 			ret = -1;
 		}
+		finally
+		{
+			// クローズ
+			this.close();
+		}
 		return ret;
 	}
 	
@@ -71,15 +77,87 @@ public class GenreDao extends Dao {
 			e.printStackTrace();
 			ret = -1;
 		}
+		finally
+		{
+			// クローズ
+			this.close();
+		}
 		return ret;
 	}
 	
+	/**
+	 * 
+	 * @param genre GenreBean
+	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
+	 */
 	public int deleteGenre(GenreBean genre) {
 		
+		int ret = 0;
+		String sql = "DELETE FROM t_genre WHERE f_genre_id=?;";
+		
+		try
+		{
+			// コネクション生成
+			this.getConnection();
+			// プリコンパイル
+			ps = this.con.prepareStatement(sql);
+			// バインドセット
+			ps.setString(1, genre.getGenre_id());
+			// クエリ発行
+			ret = ps.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+			ret = -1;
+		}
+		finally
+		{
+			// クローズ
+			this.close();
+		}
+		return ret;
 	}
 	
+	/**
+	 * selectGenreメソッド
+	 * 
+	 * @param array ArrayList<Object> GenreBean
+	 * @return retarr ArrayList<Object> 検索結果
+	 */
 	public ArrayList<Object> selectGenre(ArrayList<Object> array) {
 		
+		String sql = "SELECT t_tag WHERE f_tag_id in('";
+		ArrayList<Object> retarr = new ArrayList<Object>();
+		
+		for(int i = 0; i < array.size(); i++) {
+			sql += ((GenreBean)array.get(i)).getGenre_id() + "','";
+		}
+		sql += "');";
+		
+		try
+		{
+			// コネクション生成
+			this.getConnection();
+			// ステートメント
+			st = con.createStatement();
+			// クエリ発行
+			rs = st.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				retarr.add(new TagBean(rs.getString("f_genre_id"),
+						rs.getString("f_genre_name")));
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			this.close();
+		}
+		return retarr;
 	}
-
 }
