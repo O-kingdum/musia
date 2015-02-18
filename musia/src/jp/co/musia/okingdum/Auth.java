@@ -8,7 +8,6 @@ import jp.co.musia.okingdum.dao.UserDao;
 
 public class Auth {
 
-	private boolean login = false;
 	private UsersBean user;
 	private UserDao dao;
 	private HttpSession session;
@@ -16,10 +15,16 @@ public class Auth {
 	/**
 	 * setAuthメソッド: ログイン状態セット
 	 * 
-	 * @param accept: true:ログイン	false:未ログイン
+	 * @param accept: true:ログイン false:未ログイン
 	 */
-	private void setAuth(boolean accept) {
-		login = accept;
+	private void setAuth(HttpServletRequest request, boolean accept) {
+		
+		HttpSession session = request.getSession();
+		
+		if(accept) {
+			session.setAttribute("logincheck", true);
+		}
+		return;
 	}
 	
 	/**
@@ -27,7 +32,10 @@ public class Auth {
 	 * 
 	 * @return login
 	 */
-	public boolean checkAuth() {
+	public boolean checkAuth(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		boolean login = (Boolean)session.getAttribute("logincheck");
 		return login;
 	}
 	
@@ -49,7 +57,7 @@ public class Auth {
 		
 		if(user != null)
 		{
-			setAuth(true);
+			this.setAuth( request, true );
 			
 			session = request.getSession();
 			session.setAttribute("user", user);
@@ -67,8 +75,7 @@ public class Auth {
 	 * 
 	 * @return void
 	 */
-	public void logoutAuth() {
-		setAuth(false);
+	public void logoutAuth(HttpServletRequest request) {
 		session.invalidate();
 		return;
 	}
