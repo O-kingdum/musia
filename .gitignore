@@ -1,1 +1,2 @@
-*.classpath.classpath
+#classpathを無視
+musia/*.classpath
