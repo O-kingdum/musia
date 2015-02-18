@@ -51,7 +51,7 @@ public class Auth {
 		{
 			setAuth(true);
 			
-			session = request.getSession(true);
+			session = request.getSession();
 			session.setAttribute("user", user);
 			
 			return true;
