@@ -13,6 +13,7 @@ import jp.co.musia.okingdum.Bean.ProductsBean;
 public class ProductsDao extends Dao{
 
 	/* 2/4途中 */
+	@SuppressWarnings("finally")
 	public int insertProducts(ProductsBean products) {
 		
 		int ret = 0;
@@ -51,8 +52,10 @@ public class ProductsDao extends Dao{
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			this.close();
+			return ret;
 		}
-		return ret;
 	}
 	/**
 	 * deleteProductsメソッド
@@ -61,6 +64,7 @@ public class ProductsDao extends Dao{
 	 * @param flg boolen : true:完全削除/false:ソフトデリート
 	 * @return ret : -1~0:異常終了　0以上:正常終了
 	 */
+	@SuppressWarnings("finally")
 	public int deleteProducts(ProductsBean products, boolean flg) {
 		
 		int ret = 0;
@@ -89,8 +93,10 @@ public class ProductsDao extends Dao{
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			this.close();
+			return ret;
 		}
-		return ret;
 	}
 	
 	public int updateProducts(ProductsBean products) {

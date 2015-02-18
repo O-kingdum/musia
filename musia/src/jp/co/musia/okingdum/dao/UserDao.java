@@ -174,11 +174,10 @@ public class UserDao extends Dao {
     }
     
     /**
-	 * selectUserメソッド 受け取ったUsersBeanオブジェクトのidからそれ以外の値を取得し、ArrayListに格納しリターンする
+	 * selectUserメソッド
 	 * 
-	 * @param user
-	 *            UsersBeanオブジェクト
-	 * @return 成功:ArrayListにUsersBeanオブジェクトを格納　失敗:nullのArrayList
+	 * @param array
+	 * @return 成功:ArrayListオブジェクトを格納　失敗:nullのArrayList
 	 */
 	@SuppressWarnings("finally")
 	public ArrayList<Object> selectUser(ArrayList<Object> array) {
