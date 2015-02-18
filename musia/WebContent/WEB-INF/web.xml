@@ -33,7 +33,7 @@
       		/decision/*
     	</url-pattern>
 	</filter-mapping>
-  
+  <!--
   <security-constraint>
     <display-name>Jsp Security</display-name>
     <web-resource-collection>
@@ -42,6 +42,7 @@
     </web-resource-collection>
     <auth-constraint/>
   </security-constraint>
+  -->
   <servlet>
     <servlet-name>MusiaServlet</servlet-name>
     <servlet-class>jp.co.musia.okingdum.MusiaServlet</servlet-class>
