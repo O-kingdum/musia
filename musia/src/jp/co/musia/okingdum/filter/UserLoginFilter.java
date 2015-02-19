@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.musia.okingdum.Auth;
+import jp.co.musia.okingdum.Utils.Auth;
 
 /**
  * Servlet Filter implementation class UserLoginFilter
