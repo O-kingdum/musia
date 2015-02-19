@@ -7,6 +7,11 @@ import javax.servlet.http.HttpSession;
 import jp.co.musia.okingdum.Bean.UsersBean;
 import jp.co.musia.okingdum.dao.UserDao;
 
+/**
+ * 
+ * @author watanabe.yuta
+ *
+ */
 public class Auth {
 
 	private static HttpSession session;
