@@ -4,6 +4,15 @@ public class Check_ListBean {
 
 	private String list_id;
 	private String check_list;
+	
+	public Check_ListBean() {
+		
+	}
+	
+	public Check_ListBean(String list_id,String check_list) {
+		this.list_id = list_id;
+		this.check_list = check_list;
+	}
 
 	public String getList_id() {
 		return list_id;
