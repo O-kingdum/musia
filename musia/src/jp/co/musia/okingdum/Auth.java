@@ -10,10 +10,6 @@ import jp.co.musia.okingdum.dao.UserDao;
 
 public class Auth {
 
-	private UsersBean user;
-	private UserDao dao;
-	private HttpSession session;
-	
 	/**
 	 * setAuthメソッド: ログイン状態セット
 	 * 
@@ -49,13 +45,14 @@ public class Auth {
 	 */
 	private boolean loginAuth(HttpServletRequest request) {
 		
-		user = new UsersBean();
-		dao = new UserDao();
+		ArrayList<String> array;
+		UsersBean user = new UsersBean();
+		UserDao dao = new UserDao();
 		
 		user.setEmail(request.getParameter("email"));
 		user.setPassword(request.getParameter("password"));
 		
-		user = dao.selectUser(user);
+		array = dao.selectUser(user);
 		
 		if(user != null)
 		{
