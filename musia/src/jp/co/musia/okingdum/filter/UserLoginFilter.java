@@ -46,8 +46,10 @@ public class UserLoginFilter implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 
+		Auth auth = new Auth();
+		
 		// ログインチェック
-		if(!Auth.checkAuth()) {
+		if(!auth.checkAuth((HttpServletRequest)request)) {
 			((HttpServletResponse)response).sendRedirect(((HttpServletRequest)request).getContextPath() + "/");
 		}
 		
