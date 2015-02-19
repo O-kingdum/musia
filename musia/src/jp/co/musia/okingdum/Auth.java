@@ -1,23 +1,27 @@
 package jp.co.musia.okingdum;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 
 import jp.co.musia.okingdum.Bean.UsersBean;
 import jp.co.musia.okingdum.dao.UserDao;
 
 public class Auth {
 
+	private static HttpSession session;
+	
 	/**
 	 * setAuthメソッド: ログイン状態セット
 	 * 
 	 * @param accept: true:ログイン false:未ログイン
 	 */
-	private void setAuth(HttpServletRequest request, boolean accept) {
+	private static void setAuth(HttpServletRequest request, boolean accept) {
 		
-		HttpSession session = request.getSession();
+		session = request.getSession();
 		
 		if(accept) {
 			session.setAttribute("logincheck", true);
@@ -30,10 +34,11 @@ public class Auth {
 	 * 
 	 * @return login
 	 */
-	public boolean checkAuth(HttpServletRequest request) {
+	public static boolean checkAuth(HttpServletRequest request) {
 		
-		HttpSession session = request.getSession();
+		session = request.getSession();
 		boolean login = (Boolean)session.getAttribute("logincheck");
+		
 		return login;
 	}
 	
@@ -43,30 +48,32 @@ public class Auth {
 	 * @param request: 入力（メールアドレス,パスワード）
 	 * @return boolean: true:ログイン	false:ログイン失敗
 	 */
-	private boolean loginAuth(HttpServletRequest request) {
+	public static boolean loginAuth(HttpServletRequest request) {
 		
-		ArrayList<String> array;
 		UsersBean user = new UsersBean();
 		UserDao dao = new UserDao();
+		Validator val = new Validator();
+		ArrayList<Object> array;
 		
-		user.setEmail(request.getParameter("email"));
-		user.setPassword(request.getParameter("password"));
-		
-		array = dao.selectUser(user);
-		
-		if(user != null)
-		{
-			this.setAuth( request, true );
+		if( val.getLoginValidation(request) ) {	// バリデーションクリア
 			
-			session = request.getSession();
-			session.setAttribute("user", user);
+			user.setEmail(request.getParameter("email"));
+			user.setPassword(request.getParameter("password"));
 			
-			return true;
+			array = dao.selectUser(new ArrayList<Object>(Arrays.asList(user)));
+			
+			if( array != null && !array.isEmpty() ) { // ユーザが存在している
+				
+				setAuth( request, true );
+				session = request.getSession();
+				session.setAttribute("user", ((UsersBean)array.get(0)) );
+				
+				// ログイン成功
+				return true;
+			}
 		}
-		else
-		{
-			return false;
-		}
+		// ログイン失敗
+		return false;
 	}
 	
 	/**
@@ -74,8 +81,11 @@ public class Auth {
 	 * 
 	 * @return void
 	 */
-	public void logoutAuth(HttpServletRequest request) {
+	public static void logoutAuth(HttpServletRequest request) {
+		
+		session = request.getSession();
 		session.invalidate();
+		
 		return;
 	}
 }
