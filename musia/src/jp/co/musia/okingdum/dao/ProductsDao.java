@@ -140,13 +140,64 @@ public class ProductsDao extends Dao{
 		}
 		return ret;
 	}
-	
-	public ProductsBean selectProducts(ProductsBean products) {
+	/**
+	 * selectProductsメソッド
+	 * 
+	 * @param array ArrayList<Object> : ProductsBean
+	 * @return retarr ArrayList<Object> : ProductsBean
+	 */
+	public ArrayList<Object> selectProducts(ArrayList<Object> array) {
+
+		String sql = "SELECT * FROM t_products WHERE t_product_id in('";
+		ArrayList<Object> retarr = new ArrayList<Object>();
 		
-		String sql = "SELECT * FROM t_products WHERE t_product_id=?;";
+		for(int i = 0; i < array.size(); i++) {
+			sql += ((ProductsBean)array.get(i)).getProduct_id() + "','";
+		}
+		sql += "');";
 		
-		
-		
-		return null;
+		try
+		{
+			// コネクション生成
+			this.getConnection();
+			// ステートメント作成
+			st = con.createStatement();
+			// クエリ発行
+			rs = st.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				retarr.add(
+						new ProductsBean(
+								rs.getString("f_product_id"),
+								rs.getString("f_user_id"),
+								rs.getString("product_name"),
+								rs.getString("artist_name"),
+								rs.getInt("f_price"),
+								rs.getString("f_product_details"),
+								rs.getString("f_genre_id"),
+								rs.getString("f_measure"),
+								rs.getString("f_file_type"),
+								rs.getInt("f_file_size"),
+								rs.getString("f_directory_path"),
+								rs.getString("f_img_path"),
+								rs.getString("f_posted_date"),
+								rs.getString("f_remarks"),
+								rs.getInt("f_examination"),
+								rs.getString("f_product_admin_id"),
+								rs.getInt("f_delflg")
+								)
+						);
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			this.close();
+		}
+		return retarr;
 	}
 }

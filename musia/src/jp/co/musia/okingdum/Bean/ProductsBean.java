@@ -20,6 +20,30 @@ public class ProductsBean {
 	private String product_admin_id;
 	private int delflg;
 	
+	public ProductsBean(String product_id, String user_id, String product_name,
+			String artist_name, int price, String product_details,
+			String genre_id, String measure, String file_type, int file_size,
+			String directory_path, String img_path, String posted_date,
+			String remarks, int examination, String product_admin_id, int delflg) {
+		super();
+		this.product_id = product_id;
+		this.user_id = user_id;
+		this.product_name = product_name;
+		this.artist_name = artist_name;
+		this.price = price;
+		this.product_details = product_details;
+		this.genre_id = genre_id;
+		this.measure = measure;
+		this.file_type = file_type;
+		this.file_size = file_size;
+		this.directory_path = directory_path;
+		this.img_path = img_path;
+		this.posted_date = posted_date;
+		this.remarks = remarks;
+		this.examination = examination;
+		this.product_admin_id = product_admin_id;
+		this.delflg = delflg;
+	}
 	public String getProduct_id() {
 		return product_id;
 	}
