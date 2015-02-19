@@ -38,7 +38,7 @@ public class MusiaServlet extends HttpServlet {
 		else if ("/decision/options".equals(request.getRequestURI()))	// マイページ
 		{
 
-			request.getRequestDispatcher("options.jsp").forward(request, response);
+			request.getRequestDispatcher("/view/option/index.jsp").forward(request, response);
 			
 		}
 		else if ("/details".equals(request.getRequestURI()))	// 商品詳細ページ
