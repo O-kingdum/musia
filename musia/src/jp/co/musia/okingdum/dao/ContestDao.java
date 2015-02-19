@@ -101,7 +101,7 @@ public class ContestDao extends Dao{
 	public int deleteContest(ContestBean contest) {
 		
 		int ret = 0;
-		String sql = "DELETE FROM t_contest WHERE f_list_id=?;";
+		String sql = "DELETE FROM t_contest WHERE f_contest_id=?;";
 		
 		try
 		{
@@ -135,7 +135,7 @@ public class ContestDao extends Dao{
 	 */
 	public ArrayList<Object> selectContest(ArrayList<Object> array) {
 		
-		String sql = "SELECT t_contest WHERE f_list_id in('";
+		String sql = "SELECT t_contest WHERE f_contest_id in('";
 		ArrayList<Object> retarr = new ArrayList<Object>();
 		
 		for(int i = 0; i < array.size(); i++) {

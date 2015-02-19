@@ -7,6 +7,18 @@ public class Contest_MusicBean {
 	private String contest_admin_id;
 	private int contest_examination;
 	private String record_date;
+	
+	public Contest_MusicBean() {
+		
+	}
+	
+	public Contest_MusicBean(String contest_id,String product_id,String contest_admin_id,int contest_examination,String record_date) {
+		this.contest_id = contest_id;
+		this.product_id = product_id;
+		this.contest_admin_id = contest_admin_id;
+		this.contest_examination = contest_examination;
+		this.record_date = record_date;
+	}
 
 	public String getContest_id() {
 		return contest_id;
