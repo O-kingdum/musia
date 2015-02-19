@@ -8,6 +8,19 @@ public class CreditCardBean {
 	private String card_company;
 	private int sec_cord;
 	private String card_persons;
+	
+	public CreditCardBean() {
+		
+	}
+	
+	public CreditCardBean(String credit_id,int card_number,String limit_date,String card_company,int sec_cord,String card_persons) {
+		this.credit_id = credit_id;
+		this.card_number = card_number;
+		this.limit_date = limit_date;
+		this.card_company = card_company;
+		this.sec_cord = sec_cord;
+		this.card_persons = card_persons;
+	}
 
 	public String getCredit_id() {
 		return credit_id;
