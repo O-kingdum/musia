@@ -148,7 +148,7 @@ public class AlbumDao extends Dao {
 	public ArrayList<Object> selectAlbum(ArrayList<Object> array) {
 
 		ArrayList<Object> retarr = new ArrayList<Object>();
-		String sql = "SELECT * FROM t_album WHERE f_album_id in('";
+		String sql = "SELECT * FROM t_album WHERE f_delflg=0 and f_album_id in('";
 
 		for (int i = 0; i < array.size(); i++) {
 			sql += ((AlbumBean) array.get(i)).getAlbum_id() + "','";

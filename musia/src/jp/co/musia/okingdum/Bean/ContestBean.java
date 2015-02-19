@@ -10,6 +10,22 @@ public class ContestBean {
 	private String members;
 	private String requirements;
 	private String remarks;
+	
+	public ContestBean() {
+		
+	}
+	
+	public ContestBean(String contest_id,String contest_name,String enterprise_name,String start_date,String end_date,String members,String requirements,String remarks) {
+		this.contest_id = contest_id;
+		this.contest_name = contest_name;
+		this.enterprise_name = enterprise_name;
+		this.start_date = start_date;
+		this.end_date = end_date;
+		this.members = members;
+		this.requirements = requirements;
+		this.remarks = remarks;
+	}
+	
 
 	public String getContest_id() {
 		return contest_id;

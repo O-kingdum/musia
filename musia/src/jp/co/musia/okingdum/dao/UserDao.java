@@ -107,13 +107,13 @@ public class UserDao extends Dao {
     }
 
     /**
-     * changeUserDataメソッド : 指定ユーザの情報を変更する
+     * updateUserメソッド : 指定ユーザの情報を変更する
      *
      * @param user UserBeanオブジェクト
      * @return 成功：1 失敗:0 データベースの失敗:-1
      */
     @SuppressWarnings("finally")
-	public int changeUserData (UsersBean user) {
+	public int updateUser (UsersBean user) {
         
         int ret = 0;
 
