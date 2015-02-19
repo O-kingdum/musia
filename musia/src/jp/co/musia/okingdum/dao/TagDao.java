@@ -85,7 +85,7 @@ public class TagDao extends Dao {
 	public int deleteTag(TagBean tag) {
 		
 		int ret = 0;
-		String sql = "DELETE t_tag WHERE f_tag_id=?;";
+		String sql = "DELETE FROM t_tag WHERE f_tag_id=?;";
 		
 		try
 		{
@@ -116,7 +116,7 @@ public class TagDao extends Dao {
 	 */
 	public ArrayList<Object> selectTag(ArrayList<Object> array) {
 		
-		String sql = "SELECT t_tag WHERE f_tag_id in('";
+		String sql = "SELECT f_tag_id, f_tag_name FROM t_tag WHERE f_tag_id in('";
 		ArrayList<Object> retarr = new ArrayList<Object>();
 		
 		for(int i = 0; i < array.size(); i++) {
