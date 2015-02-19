@@ -3,20 +3,20 @@ package jp.co.musia.okingdum.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import jp.co.musia.okingdum.Bean.Contest_CheckBean;
+import jp.co.musia.okingdum.Bean.Oikawa_PointBean;
 
-public class Contest_CheckDao extends Dao{
+public class Oikawa_PointDao extends Dao{
 	/**
-	 * insertContest_Checkメソッド
+	 * insertOikawa_Pointメソッド
 	 * 
-	 * @param contest_Check
-	 *            Contest_CheckBeanオブジェクト
+	 * @param oikawa_point
+	 *            Oikawa_PointBeanオブジェクト
 	 * @return 成功:1 失敗:-1
 	 */
-	public int insertContest_Check(Contest_CheckBean contest_Check) {
+	public int insertOikawa_Point(Oikawa_PointBean oikawa_point) {
 
 		int ret = 0;
-		String sql = "INSERT INTO t_contest_check VALUES(?,?)";
+		String sql = "INSERT INTO t_oikawa_point VALUES(?,?,?,?)";
 
 		try {
 			// コネクション作成
@@ -24,8 +24,10 @@ public class Contest_CheckDao extends Dao{
 			// プリコンパイル
 			ps = con.prepareStatement(sql);
 
-			ps.setString(1, contest_Check.getContest_id());
-			ps.setString(2, contest_Check.getList_id());
+			ps.setString(1, oikawa_point.getUser_id());
+			ps.setInt(2, oikawa_point.getOp());
+			ps.setString(3, oikawa_point.getOp_date());
+			ps.setInt(4, oikawa_point.getOp_flg());
 
 			// クエリ発行
 			ret = ps.executeUpdate();
@@ -45,15 +47,15 @@ public class Contest_CheckDao extends Dao{
 	}
 	
 	/**
-	 * updateContest_Checkメソッド
+	 * updateOikawa_Pointメソッド
 	 * 
-	 * @param contest_Check Contest_CheckBeanオブジェクト
+	 * @param oikawa_point Oikawa_PointBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
-	public int updateContest_Check(Contest_CheckBean contest_Check) {
+	public int updateOikawa_Point(Oikawa_PointBean oikawa_point) {
 		
 		int ret = 0;
-		String sql = "UPDATE t_contest_check SET f_list_id=? WHERE f_contest_id=?;";
+		String sql = "UPDATE t_oikawa_point SET f_op=?,f_op_date=?,f_op_flg=? WHERE f_user_id=?;";
 		
 		try
 		{
@@ -62,8 +64,10 @@ public class Contest_CheckDao extends Dao{
 			// プリコンパイル
 			ps = this.con.prepareStatement(sql);
 			// バインドセット
-			ps.setString(1, contest_Check.getList_id());
-			ps.setString(2, contest_Check.getContest_id());
+			ps.setInt(1, oikawa_point.getOp());
+			ps.setString(2, oikawa_point.getOp_date());
+			ps.setInt(3, oikawa_point.getOp_flg());
+			ps.setString(4, oikawa_point.getUser_id());
 			// クエリ発行
 			ret = ps.executeUpdate();
 		}
@@ -81,15 +85,15 @@ public class Contest_CheckDao extends Dao{
 	}
 	
 	/**
-	 * deleteContest_Checkメソッド
+	 * deleteOikawa_Pointメソッド
 	 * 
-	 * @param contest_Check Contest_CheckBeanオブジェクト
+	 * @param oikawa_point Oikawa_PointBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
-	public int deleteContest_Check(Contest_CheckBean contest_Check) {
+	public int deleteOikawa_Point(Oikawa_PointBean oikawa_point) {
 		
 		int ret = 0;
-		String sql = "DELETE FROM t_contest_check WHERE f_contest_id=?;";
+		String sql = "DELETE FROM t_oikawa_point WHERE f_user_id=?;";
 		
 		try
 		{
@@ -98,7 +102,7 @@ public class Contest_CheckDao extends Dao{
 			// プリコンパイル
 			ps = this.con.prepareStatement(sql);
 			// バインドセット
-			ps.setString(1, contest_Check.getContest_id());
+			ps.setString(1, oikawa_point.getUser_id());
 			// クエリ発行
 			ret = ps.executeUpdate();
 		}
@@ -116,18 +120,18 @@ public class Contest_CheckDao extends Dao{
 	}
 	
 	/**
-	 * selectContest_Checkメソッド
+	 * selectOikawa_Pointメソッド
 	 * 
-	 * @param array ArrayList<Object> Contest_CheckBean
+	 * @param array ArrayList<Object> Oikawa_PointBean
 	 * @return retarr ArrayList<Object> 検索結果
 	 */
-	public ArrayList<Object> selectContest_Check(ArrayList<Object> array) {
+	public ArrayList<Object> selectOikawa_Point(ArrayList<Object> array) {
 		
-		String sql = "SELECT t_contest_check WHERE f_contest_id in('";
+		String sql = "SELECT t_oikawa_point WHERE f_user_id in('";
 		ArrayList<Object> retarr = new ArrayList<Object>();
 		
 		for(int i = 0; i < array.size(); i++) {
-			sql += ((Contest_CheckBean)array.get(i)).getContest_id() + "','";
+			sql += ((Oikawa_PointBean)array.get(i)).getUser_id() + "','";
 		}
 		sql += "');";
 		
@@ -142,9 +146,11 @@ public class Contest_CheckDao extends Dao{
 			
 			while(rs.next())
 			{
-				retarr.add(new Contest_CheckBean(
-						rs.getString("f_contest_id"),
-						rs.getString("f_list_id")
+				retarr.add(new Oikawa_PointBean(
+						rs.getString("f_user_id"),
+						rs.getInt("f_op"),
+						rs.getString("f_op_date"),
+						rs.getInt("f_op_flg")
 						)
 				);
 			}

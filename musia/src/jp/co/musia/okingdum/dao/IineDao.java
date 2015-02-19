@@ -3,20 +3,20 @@ package jp.co.musia.okingdum.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import jp.co.musia.okingdum.Bean.Contest_CheckBean;
+import jp.co.musia.okingdum.Bean.IineBean;
 
-public class Contest_CheckDao extends Dao{
+public class IineDao extends Dao{
 	/**
-	 * insertContest_Checkメソッド
+	 * insertIineメソッド
 	 * 
-	 * @param contest_Check
-	 *            Contest_CheckBeanオブジェクト
+	 * @param iine
+	 *            IineBeanオブジェクト
 	 * @return 成功:1 失敗:-1
 	 */
-	public int insertContest_Check(Contest_CheckBean contest_Check) {
+	public int insertIine(IineBean iine) {
 
 		int ret = 0;
-		String sql = "INSERT INTO t_contest_check VALUES(?,?)";
+		String sql = "INSERT INTO t_iine VALUES(?,?)";
 
 		try {
 			// コネクション作成
@@ -24,8 +24,8 @@ public class Contest_CheckDao extends Dao{
 			// プリコンパイル
 			ps = con.prepareStatement(sql);
 
-			ps.setString(1, contest_Check.getContest_id());
-			ps.setString(2, contest_Check.getList_id());
+			ps.setString(1, iine.getUser_id());
+			ps.setString(2, iine.getProduct_id());
 
 			// クエリ発行
 			ret = ps.executeUpdate();
@@ -45,15 +45,15 @@ public class Contest_CheckDao extends Dao{
 	}
 	
 	/**
-	 * updateContest_Checkメソッド
+	 * updateIineメソッド
 	 * 
-	 * @param contest_Check Contest_CheckBeanオブジェクト
+	 * @param iine IineBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
-	public int updateContest_Check(Contest_CheckBean contest_Check) {
+	public int updateIine(IineBean iine) {
 		
 		int ret = 0;
-		String sql = "UPDATE t_contest_check SET f_list_id=? WHERE f_contest_id=?;";
+		String sql = "UPDATE t_iine SET f_product_id=? WHERE f_user_id=?;";
 		
 		try
 		{
@@ -62,8 +62,8 @@ public class Contest_CheckDao extends Dao{
 			// プリコンパイル
 			ps = this.con.prepareStatement(sql);
 			// バインドセット
-			ps.setString(1, contest_Check.getList_id());
-			ps.setString(2, contest_Check.getContest_id());
+			ps.setString(1, iine.getProduct_id());
+			ps.setString(2, iine.getUser_id());
 			// クエリ発行
 			ret = ps.executeUpdate();
 		}
@@ -81,15 +81,15 @@ public class Contest_CheckDao extends Dao{
 	}
 	
 	/**
-	 * deleteContest_Checkメソッド
+	 * deleteIineメソッド
 	 * 
-	 * @param contest_Check Contest_CheckBeanオブジェクト
+	 * @param iine IineBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
-	public int deleteContest_Check(Contest_CheckBean contest_Check) {
+	public int deleteIine(IineBean iine) {
 		
 		int ret = 0;
-		String sql = "DELETE FROM t_contest_check WHERE f_contest_id=?;";
+		String sql = "DELETE FROM t_iine WHERE f_user_id=?;";
 		
 		try
 		{
@@ -98,7 +98,7 @@ public class Contest_CheckDao extends Dao{
 			// プリコンパイル
 			ps = this.con.prepareStatement(sql);
 			// バインドセット
-			ps.setString(1, contest_Check.getContest_id());
+			ps.setString(1, iine.getUser_id());
 			// クエリ発行
 			ret = ps.executeUpdate();
 		}
@@ -116,18 +116,18 @@ public class Contest_CheckDao extends Dao{
 	}
 	
 	/**
-	 * selectContest_Checkメソッド
+	 * selectIineメソッド
 	 * 
-	 * @param array ArrayList<Object> Contest_CheckBean
+	 * @param array ArrayList<Object> IineBean
 	 * @return retarr ArrayList<Object> 検索結果
 	 */
-	public ArrayList<Object> selectContest_Check(ArrayList<Object> array) {
+	public ArrayList<Object> selectIine(ArrayList<Object> array) {
 		
-		String sql = "SELECT t_contest_check WHERE f_contest_id in('";
+		String sql = "SELECT t_iine WHERE f_user_id in('";
 		ArrayList<Object> retarr = new ArrayList<Object>();
 		
 		for(int i = 0; i < array.size(); i++) {
-			sql += ((Contest_CheckBean)array.get(i)).getContest_id() + "','";
+			sql += ((IineBean)array.get(i)).getUser_id() + "','";
 		}
 		sql += "');";
 		
@@ -142,9 +142,9 @@ public class Contest_CheckDao extends Dao{
 			
 			while(rs.next())
 			{
-				retarr.add(new Contest_CheckBean(
-						rs.getString("f_contest_id"),
-						rs.getString("f_list_id")
+				retarr.add(new IineBean(
+						rs.getString("f_user_id"),
+						rs.getString("f_product_id")
 						)
 				);
 			}

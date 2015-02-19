@@ -3,20 +3,20 @@ package jp.co.musia.okingdum.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import jp.co.musia.okingdum.Bean.Contest_CheckBean;
+import jp.co.musia.okingdum.Bean.Product_TagBean;
 
-public class Contest_CheckDao extends Dao{
+public class Product_TagDao extends Dao{
 	/**
-	 * insertContest_Checkメソッド
+	 * insertProduct_Tagメソッド
 	 * 
-	 * @param contest_Check
-	 *            Contest_CheckBeanオブジェクト
+	 * @param product_tag
+	 *            Product_TagBeanオブジェクト
 	 * @return 成功:1 失敗:-1
 	 */
-	public int insertContest_Check(Contest_CheckBean contest_Check) {
+	public int insertProduct_Tag(Product_TagBean product_tag) {
 
 		int ret = 0;
-		String sql = "INSERT INTO t_contest_check VALUES(?,?)";
+		String sql = "INSERT INTO t_product_tag VALUES(?,?)";
 
 		try {
 			// コネクション作成
@@ -24,8 +24,8 @@ public class Contest_CheckDao extends Dao{
 			// プリコンパイル
 			ps = con.prepareStatement(sql);
 
-			ps.setString(1, contest_Check.getContest_id());
-			ps.setString(2, contest_Check.getList_id());
+			ps.setString(1, product_tag.getProduct_id());
+			ps.setString(2, product_tag.getTag_id());
 
 			// クエリ発行
 			ret = ps.executeUpdate();
@@ -45,15 +45,15 @@ public class Contest_CheckDao extends Dao{
 	}
 	
 	/**
-	 * updateContest_Checkメソッド
+	 * updateProduct_Tagメソッド
 	 * 
-	 * @param contest_Check Contest_CheckBeanオブジェクト
+	 * @param product_tag Product_TagBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
-	public int updateContest_Check(Contest_CheckBean contest_Check) {
+	public int updateProduct_Tag(Product_TagBean product_tag) {
 		
 		int ret = 0;
-		String sql = "UPDATE t_contest_check SET f_list_id=? WHERE f_contest_id=?;";
+		String sql = "UPDATE t_product_tag SET f_tag_id=? WHERE f_product_id=?;";
 		
 		try
 		{
@@ -62,8 +62,8 @@ public class Contest_CheckDao extends Dao{
 			// プリコンパイル
 			ps = this.con.prepareStatement(sql);
 			// バインドセット
-			ps.setString(1, contest_Check.getList_id());
-			ps.setString(2, contest_Check.getContest_id());
+			ps.setString(1, product_tag.getTag_id());
+			ps.setString(2, product_tag.getProduct_id());
 			// クエリ発行
 			ret = ps.executeUpdate();
 		}
@@ -81,15 +81,15 @@ public class Contest_CheckDao extends Dao{
 	}
 	
 	/**
-	 * deleteContest_Checkメソッド
+	 * deleteProduct_Tagメソッド
 	 * 
-	 * @param contest_Check Contest_CheckBeanオブジェクト
+	 * @param product_tag Product_TagBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
-	public int deleteContest_Check(Contest_CheckBean contest_Check) {
+	public int deleteProduct_Tag(Product_TagBean product_tag) {
 		
 		int ret = 0;
-		String sql = "DELETE FROM t_contest_check WHERE f_contest_id=?;";
+		String sql = "DELETE FROM t_product_tag WHERE f_product_id=?;";
 		
 		try
 		{
@@ -98,7 +98,7 @@ public class Contest_CheckDao extends Dao{
 			// プリコンパイル
 			ps = this.con.prepareStatement(sql);
 			// バインドセット
-			ps.setString(1, contest_Check.getContest_id());
+			ps.setString(1, product_tag.getProduct_id());
 			// クエリ発行
 			ret = ps.executeUpdate();
 		}
@@ -116,18 +116,18 @@ public class Contest_CheckDao extends Dao{
 	}
 	
 	/**
-	 * selectContest_Checkメソッド
+	 * selectProduct_Tagメソッド
 	 * 
-	 * @param array ArrayList<Object> Contest_CheckBean
+	 * @param array ArrayList<Object> Product_TagBean
 	 * @return retarr ArrayList<Object> 検索結果
 	 */
-	public ArrayList<Object> selectContest_Check(ArrayList<Object> array) {
+	public ArrayList<Object> selectProduct_Tag(ArrayList<Object> array) {
 		
-		String sql = "SELECT t_contest_check WHERE f_contest_id in('";
+		String sql = "SELECT t_product_tag WHERE f_product_id in('";
 		ArrayList<Object> retarr = new ArrayList<Object>();
 		
 		for(int i = 0; i < array.size(); i++) {
-			sql += ((Contest_CheckBean)array.get(i)).getContest_id() + "','";
+			sql += ((Product_TagBean)array.get(i)).getProduct_id() + "','";
 		}
 		sql += "');";
 		
@@ -142,9 +142,9 @@ public class Contest_CheckDao extends Dao{
 			
 			while(rs.next())
 			{
-				retarr.add(new Contest_CheckBean(
-						rs.getString("f_contest_id"),
-						rs.getString("f_list_id")
+				retarr.add(new Product_TagBean(
+						rs.getString("f_product_id"),
+						rs.getString("f_tag_id")
 						)
 				);
 			}
