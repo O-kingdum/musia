@@ -2,4 +2,4 @@ eclipse.preferences.version=1
 encoding//WebContent/template/header.jsp=UTF-8
 encoding//WebContent/template/nav.jsp=UTF-8
 encoding//WebContent/template/template.jsp=UTF-8
-encoding//src/jp/co/musia/okingdum/Validator.java=UTF-8
+encoding//src/jp/co/musia/okingdum/Utils/Validator.java=UTF-8

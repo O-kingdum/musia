@@ -1,4 +1,4 @@
-package jp.co.musia.okingdum;
+package jp.co.musia.okingdum.Utils;
 
 import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
