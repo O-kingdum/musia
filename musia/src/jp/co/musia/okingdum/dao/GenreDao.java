@@ -86,6 +86,7 @@ public class GenreDao extends Dao {
 	}
 	
 	/**
+	 * deleteGenreメソッド
 	 * 
 	 * @param genre GenreBean
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
@@ -127,7 +128,7 @@ public class GenreDao extends Dao {
 	 */
 	public ArrayList<Object> selectGenre(ArrayList<Object> array) {
 		
-		String sql = "SELECT t_tag WHERE f_tag_id in('";
+		String sql = "SELECT f_genre_id, f_genre_name FROM t_genre WHERE f_genre_id in('";
 		ArrayList<Object> retarr = new ArrayList<Object>();
 		
 		for(int i = 0; i < array.size(); i++) {

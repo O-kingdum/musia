@@ -12,8 +12,12 @@ import jp.co.musia.okingdum.Bean.ProductsBean;
  */
 public class ProductsDao extends Dao{
 
-	/* 2/4途中 */
-	@SuppressWarnings("finally")
+	/**
+	 * insertProductsメソッド
+	 * 
+	 * @param products ProductsBean
+	 * @return ret int : -1:異常終了  0:更新失敗  1:更新成功
+	 */
 	public int insertProducts(ProductsBean products) {
 		
 		int ret = 0;
@@ -46,25 +50,27 @@ public class ProductsDao extends Dao{
 		
 			// クエリ発行
 			ret = ps.executeUpdate();
-			// エラーフラグ
-			if(ret < 1) {
-				ret = -1;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			this.close();
-			return ret;
+			
 		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+			ret = -1;
+		}
+		finally
+		{
+			// クローズ処理
+			this.close();
+		}
+		return ret;
 	}
 	/**
 	 * deleteProductsメソッド
 	 * 
 	 * @param products : product_id
 	 * @param flg boolen : true:完全削除/false:ソフトデリート
-	 * @return ret : -1~0:異常終了　0以上:正常終了
+	 * @return ret int : -1:異常終了  0:更新失敗  1:更新成功
 	 */
-	@SuppressWarnings("finally")
 	public int deleteProducts(ProductsBean products, boolean flg) {
 		
 		int ret = 0;
@@ -80,31 +86,59 @@ public class ProductsDao extends Dao{
 					+ " WHERE f_product_id="+ products.getProduct_id() +";";
 		}
 		
-		try {
+		try
+		{
 			// コネクション作成
 			this.getConnection();
 			// ステートメント作成
 			st = con.createStatement();
 			// クエリ発行
 			ret = st.executeUpdate(sql);
-			// エラーフラグ
-			if(ret < 1) {
-				ret = -1;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			this.close();
-			return ret;
 		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+			ret = -1;
+		}
+		finally
+		{
+			//　クローズ処理
+			this.close();
+		}
+		return ret;
 	}
-	
+	/**
+	 * updateProductsメソッド
+	 * 
+	 * @param products ProductsBean
+	 * @return 
+	 */
 	public int updateProducts(ProductsBean products) {
 		
-		String sql = "UPDATE t_products SET f_genre_id=?,";
+		int ret = 0;
+		String sql = "UPDATE t_products SET f_price=?,f_product_details=?,f_measure=?,"
+				+ "f_file_type=?,f_file_size=?,f_remarks=? WHERE f_product_id=?;";
 		
-		
-		return 0;
+		try
+		{
+			// コネクション生成
+			this.getConnection();
+			// プリコンパイル
+			ps = con.prepareStatement(sql);
+			// クエリ発行
+			ret = ps.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+			ret = -1;
+		}
+		finally
+		{
+			// クローズ処理
+			this.close();
+		}
+		return ret;
 	}
 	
 	public ProductsBean selectProducts(ProductsBean products) {
