@@ -29,7 +29,7 @@ public class MusiaServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-		if ("/signup".equals(request.getRequestURI()))		//　新規登録
+		if ("/signup".equals(request.getRequestURI()))// 新規登録
 		{
 			
 			request.getRequestDispatcher("/view/signup/index.jsp").forward(request, response);
