@@ -25,9 +25,12 @@ public class Auth {
 	 */
 	private static void setAuth(HttpServletRequest request, boolean accept) {
 		
+		// セッション取得
 		session = request.getSession();
 		
+		// ログイン許可
 		if(accept) {
+			// ログイン状態保持
 			session.setAttribute("logincheck", true);
 		}
 		return;
@@ -40,6 +43,7 @@ public class Auth {
 	 */
 	public static boolean checkAuth(HttpServletRequest request) {
 		
+		// セッション取得
 		session = request.getSession();
 		boolean login = (Boolean)session.getAttribute("logincheck");
 		
