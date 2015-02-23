@@ -2,8 +2,7 @@
   pageEncoding="UTF-8"%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="MUSIA-音楽ダウンロードサイトMUSIA" name="siteTitle" />
-  <jsp:param value="./css/vendor/reset.css" name="resetCss" />
-  <jsp:param value="./css/main.css" name="mainCss" />
+  <jsp:param value="" name="resetCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       
