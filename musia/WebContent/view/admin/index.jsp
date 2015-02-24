@@ -6,19 +6,20 @@
 <title>管理者ログイン | MUSIA</title>
 </head>
 <body>
-	<div>
+	<div class="login-form-article">
 		<form action="<%= request.getContextPath() %>/login_admin" method="post">
 			<fieldset>
-				<div>
-					<label for=""></label>
+			<legend>MUSIA　管理者ログインフォーム</legend>
+				<div class="form-group">
+					<label for="">メールアドレス：</label>
 					<input type="text" required autofocus>
 				</div>
-				<div>
-					<label for=""></label>
+				<div class="form-group">
+					<label for="">パスワード:</label>
 					<input type="password" required>
 				</div>
-				<div>
-					<button type="submit"></button>
+				<div class="form-group">
+					<button type="submit">ログイン</button>
 				</div>
 			</fieldset>
 		</form>
