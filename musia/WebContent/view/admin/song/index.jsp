@@ -44,6 +44,7 @@
 	<%
 	}
 	%>
+	<a href="<%= request.getContextPath() %>/admin/song/post">商品登録</a>
 	</article>
     </jsp:attribute>
   </jsp:param>
