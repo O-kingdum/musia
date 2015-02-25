@@ -2,7 +2,8 @@
   pageEncoding="UTF-8"%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="ログイン | MUSIA" name="siteTitle" />
-  <jsp:param value="#" name="resetCss" />
+  <jsp:param value="${pageContext.request.contextPath}/css/vendor/reset.css" name="resetCss" />
+  <jsp:param value="${pageContext.request.contextPath}/css/login.css" name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
