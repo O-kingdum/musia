@@ -1,1 +1,15 @@
 @CHARSET "UTF-8";
+
+.article{
+	width:480px;
+	margin:0 auto;
+	border:solid 1px;
+}
+
+.article-title{
+	font-size:35px;
+}
+
+.article-content{
+	border:solid 1px;
+}
