@@ -35,35 +35,35 @@ public class AdminServlet extends HttpServlet {
 		switch( requestUri ) {
 		
 		// topページ
-		case "/admin/top":
+		case "/musia/admin/top":
 			dispPage = "/view/admin/top/index.jsp";
 			break;
 		// ユーザ管理
-		case "/admin/user":
+		case "/musia/admin/user":
 			dispPage = "/view/admin/user/index.jsp";
 			break;
 		// ユーザ詳細
-		case "/admin/user/detail":
+		case "/musia/admin/user/detail":
 			dispPage = "/view/admin/user/detail/index.jsp";
 			break;
 		// 商品管理
-		case "/admin/song":
+		case "/musia/admin/song":
 			dispPage = "/view/admin/song/index.jsp";
 			break;
 		// 商品詳細
-		case "/admin/song/review":
+		case "/musia/admin/song/review":
 			dispPage = "/view/admin/song/review/index.jsp";
 			break;
 		// 商品登録
-		case "/admin/song/post":
+		case "/musia/admin/song/post":
 			dispPage = "/view/admin/song/post/index.jsp";
 			break;
 		// コンテスト管理
-		case "/admin/contest":
+		case "/musia/admin/contest":
 			dispPage = "/view/admin/contest/index.jsp";
 			break;
 		// コンテスト詳細
-		case "/admin/contest/review":
+		case "/musia/admin/contest/review":
 			dispPage = "/view/admin/contest/review/index.jsp";
 			break;
 		}
