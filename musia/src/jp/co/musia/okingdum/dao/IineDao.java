@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import jp.co.musia.okingdum.Bean.IineBean;
 
-public class IineDao extends Dao{
+public class IineDao extends Dao {
 	/**
 	 * insertIineメソッド
 	 * 
@@ -36,6 +36,8 @@ public class IineDao extends Dao{
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 		} finally {
 			// クローズ
@@ -43,20 +45,20 @@ public class IineDao extends Dao{
 		}
 		return ret;
 	}
-	
+
 	/**
 	 * updateIineメソッド
 	 * 
-	 * @param iine IineBeanオブジェクト
+	 * @param iine
+	 *            IineBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
 	public int updateIine(IineBean iine) {
-		
+
 		int ret = 0;
 		String sql = "UPDATE t_iine SET f_product_id=? WHERE f_user_id=?;";
-		
-		try
-		{
+
+		try {
 			// コネクション生成
 			this.getConnection();
 			// プリコンパイル
@@ -66,33 +68,31 @@ public class IineDao extends Dao{
 			ps.setString(2, iine.getUser_id());
 			// クエリ発行
 			ret = ps.executeUpdate();
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
-		}
-		finally
-		{
+		} finally {
 			// クローズ
 			this.close();
 		}
 		return ret;
 	}
-	
+
 	/**
 	 * deleteIineメソッド
 	 * 
-	 * @param iine IineBeanオブジェクト
+	 * @param iine
+	 *            IineBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
 	public int deleteIine(IineBean iine) {
-		
+
 		int ret = 0;
 		String sql = "DELETE FROM t_iine WHERE f_user_id=?;";
-		
-		try
-		{
+
+		try {
 			// コネクション生成
 			this.getConnection();
 			// プリコンパイル
@@ -101,60 +101,52 @@ public class IineDao extends Dao{
 			ps.setString(1, iine.getUser_id());
 			// クエリ発行
 			ret = ps.executeUpdate();
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
-		}
-		finally
-		{
+		} finally {
 			// クローズ
 			this.close();
 		}
 		return ret;
 	}
-	
+
 	/**
 	 * selectIineメソッド
 	 * 
-	 * @param array ArrayList<Object> IineBean
+	 * @param array
+	 *            ArrayList<Object> IineBean
 	 * @return retarr ArrayList<Object> 検索結果
 	 */
 	public ArrayList<Object> selectIine(ArrayList<Object> array) {
-		
+
 		String sql = "SELECT t_iine WHERE f_user_id in('";
 		ArrayList<Object> retarr = new ArrayList<Object>();
-		
-		for(int i = 0; i < array.size(); i++) {
-			sql += ((IineBean)array.get(i)).getUser_id() + "','";
+
+		for (int i = 0; i < array.size(); i++) {
+			sql += ((IineBean) array.get(i)).getUser_id() + "','";
 		}
 		sql += "');";
-		
-		try
-		{
+
+		try {
 			// コネクション生成
 			this.getConnection();
 			// ステートメント
 			st = con.createStatement();
 			// クエリ発行
 			rs = st.executeQuery(sql);
-			
-			while(rs.next())
-			{
-				retarr.add(new IineBean(
-						rs.getString("f_user_id"),
-						rs.getString("f_product_id")
-						)
-				);
+
+			while (rs.next()) {
+				retarr.add(new IineBean(rs.getString("f_user_id"), rs
+						.getString("f_product_id")));
 			}
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally
-		{
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
+		} finally {
 			// クローズ
 			this.close();
 		}

@@ -28,135 +28,82 @@ public class MusiaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		String dispPage = "/view/index.jsp";
 		
-		if ("/signup".equals(request.getRequestURI()))// 新規登録
+		if ("/listener_signup".equals(request.getRequestURI()))// ユーザ登録
 		{
-			
-			request.getRequestDispatcher("/view/signup/index.jsp").forward(request, response);
-		
+			dispPage = "/view/signup_listener/index.jsp";
 		}
-		else if ("/decision/options".equals(request.getRequestURI()))	// マイページ
+		else if ("/option/".equals(request.getRequestURI()))	// マイページ
 		{
-
-			request.getRequestDispatcher("/view/option/index.jsp").forward(request, response);
-			
+			dispPage = "/view/option/index.jsp";	
 		}
-		else if ("/details".equals(request.getRequestURI()))	// 商品詳細ページ
+		else if ("/option/history".equals(request.getRequestURI()))	// 購入履歴
 		{
-
-			request.getRequestDispatcher("details.jsp").forward(request, response);
-			
+			dispPage = "/view/option/history/index.jsp";
 		}
-		else if ("/decision/buypoint".equals(request.getRequestURI()))	// ポイント購入
+		else if ("/option/listener".equals(request.getRequestURI()))	// リスナー情報
 		{
-
-			request.getRequestDispatcher("buypoint.jsp").forward(request, response);
-			
+			dispPage = "/view/option/listener/index.jsp";
 		}
-		else if ("/decision/mylist".equals(request.getRequestURI()))	// マイリスト
+		else if ("/option/artist".equals(request.getRequestURI()))	// アーティスト情報
 		{
-			
-			request.getRequestDispatcher("mylist.jsp").forward(request, response);
-			
+			dispPage = "/view/option/artist/index.jsp";	
 		}
-		else if ("/decision/listeditor".equals(request.getRequestURI()))	// リスト編集
+		else if ("/option/credit".equals(request.getRequestURI()))	// クレジットカード情報
 		{
-			
-			request.getRequestDispatcher("listeditor.jsp").forward(request, response);
-			
+			dispPage = "/view/option/credit/index.jsp";			
 		}
-		else if ("/decision/listdetails".equals(request.getRequestURI()))	// リスト詳細
+		else if ("/option/point".equals(request.getRequestURI()))	// ポイント購入
 		{
-			
-			request.getRequestDispatcher("listdetails.jsp").forward(request, response);
-			
+			dispPage = "/view/option/point/index.jsp";			
 		}
-		else if ("/decision/wants".equals(request.getRequestURI()))		// ほしいものリスト
+		else if ("/login_user".equals(request.getRequestURI()))	// ユーザログイン
 		{
-			
-			request.getRequestDispatcher("wants.jsp").forward(request, response);
-			
+			dispPage = "/view/login_user/index.jsp";
 		}
-		else if ("/apply".equals(request.getRequestURI()))		// 応募ページ
+		else if ("/option/list".equals(request.getRequestURI()))		// ほしいものリスト
 		{
-			
-			request.getRequestDispatcher("apply.jsp").forward(request, response);
-			
+			dispPage = "/view/option/list/index.jsp";
 		}
-		else if ("/ranking".equals(request.getRequestURI()))		// ランキングページ
+		else if ("/cart".equals(request.getRequestURI()))		// カート
 		{
-			
-			request.getRequestDispatcher("ranking.jsp").forward(request, response);
-			
+			dispPage = "/view/cart/index.jsp";
 		}
-		else if ("/decision/usereditor".equals(request.getRequestURI()))		// ユーザ情報変更ページ
+		else if ("/cart/select".equals(request.getRequestURI()))		// お支払選択
 		{
-			
-			request.getRequestDispatcher("usereditor.jsp").forward(request, response);
-			
+			dispPage = "/view/cart/select/index.jsp";
 		}
-		else if ("/decision/addcredit".equals(request.getRequestURI()))		// クレジット追加ページ
+		else if ("/cart/download".equals(request.getRequestURI()))		// ダウンロード
 		{
-			
-			request.getRequestDispatcher("addcredit.jsp").forward(request, response);
-			
+			dispPage = "/view/cart/download/index.jsp";	
 		}
-		else if ("/decision/salesign".equals(request.getRequestURI()))		// 販売登録ページ
+		else if ("/artist_signup".equals(request.getRequestURI()))		// アーティスト登録
 		{
-			
-			request.getRequestDispatcher("salesign.jsp").forward(request, response);
-			
+			dispPage = "/view/artist_signup/index.jsp";
 		}
-		else if ("/decision/signconfirm".equals(request.getRequestURI()))		// 登録確認ページ
+		else if ("/release".equals(request.getRequestURI()))		// リリース
 		{
-			
-			request.getRequestDispatcher("signconfirm.jsp").forward(request, response);
-			
+			dispPage = "/view/release/index.jsp";
 		}
-		else if ("/cart".equals(request.getRequestURI()))		// カートページ
+		else if ("/release/song".equals(request.getRequestURI()))		// リリース登録
 		{
-			
-			request.getRequestDispatcher("cart.jsp").forward(request, response);
-			
+			dispPage = "/view/release/song/index.jsp";	
 		}
-		else if ("/decision/buyselect".equals(request.getRequestURI()))		// お支払選択ページ
+		else if ("/contest".equals(request.getRequestURI()))		// コンテスト
 		{
-			
-			request.getRequestDispatcher("buyselect.jsp").forward(request, response);
-			
+			dispPage = "/view/contest/index.jsp";
 		}
-		else if ("/decision/changeorder".equals(request.getRequestURI()))		// 注文情報変更ページ
+		else if ("/contest/song".equals(request.getRequestURI()))		// コンテスト登録
 		{
-			
-			request.getRequestDispatcher("changeorder.jsp").forward(request, response);
-			
+			dispPage = "/view/contest/song/index.jsp";
 		}
-		else if ("/decision/download".equals(request.getRequestURI()))		// 購入確定ダウンロードページ
+		else if ("/help".equals(request.getRequestURI()))		// 注文情報変更ページ
 		{
-			
-			request.getRequestDispatcher("download.jsp").forward(request, response);
-			
+			dispPage = "/view/help/index.jsp";
 		}
-		else if ("/contest".equals(request.getRequestURI()))		// コンテストページ
-		{
-			
-			request.getRequestDispatcher("/view/contest/index.jsp").forward(request, response);
-			
-		}
-		else if ("/inquiry".equals(request.getRequestURI()))		// お問い合わせページ
-		{
-			
-			request.getRequestDispatcher("inquiry.jsp").forward(request, response);
-			
-		}
-		else if ("/posterinfo".equals(request.getRequestURI()))		// 投稿者情報ページ
-		{
-			
-			request.getRequestDispatcher("posterinfo.jsp").forward(request, response);
-			
-		}
-		
-		request.getRequestDispatcher("/view/index.jsp").forward(request, response);
+				
+		request.getRequestDispatcher(dispPage).forward(request, response);
 	}
 
 	/**

@@ -7,61 +7,80 @@ import java.sql.*;
  */
 public class Dao {
 
-    /** コネクションオブジェクト */
-    protected Connection con = null;
-    /** プリペアードステートメントオブジェクト */
-    protected PreparedStatement ps = null;
-    /** プリペアードステートメントオブジェクト */
-    protected Statement st = null;
-    /** リザルトセットオブジェクト */
-    protected ResultSet rs = null;
+	/** コネクションオブジェクト */
+	protected Connection con = null;
+	/** プリペアードステートメントオブジェクト */
+	protected PreparedStatement ps = null;
+	/** プリペアードステートメントオブジェクト */
+	protected Statement st = null;
+	/** リザルトセットオブジェクト */
+	protected ResultSet rs = null;
 
-    Dao() {
-        con = null;
+	/** メッセージを格納 */
+	private String msg = null;
 
-        ps = null;
+	Dao() {
+		con = null;
 
-        st = null;
+		ps = null;
 
-        rs = null;
-    }
+		st = null;
 
-    /**
-     * MySQLに接続する
-     */
-    protected void getConnection() {
-        String url = "jdbc:mysql://localhost/musia?user=root&password=root&useUnicode=true&characterEncoding=utf-8";
+		rs = null;
+	}
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection(url);
-        } catch (ClassNotFoundException e) {
-            System.out.println("ドライバーが見つかりません");
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+	/**
+	 * MySQLに接続する
+	 */
+	protected void getConnection() {
+		String url = "jdbc:mysql://localhost/musia?user=root&password=root&useUnicode=true&characterEncoding=utf-8";
 
-    /**
-     * DBをクローズする
-     */
-    protected void close() {
-        try {
-            if (rs != null) {
-                rs.close();
-            }
-            if (ps != null) {
-                ps.close();
-            }
-            if (st != null) {
-                st.close();
-            }
-            if (con != null) {
-                con.close();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(url);
+		} catch (ClassNotFoundException e) {
+			System.out.println("ドライバーが見つかりません");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * DBをクローズする
+	 */
+	protected void close() {
+		try {
+			if (rs != null) {
+				rs.close();
+			}
+			if (ps != null) {
+				ps.close();
+			}
+			if (st != null) {
+				st.close();
+			}
+			if (con != null) {
+				con.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * getMsgメソッド：Daoのmsgのゲッター
+	 * 
+	 * @return
+	 */
+	public String getMsg() {
+		return msg;
+	}
+
+	/**
+	 * setMsgメソッド：Daoのmsgのセッター
+	 */
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
 }

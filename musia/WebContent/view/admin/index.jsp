@@ -1,12 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>管理者ログイン | MUSIA</title>
 </head>
 <body>
-
+	<div class="login-form-article">
+		<form action="<%= request.getContextPath() %>/login_admin" method="post">
+			<fieldset>
+			<legend>MUSIA　管理者ログインフォーム</legend>
+				<div class="form-group">
+					<label for="">メールアドレス：</label>
+					<input type="text" required autofocus>
+				</div>
+				<div class="form-group">
+					<label for="">パスワード:</label>
+					<input type="password" required>
+				</div>
+				<div class="form-group">
+					<button type="submit">ログイン</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
 </body>
 </html>
