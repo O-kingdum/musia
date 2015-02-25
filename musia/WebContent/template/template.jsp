@@ -11,9 +11,9 @@
 </head>
 <body>
   <div class="wrapper">
-    <jsp:include page="../template/header.jsp" />
+    <!-- <jsp:include page="../template/header.jsp" /> -->
     <main class="main">${param.pageContents}</main>
-    <jsp:include page="../template/footer.jsp" />
+    <!-- <jsp:include page="../template/footer.jsp" /> -->
   </div>
 </body>
 </html>
