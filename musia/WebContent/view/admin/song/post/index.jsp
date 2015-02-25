@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8" import="jp.co.musia.okingdum.Bean.*, java.util.ArrayList;"%>
 <jsp:include page="/template/admin/template.jsp">
-  <jsp:param value="商品管理画面 | MUSIA" name="siteTitle" />
+  <jsp:param value="商品登録画面 | MUSIA" name="siteTitle" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
 	<article>
+	<h2>商品登録</h2>
 		<form action="">
 			<fieldset>
-				<legend></legend>
+				<legend>商品登録フォーム</legend>
 				<div class="form-group">
 					<label for="">商品名：</label>
 					<input type="text" required autofocus>
