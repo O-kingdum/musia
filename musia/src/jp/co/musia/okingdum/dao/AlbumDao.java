@@ -39,10 +39,14 @@ public class AlbumDao extends Dao {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 		} finally {
 			this.close();
@@ -85,9 +89,13 @@ public class AlbumDao extends Dao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 		} catch (Exception e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 		} finally {
 			this.close();
@@ -127,10 +135,14 @@ public class AlbumDao extends Dao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 		} finally {
 			this.close();
@@ -163,20 +175,22 @@ public class AlbumDao extends Dao {
 			// クエリ発行
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				retarr.add(new AlbumBean(
-						rs.getString("f_album_id"), 
-						rs.getString("f_product_id"), 
-						rs.getString("f_album_name"), 
-						rs.getString("f_artist_name")
-				));
+				retarr.add(new AlbumBean(rs.getString("f_album_id"), rs
+						.getString("f_product_id"), rs
+						.getString("f_album_name"), rs
+						.getString("f_artist_name")));
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			retarr = null;
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			retarr = null;
 		} finally {
 			this.close();
