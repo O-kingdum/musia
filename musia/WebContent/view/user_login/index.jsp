@@ -5,7 +5,6 @@
   <jsp:param value="${pageContext.request.contextPath}/css/vendor/reset.css" name="resetCss" />
   <jsp:param value="${pageContext.request.contextPath}/css/template/template.css" name="templateCss"/>
   <jsp:param value="${pageContext.request.contextPath}/css/login.css" name="mainCss" />
-  
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
