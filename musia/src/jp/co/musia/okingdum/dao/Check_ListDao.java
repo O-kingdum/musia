@@ -4,10 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import jp.co.musia.okingdum.Bean.Check_ListBean;
-import jp.co.musia.okingdum.Bean.GenreBean;
-import jp.co.musia.okingdum.Bean.TagBean;
 
-public class Check_ListDao extends Dao{
+public class Check_ListDao extends Dao {
 	/**
 	 * insertCheckListメソッド : check_Listを追加する
 	 * 
@@ -38,6 +36,8 @@ public class Check_ListDao extends Dao{
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 		} finally {
 			// クローズ
@@ -45,20 +45,20 @@ public class Check_ListDao extends Dao{
 		}
 		return ret;
 	}
-	
+
 	/**
 	 * updateCheck_Listメソッド
 	 * 
-	 * @param check_List Check_ListBeanオブジェクト
+	 * @param check_List
+	 *            Check_ListBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
 	public int updateCheck_List(Check_ListBean check_List) {
-		
+
 		int ret = 0;
 		String sql = "UPDATE t_check_list SET f_check_List=? WHERE f_list_id=?;";
-		
-		try
-		{
+
+		try {
 			// コネクション生成
 			this.getConnection();
 			// プリコンパイル
@@ -68,33 +68,31 @@ public class Check_ListDao extends Dao{
 			ps.setString(2, check_List.getList_id());
 			// クエリ発行
 			ret = ps.executeUpdate();
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
-		}
-		finally
-		{
+		} finally {
 			// クローズ
 			this.close();
 		}
 		return ret;
 	}
-	
+
 	/**
 	 * deleteCheck_Listメソッド
 	 * 
-	 * @param check_List Check_ListBeanオブジェクト
+	 * @param check_List
+	 *            Check_ListBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
 	public int deleteCheck_List(Check_ListBean check_List) {
-		
+
 		int ret = 0;
 		String sql = "DELETE FROM t_check_list WHERE f_list_id=?;";
-		
-		try
-		{
+
+		try {
 			// コネクション生成
 			this.getConnection();
 			// プリコンパイル
@@ -103,60 +101,52 @@ public class Check_ListDao extends Dao{
 			ps.setString(1, check_List.getList_id());
 			// クエリ発行
 			ret = ps.executeUpdate();
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
-		}
-		finally
-		{
+		} finally {
 			// クローズ
 			this.close();
 		}
 		return ret;
 	}
-	
+
 	/**
 	 * selectCheck_Listメソッド
 	 * 
-	 * @param array ArrayList<Object> Check_ListBean
+	 * @param array
+	 *            ArrayList<Object> Check_ListBean
 	 * @return retarr ArrayList<Object> 検索結果
 	 */
 	public ArrayList<Object> selectCheck_List(ArrayList<Object> array) {
-		
+
 		String sql = "SELECT t_check_list WHERE f_list_id in('";
 		ArrayList<Object> retarr = new ArrayList<Object>();
-		
-		for(int i = 0; i < array.size(); i++) {
-			sql += ((Check_ListBean)array.get(i)).getList_id() + "','";
+
+		for (int i = 0; i < array.size(); i++) {
+			sql += ((Check_ListBean) array.get(i)).getList_id() + "','";
 		}
 		sql += "');";
-		
-		try
-		{
+
+		try {
 			// コネクション生成
 			this.getConnection();
 			// ステートメント
 			st = con.createStatement();
 			// クエリ発行
 			rs = st.executeQuery(sql);
-			
-			while(rs.next())
-			{
-				retarr.add(new Check_ListBean(
-						rs.getString("f_list_id"),
-						rs.getString("f_check_List")
-						)
-				);
+
+			while (rs.next()) {
+				retarr.add(new Check_ListBean(rs.getString("f_list_id"), rs
+						.getString("f_check_List")));
 			}
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally
-		{
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
+		} finally {
 			// クローズ
 			this.close();
 		}

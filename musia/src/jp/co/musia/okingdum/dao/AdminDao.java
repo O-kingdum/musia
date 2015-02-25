@@ -38,10 +38,14 @@ public class AdminDao extends Dao {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 		} finally {
 			this.close();
@@ -84,9 +88,13 @@ public class AdminDao extends Dao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 		} catch (Exception e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 		} finally {
 			this.close();
@@ -122,10 +130,14 @@ public class AdminDao extends Dao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 		} finally {
 			this.close();
@@ -161,10 +173,14 @@ public class AdminDao extends Dao {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = null;
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = null;
 		} finally {
 			this.close();
