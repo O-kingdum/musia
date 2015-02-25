@@ -29,9 +29,10 @@ public class AdminServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		// loginページ
-		String dispPage = "/view/admin/index.jsp";
+		//String dispPage = "/view/admin/index.jsp";
+		String dispPage = "/test.jsp";
 		String requestUri = request.getRequestURI(); 
-		
+		/*
 		switch( requestUri ) {
 		
 		// topページ
@@ -66,7 +67,7 @@ public class AdminServlet extends HttpServlet {
 		case "/musia/admin/contest/review":
 			dispPage = "/view/admin/contest/review/index.jsp";
 			break;
-		}
+		}*/
 		request.getRequestDispatcher(dispPage).forward(request, response);
 	}
 
