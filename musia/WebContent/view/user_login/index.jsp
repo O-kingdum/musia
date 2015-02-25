@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+  pageEncoding="UTF-8"%>
+<jsp:include page="/template/template.jsp">
+  <jsp:param value="ログイン | MUSIA" name="siteTitle" />
+  <jsp:param value="#" name="resetCss" />
+  <jsp:param name="pageContents">
+    <jsp:attribute name="value">
+      <article class="article">
+        <h2 class="article-title">MUSIA - ログイン</h2>
+        <div class="article-content">
+          <form action="#" method="post">
+            <fieldset>
+              <legend>ログイン情報</legend>
+              <table>
+                <caption>ログイン</caption>
+                <tr>
+                  <th class="form-header">
+                    <label for="login-email">メールアドレス</label>
+                  </th>
+                  <td class="form-data">
+                    <input id="login-email" type="email" name="mail"
+                    autofocus="">
+                  </td>
+                </tr>
+                <tr>
+                  <th class="form-header">
+                    <label for="login-password">パスワード</label>
+                  </th>
+                  <td class="form-data">
+                    <input id="login-password" type="password"
+                    name="passwd" autofocus="">
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <p class="form-checkbox">
+              <input id="memory" type="checkbox" name="#">
+              <label for="memory">メールアドレスを記憶する</label>
+            </p>
+            <p class="form-submit">
+              <input type="submit" name="#" value="ログイン">
+            </p>
+          </form>
+        </div>
+      </article>
+    </jsp:attribute>
+  </jsp:param>
+</jsp:include>
