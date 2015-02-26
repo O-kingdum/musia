@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import jp.co.musia.okingdum.Bean.CreditCardBean;
 
-public class CreditCardDao extends Dao{
+public class CreditCardDao extends Dao {
 	/**
 	 * insertCreditCardメソッド : CreditCardを追加する
 	 * 
@@ -40,6 +40,8 @@ public class CreditCardDao extends Dao{
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 		} finally {
 			// クローズ
@@ -47,20 +49,20 @@ public class CreditCardDao extends Dao{
 		}
 		return ret;
 	}
-	
+
 	/**
 	 * updateCreditCardメソッド
 	 * 
-	 * @param creditCard CreditCardBeanオブジェクト
+	 * @param creditCard
+	 *            CreditCardBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
 	public int updateCreditCard(CreditCardBean creditCard) {
-		
+
 		int ret = 0;
 		String sql = "UPDATE t_creditcard SET f_card_number=?,f_limt_date=?,f_card_company=?,f_sec_code=?,f_card_persons=? WHERE f_credit_id=?;";
-		
-		try
-		{
+
+		try {
 			// コネクション生成
 			this.getConnection();
 			// プリコンパイル
@@ -72,36 +74,34 @@ public class CreditCardDao extends Dao{
 			ps.setInt(4, creditCard.getSec_cord());
 			ps.setString(5, creditCard.getCard_persons());
 			ps.setString(6, creditCard.getCredit_id());
-			
+
 			// クエリ発行
 			ret = ps.executeUpdate();
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
-		}
-		finally
-		{
+		} finally {
 			// クローズ
 			this.close();
 		}
 		return ret;
 	}
-	
+
 	/**
 	 * deleteCreditCardメソッド
 	 * 
-	 * @param creditCard CreditCardBeanオブジェクト
+	 * @param creditCard
+	 *            CreditCardBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
 	public int deleteCreditCard(CreditCardBean creditCard) {
-		
+
 		int ret = 0;
 		String sql = "DELETE FROM t_creditcard WHERE f_credit_id=?;";
-		
-		try
-		{
+
+		try {
 			// コネクション生成
 			this.getConnection();
 			// プリコンパイル
@@ -110,64 +110,54 @@ public class CreditCardDao extends Dao{
 			ps.setString(1, creditCard.getCredit_id());
 			// クエリ発行
 			ret = ps.executeUpdate();
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
-		}
-		finally
-		{
+		} finally {
 			// クローズ
 			this.close();
 		}
 		return ret;
 	}
-	
+
 	/**
 	 * selectCreditCardメソッド
 	 * 
-	 * @param array ArrayList<Object> CreditCardBean
+	 * @param array
+	 *            ArrayList<Object> CreditCardBean
 	 * @return retarr ArrayList<Object> 検索結果
 	 */
 	public ArrayList<Object> selectCreditCard(ArrayList<Object> array) {
-		
+
 		String sql = "SELECT t_creditcard WHERE f_credit_id in('";
 		ArrayList<Object> retarr = new ArrayList<Object>();
-		
-		for(int i = 0; i < array.size(); i++) {
-			sql += ((CreditCardBean)array.get(i)).getCredit_id() + "','";
+
+		for (int i = 0; i < array.size(); i++) {
+			sql += ((CreditCardBean) array.get(i)).getCredit_id() + "','";
 		}
 		sql += "');";
-		
-		try
-		{
+
+		try {
 			// コネクション生成
 			this.getConnection();
 			// ステートメント
 			st = con.createStatement();
 			// クエリ発行
 			rs = st.executeQuery(sql);
-			
-			while(rs.next())
-			{
-				retarr.add(new CreditCardBean(
-						rs.getString("f_credit_id"),
-						rs.getInt("f_card_number"),
-						rs.getString("f_limit_date"),
+
+			while (rs.next()) {
+				retarr.add(new CreditCardBean(rs.getString("f_credit_id"), rs
+						.getInt("f_card_number"), rs.getString("f_limit_date"),
 						rs.getString("f_card_company"),
-						rs.getInt("f_sec_code"),
-						rs.getString("f_card_persons")
-						)
-				);
+						rs.getInt("f_sec_code"), rs.getString("f_card_persons")));
 			}
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally
-		{
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
+		} finally {
 			// クローズ
 			this.close();
 		}

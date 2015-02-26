@@ -4,15 +4,8 @@ import java.io.File;
 
 public class FileFactory {
 
-	private String filepath;
-	
-	
-	public String getFilepath() {
-		return this.filepath;
-	}
-	
 	public void setFilePath(String path) {
-		this.filepath = path;
+		
 	}
 	
 	private boolean mkDir(String path) {

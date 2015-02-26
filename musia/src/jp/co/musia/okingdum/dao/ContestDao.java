@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import jp.co.musia.okingdum.Bean.ContestBean;
 
-public class ContestDao extends Dao{
+public class ContestDao extends Dao {
 	/**
 	 * insertContestメソッド : Contestを追加する
 	 * 
@@ -42,6 +42,8 @@ public class ContestDao extends Dao{
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
 		} finally {
 			// クローズ
@@ -49,20 +51,20 @@ public class ContestDao extends Dao{
 		}
 		return ret;
 	}
-	
+
 	/**
 	 * updateContestメソッド
 	 * 
-	 * @param contest ContestBeanオブジェクト
+	 * @param contest
+	 *            ContestBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
 	public int updateContest(ContestBean contest) {
-		
+
 		int ret = 0;
 		String sql = "UPDATE t_contest SET f_contest_name=?,f_enterprise_name=?,f_start_date=?,f_end_date=?,f_members=?,f_requirements=?,f_remarks=? WHERE f_contest_id=?;";
-		
-		try
-		{
+
+		try {
 			// コネクション生成
 			this.getConnection();
 			// プリコンパイル
@@ -78,33 +80,31 @@ public class ContestDao extends Dao{
 			ps.setString(8, contest.getContest_id());
 			// クエリ発行
 			ret = ps.executeUpdate();
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
-		}
-		finally
-		{
+		} finally {
 			// クローズ
 			this.close();
 		}
 		return ret;
 	}
-	
+
 	/**
 	 * deleteContestメソッド
 	 * 
-	 * @param contest ContestBeanオブジェクト
+	 * @param contest
+	 *            ContestBeanオブジェクト
 	 * @return ret -1:異常終了 0:更新失敗 1:更新成功
 	 */
 	public int deleteContest(ContestBean contest) {
-		
+
 		int ret = 0;
 		String sql = "DELETE FROM t_contest WHERE f_contest_id=?;";
-		
-		try
-		{
+
+		try {
 			// コネクション生成
 			this.getConnection();
 			// プリコンパイル
@@ -113,66 +113,57 @@ public class ContestDao extends Dao{
 			ps.setString(1, contest.getContest_id());
 			// クエリ発行
 			ret = ps.executeUpdate();
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
 			ret = -1;
-		}
-		finally
-		{
+		} finally {
 			// クローズ
 			this.close();
 		}
 		return ret;
 	}
-	
+
 	/**
 	 * selectContestメソッド
 	 * 
-	 * @param array ArrayList<Object> ContestBean
+	 * @param array
+	 *            ArrayList<Object> ContestBean
 	 * @return retarr ArrayList<Object> 検索結果
 	 */
 	public ArrayList<Object> selectContest(ArrayList<Object> array) {
-		
+
 		String sql = "SELECT t_contest WHERE f_contest_id in('";
 		ArrayList<Object> retarr = new ArrayList<Object>();
-		
-		for(int i = 0; i < array.size(); i++) {
-			sql += ((ContestBean)array.get(i)).getContest_id() + "','";
+
+		for (int i = 0; i < array.size(); i++) {
+			sql += ((ContestBean) array.get(i)).getContest_id() + "','";
 		}
 		sql += "');";
-		
-		try
-		{
+
+		try {
 			// コネクション生成
 			this.getConnection();
 			// ステートメント
 			st = con.createStatement();
 			// クエリ発行
 			rs = st.executeQuery(sql);
-			
-			while(rs.next())
-			{
-				retarr.add(new ContestBean(
-						rs.getString("f_contest_id"),
-						rs.getString("f_contest_name"),
-						rs.getString("f_enterprise_name"),
-						rs.getString("f_start_date"),
-						rs.getString("f_end_date"),
-						rs.getString("f_members"),
-						rs.getString("f_requirements"),
-						rs.getString("f_remarks")
-						)
-				);
+
+			while (rs.next()) {
+				retarr.add(new ContestBean(rs.getString("f_contest_id"), rs
+						.getString("f_contest_name"), rs
+						.getString("f_enterprise_name"), rs
+						.getString("f_start_date"), rs.getString("f_end_date"),
+						rs.getString("f_members"), rs
+								.getString("f_requirements"), rs
+								.getString("f_remarks")));
 			}
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally
-		{
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
+		} finally {
 			// クローズ
 			this.close();
 		}
