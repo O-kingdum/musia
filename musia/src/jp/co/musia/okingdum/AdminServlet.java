@@ -1,11 +1,15 @@
 package jp.co.musia.okingdum;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import jp.co.musia.okingdum.Utils.AdminAuth;
+import jp.co.musia.okingdum.Utils.Validator;
 
 /**
  * Servlet implementation class AdminServlet
@@ -68,7 +72,7 @@ public class AdminServlet extends HttpServlet {
 			break;
 		// ログアウト
 		case "/musia/admin/logout":
-			response.sendRedirect( request.getContextPath() );
+			response.sendRedirect( request.getContextPath() + "/login_admin" );
 			return;
 		}
 		request.getRequestDispatcher(dispPage).forward(request, response);
@@ -80,10 +84,17 @@ public class AdminServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		Validator val = new Validator();
 		String requestUri = request.getRequestURI();
 		
 		switch( requestUri ) {
 		case "/login_admin":
+			if( AdminAuth.loginAuth(request) ) {
+				response.sendRedirect(request.getContextPath() + "/musia/admin/top");
+			} else {	
+				request.setAttribute("msg", AdminAuth.getErrMsg() );
+				request.getRequestDispatcher( "/view/admin/index.jsp" ).forward(request, response);
+			}
 			break;
 		}
 	}
