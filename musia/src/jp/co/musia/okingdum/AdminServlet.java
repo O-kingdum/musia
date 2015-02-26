@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jp.co.musia.okingdum.Bean.ProductsBean;
 import jp.co.musia.okingdum.Utils.AdminAuth;
 import jp.co.musia.okingdum.Utils.Validator;
+import jp.co.musia.okingdum.dao.ProductsDao;
 
 /**
  * Servlet implementation class AdminServlet
@@ -85,18 +87,51 @@ public class AdminServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		Validator val = new Validator();
+		String dispPage = "/view/admin/index.jsp";
 		String requestUri = request.getRequestURI();
 		
 		switch( requestUri ) {
-		case "/login_admin":
+		
+		// ログイン処理
+		case "/musia/login_admin":
 			if( AdminAuth.loginAuth(request) ) {
-				response.sendRedirect(request.getContextPath() + "/musia/admin/top");
-			} else {	
-				request.setAttribute("msg", AdminAuth.getErrMsg() );
-				request.getRequestDispatcher( "/view/admin/index.jsp" ).forward(request, response);
+				
+				response.sendRedirect( request.getContextPath() + "/admin/top" );
+				return;
+			} else {
+				dispPage = "/view/admin/index.jsp";
+				request.setAttribute( "msg", AdminAuth.getErrMsg() );
+			}
+			break;
+		// 商品投稿
+		case "/musia/admin/song/post":
+			if(val.getPostMusicValidation(request)) {
+				
+				ProductsDao productsdao = new ProductsDao();
+				/*
+				productsdao.insertProducts(
+						new ProductsBean(
+								"H",
+								"H00001",
+								request.getParameter("products_name"),
+								request.getParameter("artist_name"),
+								Integer.parseInt( request.getParameter("price") ),
+								request.getParameter("product_details"),
+								request.getParameter("genre_id"),
+								request.getParameter("measure"),
+								request.getParameter("file_type"),
+								
+								AdminAuth.getAuthAdmin(request).getAdmin_id(),
+								
+								));
+				*/
+			} else {
+				dispPage = "/view/admin/song/post/index.jsp";
+				request.setAttribute("msg", val.getErrMsg() );
 			}
 			break;
 		}
+		request.getRequestDispatcher( dispPage ).forward(request, response);
 	}
 
 }

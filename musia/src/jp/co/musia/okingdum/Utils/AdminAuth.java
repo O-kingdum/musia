@@ -52,7 +52,6 @@ public class AdminAuth {
 		// ログイン失敗
 		return false;
 	}
-	
 	/**
 	 * setAuthメソッド: ログイン状態セット
 	 * 
@@ -71,7 +70,6 @@ public class AdminAuth {
 		}
 		return;
 	}
-	
 	/**
 	 * checkAuthメソッド: ログイン状態取得
 	 * 
@@ -85,6 +83,15 @@ public class AdminAuth {
 		boolean login = (Boolean)session.getAttribute("logincheck");
 		
 		return login;
+	}
+	
+	public static AdminBean getAuthAdmin(HttpServletRequest request) {
+
+		HttpSession session;
+		session = request.getSession();
+		AdminBean admin = (AdminBean)session.getAttribute("admin");
+		
+		return admin;
 	}
 	/**
 	 * logoutAuthメソッド: ログアウト処理

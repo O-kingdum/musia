@@ -79,6 +79,8 @@ public class Auth {
 				
 				// ログイン成功
 				return true;
+			} else {
+				setErrMsg(val.getErrMsg());
 			}
 		}
 		// ログイン失敗

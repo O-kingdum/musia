@@ -44,6 +44,9 @@ public class ProductsBean {
 		this.product_admin_id = product_admin_id;
 		this.delflg = delflg;
 	}
+	public ProductsBean() {
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
 	public String getProduct_id() {
 		return product_id;
 	}
