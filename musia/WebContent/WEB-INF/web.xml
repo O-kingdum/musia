@@ -38,14 +38,10 @@
     <servlet-name>MusiaServlet</servlet-name>
     <servlet-class>jp.co.musia.okingdum.MusiaServlet</servlet-class>
   </servlet>
-  <!-- 
   <servlet-mapping>
     <servlet-name>MusiaServlet</servlet-name>
     <url-pattern>/listener_signup</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
-  -->
-=======
   <servlet-mapping>
     <servlet-name>MusiaServlet</servlet-name>
     <url-pattern>/option</url-pattern>
@@ -114,7 +110,6 @@
     <servlet-name>MusiaServlet</servlet-name>
     <url-pattern>/help</url-pattern>
   </servlet-mapping>
-  
->>>>>>> 52ccd6816b7a52a813eb8275d9c1f575cfa2b4f1
+
   <!-- End Servlet Class -->
 </web-app>
