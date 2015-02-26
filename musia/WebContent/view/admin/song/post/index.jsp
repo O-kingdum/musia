@@ -8,43 +8,47 @@
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
 	<article>
-	<h2>商品登録</h2>
+	<!-- <h2>商品登録</h2> -->
 		<form action="">
 			<fieldset>
 				<legend>商品登録フォーム</legend>
-				<div class="form-group">
-					<label for="">商品名：</label>
+				<div class="form-group-add">
+					<label for="">商品名</label>
 					<input type="text" required autofocus>
 				</div>
-				<div class="form-group">
-					<label for="">アーティスト名：</label>
+				<div class="form-group-add">
+					<label for="">アーティスト名</label>
 					<input type="text" required>
 				</div>
-				<div class="form-group">
-					<label for="">価格：</label>
+				<div class="form-group-add">
+					<label for="">価格</label>
 					<input type="text" required>
 				</div>
-				<div class="form-group">
-					<label for="">商品詳細：</label>
+				<div class="form-group-add">
+					<label for="">商品詳細</label>
 					<textarea name="" id="" cols="30" rows="10" required>
 					</textarea>
 				</div>
-				<div class="form-group">
-					<label for="">ジャンル：</label>
+				<div class="form-group-add">
+					<label for="">ジャンル</label>
 					<input type="text" required>
 				</div>
-				<div class="form-group">
-					<label for="">曲尺：</label>
+				<div class="form-group-add">
+					<label for="">曲尺</label>
 					<input type="text" required>
 				</div>
-				<div class="form-group">
-					<label for="">ファイル種別：</label>
+				<div class="form-group-add">
+					<label for="">ファイル種別</label>
 					<input type="text" required>
 				</div>
-				<div class="form-group">
-					<label for="">備考：</label>
+				<div class="form-group-add">
+					<label for="">備考</label>
 					<textarea name="" id="" cols="30" rows="10" required>
 					</textarea>
+				</div>
+				
+				<div class="form-group-add form-btn">
+					<button type="submit" class="login-btn">登録</button>
 				</div>
 			</fieldset>
 		</form>

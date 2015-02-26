@@ -39,6 +39,32 @@ legend {
 	height: 55px;
 }
 
+.form-group-add {
+	width: 522px;
+	margin: 0 auto 28px;
+}
+
+.form-group-add:last-child {
+	width: 522px;
+	margin: 0 auto;
+}
+
+.form-group-add label {
+	display: block;
+	font-size: 16px;
+}
+
+.form-group-add input {
+	display: block;
+	width: 522px;
+	height: 25px;
+}
+
+.form-group-add textarea {
+	width: 522px;
+	height: 50px;
+}
+
 /* ログインボタンだけ真ん中にする */
 .form-btn {
 	text-align: center;
