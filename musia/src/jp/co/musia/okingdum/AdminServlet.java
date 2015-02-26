@@ -85,18 +85,32 @@ public class AdminServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		Validator val = new Validator();
+		String dispPage = "/view/admin/index.jsp";
 		String requestUri = request.getRequestURI();
 		
 		switch( requestUri ) {
-		case "/login_admin":
+		
+		// ログイン処理
+		case "/musia/login_admin":
 			if( AdminAuth.loginAuth(request) ) {
 				response.sendRedirect(request.getContextPath() + "/musia/admin/top");
-			} else {	
+				return;
+			} else {
+				dispPage = "/view/admin/index.jsp";
 				request.setAttribute("msg", AdminAuth.getErrMsg() );
-				request.getRequestDispatcher( "/view/admin/index.jsp" ).forward(request, response);
+			}
+			break;
+		// 商品投稿
+		case "/musia/admin/song/post":
+			if(val.getPostMusicValidation(request)) {
+				
+			} else {
+				dispPage = "/view/admin/song/post/index.jsp";
+				request.setAttribute("msg", val.getErrMsg() );
 			}
 			break;
 		}
+		request.getRequestDispatcher( dispPage ).forward(request, response);
 	}
 
 }
