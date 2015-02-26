@@ -1,11 +1,16 @@
 package jp.co.musia.okingdum;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import jp.co.musia.okingdum.Utils.*;
+import jp.co.musia.okingdum.dao.*;
+import jp.co.musia.okingdum.Bean.*;
+
 
 /**
  * Servlet implementation class MusiaServlet
@@ -111,6 +116,101 @@ public class MusiaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		String dispPage = "";
+		String url = request.getRequestURI();
+		Validator validator = new Validator();
+		
+		
+		switch(url){
+		
+		case "/musia/login_user":					//ユーザログイン
+			
+			if(validator.getLoginValidation(request)){
+				Auth.loginAuth(request);
+				dispPage = "/view/signup_listener/index.jsp";
+			}
+			else{
+				response.sendRedirect(request.getContextPath());
+				return;
+			}
+			
+			
+			break;
+			
+		case "/musia/option/credit":				//クレジット追加
+			
+			if(validator.getCreditAddValidation(request)){
+				CreditCardDao credao = new CreditCardDao();
+				credao.insertCreditCard(
+						new CreditCardBean(
+								request.getParameter("credit_id"),
+								Integer.parseInt(request.getParameter("card_number")),
+								request.getParameter("limit_date"),
+								request.getParameter("card_company"),
+								Integer.parseInt("sec_cord"),
+								request.getParameter("card_persons")
+								)
+						);
+				
+				dispPage = "/view/option/credit/index.jsp";
+			}
+			else{
+				response.sendRedirect(request.getContextPath());
+				return;
+			}
+			
+			break;
+			
+		case "/musia/listener_signup":				//ユーザ登録
+			
+			if(validator.getCreateUserValidation(request)){
+				UserDao udao = new UserDao();
+				UsersBean user = new UsersBean();
+				
+				user.setEmail( request.getParameter("email") );
+				user.setUser_name( request.getParameter("name") );
+				user.setPassword( request.getParameter("password") );
+				user.setSex( Integer.parseInt( 
+						request.getParameter("sex") ) );
+				user.setBirthday( request.getParameter("birthday") );
+				
+				udao.insertUser( user);
+				
+			}
+			else{
+				response.sendRedirect(request.getContextPath());
+				return;
+			}
+			
+			
+			break;
+			
+		case "/musia/artist_signup":				//アーティスト登録(銀行口座登録)
+			
+			if(validator.getBankAddValidation(request)){
+				UserDao udao = new UserDao();
+				UsersBean user = new UsersBean();
+				user.setBank_number(Integer.parseInt( 
+						request.getParameter("bank_number")));
+				user.setBank_persons("bank_persons");
+				user.setBranch_code(Integer.parseInt( 
+						request.getParameter("bank_code")));
+				user.setBank_name("bank_name");
+				
+				udao.insertUser(user);		
+				
+			}
+			else{
+				response.sendRedirect(request.getContextPath());
+				return;
+			}
+			
+			
+			
+			break;
+		
+		}
 	}
 
 }
