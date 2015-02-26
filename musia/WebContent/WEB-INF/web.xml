@@ -86,6 +86,30 @@
     <servlet-name>MusiaServlet</servlet-name>
     <url-pattern>/cart/download</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/artist_signup</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/release</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/release/song</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/contest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/contest/song</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/help</url-pattern>
+  </servlet-mapping>
   
   <!-- End Servlet Class -->
 </web-app>
