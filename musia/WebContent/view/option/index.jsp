@@ -2,7 +2,9 @@
   pageEncoding="UTF-8"%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="オプション | MUSIA" name="siteTitle" />
-  <jsp:param value="" name="resetCss" />
+  <jsp:param value="${pageContext.request.contextPath}/css/vendor/reset.css" name="resetCss" />
+  <jsp:param value="${pageContext.request.contextPath}/css/template/template.css" name="templateCss"/>
+  <jsp:param value="${pageContext.request.contextPath}/css/option.css" name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
