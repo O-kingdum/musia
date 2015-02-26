@@ -6,12 +6,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${param.siteTitle}</title>
 <link rel="stylesheet" type="text/css" href="${param.resetCss}">
+<link rel="stylesheet" type="text/css" href="${param.templateCss}">
+<link rel="stylesheet" type="text/css" href="${param.mainCss}">
 </head>
 <body>
   <div class="wrapper">
-    <jsp:include page="../template/header.jsp" />
+    <!-- <jsp:include page="../template/header.jsp" /> -->
     <main class="main">${param.pageContents}</main>
-    <jsp:include page="../template/footer.jsp" />
+    <!-- <jsp:include page="../template/footer.jsp" /> -->
   </div>
 </body>
 </html>

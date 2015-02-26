@@ -38,9 +38,11 @@
     <servlet-name>MusiaServlet</servlet-name>
     <servlet-class>jp.co.musia.okingdum.MusiaServlet</servlet-class>
   </servlet>
+  <!-- 
   <servlet-mapping>
     <servlet-name>MusiaServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  -->
   <!-- End Servlet Class -->
 </web-app>
