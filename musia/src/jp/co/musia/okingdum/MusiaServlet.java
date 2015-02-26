@@ -39,7 +39,7 @@ public class MusiaServlet extends HttpServlet {
 		{
 			dispPage = "/view/signup_listener/index.jsp";
 		}
-		else if ("/option/".equals(request.getRequestURI()))	// マイページ
+		else if ("/option".equals(request.getRequestURI()))	// マイページ
 		{
 			dispPage = "/view/option/index.jsp";	
 		}
