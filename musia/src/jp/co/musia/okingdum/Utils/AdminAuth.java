@@ -1,10 +1,10 @@
 package jp.co.musia.okingdum.Utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 
 import jp.co.musia.okingdum.Bean.AdminBean;
 import jp.co.musia.okingdum.dao.AdminDao;
@@ -16,6 +16,7 @@ import jp.co.musia.okingdum.dao.AdminDao;
  */
 public class AdminAuth {
 
+	private static ArrayList<String> errmsg;
 	/**
 	 * loginAuthメソッド: ログイン処理
 	 * 
@@ -30,7 +31,7 @@ public class AdminAuth {
 		Validator val = new Validator();
 		ArrayList<AdminBean> array;
 		
-		if( val.getLoginValidation(request) ) {	// バリデーションクリア
+		if( val.getAdminLoginValidation(request) ) {	// バリデーションクリア
 			
 			admin.setAdmin_id( request.getParameter("email") );
 			admin.setAdmin_password( request.getParameter("password") );
@@ -41,10 +42,11 @@ public class AdminAuth {
 				
 				setAuth( request, true );
 				session = request.getSession();
-				session.setAttribute("user", ((AdminBean)array.get(0)) );
-				
+				session.setAttribute("admin", ((AdminBean)array.get(0)) );
 				// ログイン成功
 				return true;
+			} else {
+				setErrMsg(val.getErrMsg());
 			}
 		}
 		// ログイン失敗
@@ -84,7 +86,6 @@ public class AdminAuth {
 		
 		return login;
 	}
-	
 	/**
 	 * logoutAuthメソッド: ログアウト処理
 	 * 
@@ -97,5 +98,19 @@ public class AdminAuth {
 		session.invalidate();
 		
 		return;
+	}
+	/**
+	 * setErrMsgメソッド
+	 * @param array ArrayList<String>
+	 */
+	private static void setErrMsg(ArrayList<String> array) {
+		errmsg = array;
+	}
+	/**
+	 * getErrMsgメソッド
+	 * @return ArrayList<String>
+	 */
+	public static ArrayList<String> getErrMsg() {
+		return errmsg;
 	}
 }

@@ -17,6 +17,7 @@ import jp.co.musia.okingdum.dao.UserDao;
 public class Auth {
 
 	private static HttpSession session;
+	private static ArrayList<String> errmsg;
 	
 	/**
 	 * setAuthメソッド: ログイン状態セット
@@ -95,5 +96,19 @@ public class Auth {
 		session.invalidate();
 		
 		return;
+	}
+	/**
+	 * setErrMsgメソッド
+	 * @param array ArrayList<String>
+	 */
+	private static void setErrMsg(ArrayList<String> array) {
+		errmsg = array;
+	}
+	/**
+	 * getErrMsgメソッド
+	 * @return ArrayList<String>
+	 */
+	public static ArrayList<String> getErrMsg() {
+		return errmsg;
 	}
 }
