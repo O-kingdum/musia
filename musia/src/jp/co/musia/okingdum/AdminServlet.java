@@ -75,7 +75,13 @@ public class AdminServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+		String requestUri = request.getRequestURI();
 		
+		switch( requestUri ) {
+		case "/login_admin":
+			break;
+		}
 	}
 
 }
