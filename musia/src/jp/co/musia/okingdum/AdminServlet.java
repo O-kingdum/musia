@@ -66,6 +66,10 @@ public class AdminServlet extends HttpServlet {
 		case "/musia/admin/contest/review":
 			dispPage = "/view/admin/contest/review/index.jsp";
 			break;
+		// ログアウト
+		case "/musia/admin/logout":
+			response.sendRedirect( request.getContextPath() );
+			return;
 		}
 		request.getRequestDispatcher(dispPage).forward(request, response);
 	}
