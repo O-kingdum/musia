@@ -10,7 +10,7 @@
       <article class="article">
         <h2 class="article-title">MUSIA - ログイン</h2>
         <div class="article-content">
-          <form action="#" method="post">
+          <form action="/login_user" method="post">
             <fieldset>
               <legend>ログイン情報</legend>
               <table>
@@ -36,11 +36,14 @@
               </table>
             </fieldset>
             <p class="form-checkbox">
-              <input id="memory" type="checkbox" name="#">
+              <input id="memory" type="checkbox" name="memory">
               <label for="memory">メールアドレスを記憶する</label>
             </p>
             <p class="form-submit">
               <input type="submit" name="#" value="ログイン">
+            </p>
+            <p class="form-back">
+              <input type="button" value="戻る" onClick="history.back()">
             </p>
           </form>
         </div>
