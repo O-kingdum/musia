@@ -2,6 +2,7 @@ package jp.co.musia.okingdum;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import jp.co.musia.okingdum.Bean.ProductsBean;
 import jp.co.musia.okingdum.Utils.AdminAuth;
+import jp.co.musia.okingdum.Utils.FileFactory;
 import jp.co.musia.okingdum.Utils.Validator;
 import jp.co.musia.okingdum.dao.ProductsDao;
 
@@ -87,6 +89,8 @@ public class AdminServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		Validator val = new Validator();
+		ServletContext context = getServletContext();
+		String path = "";
 		String dispPage = "/view/admin/index.jsp";
 		String requestUri = request.getRequestURI();
 		
@@ -105,9 +109,21 @@ public class AdminServlet extends HttpServlet {
 			break;
 		// 商品投稿
 		case "/musia/admin/song/post":
-			if(val.getPostMusicValidation(request)) {
+			if( val.getPostMusicValidation(request) ) {
 				
 				ProductsDao productsdao = new ProductsDao();
+				FileFactory factory = new FileFactory();
+				path = context.getRealPath("/WEB-INF/music_file/H");
+				
+				if( factory.saveFileFacotry(request, path) ) {
+					
+					ProductsBean products = factory.getProducts();
+					
+					products.setUser_id( "H00001" );
+					products.setProduct_admin_id( "" );
+					
+					productsdao.insertProducts( products );
+				}
 				/*
 				productsdao.insertProducts(
 						new ProductsBean(

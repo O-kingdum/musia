@@ -13,6 +13,35 @@ import jp.co.musia.okingdum.Bean.TagBean;
  */
 public class GenreDao extends Dao {
 
+	public String getNextId() {
+		
+		String sql = "SELECT count(*) from t_genre;";
+		String id_str = "";
+		
+		try {
+			// コネクション生成
+			this.getConnection();
+			// ステートメント作成
+			st = this.con.createStatement();
+			// クエリ発行
+			rs = st.executeQuery(sql);
+			
+			if( rs.next() ) {
+				id_str = String.valueOf( rs.getInt("count(*)") + 1 );
+				
+				for( int i = id_str.length() ; i <= 5; i++ ) {
+					id_str = "0" + id_str;
+				}
+				id_str = "GE" + id_str;
+			}
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.close();
+		}
+		return id_str;
+	}
 	/**
 	 * insertGenreメソッド
 	 * 
