@@ -30,7 +30,7 @@
                   </th>
                   <td class="form-data">
                     <textarea id="comment" type="text" name="comment"
-                      autofocus="" required>コメント内容を、入力してください。</textarea>
+                      autofocus="" required></textarea>
                   </td>
                 </tr>
                 <tr>
@@ -52,11 +52,11 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="course_number">講座番号</label>
+                    <label for="account_number">口座番号</label>
                   </th>
                   <td class="form-data">
-                    <input id="course_number" type="text"
-                    name="course_number" autofocus="" required>
+                    <input id="account_number" type="text"
+                    name="account_number" autofocus="" required>
                   </td>
                 </tr>
                 <tr>
@@ -70,11 +70,11 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="course_name">講座名義</label>
+                    <label for="account_name">口座名義</label>
                   </th>
                   <td class="form-data">
-                    <input id="course_name" type="text"
-                    name="course_name" autofocus="" required>
+                    <input id="account_name" type="text"
+                    name="account_name" autofocus="" required>
                   </td>
                 </tr>
               </table>
