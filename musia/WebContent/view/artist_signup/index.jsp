@@ -10,7 +10,7 @@
       <article class="article">
         <h2 class="article-title">アーティスト登録</h2>
         <div class="article-content">
-          <form action="#" method="post">
+          <form action="/artist" method="post">
             <fieldset>
               <legend>アーティスト登録情報</legend>
               <table>

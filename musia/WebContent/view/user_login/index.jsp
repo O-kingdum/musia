@@ -2,9 +2,14 @@
   pageEncoding="UTF-8"%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="ログイン | MUSIA" name="siteTitle" />
-  <jsp:param value="${pageContext.request.contextPath}/css/vendor/reset.css" name="resetCss" />
-  <jsp:param value="${pageContext.request.contextPath}/css/template/template.css" name="templateCss"/>
-  <jsp:param value="${pageContext.request.contextPath}/css/login.css" name="mainCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/vendor/reset.css"
+    name="resetCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/template/template.css"
+    name="templateCss" />
+  <jsp:param value="${pageContext.request.contextPath}/css/user_login.css"
+    name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
@@ -42,10 +47,10 @@
             <p class="form-submit">
               <input type="submit" name="#" value="ログイン">
             </p>
-            <p class="form-back">
-              <input type="button" value="戻る" onClick="history.back()">
-            </p>
           </form>
+          <p class="page-back">
+            <input type="button" value="戻る" onClick="history.back()">
+          </p>
         </div>
       </article>
     </jsp:attribute>

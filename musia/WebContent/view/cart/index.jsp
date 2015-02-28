@@ -9,7 +9,7 @@
   <jsp:param
     value="${pageContext.request.contextPath}/css/template/template.css"
     name="templateCss" />
-  <jsp:param value="${pageContext.request.contextPath}/css/credit.css"
+  <jsp:param value="${pageContext.request.contextPath}/css/cart.css"
     name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
@@ -30,7 +30,7 @@
                   <th>アーティスト名</th>
                   <th>価格</th>
                   <th>ジャンル</th>
-                  <th>ダウンロード</th>
+                  <th>購入</th>
                 </tr>
               </thead>
               <tbody>
@@ -39,12 +39,11 @@
               %>
                 <tr>
                   <td></td>
-                  <td><a href=""></a></td>
-                  <td><a href=""></a></td>
                   <td></td>
                   <td></td>
-                  <td><input id="download" type="checkbox"
-                    name="download"></td>
+                  <td></td>
+                  <td></td>
+                  <td><input id="buy" type="checkbox" name="buy"></td>
                 </tr>
               <%
                 }
@@ -59,7 +58,7 @@
               }
             %>
             <p class="form-submit">
-              <input type="submit" name="all" value="一括購入">
+              <input type="submit" name="all" value="購入">
             </p>
             <p class="form-back">
               <input type="button" value="戻る" onClick="history.back()">
