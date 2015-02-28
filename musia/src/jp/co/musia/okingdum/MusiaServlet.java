@@ -34,75 +34,75 @@ public class MusiaServlet extends HttpServlet {
 		
 		String dispPage = "/view/index.jsp";
 		
-		if ("/listener_signup".equals(request.getRequestURI()))// ユーザ登録
+		if ("/musia/listener_signup".equals(request.getRequestURI()))// ユーザ登録
 		{
-			dispPage = "/view/signup_listener/index.jsp";
+			dispPage = "/view/listener_signup/index.jsp";
 		}
-		else if ("/option/".equals(request.getRequestURI()))	// マイページ
+		else if ("/musia/option".equals(request.getRequestURI()))	// マイページ
 		{
 			dispPage = "/view/option/index.jsp";	
 		}
-		else if ("/option/history".equals(request.getRequestURI()))	// 購入履歴
+		else if ("/musia/option/history".equals(request.getRequestURI()))	// 購入履歴
 		{
 			dispPage = "/view/option/history/index.jsp";
 		}
-		else if ("/option/listener".equals(request.getRequestURI()))	// リスナー情報
+		else if ("/musia/option/listener".equals(request.getRequestURI()))	// リスナー情報
 		{
 			dispPage = "/view/option/listener/index.jsp";
 		}
-		else if ("/option/artist".equals(request.getRequestURI()))	// アーティスト情報
+		else if ("/musia/option/artist".equals(request.getRequestURI()))	// アーティスト情報
 		{
 			dispPage = "/view/option/artist/index.jsp";	
 		}
-		else if ("/option/credit".equals(request.getRequestURI()))	// クレジットカード情報
+		else if ("/musia/option/credit".equals(request.getRequestURI()))	// クレジットカード情報
 		{
 			dispPage = "/view/option/credit/index.jsp";			
 		}
-		else if ("/option/point".equals(request.getRequestURI()))	// ポイント購入
+		else if ("/musia/option/point".equals(request.getRequestURI()))	// ポイント購入
 		{
 			dispPage = "/view/option/point/index.jsp";			
 		}
-		else if ("/login_user".equals(request.getRequestURI()))	// ユーザログイン
+		else if ("/musia/login_user".equals(request.getRequestURI()))	// ユーザログイン
 		{
 			dispPage = "/view/login_user/index.jsp";
 		}
-		else if ("/option/list".equals(request.getRequestURI()))		// ほしいものリスト
+		else if ("/musia/option/list".equals(request.getRequestURI()))		// ほしいものリスト
 		{
 			dispPage = "/view/option/list/index.jsp";
 		}
-		else if ("/cart".equals(request.getRequestURI()))		// カート
+		else if ("/musia/cart".equals(request.getRequestURI()))		// カート
 		{
 			dispPage = "/view/cart/index.jsp";
 		}
-		else if ("/cart/select".equals(request.getRequestURI()))		// お支払選択
+		else if ("/musia/cart/select".equals(request.getRequestURI()))		// お支払選択
 		{
 			dispPage = "/view/cart/select/index.jsp";
 		}
-		else if ("/cart/download".equals(request.getRequestURI()))		// ダウンロード
+		else if ("/musia/cart/download".equals(request.getRequestURI()))		// ダウンロード
 		{
 			dispPage = "/view/cart/download/index.jsp";	
 		}
-		else if ("/artist_signup".equals(request.getRequestURI()))		// アーティスト登録
+		else if ("/musia/artist_signup".equals(request.getRequestURI()))		// アーティスト登録
 		{
 			dispPage = "/view/artist_signup/index.jsp";
 		}
-		else if ("/release".equals(request.getRequestURI()))		// リリース
+		else if ("/musia/release".equals(request.getRequestURI()))		// リリース
 		{
 			dispPage = "/view/release/index.jsp";
 		}
-		else if ("/release/song".equals(request.getRequestURI()))		// リリース登録
+		else if ("/musia/release/song".equals(request.getRequestURI()))		// リリース登録
 		{
 			dispPage = "/view/release/song/index.jsp";	
 		}
-		else if ("/contest".equals(request.getRequestURI()))		// コンテスト
+		else if ("/musia/contest".equals(request.getRequestURI()))		// コンテスト
 		{
 			dispPage = "/view/contest/index.jsp";
 		}
-		else if ("/contest/song".equals(request.getRequestURI()))		// コンテスト登録
+		else if ("/musia/contest/song".equals(request.getRequestURI()))		// コンテスト登録
 		{
 			dispPage = "/view/contest/song/index.jsp";
 		}
-		else if ("/help".equals(request.getRequestURI()))		// 注文情報変更ページ
+		else if ("/musia/help".equals(request.getRequestURI()))		// 注文情報変更ページ
 		{
 			dispPage = "/view/help/index.jsp";
 		}
