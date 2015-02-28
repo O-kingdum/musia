@@ -343,7 +343,12 @@ public class Validator {
 		this.val = true;
 		
 		String product_name = request.getParameter("product_name");
+		String artist_name = request.getParameter("artist_name");
 		String price = request.getParameter("price");
+		String product_details = request.getParameter("product_details");
+		String genre_id = request.getParameter("genre_id");
+		String measure = request.getParameter("measure");
+		String remarks = request.getParameter("remarks");
 		
 		/* product_name validation */
 		if(StringUtils.isEmpty(product_name)) {
@@ -354,6 +359,51 @@ public class Validator {
 				this.val = false;
 				errmsg.add("楽曲名は20文字以内で入力してください。");
 			}
+		}
+		/* artist_name validation */
+		if(StringUtils.isEmpty(artist_name)) {
+			this.val = false;
+			errmsg.add("アーティスト名を入力してください。");
+		} else {
+			if(artist_name.length() > 20) {
+				this.val = false;
+				errmsg.add("アーティスト名は20文字以内で入力してください。");
+			}
+		}
+		/* product_details validation */
+		if(StringUtils.isEmpty(product_details)) {
+			this.val = false;
+			errmsg.add("商品詳細を入力してください。");
+		} else {
+			if(product_details.length() > 255) {
+				this.val = false;
+				errmsg.add("商品詳細は255文字以内で入力してください。");
+			}
+		}
+		/* genre_id validation */
+		if(StringUtils.isEmpty(genre_id)) {
+			this.val = false;
+			errmsg.add("ジャンルを選択してください。");
+		} else {
+			if(!genre_id.matches("[GE][0-9]{5}")) {
+				this.val = false;
+				errmsg.add("ジャンルの値が不正です。");
+			}
+		}
+		/* measure validation */
+		if(StringUtils.isEmpty(measure)) {
+			this.val = false;
+			errmsg.add("曲尺を入力してください。");
+		} else {
+			if(!measure.matches("")) {
+				this.val = false;
+				errmsg.add("曲尺の値が不正です。");
+			}
+		}
+		/* remarks validation */
+		if(!StringUtils.isEmpty(remarks) && remarks.length() > 255) {
+			this.val = false;
+			errmsg.add("備考は255文字以内で入力してください。");
 		}
 		/* price validation */
 		if(StringUtils.isEmpty(price)) {
