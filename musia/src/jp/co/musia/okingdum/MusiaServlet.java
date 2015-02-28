@@ -138,7 +138,7 @@ public class MusiaServlet extends HttpServlet {
 			
 			break;
 			
-		case "/musia/option/credit":				//クレジット追加
+		case "/musia/option/credit":				//クレジット追加(クレジットカード情報)
 			
 			if(validator.getCreditAddValidation(request)){
 				CreditCardDao credao = new CreditCardDao();
@@ -206,10 +206,68 @@ public class MusiaServlet extends HttpServlet {
 				return;
 			}
 			
+			break;
+			
+			
+		case "/musia/contest/song":					//コンテスト登録
 			
 			
 			break;
-		
+			
+			
+			
+		case "/musia/release/song":					//リリース登録(商品登録)
+			if(validator.getPostMusicValidation(request)){
+				
+			}
+			else{
+				response.sendRedirect(request.getContextPath());
+				return;
+			}
+			
+		case "/musia/option/":						//マイページ
+			
+			break;
+			
+		case "/musia/option/history":				//購入履歴
+			
+			break;
+			
+		case "/musia/option/artist":				//アーティスト情報
+			
+			break;	
+			
+		case "/musia/option/point":					//ポイント購入
+			
+			break;
+			
+		case "/musia/option/list":					//欲しいものリスト
+			
+			break;
+			
+		case "/musia/cart":							//カート
+			
+			break;
+			
+		case "/musia/cart/select":					//お支払選択
+			
+			break;
+			
+		case "/musia/cart/download":				//ダウンロード
+			
+			break;
+			
+		case "/musia/release":						//リリース
+			
+			break;
+			
+		case "/musia/contest":						//コンテスト
+			
+			break;
+			
+		case "/musia/help":							//注文情報変更ページ
+			
+			break;
 		}
 	}
 
