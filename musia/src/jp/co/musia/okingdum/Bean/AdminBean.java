@@ -5,6 +5,13 @@ public class AdminBean {
 	private String admin_id;
 	private String admin_password;
 
+	public AdminBean(){}
+	
+	public AdminBean(String admin_id, String admin_password) {
+		this.admin_id = admin_id;
+		this.admin_password = admin_password;
+	}
+
 	public String getAdmin_id() {
 		return admin_id;
 	}

@@ -1,24 +1,57 @@
 package jp.co.musia.okingdum.Utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import jp.co.musia.okingdum.Bean.UsersBean;
-import jp.co.musia.okingdum.dao.UserDao;
+
+import jp.co.musia.okingdum.Bean.AdminBean;
+import jp.co.musia.okingdum.dao.AdminDao;
 
 /**
  * 
  * @author watanabe.yuta
  *
  */
-public class Auth {
+public class AdminAuth {
 
-	private static HttpSession session;
 	private static ArrayList<String> errmsg;
-	
+	/**
+	 * loginAuthメソッド: ログイン処理
+	 * 
+	 * @param request: 入力（メールアドレス,パスワード）
+	 * @return boolean: true:ログイン	false:ログイン失敗
+	 */
+	public static boolean loginAuth(HttpServletRequest request) {
+		
+		HttpSession session;
+		AdminBean admin = new AdminBean();
+		AdminDao dao = new AdminDao();
+		Validator val = new Validator();
+		ArrayList<AdminBean> array;
+		
+		if( val.getAdminLoginValidation(request) ) {	// バリデーションクリア
+			
+			admin.setAdmin_id( request.getParameter("email") );
+			admin.setAdmin_password( request.getParameter("password") );
+			
+			array = dao.selectAdmin( admin );
+			
+			if( array != null && !array.isEmpty() ) { // ユーザが存在している
+				
+				setAuth( request, true );
+				session = request.getSession();
+				session.setAttribute("admin", ((AdminBean)array.get(0)) );
+				// ログイン成功
+				return true;
+			} else {
+				setErrMsg(val.getErrMsg());
+			}
+		}
+		// ログイン失敗
+		return false;
+	}
 	/**
 	 * setAuthメソッド: ログイン状態セット
 	 * 
@@ -26,6 +59,7 @@ public class Auth {
 	 */
 	private static void setAuth(HttpServletRequest request, boolean accept) {
 		
+		HttpSession session;
 		// セッション取得
 		session = request.getSession();
 		
@@ -36,7 +70,6 @@ public class Auth {
 		}
 		return;
 	}
-	
 	/**
 	 * checkAuthメソッド: ログイン状態取得
 	 * 
@@ -44,6 +77,7 @@ public class Auth {
 	 */
 	public static boolean checkAuth(HttpServletRequest request) {
 		
+		HttpSession session;
 		// セッション取得
 		session = request.getSession();
 		boolean login = (Boolean)session.getAttribute("logincheck");
@@ -51,42 +85,14 @@ public class Auth {
 		return login;
 	}
 	
-	/**
-	 * loginAuthメソッド: ログイン処理
-	 * 
-	 * @param request: 入力（メールアドレス,パスワード）
-	 * @return boolean: true:ログイン	false:ログイン失敗
-	 */
-	public static boolean loginAuth(HttpServletRequest request) {
+	public static AdminBean getAuthAdmin(HttpServletRequest request) {
+
+		HttpSession session;
+		session = request.getSession();
+		AdminBean admin = (AdminBean)session.getAttribute("admin");
 		
-		UsersBean user = new UsersBean();
-		UserDao dao = new UserDao();
-		Validator val = new Validator();
-		ArrayList<Object> array;
-		
-		if( val.getLoginValidation(request) ) {	// バリデーションクリア
-			
-			user.setEmail(request.getParameter("email"));
-			user.setPassword(request.getParameter("password"));
-			
-			array = dao.selectUser(new ArrayList<Object>(Arrays.asList(user)));
-			
-			if( array != null && !array.isEmpty() ) { // ユーザが存在している
-				
-				setAuth( request, true );
-				session = request.getSession();
-				session.setAttribute("user", ((UsersBean)array.get(0)) );
-				
-				// ログイン成功
-				return true;
-			} else {
-				setErrMsg(val.getErrMsg());
-			}
-		}
-		// ログイン失敗
-		return false;
+		return admin;
 	}
-	
 	/**
 	 * logoutAuthメソッド: ログアウト処理
 	 * 
@@ -94,6 +100,7 @@ public class Auth {
 	 */
 	public static void logoutAuth(HttpServletRequest request) {
 		
+		HttpSession session;
 		session = request.getSession();
 		session.invalidate();
 		

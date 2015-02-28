@@ -34,14 +34,27 @@ caption{
 }
 
 .form-header{
-	padding-left:25px;
+	padding-left:-10px;
+	width:135px;
 	color:white;
-	font-size:20px;
+	font-size:15px;
 	font-weight:bold;
 	font-family:Arial, sans-serif;
 }
 
-#login-email,#login-password{
+#comment{
+	border:0;
+	font-size:15px;
+	font-family:Arial, sans-serif;
+	border:solid 1px #ccc;
+	width:300px;
+	/*角丸*/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#account_number,#branch_number,#account_name{
 	border:0;
 	font-size:20px;
 	font-family:Arial, sans-serif;
@@ -53,28 +66,21 @@ caption{
 	border-radius: 3px;
 }
 
-input{
+input,textarea{
 	background-color:rgba(255,255,255,0.05);
 }
 
-input:focus{
+input:focus,textarea:focus{
 	background:rgba(255,255,255,0.85);
 }
 
 .form-data{
-	padding:10px;
-}
-
-.form-checkbox{
-	text-align:center;
-	margin-top:30px;
-	margin-right:15px;
-	color:white;
+	padding:5px;
 }
 
 .form-submit{
 	text-align:right;
-	margin:-20px 19px 20px 0;
+	margin:15px 38px 15px 0;
 }
 
 .form-submit input{

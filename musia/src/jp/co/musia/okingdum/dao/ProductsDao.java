@@ -21,6 +21,34 @@ public class ProductsDao extends Dao {
 	 */
 	public int insertProducts(ProductsBean products) {
 
+		String get_id_sql = "SELECT count(*) FROM t_products WHERE f_products_id LIKE '" + products.getProduct_id() + "%';";
+		
+		try {
+			// コネクション作成
+			this.getConnection();
+			// ステートメント作成
+			st = con.createStatement();
+			// クエリ発行
+			rs = st.executeQuery(get_id_sql);
+			
+			if(rs.next()) {
+				String id_str = String.valueOf( rs.getInt("count(*)") + 1 );
+				
+				for( int i = id_str.length() ; i <= 5; i++ ) {
+					id_str = "0" + id_str;
+				}
+				
+				id_str = products.getProduct_id() + id_str;
+				products.setProduct_id(id_str);
+			}
+			
+		} catch(SQLException e) {
+			setMsg(e.getMessage());
+		}
+		finally {
+			this.close();
+		}
+		
 		int ret = 0;
 		String sql = "INSERT INTO t_products values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,0,?,0);";
 
