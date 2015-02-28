@@ -11,11 +11,11 @@
         <h2 class="article-title">オプション</h2>
         <div class="article-content">
           <ul>
+            <li><a href="/option/history">購入履歴</a></li>
+            <li><a href="/option/point">及川ポイント購入</a></li>
             <li><a href="/option/listener">リスナー情報</a></li>
             <li><a href="/option/artist">アーティスト情報</a></li>
             <li><a href="/option/credit">クレジットカード情報</a></li>
-            <li><a href="/option/point">及川ポイント購入</a></li>
-            <li><a href="/option/history">購入履歴</a></li>
           </ul>
         </div>
       </article>

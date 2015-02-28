@@ -13,7 +13,13 @@
       <article class="article">
         <h2 class="article-title">お支払い選択</h2>
         <div class="article-content">
-          
+          <ul>
+            <li><a href="/credit">クレジットカード</a></li>
+            <li><a href="/point">及川ポイント</a></li>
+          </ul>
+          <p class="page-back">
+            <input type="button" value="戻る" onClick="history.back()">
+          </p>
         </div>
       </article>
     </jsp:attribute>
