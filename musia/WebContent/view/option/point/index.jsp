@@ -1,10 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8" import="jp.co.musia.okingdum.Bean.*,java.util.ArrayList;"%>
+  pageEncoding="UTF-8"
+  import="jp.co.musia.okingdum.Bean.*,java.util.ArrayList;"%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="及川ポイント購入 | MUSIA" name="siteTitle" />
   <jsp:param
     value="${pageContext.request.contextPath}/css/vendor/reset.css"
     name="resetCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/template/template.css"
+    name="templateCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/option_point.css"
+    name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
