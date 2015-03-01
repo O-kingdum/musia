@@ -10,7 +10,12 @@
   <jsp:param
     value="${pageContext.request.contextPath}/css/vendor/reset.css"
     name="resetCss" />
-
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/template/template.css"
+    name="templateCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/option_artist.css"
+    name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
@@ -133,7 +138,7 @@
           </form>
         </div>
         <p class="back">
-          <a href="<%= request.getContextPath() %>">戻る</a>
+          <a href="<%=request.getContextPath()%>">戻る</a>
         </p>
       </article>
     </jsp:attribute>
