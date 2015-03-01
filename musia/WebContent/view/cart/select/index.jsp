@@ -18,17 +18,31 @@
         <div class="article-content">
           <form action="" method="post">
             <fieldset>
-              <legend>カート情報</legend>
+              <legend>お支払い選択情報</legend>
               <table>
-                <caption>カート</caption>
+                <caption>お支払い選択</caption>
                 <thead>
                   <tr>
-                    
+                    <th>選択</th>
+                    <th>お支払い方法</th>
                   </tr>
                 </thead>
-            <input type="radio" name="" value="" checked="checked">
-            <input type="radio" name="" value="">
-            <input type="radio" name="" value="">
+                <tbody>
+                  <tr>
+                    <td><input type="radio" name="select" value=""
+                      checked="checked"><img
+                      src="<%=request.getContextPath()%>/img/mc.png"
+                      alt="" /></td>
+                    <td><input type="radio" name="select" value=""><img
+                      src="<%=request.getContextPath()%>/img/" alt="" /></td>
+                    <td><input type="radio" name="select" value=""><img
+                      src="<%=request.getContextPath()%>/img/" alt="" /></td>
+                    <td><input type="radio" name="select" value=""><img
+                      src="<%=request.getContextPath()%>/img/" alt="" /></td>
+                  </tr>
+                </tbody>
+              </table>
+            </fieldset>
           </form>
         </div>
         <p class="back">

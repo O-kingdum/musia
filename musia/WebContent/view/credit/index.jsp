@@ -22,7 +22,7 @@
                 <caption>クレジットカード登録</caption>
                 <tr>
                   <th class="form-header">
-                    <label for="credit-id">クレジットカードID</label>
+                    <label for="credit-id">カードID</label>
                   </th>
                   <td class="form-data">
                     <input id="credit-id" type="text" name="#"
@@ -31,7 +31,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="">クレジットカード番号</label>
+                    <label for="">カード番号</label>
                   </th>
                   <td class="form-data">
                     <input id="credit-no" type="text" name=""
@@ -40,7 +40,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="credit-date">クレジットカード有効期限</label>
+                    <label for="credit-date">カード有効期限</label>
                   </th>
                   <td class="form-data">
                     <input id="credit-date" type="" name="" autofocus="">
@@ -48,7 +48,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="credit-cname">クレジットカード会社名</label>
+                    <label for="credit-cname">カード会社名</label>
                   </th>
                   <td class="form-data">
                     <input id="credit-cname" type="text" name=""
@@ -66,7 +66,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="credit-Nominee">名義人</label>
+                    <label for="credit-Nominee">カード名義人</label>
                   </th>
                   <td class="form-data">
                     <input id="credit-Nominee" type="text" name=""
