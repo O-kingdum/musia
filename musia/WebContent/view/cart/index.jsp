@@ -20,7 +20,7 @@
               if (products != null && products.size() > 0) {
             %>
             <fieldset>
-              <legend>アーティスト登録情報</legend>
+              <legend>カート情報</legend>
               <table>
                 <caption>カート</caption>
                 <thead>
@@ -29,7 +29,7 @@
                     <th class="table-header">アーティスト名</th>
                     <th class="table-header">価格</th>
                     <th class="table-header">ジャンル</th>
-                    <th class="table-header">ダウンロード</th>
+                    <th class="table-header"><label for="buy">購入</label></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -41,8 +41,8 @@
                     <td class="table-data"><a href=""><%=user.get()%></a></td>
                     <td class="table-data"><%=user.get()%></td>
                     <td class="table-data"><%=user.get()%></td>
-                    <td class="table-data"><input id="download"
-                      type="checkbox" name="download"></td>
+                    <td class="table-data"><input id="buy"
+                      type="checkbox" name="buy"></td>
                   </tr>
                 <%
                   }
