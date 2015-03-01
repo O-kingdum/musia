@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"
   import="jp.co.musia.okingdum.Bean.*,java.util.ArrayList;"%>
+<%
+  @SuppressWarnings("unchecked")
+  ArrayList<Oikawa_PointBean> oikawa_point = (ArrayList<Oikawa_PointBean) request.getAttribute("oikawa_users");
+%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="及川ポイント購入 | MUSIA" name="siteTitle" />
   <jsp:param

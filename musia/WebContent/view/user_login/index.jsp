@@ -8,7 +8,8 @@
   <jsp:param
     value="${pageContext.request.contextPath}/css/template/template.css"
     name="templateCss" />
-  <jsp:param value="${pageContext.request.contextPath}/css/user_login.css"
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/user_login.css"
     name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
@@ -48,10 +49,10 @@
               <input type="submit" name="#" value="ログイン">
             </p>
           </form>
-          <p class="page-back">
-            <input type="button" value="戻る" onClick="history.back()">
-          </p>
         </div>
+        <p class="back">
+          <input type="button" value="戻る" onClick="history.back()">
+        </p>
       </article>
     </jsp:attribute>
   </jsp:param>

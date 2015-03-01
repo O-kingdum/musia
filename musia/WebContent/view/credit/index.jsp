@@ -78,11 +78,11 @@
             <p class="form-submit">
               <input type="submit" name="#" value="次へ">
             </p>
-            <p class="form-back">
-              <input type="button" value="戻る" onClick="history.back()">
-            </p>
           </form>
         </div>
+        <p class="back">
+          <input type="button" value="戻る" onClick="history.back()">
+        </p>
       </article>
     </jsp:attribute>
   </jsp:param>
