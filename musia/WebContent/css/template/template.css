@@ -4,3 +4,64 @@
   margin: 0 auto;
   width: 960px;
 }
+
+.header{
+	width:960px;
+	height:130px;
+	background-color:rgba(0,0,0,0.5);
+}
+
+.header-title{
+	float:left;
+	width:200px;
+	height:130px;
+	margin-left:20px;
+}
+
+.header-content{
+	float:left;
+	width:690px;
+	margin-top:8px;
+	margin-left:18px;
+	height:30px;
+	border:solid 1px white;
+}
+
+.login-stetas,.head-search{
+	float:left;
+	width:400px;
+	height:30px;
+}
+
+.head-listener_signup,.head-list{
+	float:left;
+	width:135px;
+	margin:0 5px;
+	height:30px;
+}
+
+.head-login,.head-cart{
+	float:right;
+	width:135px;
+	margin:0 5px;
+	height:30px;
+}
+
+.head-release,.head-contest,.head-help{
+	float:left;
+	width:220px;
+	margin:0 5px;
+	height:30px;
+}
+
+.footer{
+	width:960px;
+	height:100px;
+	background-color:rgba(0,0,0,0.5);
+	margin-top:8px;
+}
+
+.footer-contents-copyright{
+	text-align:center;
+	line-height:90px;
+}
