@@ -34,7 +34,6 @@ caption{
 }
 
 .form-header{
-	padding-right:5px;
 	padding-left:40px;
 	color:white;
 	font-size:16px;
@@ -60,6 +59,14 @@ input{
 
 input:focus{
 	background:rgba(255,255,255,0.85);
+}
+
+#female + label{
+	color:white;
+}
+
+#male + label{
+	color:white;
 }
 
 .form-data{

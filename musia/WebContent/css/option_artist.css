@@ -38,7 +38,7 @@ tr{
 }
 
 .form-header{
-	padding-left:75px;
+	padding-left:80px;
 	color:white;
 	font-size:16px;
 	font-weight:bold;
@@ -46,12 +46,36 @@ tr{
 	padding-top:8px;
 }
 
+#re_maru_bank + label{
+	color:white;
+	margin-left:-4px;
+	margin-right:-4px;
+}
+
+#re_batsu_bank + label{
+	color:white;
+	margin-left:-4px;
+	margin-right:-4px;
+}
+
+#re_sankaku_bank + label{
+	color:white;
+	margin-left:-4px;
+	margin-right:-4px;
+}
+
+#re_shikaku_bank + label{
+	color:white;
+	margin-left:-4px;
+	margin-right:-4px;
+}
+
 #re_account_number,#re_branch_number,#re_account_name{
 	border:0;
 	font-size:20px;
 	font-family:Arial, sans-serif;
 	border:solid 1px #ccc;
-	width:250px;
+	width:300px;
 	/*角丸*/
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -59,14 +83,22 @@ tr{
 }
 
 #re_comment{
-	width:250px;
+	border:0;
+	font-size:15px;
+	font-family:Arial, sans-serif;
+	border:solid 1px #ccc;
+	width:300px;
+	/*角丸*/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 
-input{
+input,textarea{
 	background-color:rgba(255,255,255,0.05);
 }
 
-input:focus{
+input:focus,textarea:focus{
 	background:rgba(255,255,255,0.85);
 }
 
