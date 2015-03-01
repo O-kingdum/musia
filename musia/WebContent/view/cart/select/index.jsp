@@ -6,7 +6,7 @@
   <jsp:param
     value="${pageContext.request.contextPath}/css/template/template.css"
     name="templateCss" />
-  <jsp:param value="${pageContext.request.contextPath}/css/cart_song.css"
+  <jsp:param value="${pageContext.request.contextPath}/css/cart_select.css"
     name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
