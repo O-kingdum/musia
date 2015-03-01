@@ -1,12 +1,15 @@
 package jp.co.musia.okingdum;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import jp.co.musia.okingdum.Utils.*;
 import jp.co.musia.okingdum.dao.*;
 import jp.co.musia.okingdum.Bean.*;
@@ -189,15 +192,17 @@ public class MusiaServlet extends HttpServlet {
 			
 			if(validator.getBankAddValidation(request)){
 				UserDao udao = new UserDao();
-				UsersBean user = new UsersBean();
-				user.setBank_number(Integer.parseInt( 
+				UsersBean ubean = new UsersBean();
+				ubean.setBank_number(Integer.parseInt( 
 						request.getParameter("bank_number")));
-				user.setBank_persons("bank_persons");
-				user.setBranch_code(Integer.parseInt( 
+				ubean.setBank_persons(
+						request.getParameter("bank_persons"));
+				ubean.setBranch_code(Integer.parseInt( 
 						request.getParameter("bank_code")));
-				user.setBank_name("bank_name");
+				ubean.setBank_name(
+						request.getParameter("bank_name"));
 				
-				udao.insertUser(user);		
+				udao.insertUser(ubean);		
 				
 			}
 			else{
@@ -217,6 +222,29 @@ public class MusiaServlet extends HttpServlet {
 			
 		case "/musia/release/song":					//リリース登録(商品登録)
 			if(validator.getPostMusicValidation(request)){
+				ProductsDao prodao = new ProductsDao();
+				
+				prodao.insertProducts(
+						new ProductsBean(
+								request.getParameter("credit_id"),
+								request.getParameter("user_id"),
+								request.getParameter("product_name"),
+								request.getParameter("artist_name"),
+								Integer.parseInt(request.getParameter("price")),
+								request.getParameter("product_details"),
+								request.getParameter("genre_id"),
+								request.getParameter("measure"),
+								request.getParameter("file_type"),
+								Integer.parseInt(request.getParameter("file_size")),
+								request.getParameter("directory_path"),
+								request.getParameter("img_path"),
+								request.getParameter("posted_date"),
+								request.getParameter("remarks"),
+								Integer.parseInt(request.getParameter("examination")),
+								request.getParameter("product_admin_id"),
+								Integer.parseInt(request.getParameter("delflg"))
+								)
+						);
 				
 			}
 			else{
@@ -225,7 +253,12 @@ public class MusiaServlet extends HttpServlet {
 			}
 			
 		case "/musia/option/":						//マイページ
-			
+			//マイページで必要なもの
+			//ユーザ情報表示
+			UserDao udao = new UserDao();
+			udao.selectUser(array);
+			//ポイント表示
+			//
 			break;
 			
 		case "/musia/option/history":				//購入履歴
@@ -238,6 +271,18 @@ public class MusiaServlet extends HttpServlet {
 			
 		case "/musia/option/point":					//ポイント購入
 			
+			Oikawa_PointDao oipo = new Oikawa_PointDao();
+			//ポイント数表示
+			Integer getoipo = oipo.selectOikawa_Point(array)
+			
+			//データ格納
+			oipo.insertOikawa_Point(
+					new Oikawa_PointBean(
+						request.getParameter("user_id"),
+						Integer.parseInt(request.getParameter("op")),
+						request.getParameter("op_date"),
+						Integer.parseInt(request.getParameter("op_flag"))
+					));
 			break;
 			
 		case "/musia/option/list":					//欲しいものリスト
@@ -245,11 +290,18 @@ public class MusiaServlet extends HttpServlet {
 			break;
 			
 		case "/musia/cart":							//カート
-			
+			//セッション取得
+			HttpSession session = request.getSession();
+			//オブジェクト取得
+			String cart = (String) session.getAttribute("cart");
+			//cartにセット
+			session.setAttribute("cart", cart);
 			break;
 			
 		case "/musia/cart/select":					//お支払選択
-			
+			//表示
+			CreditCardDao credao = new CreditCardDao();
+			credao.selectCreditCard(array)
 			break;
 			
 		case "/musia/cart/download":				//ダウンロード

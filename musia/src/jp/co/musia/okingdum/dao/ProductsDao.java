@@ -74,7 +74,6 @@ public class ProductsDao extends Dao {
 			ps.setString(14, products.getRemarks());
 			ps.setInt(15, products.getExamination());
 			ps.setString(16, products.getProduct_admin_id());
-			ps.setString(16, products.getProduct_admin_id());
 			ps.setInt(17, products.getDelflg());
 
 			// クエリ発行
