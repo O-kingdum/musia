@@ -34,8 +34,8 @@
               %>
                 <tr>
                   <td></td>
-                  <td><a href=""></a></td>
-                  <td><a href=""></a></td>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td></td>
                   <td><input id="download" type="checkbox"

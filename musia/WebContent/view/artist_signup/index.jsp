@@ -2,9 +2,15 @@
   pageEncoding="UTF-8"%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="アーティスト登録 | MUSIA" name="siteTitle" />
-  <jsp:param value="${pageContext.request.contextPath}/css/vendor/reset.css" name="resetCss" />
-  <jsp:param value="${pageContext.request.contextPath}/css/template/template.css" name="templateCss"/>
-  <jsp:param value="${pageContext.request.contextPath}/css/artist_signup.css" name="mainCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/vendor/reset.css"
+    name="resetCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/template/template.css"
+    name="templateCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/artist_signup.css"
+    name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
@@ -14,7 +20,7 @@
             <fieldset>
               <legend>アーティスト登録情報</legend>
               <table>
-                <caption>アーティスト登録</caption>
+                <caption>アーティスト情報登録</caption>
                 <tr>
                   <th class="form-header">
                     <label for="image">アイコン画像</label>
@@ -81,6 +87,9 @@
             </fieldset>
             <p class="form-submit">
               <input type="submit" name="#" value="次へ">
+            </p>
+            <p class="form-back">
+              <input type="button" value="戻る" onClick="history.back()">
             </p>
           </form>
         </div>

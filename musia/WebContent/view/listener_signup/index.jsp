@@ -2,9 +2,15 @@
   pageEncoding="UTF-8"%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="リスナー登録 | MUSIA" name="siteTitle" />
-  <jsp:param value="${pageContext.request.contextPath}/css/vendor/reset.css" name="resetCss" />
-  <jsp:param value="${pageContext.request.contextPath}/css/template/template.css" name="templateCss"/>
-  <jsp:param value="${pageContext.request.contextPath}/css/listener_signup.css" name="mainCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/vendor/reset.css"
+    name="resetCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/template/template.css"
+    name="templateCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/listener_signup.css"
+    name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
@@ -12,15 +18,15 @@
         <div class="article-content">
           <form action="#" method="post">
             <fieldset>
-              <legend>リスナー登録情報</legend>
+              <legend>リスナー情報登録</legend>
               <table>
-                <caption>リスナー登録</caption>
+                <caption>リスナー情報登録</caption>
                 <tr>
                   <th class="form-header">
                     <label for="name">名前</label>
                   </th>
                   <td class="form-data">
-                    <input id="name" type="text" name="lname"
+                    <input id="name" type="text" name="name"
                     autofocus="" required>
                   </td>
                 </tr>
@@ -38,7 +44,7 @@
                     <label for="password">パスワード</label>
                   </th>
                   <td class="form-data">
-                    <input id="password" type="password" name="passwd"
+                    <input id="password" type="password" name="password"
                     autofocus="" required>
                   </td>
                 </tr>
@@ -74,6 +80,9 @@
             </fieldset>
             <p class="form-submit">
               <input type="submit" name="#" value="次へ">
+            </p>
+            <p class="form-back">
+              <input type="button" value="戻る" onClick="history.back()">
             </p>
           </form>
         </div>
