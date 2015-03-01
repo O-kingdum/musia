@@ -22,9 +22,6 @@
         <h2 class="article-title">カート</h2>
         <div class="article-content">
           <form action="/cart" method="post">
-            <%
-              if (products != null && products.size() > 0) {
-            %>
             <fieldset>
               <legend>カート情報</legend>
               <table>
@@ -39,29 +36,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                <%
-                  for (ProductsBean product : products) {
-                %>
                   <tr>
-                    <td class="table-data"></td>
-                    <td class="table-data"><a href=""></a></td>
-                    <td class="table-data"></td>
-                    <td class="table-data"></td>
+                    <td class="table-data">ロック・イズ・デッド</td>
+                    <td class="table-data"><a href="">マリリン・マンソン</a></td>
+                    <td class="table-data">ロック</td>
+                    <td class="table-data">500</td>
                     <td class="table-data"><input id="buy"
                       type="checkbox" name="buy"></td>
                   </tr>
-                <%
-                  }
-                %>
                 </tbody>
               </table>
-              <%
-                } else {
-              %>
-              <p>商品が登録されていません</p>
-              <%
-                }
-              %>
               <p class="form-submit">
                 <input type="submit" name="all" value="購入">
               </p>

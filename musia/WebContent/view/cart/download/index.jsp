@@ -9,7 +9,8 @@
   <jsp:param
     value="${pageContext.request.contextPath}/css/template/template.css"
     name="templateCss" />
-  <jsp:param value="${pageContext.request.contextPath}/css/cart_download.css"
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/cart_download.css"
     name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
@@ -25,11 +26,10 @@
             <table>
               <thead>
                 <tr>
-                  <th>商品ＩＤ</th>
-                  <th>商品名</th>
-                  <th>アーティスト名</th>
-                  <th>価格</th>
+                  <th>タイトル</th>
+                  <th>アーティスト</th>
                   <th>ジャンル</th>
+                  <th>価格</th>
                   <th>ダウンロード</th>
                 </tr>
               </thead>
@@ -43,7 +43,8 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><input id="download" type="checkbox" name="download"></td>
+                  <td><input id="download" type="checkbox"
+                    name="download"></td>
                 </tr>
               <%
                 }
