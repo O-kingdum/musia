@@ -28,7 +28,7 @@
                 <caption>リスナー情報変更</caption>
                 <tr>
                   <th class="form-header">現在の名前</th>
-                  <td class="form-data"><%=user.getUser_name()%></td>
+                  <td class="form-data"></td>
                 </tr>
                 <tr>
                   <th class="form-header"><label for="re_name">新しい名前</label></th>
@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">現在のメールアドレス</th>
-                  <td class="form-data"><%=user.getEmail()%></td>
+                  <td class="form-data"></td>
                 </tr>
                 <tr>
                   <th class="form-header">新しいメールアドレス</th>
@@ -46,7 +46,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">現在のパスワード</th>
-                  <td class="form-data"><%=user.getPassword()%></td>
+                  <td class="form-data"></td>
                 </tr>
                 <tr>
                   <th class="form-header">新しいパスワード</th>
@@ -56,7 +56,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">現在の性別</th>
-                  <td class="form-data"><%=user.getSex()%></td>
+                  <td class="form-data"></td>
                 </tr>
                 <tr>
                   <th class="form-header">新しい性別</th>
@@ -71,7 +71,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">生年月日</th>
-                  <td class="form-data"><%=user.getBirthday()%></td>
+                  <td class="form-data"></td>
                 </tr>
                 <tr>
                   <th class="form-header">生年月日</th>
