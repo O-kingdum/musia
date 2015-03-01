@@ -2,9 +2,14 @@
   pageEncoding="UTF-8"%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="リリース | MUSIA" name="siteTitle" />
-  <jsp:param value="${pageContext.request.contextPath}/css/vendor/reset.css" name="resetCss" />
-  <jsp:param value="${pageContext.request.contextPath}/css/template/template.css" name="templateCss"/>
-  <jsp:param value="${pageContext.request.contextPath}/css/release.css" name="mainCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/vendor/reset.css"
+    name="resetCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/template/template.css"
+    name="templateCss" />
+  <jsp:param value="${pageContext.request.contextPath}/css/release.css"
+    name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
@@ -13,7 +18,9 @@
           
         </div>
         <p class="back">
-          <a href="<%= request.getContextPath() %>">戻る</a>
+          <a href="history.back()"><img
+            src="<%=request.getContextPath()%>/img/pageback.png"
+            alt="戻る" /></a>
         </p>
       </article>
     </jsp:attribute>

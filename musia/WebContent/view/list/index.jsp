@@ -29,7 +29,7 @@
                     <th class="table-header">アーティスト名</th>
                     <th class="table-header">価格</th>
                     <th class="table-header">ジャンル</th>
-                    <th class="table-header">ダウンロード</th>
+                    <th class="table-header"><label for="cart_add">カートに追加</label></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -41,8 +41,8 @@
                     <td class="table-data"><a href=""><%=user.get()%></a></td>
                     <td class="table-data"><%=user.get()%></td>
                     <td class="table-data"><%=user.get()%></td>
-                    <td class="table-data"><input id="download"
-                      type="checkbox" name="download"></td>
+                    <td class="table-data"><input id="cart_add"
+                      type="checkbox" name="cart_add"></td>
                   </tr>
                 <%
                   }
@@ -63,7 +63,9 @@
           </form>
         </div>
         <p class="back">
-          <input type="button" value="戻る" onClick="history.back()">
+          <a href="history.back()"><img
+            src="<%=request.getContextPath()%>/img/pageback.png"
+            alt="戻る" /></a>
         </p>
       </article>
     </jsp:attribute>

@@ -24,7 +24,9 @@
           
         </div>
         <p class="back">
-          <input type="button" value="戻る" onClick="history.back()">
+          <a href="history.back()"><img
+            src="<%=request.getContextPath()%>/img/pageback.png"
+            alt="戻る" /></a>
         </p>
       </article>
     </jsp:attribute>

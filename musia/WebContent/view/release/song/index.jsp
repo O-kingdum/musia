@@ -13,7 +13,9 @@
           
         </div>
         <p class="back">
-          <a href="<%= request.getContextPath() %>">戻る</a>
+          <a href="history.back()"><img
+            src="<%=request.getContextPath()%>/img/pageback.png"
+            alt="戻る" /></a>
         </p>
       </article>
     </jsp:attribute>
