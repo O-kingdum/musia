@@ -3,7 +3,7 @@
   import="jp.co.musia.okingdum.Bean.*,java.util.ArrayList;"%>
 <%
   @SuppressWarnings("unchecked")
-  ArrayList<CreditCardBean> credit_card = (ArrayList<CreditCardBean) request.getAttribute("credit_card");
+  ArrayList<CreditCardBean> credit_card = (ArrayList<CreditCardBean>) request.getAttribute("credit_card");
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="クレジット | MUSIA" name="siteTitle" />
@@ -24,7 +24,7 @@
           
         </div>
         <p class="back">
-          <a href="<%= request.getContextPath() %>">戻る</a>
+          <a href="<%=request.getContextPath()%>">戻る</a>
         </p>
       </article>
     </jsp:attribute>
