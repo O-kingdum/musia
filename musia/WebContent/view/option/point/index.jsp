@@ -23,6 +23,9 @@
         <div class="article-content">
           
         </div>
+        <p class="back">
+          <input type="button" value="戻る" onClick="history.back()">
+        </p>
       </article>
     </jsp:attribute>
   </jsp:param>

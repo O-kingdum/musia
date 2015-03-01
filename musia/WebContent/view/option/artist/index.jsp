@@ -10,7 +10,7 @@
   <jsp:param
     value="${pageContext.request.contextPath}/css/vendor/reset.css"
     name="resetCss" />
-  
+
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
@@ -51,8 +51,8 @@
                     <label for="re_comment">新しいコメント内容</label>
                   </th>
                   <td class="form-data">
-                    <textarea id="re_comment" type="text" name="re_comment"
-                      autofocus="" required></textarea>
+                    <textarea id="re_comment" type="text"
+                      name="re_comment" autofocus="" required></textarea>
                   </td>
                 </tr>
                 <tr>
@@ -65,14 +65,14 @@
                     <input id="re_maru_bank" type="radio" name="re_bank"
                     value="maru_bank" checked="checked">
                     <label for="re_maru_bank">マル銀行</label>
-                    <input id="re_batsu_bank" type="radio" name="re_bank"
-                    value="batsu_bank">
+                    <input id="re_batsu_bank" type="radio"
+                    name="re_bank" value="batsu_bank">
                     <label for="re_batsu_bank">バツ銀行</label>
-                    <input id="re_sankaku_bank" type="radio" name="re_bank"
-                    value="sankaku_bank">
+                    <input id="re_sankaku_bank" type="radio"
+                    name="re_bank" value="sankaku_bank">
                     <label for="re_sankaku_bank">サンカク銀行</label>
-                    <input id="re_shikaku_bank" type="radio" name="re_bank"
-                    value="shikaku_bank">
+                    <input id="re_shikaku_bank" type="radio"
+                    name="re_bank" value="shikaku_bank">
                     <label for="re_shikaku_bank">シカク銀行</label>
                   </td>
                 </tr>
@@ -126,15 +126,15 @@
             <p class="form-submit">
               <input type="submit" name="#" value="次へ">
             </p>
-            <p class="form-back">
-              <input type="button" value="戻る" onClick="history.back()">
-            </p>
             <%
               }
               }
             %>
           </form>
         </div>
+        <p class="back">
+          <a href="<%= request.getContextPath() %>">戻る</a>
+        </p>
       </article>
     </jsp:attribute>
   </jsp:param>

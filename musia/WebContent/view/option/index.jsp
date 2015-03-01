@@ -18,6 +18,9 @@
             <li><a href="/option/credit">クレジットカード情報</a></li>
           </ul>
         </div>
+        <p class="back">
+          <a href="<%= request.getContextPath() %>">戻る</a>
+        </p>
       </article>
     </jsp:attribute>
   </jsp:param>

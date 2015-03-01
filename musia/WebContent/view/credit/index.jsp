@@ -81,7 +81,7 @@
           </form>
         </div>
         <p class="back">
-          <input type="button" value="戻る" onClick="history.back()">
+          <a href="<%= request.getContextPath() %>">戻る</a>
         </p>
       </article>
     </jsp:attribute>

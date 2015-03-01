@@ -17,10 +17,10 @@
             <li><a href="/credit">クレジットカード</a></li>
             <li><a href="/point">及川ポイント</a></li>
           </ul>
-          <p class="page-back">
-            <input type="button" value="戻る" onClick="history.back()">
-          </p>
         </div>
+        <p class="back">
+          <a href="<%= request.getContextPath() %>">戻る</a>
+        </p>
       </article>
     </jsp:attribute>
   </jsp:param>

@@ -18,6 +18,9 @@
         <div class="article-content">
           
         </div>
+        <p class="back">
+          <a href="<%= request.getContextPath() %>">戻る</a>
+        </p>
       </article>
     </jsp:attribute>
   </jsp:param>
