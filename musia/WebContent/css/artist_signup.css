@@ -88,12 +88,6 @@ input:focus,textarea:focus{
 	padding:3px 5px 3px 5px;
 }
 
-.form-back{
-	text-align:right;
-	margin:15px 38px 17px 0;
-}
-
-.form-back input{
-	color:white;
-	padding:3px 6px 3px 6px;
+.back{
+	text-align:center;
 }

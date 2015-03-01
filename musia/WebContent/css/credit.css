@@ -1,1 +1,85 @@
 @CHARSET "UTF-8";
+
+body{
+	background: url(../img/background.jpg) no-repeat center;
+	background-size: cover;
+}
+
+.article{
+	width:480px;
+	margin:0 auto;
+	margin-top:40px;
+}
+
+.article-title{
+	font-size:35px;
+	color:#fff;
+}
+
+.article-content{
+	border-top:double 5px #fff;
+	border-bottom:double 5px #fff;
+}
+
+table{
+	margin-top:30px;
+}
+
+legend{
+	display:none;
+}
+
+caption{
+	display:none;
+}
+
+.form-header{
+	padding-right:5px;
+	padding-left:15px;
+	color:white;
+	font-size:16px;
+	font-weight:bold;
+	font-family:Arial, sans-serif;
+}
+
+#credit-id,#credit-no,#credit-date,#credit-cname,#credit-security,#credit-Nominee{
+	border:0;
+	font-size:20px;
+	font-family:Arial, sans-serif;
+	border:solid 1px #ccc;
+	width:250px;
+	/*角丸*/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#credit-date{
+	width:248px;
+}
+
+input{
+	background-color:rgba(255,255,255,0.05);
+}
+
+input:focus{
+	background:rgba(255,255,255,0.85);
+}
+
+.form-data{
+	padding:10px;
+}
+
+.form-submit{
+	text-align:right;
+	margin:10px 27px 20px 0;
+}
+
+.form-submit input{
+	color:white;
+	padding:3px 5px 3px 5px;
+}
+
+.back{
+	text-align:center;
+}
