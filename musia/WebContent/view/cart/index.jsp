@@ -43,10 +43,10 @@
                   for (ProductsBean product : products) {
                 %>
                   <tr>
-                    <td class="table-data"><%=user.get()%></td>
-                    <td class="table-data"><a href=""><%=user.get()%></a></td>
-                    <td class="table-data"><%=user.get()%></td>
-                    <td class="table-data"><%=user.get()%></td>
+                    <td class="table-data"></td>
+                    <td class="table-data"><a href=""></a></td>
+                    <td class="table-data"></td>
+                    <td class="table-data"></td>
                     <td class="table-data"><input id="buy"
                       type="checkbox" name="buy"></td>
                   </tr>

@@ -34,7 +34,7 @@
                   <th class="form-header">
                     <label for="re_image">現在のアイコン画像</label>
                   </th>
-                  <td class="form-data"><%=user.get()%></td>
+                  <td class="form-data"></td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -49,7 +49,7 @@
                   <th class="form-header">
                     <label for="re_comment">現在のコメント内容</label>
                   </th>
-                  <td class="form-data"><%=user.get()%></td>
+                  <td class="form-data"></td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -62,7 +62,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">現在の金融機関</th>
-                  <td class="form-data"><%=user.get()%></td>
+                  <td class="form-data"></td>
                 </tr>
                 <tr>
                   <th class="form-header">新しい金融機関</th>
@@ -85,7 +85,7 @@
                   <th class="form-header">
                     <label for="re_account_number">現在の口座番号</label>
                   </th>
-                  <td class="form-data"><%=user.get()%></td>
+                  <td class="form-data"></td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -100,7 +100,7 @@
                   <th class="form-header">
                     <label for="re_branch_number">現在の支店番号</label>
                   </th>
-                  <td class="form-data"><%=user.get()%></td>
+                  <td class="form-data"></td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -115,7 +115,7 @@
                   <th class="form-header">
                     <label for="re_account_name">現在の口座名義</label>
                   </th>
-                  <td class="form-data"><%=user.get()%></td>
+                  <td class="form-data"></td>
                 </tr>
                 <tr>
                   <th class="form-header">
