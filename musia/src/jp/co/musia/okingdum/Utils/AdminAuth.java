@@ -45,9 +45,9 @@ public class AdminAuth {
 				session.setAttribute("admin", ((AdminBean)array.get(0)) );
 				// ログイン成功
 				return true;
-			} else {
-				setErrMsg(val.getErrMsg());
 			}
+		} else {
+			setErrMsg(val.getErrMsg());
 		}
 		// ログイン失敗
 		return false;

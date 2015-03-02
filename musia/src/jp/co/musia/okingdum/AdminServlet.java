@@ -126,7 +126,7 @@ public class AdminServlet extends HttpServlet {
 					ProductsBean products = factory.getProducts();
 					
 					products.setUser_id( "H00001" );
-					products.setProduct_admin_id( "" );
+					products.setProduct_admin_id( "AD00001" );
 					
 					productsdao.insertProducts( products );
 				}

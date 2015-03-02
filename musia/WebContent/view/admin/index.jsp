@@ -17,11 +17,11 @@
 				<legend>MUSIA　管理者ログインフォーム</legend>
 				<div class="form-group">
 					<label for="">メールアドレス：</label>
-					<input type="text" value="" required autofocus>
+					<input type="text" name="id" required autofocus>
 				</div>
 				<div class="form-group">
 					<label for="">パスワード:</label>
-					<input type="password" required>
+					<input type="password" name="password" required>
 				</div>
 				<div class="form-group form-btn">
 					<button type="submit" class="login-btn">ログイン</button>

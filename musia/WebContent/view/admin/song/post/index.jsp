@@ -9,7 +9,7 @@
     <jsp:attribute name="value">
 	<article>
 	<!-- <h2>商品登録</h2> -->
-		<form action="${pageContext.request.contextPath}/admin/song/post" enctype="multipart/form-data">
+		<form action="${pageContext.request.contextPath}/admin/song/post" method="post" enctype="multipart/form-data">
 			<fieldset>
 				<legend>商品登録フォーム</legend>
 				<div class="form-group-add">
