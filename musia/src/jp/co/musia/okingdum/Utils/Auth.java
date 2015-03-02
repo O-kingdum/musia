@@ -94,8 +94,10 @@ public class Auth {
 				// ログイン成功
 				return true;
 			} else {
-				setErrMsg(val.getErrMsg());
+				setErrMsg(new ArrayList<String>( Arrays.asList("メールアドレスまたはパスワードが間違っています。") ));
 			}
+		} else {
+			setErrMsg( val.getErrMsg() );
 		}
 		// ログイン失敗
 		return false;

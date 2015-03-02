@@ -1,9 +1,11 @@
 package jp.co.musia.okingdum.Utils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 
 
 import jp.co.musia.okingdum.Bean.AdminBean;
@@ -45,9 +47,11 @@ public class AdminAuth {
 				session.setAttribute("admin", ((AdminBean)array.get(0)) );
 				// ログイン成功
 				return true;
+			} else {
+				setErrMsg(new ArrayList<String>( Arrays.asList("メールアドレスまたはパスワードが間違っています。") ));
 			}
 		} else {
-			setErrMsg(val.getErrMsg());
+			setErrMsg( val.getErrMsg() );
 		}
 		// ログイン失敗
 		return false;

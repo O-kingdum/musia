@@ -105,7 +105,6 @@ public class AdminServlet extends HttpServlet {
 		// ログイン処理
 		case "/musia/login_admin":
 			if( AdminAuth.loginAuth(request) ) {
-				
 				response.sendRedirect( request.getContextPath() + "/admin/top" );
 				return;
 			} else {
