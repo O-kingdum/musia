@@ -52,6 +52,20 @@ public class Auth {
 	}
 	
 	/**
+	 * getAuthUserメソッド：　ログインユーザ取得
+	 * 
+	 * @param request
+	 * @return UsersBean : login user
+	 */
+	public static UsersBean getAuthUser(HttpServletRequest request) {
+		
+		session = request.getSession();
+		UsersBean user = (UsersBean)session.getAttribute("user");
+		
+		return user;
+	}
+	
+	/**
 	 * loginAuthメソッド: ログイン処理
 	 * 
 	 * @param request: 入力（メールアドレス,パスワード）
