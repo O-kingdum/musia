@@ -258,8 +258,8 @@ public class UserDao extends Dao {
 						rs.getString("f_entry_date"),
 						rs.getInt("f_bank_number"),
 						rs.getInt("f_branch_code"),
-						rs.getString("bank_persons"),
-						rs.getString("bank_name")					
+						rs.getString("f_bank_persons"),
+						rs.getString("f_bank_name")					
 						));
 			}
 			

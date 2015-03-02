@@ -9,7 +9,7 @@
     <jsp:attribute name="value">
 	<article>
 	<!-- <h2>商品登録</h2> -->
-		<form action="">
+		<form action="${pageContext.request.contextPath}/admin/song/post" enctype="multipart/form-data">
 			<fieldset>
 				<legend>商品登録フォーム</legend>
 				<div class="form-group-add">
@@ -46,7 +46,10 @@
 					<textarea name="" id="" cols="30" rows="10" required>
 					</textarea>
 				</div>
-				
+				<div class="form-group-add">
+					<label for="">商品ファイル</label>
+					<input type="file" name="file" />
+				</div>
 				<div class="form-group-add form-btn">
 					<button type="submit" class="login-btn">登録</button>
 				</div>
