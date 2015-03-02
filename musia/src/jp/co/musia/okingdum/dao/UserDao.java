@@ -188,15 +188,15 @@ public class UserDao extends Dao {
 	 * @return 成功:ArrayListオブジェクトを格納　失敗:nullのArrayList
 	 */
 	@SuppressWarnings("finally")
-	public ArrayList<Object> selectUser(ArrayList<Object> array) {
+	public ArrayList<UsersBean> selectUser(ArrayList<UsersBean> array) {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		ArrayList<UsersBean> retarr = new ArrayList<UsersBean>();
 		String sql = "SELECT * FROM t_users WHERE f_user_id in('";
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((UsersBean) array.get(i)).getUser_id() + "','";
+			sql += array.get(i).getUser_id() + "','";
 		}
 		sql += "');";
 
@@ -271,33 +271,33 @@ public class UserDao extends Dao {
 		return retarr;
 	}
 
-	public static void main(String[] args) {
-		UserDao ud = new UserDao();
-
-		String id = "M000001";
-		String id2 = "M000002";
-		/*
-		 * String mail = "aaa@gmail.com"; String name = "hoge"; int sex = 0;
-		 * String passwd = "12345678"; String birthday = "2015-01-01";
-		 */
-
-		UsersBean user1 = new UsersBean();
-		UsersBean user2 = new UsersBean();
-		user1.setUser_id(id);
-		user2.setUser_id(id2);
-		ArrayList<Object> array = new ArrayList<Object>();
-		array.add(user1);
-		array.add(user2);
-		ArrayList<Object> ret = ud.selectUser(array);
-
-		for (int i = 0; i < ret.size(); i++) {
-			UsersBean user = (UsersBean) ret.get(i);
-			System.out.println(user.getEmail());
-			System.out.println(user.getEntry_date());
-		}
-		user1 = (UsersBean) ret.get(0);
-
-		// ud.insertUser(user1);
-		// ud.changeUserData(user1);
-	}
+//	public static void main(String[] args) {
+//		UserDao ud = new UserDao();
+//
+//		String id = "M000001";
+//		String id2 = "M000002";
+//		/*
+//		 * String mail = "aaa@gmail.com"; String name = "hoge"; int sex = 0;
+//		 * String passwd = "12345678"; String birthday = "2015-01-01";
+//		 */
+//
+//		UsersBean user1 = new UsersBean();
+//		UsersBean user2 = new UsersBean();
+//		user1.setUser_id(id);
+//		user2.setUser_id(id2);
+//		ArrayList<Object> array = new ArrayList<Object>();
+//		array.add(user1);
+//		array.add(user2);
+//		ArrayList<Object> ret = ud.selectUser(array);
+//
+//		for (int i = 0; i < ret.size(); i++) {
+//			UsersBean user = (UsersBean) ret.get(i);
+//			System.out.println(user.getEmail());
+//			System.out.println(user.getEntry_date());
+//		}
+//		user1 = (UsersBean) ret.get(0);
+//
+//		// ud.insertUser(user1);
+//		// ud.changeUserData(user1);
+//	}
 }

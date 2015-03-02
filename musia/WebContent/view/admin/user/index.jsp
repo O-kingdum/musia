@@ -37,7 +37,7 @@
 					<td><%= user.getEntry_date() %></td>
 					<td>
 						<button>
-							<a href="<%= request.getContextPath() %>/user/detail">ユーザ詳細</a>
+							<a href="<%= request.getContextPath() %>/user/detail?id=<%= user.getUser_id() %>">ユーザ詳細</a>
 						</button>
 					</td>
 				</tr>

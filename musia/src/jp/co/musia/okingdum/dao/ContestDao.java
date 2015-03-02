@@ -129,16 +129,16 @@ public class ContestDao extends Dao {
 	 * selectContestメソッド
 	 * 
 	 * @param array
-	 *            ArrayList<Object> ContestBean
-	 * @return retarr ArrayList<Object> 検索結果
+	 *            ArrayList<ContestBean> ContestBean
+	 * @return retarr ArrayList<ContestBean> 検索結果
 	 */
-	public ArrayList<Object> selectContest(ArrayList<Object> array) {
+	public ArrayList<ContestBean> selectContest(ArrayList<ContestBean> array) {
 
 		String sql = "SELECT t_contest WHERE f_contest_id in('";
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		ArrayList<ContestBean> retarr = new ArrayList<ContestBean>();
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((ContestBean) array.get(i)).getContest_id() + "','";
+			sql += array.get(i).getContest_id() + "','";
 		}
 		sql += "');";
 

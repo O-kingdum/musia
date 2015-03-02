@@ -126,16 +126,16 @@ public class CreditCardDao extends Dao {
 	 * selectCreditCardメソッド
 	 * 
 	 * @param array
-	 *            ArrayList<Object> CreditCardBean
-	 * @return retarr ArrayList<Object> 検索結果
+	 *            ArrayList<CreditCardBean> CreditCardBean
+	 * @return retarr ArrayList<CreditCardBean> 検索結果
 	 */
-	public ArrayList<Object> selectCreditCard(ArrayList<Object> array) {
+	public ArrayList<CreditCardBean> selectCreditCard(ArrayList<CreditCardBean> array) {
 
 		String sql = "SELECT t_creditcard WHERE f_credit_id in('";
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		ArrayList<CreditCardBean> retarr = new ArrayList<CreditCardBean>();
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((CreditCardBean) array.get(i)).getCredit_id() + "','";
+			sql += array.get(i).getCredit_id() + "','";
 		}
 		sql += "');";
 

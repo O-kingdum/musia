@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import jp.co.musia.okingdum.Bean.GenreBean;
-import jp.co.musia.okingdum.Bean.TagBean;
 
 /**
  * 
@@ -147,16 +146,16 @@ public class GenreDao extends Dao {
 	 * selectGenreメソッド
 	 * 
 	 * @param array
-	 *            ArrayList<Object> GenreBean
-	 * @return retarr ArrayList<Object> 検索結果
+	 *            ArrayList<GenreBean> GenreBean
+	 * @return retarr ArrayList<GenreBean> 検索結果
 	 */
-	public ArrayList<Object> selectGenre(ArrayList<Object> array) {
+	public ArrayList<GenreBean> selectGenre(ArrayList<GenreBean> array) {
 
 		String sql = "SELECT f_genre_id, f_genre_name FROM t_genre WHERE f_genre_id in('";
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		ArrayList<GenreBean> retarr = new ArrayList<GenreBean>();
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((GenreBean) array.get(i)).getGenre_id() + "','";
+			sql += array.get(i).getGenre_id() + "','";
 		}
 		sql += "');";
 
@@ -169,7 +168,7 @@ public class GenreDao extends Dao {
 			rs = st.executeQuery(sql);
 
 			while (rs.next()) {
-				retarr.add(new TagBean(rs.getString("f_genre_id"), rs
+				retarr.add(new GenreBean(rs.getString("f_genre_id"), rs
 						.getString("f_genre_name")));
 			}
 		} catch (SQLException e) {

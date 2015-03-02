@@ -117,16 +117,16 @@ public class Contest_CheckDao extends Dao {
 	 * selectContest_Checkメソッド
 	 * 
 	 * @param array
-	 *            ArrayList<Object> Contest_CheckBean
-	 * @return retarr ArrayList<Object> 検索結果
+	 *            ArrayList<Contest_CheckBean> Contest_CheckBean
+	 * @return retarr ArrayList<Contest_CheckBean> 検索結果
 	 */
-	public ArrayList<Object> selectContest_Check(ArrayList<Object> array) {
+	public ArrayList<Contest_CheckBean> selectContest_Check(ArrayList<Contest_CheckBean> array) {
 
 		String sql = "SELECT t_contest_check WHERE f_contest_id in('";
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		ArrayList<Contest_CheckBean> retarr = new ArrayList<Contest_CheckBean>();
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((Contest_CheckBean) array.get(i)).getContest_id() + "','";
+			sql += array.get(i).getContest_id() + "','";
 		}
 		sql += "');";
 

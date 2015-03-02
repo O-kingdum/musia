@@ -170,16 +170,16 @@ public class ProductsDao extends Dao {
 	 * selectProductsメソッド
 	 * 
 	 * @param array
-	 *            ArrayList<Object> : ProductsBean
-	 * @return retarr ArrayList<Object> : ProductsBean
+	 *            ArrayList<ProductsBean> : ProductsBean
+	 * @return retarr ArrayList<ProductsBean> : ProductsBean
 	 */
-	public ArrayList<Object> selectProducts(ArrayList<Object> array) {
+	public ArrayList<ProductsBean> selectProducts(ArrayList<ProductsBean> array) {
 
 		String sql = "SELECT * FROM t_products WHERE t_product_id in('";
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		ArrayList<ProductsBean> retarr = new ArrayList<ProductsBean>();
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((ProductsBean) array.get(i)).getProduct_id() + "','";
+			sql += array.get(i).getProduct_id() + "','";
 		}
 		sql += "');";
 

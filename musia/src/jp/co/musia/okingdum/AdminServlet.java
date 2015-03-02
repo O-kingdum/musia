@@ -2,6 +2,7 @@ package jp.co.musia.okingdum;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -42,6 +43,9 @@ public class AdminServlet extends HttpServlet {
 		// loginページ
 		String dispPage = "/view/admin/index.jsp";
 		String requestUri = request.getRequestURI(); 
+		// UserDao set
+		UserDao userdao;
+		ArrayList<UsersBean> users;
 		
 		switch( requestUri ) {
 		
@@ -49,37 +53,68 @@ public class AdminServlet extends HttpServlet {
 		case "/musia/admin/top":
 			dispPage = "/view/admin/top/index.jsp";
 			break;
+			
 		// ユーザ管理
 		case "/musia/admin/user":
+			// forwarding jsp page
 			dispPage = "/view/admin/user/index.jsp";
-			UserDao userdao = new UserDao();
-			ArrayList<UsersBean> users = userdao.selectAllUser();
+			// instance
+			userdao = new UserDao();
+			// get UsersBean Array
+			users = userdao.selectAllUser();
+			// request set
 			request.setAttribute("users", users);
 			break;
+			
 		// ユーザ詳細
 		case "/musia/admin/user/detail":
 			dispPage = "/view/admin/user/detail/index.jsp";
+			// UserDao set
+			userdao = new UserDao();
+			// Bean
+			UsersBean user = new UsersBean();
+			// get user_id
+			String user_id = request.getParameter("id");
+			// set user_id
+			user.setUser_id(user_id);
+			// select User
+			//users = userdao.selectUser(new ArrayList<Object>( Arrays.asList(user) ));
+			// request set
+			//request.setAttribute("user", user);
 			break;
+			
 		// 商品管理
 		case "/musia/admin/song":
+			// forwarding jsp page
 			dispPage = "/view/admin/song/index.jsp";
+			// ProductsDao set
+			ProductsDao productsdao = new ProductsDao();
+			// get Products Bean Array
+			//ArrayList<ProductsBean> products = productsdao.selectProducts(array);
+			// request set
+			//request.setAttribute("products", products);
 			break;
+			
 		// 商品詳細
 		case "/musia/admin/song/review":
 			dispPage = "/view/admin/song/review/index.jsp";
 			break;
+			
 		// 商品登録
 		case "/musia/admin/song/post":
 			dispPage = "/view/admin/song/post/index.jsp";
 			break;
+			
 		// コンテスト管理
 		case "/musia/admin/contest":
 			dispPage = "/view/admin/contest/index.jsp";
 			break;
+			
 		// コンテスト詳細
 		case "/musia/admin/contest/review":
 			dispPage = "/view/admin/contest/review/index.jsp";
 			break;
+			
 		// ログアウト
 		case "/musia/admin/logout":
 			response.sendRedirect( request.getContextPath() + "/login_admin" );

@@ -117,16 +117,16 @@ public class IineDao extends Dao {
 	 * selectIineメソッド
 	 * 
 	 * @param array
-	 *            ArrayList<Object> IineBean
-	 * @return retarr ArrayList<Object> 検索結果
+	 *            ArrayList<IineBean> IineBean
+	 * @return retarr ArrayList<IineBean> 検索結果
 	 */
-	public ArrayList<Object> selectIine(ArrayList<Object> array) {
+	public ArrayList<IineBean> selectIine(ArrayList<IineBean> array) {
 
 		String sql = "SELECT t_iine WHERE f_user_id in('";
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		ArrayList<IineBean> retarr = new ArrayList<IineBean>();
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((IineBean) array.get(i)).getUser_id() + "','";
+			sql += array.get(i).getUser_id() + "','";
 		}
 		sql += "');";
 
