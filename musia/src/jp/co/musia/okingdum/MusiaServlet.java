@@ -2,6 +2,7 @@ package jp.co.musia.okingdum;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -273,7 +274,7 @@ public class MusiaServlet extends HttpServlet {
 			
 			Oikawa_PointDao oipo = new Oikawa_PointDao();
 			//ポイント数表示
-			Integer getoipo = oipo.selectOikawa_Point(array)
+			ArrayList<CreditCardBean> array = oipo.selectOikawa_Point(array);
 			
 			//データ格納
 			oipo.insertOikawa_Point(
@@ -301,7 +302,9 @@ public class MusiaServlet extends HttpServlet {
 		case "/musia/cart/select":					//お支払選択
 			//表示
 			CreditCardDao credao = new CreditCardDao();
-			credao.selectCreditCard(array)
+			ArrayList<CreditCardBean> array = credao.selectCreditCard(array);
+			request.setAttribute("creditcard", array);
+			
 			break;
 			
 		case "/musia/cart/download":				//ダウンロード
