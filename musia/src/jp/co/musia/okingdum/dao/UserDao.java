@@ -236,6 +236,40 @@ public class UserDao extends Dao {
 			return retarr;
 		}
 	}
+	
+	public ArrayList<UsersBean> selectAllUser() {
+		
+		ArrayList<UsersBean> retarr = new ArrayList<UsersBean>();
+		String sql = "SELECT * FROM t_users;";
+		
+		try {
+			this.getConnection();
+			st = this.con.createStatement();
+			rs = st.executeQuery(sql);
+			
+			while( rs.next() ) {
+				retarr.add(new UsersBean(
+						rs.getString("f_user_id"),
+						rs.getString("f_mail"),
+						rs.getString("f_name"),
+						rs.getString("f_password"),
+						rs.getString("f_birthday"),
+						rs.getString("f_self_introduction"),
+						rs.getString("f_entry_date"),
+						rs.getInt("f_bank_number"),
+						rs.getInt("f_branch_code"),
+						rs.getString("bank_persons"),
+						rs.getString("bank_name")					
+						));
+			}
+			
+		} catch (SQLException e) {
+			setMsg(e.getMessage());
+		} finally {
+			this.close();
+		}
+		return retarr;
+	}
 
 	public static void main(String[] args) {
 		UserDao ud = new UserDao();

@@ -1,6 +1,7 @@
 package jp.co.musia.okingdum;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -10,10 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.musia.okingdum.Bean.ProductsBean;
+import jp.co.musia.okingdum.Bean.UsersBean;
 import jp.co.musia.okingdum.Utils.AdminAuth;
 import jp.co.musia.okingdum.Utils.FileFactory;
 import jp.co.musia.okingdum.Utils.Validator;
 import jp.co.musia.okingdum.dao.ProductsDao;
+import jp.co.musia.okingdum.dao.UserDao;
 
 /**
  * Servlet implementation class AdminServlet
@@ -49,6 +52,9 @@ public class AdminServlet extends HttpServlet {
 		// ユーザ管理
 		case "/musia/admin/user":
 			dispPage = "/view/admin/user/index.jsp";
+			UserDao userdao = new UserDao();
+			ArrayList<UsersBean> users = userdao.selectAllUser();
+			request.setAttribute("users", users);
 			break;
 		// ユーザ詳細
 		case "/musia/admin/user/detail":

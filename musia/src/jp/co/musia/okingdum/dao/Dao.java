@@ -33,7 +33,7 @@ public class Dao {
 	 * MySQLに接続する
 	 */
 	protected void getConnection() {
-		String url = "jdbc:mysql://localhost/musia?user=root&password=root&useUnicode=true&characterEncoding=utf-8";
+		String url = "jdbc:mysql://localhost/musia?user=root&password=&useUnicode=true&characterEncoding=utf-8";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
