@@ -76,25 +76,27 @@ public class Auth {
 		UsersBean user = new UsersBean();
 		UserDao dao = new UserDao();
 		Validator val = new Validator();
-		ArrayList<UsersBean> array;
 		
 		if( val.getLoginValidation(request) ) {	// バリデーションクリア
 			
 			user.setEmail(request.getParameter("email"));
 			user.setPassword(request.getParameter("password"));
 			
-			array = dao.selectUser(new ArrayList<UsersBean>(Arrays.asList(user)));
-			
-			if( array != null && !array.isEmpty() ) { // ユーザが存在している
-				
-				setAuth( request, true );
-				session = request.getSession();
-				session.setAttribute("user", ((UsersBean)array.get(0)) );
-				
-				// ログイン成功
-				return true;
+			user = dao.loginUser( user );
+			if(dao.getErrflag()) {
+				if( user != null ) { // ユーザが存在している
+					
+					setAuth( request, true );
+					session = request.getSession();
+					session.setAttribute("user", user );
+					
+					// ログイン成功
+					return true;
+				} else {
+					setErrMsg(new ArrayList<String>( Arrays.asList("メールアドレスまたはパスワードが間違っています。") ));
+				}
 			} else {
-				setErrMsg(new ArrayList<String>( Arrays.asList("メールアドレスまたはパスワードが間違っています。") ));
+				setErrMsg( new ArrayList<String>( Arrays.asList("データベース接続エラーです。") ) );
 			}
 		} else {
 			setErrMsg( val.getErrMsg() );

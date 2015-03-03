@@ -153,12 +153,15 @@ public class GenreDao extends Dao {
 
 		String sql = "SELECT f_genre_id, f_genre_name FROM t_genre WHERE f_genre_id in('";
 		ArrayList<GenreBean> retarr = new ArrayList<GenreBean>();
-
-		for (int i = 0; i < array.size(); i++) {
-			sql += array.get(i).getGenre_id() + "','";
+		
+		if(array != null && array.size() > 0) {
+			for (int i = 0; i < array.size(); i++) {
+				sql += array.get(i).getGenre_id() + "','";
+			}
+			sql += "');";
+		} else {
+			sql = "SELECT f_genre_id, f_genre_name FROM t_genre;";
 		}
-		sql += "');";
-
 		try {
 			// コネクション生成
 			this.getConnection();

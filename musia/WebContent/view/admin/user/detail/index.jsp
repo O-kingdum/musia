@@ -12,45 +12,54 @@
 	<%
     @SuppressWarnings("unchecked")
     ArrayList<UsersBean> users = (ArrayList<UsersBean>)request.getAttribute("users");
+	
     if( users != null && users.size() > 0 ) {
+    	UsersBean user = users.get(0);
     %>
-		<table class="adminTable">
+		<table>
 			<caption>
-			ユーザ一覧
+			ユーザ詳細
 			</caption>
-			<thead>
-				<tr>
-					<th>ユーザＩＤ</th>
-					<th>メールアドレス</th>
-					<th>ユーザ名</th>
-					<th>登録日</th>
-					<th>ユーザ詳細</th>
-				</tr>
-			</thead>
 			<tbody>
-			<%
-			for(UsersBean user : users) {
-			%>
 				<tr>
-					<td><%= user.getUser_id() %></td>
-					<td><%= user.getEmail() %></td>
-					<td><%= user.getUser_name() %></td>
-					<td><%= user.getEntry_date() %></td>
-					<td>
-						<button class="radiusBtn">
-							<a href="<%= request.getContextPath() %>/admin/user/detail?id=<%= user.getUser_id() %>">ユーザ詳細</a>
-						</button>
-					</td>
+					<th>ユーザＩＤ</th><td><%= user.getUser_id() %></td>
 				</tr>
-			<%
-			}
-			%>
+				<tr>
+					<th>メールアドレス</th><td><%= user.getEmail() %></td>
+				</tr>
+				<tr>
+					<th>ユーザ名</th><td><%= user.getUser_name() %></td>
+				</tr>
+				<tr>
+					<th>生年月日</th><td><%= user.getBirthday() %></td>
+				</tr>
+				<tr>
+					<th>ユーザ詳細</th><td><%= user.getSelf_introduction() %></td>
+				</tr>
+				<tr>
+					<th>登録日</th><td><%= user.getEntry_date() %></td>
+				</tr>
+				<tr>
+					<th colspan="2">振込先銀行</th>
+				</tr>
+				<tr>
+					<th>銀行名</th><td><%= user.getBank_name() %></td>
+				</tr>
+				<tr>
+					<th>口座番号</th><td><%= user.getBank_number() %></td>
+				</tr>
+				<tr>
+					<th>支店番号</th><td><%= user.getBranch_code() %></td>
+				</tr>
+				<tr>
+					<th>口座名義人</th><td><%= user.getBank_persons() %></td>
+				</tr>
 			</tbody>
 		</table>
 	<%
     } else {
 	%>
-		<h2>ユーザが登録されていません</h2>
+		<h2>ユーザが見つかりません。</h2>
 	<%
     }
 	%>

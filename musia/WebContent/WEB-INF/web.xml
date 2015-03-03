@@ -18,6 +18,9 @@
     <url-pattern>/decision/*</url-pattern>
   </filter-mapping>
   <!-- End Filter Class -->
+  <welcome-file-list>
+    <welcome-file>/view/index.jsp</welcome-file>
+  </welcome-file-list>
   <!-- Servlet Class -->
   <servlet>
     <servlet-name>AdminServlet</servlet-name>

@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jp.co.musia.okingdum.Bean.GenreBean;
 import jp.co.musia.okingdum.Bean.ProductsBean;
 import jp.co.musia.okingdum.Bean.UsersBean;
 import jp.co.musia.okingdum.Utils.AdminAuth;
 import jp.co.musia.okingdum.Utils.FileFactory;
 import jp.co.musia.okingdum.Utils.Validator;
+import jp.co.musia.okingdum.dao.GenreDao;
 import jp.co.musia.okingdum.dao.ProductsDao;
 import jp.co.musia.okingdum.dao.UserDao;
 
@@ -78,9 +80,9 @@ public class AdminServlet extends HttpServlet {
 			// set user_id
 			user.setUser_id(user_id);
 			// select User
-			//users = userdao.selectUser(new ArrayList<Object>( Arrays.asList(user) ));
+			users = userdao.selectUser(new ArrayList<UsersBean>( Arrays.asList(user) ));
 			// request set
-			//request.setAttribute("user", user);
+			request.setAttribute("users", users);
 			break;
 			
 		// 商品管理
@@ -103,6 +105,9 @@ public class AdminServlet extends HttpServlet {
 		// 商品登録
 		case "/musia/admin/song/post":
 			dispPage = "/view/admin/song/post/index.jsp";
+			GenreDao genredao = new GenreDao();
+			ArrayList<GenreBean> genres = genredao.selectGenre(new ArrayList<GenreBean>());
+			request.setAttribute("genres", genres);
 			break;
 			
 		// コンテスト管理
@@ -149,8 +154,8 @@ public class AdminServlet extends HttpServlet {
 			break;
 		// 商品投稿
 		case "/musia/admin/song/post":
-			if( val.getPostMusicValidation(request) ) {
-				
+			//if( val.getPostMusicValidation(request) ) {
+				if(true) {
 				ProductsDao productsdao = new ProductsDao();
 				FileFactory factory = new FileFactory();
 				path = context.getRealPath("/WEB-INF/music_file/H");
@@ -159,28 +164,14 @@ public class AdminServlet extends HttpServlet {
 					
 					ProductsBean products = factory.getProducts();
 					
-					products.setUser_id( "H00001" );
+					products.setProduct_id(productsdao.getNextId("H"));
+					products.setUser_id( "H000001" );
 					products.setProduct_admin_id( "AD00001" );
+					products.setPosted_date("2015-10-12 22:22:22");
+					products.setExamination(0);
 					
 					productsdao.insertProducts( products );
 				}
-				/*
-				productsdao.insertProducts(
-						new ProductsBean(
-								"H",
-								"H00001",
-								request.getParameter("products_name"),
-								request.getParameter("artist_name"),
-								Integer.parseInt( request.getParameter("price") ),
-								request.getParameter("product_details"),
-								request.getParameter("genre_id"),
-								request.getParameter("measure"),
-								request.getParameter("file_type"),
-								
-								AdminAuth.getAuthAdmin(request).getAdmin_id(),
-								
-								));
-				*/
 			} else {
 				dispPage = "/view/admin/song/post/index.jsp";
 				request.setAttribute("msg", val.getErrMsg() );

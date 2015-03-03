@@ -12,6 +12,35 @@ import jp.co.musia.okingdum.Bean.ProductsBean;
  */
 public class ProductsDao extends Dao {
 
+	public String getNextId(String id) {
+		
+		String sql = "SELECT count(*) from t_products WHERE f_product_id LIKE '%" + id + "';";
+		String id_str = "";
+		
+		try {
+			// コネクション生成
+			this.getConnection();
+			// ステートメント作成
+			st = this.con.createStatement();
+			// クエリ発行
+			rs = st.executeQuery(sql);
+			
+			if( rs.next() ) {
+				id_str = String.valueOf( rs.getInt("count(*)") + 1 );
+				
+				for( int i = id_str.length() ; i < 6; i++ ) {
+					id_str = "0" + id_str;
+				}
+				id_str = id + id_str;
+			}
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.close();
+		}
+		return id_str;
+	}
 	/**
 	 * insertProductsメソッド
 	 * 
@@ -50,7 +79,7 @@ public class ProductsDao extends Dao {
 		}
 		
 		int ret = 0;
-		String sql = "INSERT INTO t_products values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,0,?,0);";
+		String sql = "INSERT INTO t_products values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,0);";
 
 		try {
 			// コネクション作成
@@ -74,7 +103,6 @@ public class ProductsDao extends Dao {
 			ps.setString(14, products.getRemarks());
 			ps.setInt(15, products.getExamination());
 			ps.setString(16, products.getProduct_admin_id());
-			ps.setInt(17, products.getDelflg());
 
 			// クエリ発行
 			ret = ps.executeUpdate();

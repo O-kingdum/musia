@@ -92,7 +92,7 @@ public class FileFactory {
 		// ファイルサイズ（無限）
 		uploader.setSizeMax( -1 );
 		// エンコーディング
-		uploader.setHeaderEncoding( "UTF-8" );
+		uploader.setHeaderEncoding("UTF-8");
 		// フラグ
 		boolean flg = true;
 		
@@ -123,7 +123,7 @@ public class FileFactory {
 		       	} else if( objFi.isFormField() ) {
 		       		
 		       		/* 商品名 */
-		       		if( "products_name".equals( objFi.getFieldName() ) ) {
+		       		if( "product_name".equals( objFi.getFieldName() ) ) {
 		       			products.setProduct_name( objFi.getString() );
 		       		}
 		       		/* アーティスト名 */

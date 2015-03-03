@@ -63,9 +63,11 @@ public class Validator {
 			this.val = false;
 			errmsg.add("メールアドレスを入力してください。");
 		} else {
-			if(!email.matches("[0-9a-zA-Z]+")) {
+			if(!email.matches("^[a-zA-Z0-9!#$%&'_`/=~\\*\\+\\-\\?\\^\\{\\|\\}]+(\\."
+					+ "[a-zA-Z0-9!#$%&'_`/=~\\*\\+\\-\\?\\^\\{\\|\\}]+)*+(.*)@[a-zA-Z0-9]"
+					+ "[a-zA-Z0-9\\-]*(\\.[a-zA-Z0-9\\-]+)+$")) {
 				this.val = false;
-				errmsg.add("メールアドレスは半角英数字で入力してください。");
+				errmsg.add("メールアドレスのフォーマットが正しくありません。");
 			}			
 			if(email.length() > 50) {
 				this.val = false;
@@ -81,7 +83,7 @@ public class Validator {
 				this.val = false;
 				errmsg.add("パスワードは半角英数字で入力してください。");
 			}
-			if(password.length() >= 6 && password.length() <= 8) {
+			if(password.length() < 6 || password.length() > 8) {
 				this.val = false;
 				errmsg.add("パスワードは6文字~8文字で入力してください。");
 			}
@@ -153,9 +155,11 @@ public class Validator {
 			this.val = false;
 			errmsg.add("メールアドレスを入力してください。");
 		} else {
-			if(!email.matches("[0-9a-zA-Z]+")) {
+			if(!email.matches("^[a-zA-Z0-9!#$%&'_`/=~\\*\\+\\-\\?\\^\\{\\|\\}]+(\\."
+					+ "[a-zA-Z0-9!#$%&'_`/=~\\*\\+\\-\\?\\^\\{\\|\\}]+)*+(.*)@[a-zA-Z0-9]"
+					+ "[a-zA-Z0-9\\-]*(\\.[a-zA-Z0-9\\-]+)+$")) {
 				this.val = false;
-				errmsg.add("メールアドレスは半角英数字で入力してください。");
+				errmsg.add("メールアドレスのフォーマットが正しくありません。");
 			}			
 			if(email.length() > 50) {
 				this.val = false;
@@ -395,7 +399,7 @@ public class Validator {
 			this.val = false;
 			errmsg.add("曲尺を入力してください。");
 		} else {
-			if(!measure.matches("")) {
+			if(!measure.matches("[0-9]+")) {
 				this.val = false;
 				errmsg.add("曲尺の値が不正です。");
 			}

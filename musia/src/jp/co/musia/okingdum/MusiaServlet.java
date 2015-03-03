@@ -37,6 +37,7 @@ public class MusiaServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		String dispPage = "/view/index.jsp";
+		UsersBean user;
 		
 		if ("/musia/listener_signup".equals(request.getRequestURI()))// ユーザ登録
 		{
@@ -60,7 +61,10 @@ public class MusiaServlet extends HttpServlet {
 		}
 		else if ("/musia/option/credit".equals(request.getRequestURI()))	// クレジットカード情報
 		{
-			dispPage = "/view/option/credit/index.jsp";			
+			dispPage = "/view/option/credit/index.jsp";
+			user = Auth.getAuthUser(request);
+			
+			
 		}
 		else if ("/musia/option/point".equals(request.getRequestURI()))	// ポイント購入
 		{
@@ -68,7 +72,7 @@ public class MusiaServlet extends HttpServlet {
 		}
 		else if ("/musia/login_user".equals(request.getRequestURI()))	// ユーザログイン
 		{
-			dispPage = "/view/login_user/index.jsp";
+			dispPage = "/view/user_login/index.jsp";
 		}
 		else if ("/musia/option/list".equals(request.getRequestURI()))		// ほしいものリスト
 		{
@@ -129,19 +133,18 @@ public class MusiaServlet extends HttpServlet {
 		
 		case "/musia/login_user":					//ユーザログイン
 			
-			if(validator.getLoginValidation(request)){
-				Auth.loginAuth(request);
-				dispPage = "/view/signup_listener/index.jsp";
-			}
-			else{
-				response.sendRedirect(request.getContextPath());
+			if(Auth.loginAuth(request)) {
+				response.sendRedirect(request.getContextPath() + "/musia/option");
 				return;
+			} else {
+				request.setAttribute("msg", Auth.getErrMsg());
+				dispPage = "/view/user_login/index.jsp";
 			}
-			
-			
 			break;
 			
 		case "/musia/option/credit":				//クレジット追加(クレジットカード情報)
+			
+			dispPage = "/view/option/credit/index.jsp";
 			
 			if(validator.getCreditAddValidation(request)){
 				CreditCardDao credao = new CreditCardDao();
@@ -155,17 +158,14 @@ public class MusiaServlet extends HttpServlet {
 								request.getParameter("card_persons")
 								)
 						);
-				
-				dispPage = "/view/option/credit/index.jsp";
+			} else {
+				request.setAttribute("msg", validator.getErrMsg());
 			}
-			else{
-				response.sendRedirect(request.getContextPath());
-				return;
-			}
-			
 			break;
 			
 		case "/musia/listener_signup":				//ユーザ登録
+			
+			dispPage = "/view/listener_signup/index.jsp";
 			
 			if(validator.getCreateUserValidation(request)){
 				UserDao udao = new UserDao();
@@ -178,15 +178,11 @@ public class MusiaServlet extends HttpServlet {
 						request.getParameter("sex") ) );
 				user.setBirthday( request.getParameter("birthday") );
 				
-				udao.insertUser( user);
+				udao.insertUser(user);
 				
+			} else {
+				request.setAttribute("msg", validator.getErrMsg());
 			}
-			else{
-				response.sendRedirect(request.getContextPath());
-				return;
-			}
-			
-			
 			break;
 			
 		case "/musia/artist_signup":				//アーティスト登録(銀行口座登録)
@@ -257,7 +253,7 @@ public class MusiaServlet extends HttpServlet {
 			//マイページで必要なもの
 			//ユーザ情報表示
 			UserDao udao = new UserDao();
-			udao.selectUser(array);
+			//udao.selectUser(array);
 			//ポイント表示
 			//
 			break;
@@ -274,7 +270,7 @@ public class MusiaServlet extends HttpServlet {
 			
 			Oikawa_PointDao oipo = new Oikawa_PointDao();
 			//ポイント数表示
-			ArrayList<CreditCardBean> array = oipo.selectOikawa_Point(array);
+			//ArrayList<CreditCardBean> array = oipo.selectOikawa_Point(array);
 			
 			//データ格納
 			oipo.insertOikawa_Point(
@@ -302,8 +298,8 @@ public class MusiaServlet extends HttpServlet {
 		case "/musia/cart/select":					//お支払選択
 			//表示
 			CreditCardDao credao = new CreditCardDao();
-			ArrayList<CreditCardBean> array = credao.selectCreditCard(array);
-			request.setAttribute("creditcard", array);
+			//ArrayList<CreditCardBean> array = credao.selectCreditCard(array);
+			//request.setAttribute("creditcard", array);
 			
 			break;
 			
@@ -323,6 +319,7 @@ public class MusiaServlet extends HttpServlet {
 			
 			break;
 		}
+		request.getRequestDispatcher(dispPage).forward(request, response);
 	}
 
 

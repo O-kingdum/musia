@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
+  pageEncoding="UTF-8" import="java.util.ArrayList;"%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="ログイン | MUSIA" name="siteTitle" />
   <jsp:param
@@ -16,7 +16,7 @@
       <article class="article">
         <h2 class="article-title">MUSIA - ログイン</h2>
         <div class="article-content">
-          <form action="/login_user" method="post">
+          <form action="${pageContext.request.contextPath}/login_user" method="post">
             <fieldset>
               <legend>ログイン情報</legend>
               <table>
@@ -26,7 +26,7 @@
                     <label for="login-email">メールアドレス</label>
                   </th>
                   <td class="form-data">
-                    <input id="login-email" type="email" name="mail"
+                    <input id="login-email" type="email" name="email"
                     autofocus="">
                   </td>
                 </tr>
@@ -36,7 +36,7 @@
                   </th>
                   <td class="form-data">
                     <input id="login-password" type="password"
-                    name="passwd" autofocus="">
+                    name="password" autofocus="">
                   </td>
                 </tr>
               </table>
@@ -50,6 +50,19 @@
             </p>
           </form>
         </div>
+        <%
+        @SuppressWarnings("unchecked")
+        ArrayList<String> msg = (ArrayList<String>)request.getAttribute("msg");
+        if(msg != null && msg.size() > 0) {
+        %>
+        <ul>
+        <%	for(String str : msg) {	 %>
+        	<li><%= str %></li>
+        <%	}	%>
+        </ul>
+        <%
+        }
+        %>
         <p class="back">
           <a href="history.back()"><img
             src="<%=request.getContextPath()%>/img/pageback.png"
