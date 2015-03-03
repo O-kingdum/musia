@@ -12,23 +12,18 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.musia.okingdum.Utils.Auth;
+import jp.co.musia.okingdum.Utils.AdminAuth;
 
 /**
- * Servlet Filter implementation class UserLoginFilter
+ * Servlet Filter implementation class AdminLoginFilter
  */
-/**
- * 
- * @author watanabe.yuta
- *
- */
-@WebFilter("/UserLoginFilter")
-public class UserLoginFilter implements Filter {
+@WebFilter("/AdminLoginFilter")
+public class AdminLoginFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public UserLoginFilter() {
+    public AdminLoginFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -45,9 +40,9 @@ public class UserLoginFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-	
-		/* Login Check */
-		if(!Auth.checkAuth((HttpServletRequest)request)) {
+
+		/* Admin Login Check */
+		if(!AdminAuth.checkAuth((HttpServletRequest)request)) {
 			((HttpServletResponse)response).sendRedirect(((HttpServletRequest)request).getContextPath() + "/");
 		}
 		
