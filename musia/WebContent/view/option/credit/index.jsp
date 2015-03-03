@@ -81,7 +81,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="">カード番号</label>
+                    <label for="credit-no">カード番号</label>
                   </th>
                   <td class="form-data">
                     <input id="credit-no" type="text" name=""

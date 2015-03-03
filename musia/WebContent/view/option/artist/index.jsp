@@ -21,7 +21,7 @@
       <article class="article">
         <h2 class="article-title">アーティスト情報</h2>
         <div class="article-content">
-          <form action="/" method="post">
+          <form action="/artist" method="post">
             <%
               if (users != null && users.size() > 0) {
                 for (UsersBean user : users) {
