@@ -76,14 +76,14 @@ public class Auth {
 		UsersBean user = new UsersBean();
 		UserDao dao = new UserDao();
 		Validator val = new Validator();
-		ArrayList<Object> array;
+		ArrayList<UsersBean> array;
 		
 		if( val.getLoginValidation(request) ) {	// バリデーションクリア
 			
 			user.setEmail(request.getParameter("email"));
 			user.setPassword(request.getParameter("password"));
 			
-			array = dao.selectUser(new ArrayList<Object>(Arrays.asList(user)));
+			array = dao.selectUser(new ArrayList<UsersBean>(Arrays.asList(user)));
 			
 			if( array != null && !array.isEmpty() ) { // ユーザが存在している
 				
