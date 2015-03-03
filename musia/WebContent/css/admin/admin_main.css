@@ -88,3 +88,46 @@ legend {
 .login-error-msg li {
 	font-size: 18px;
 }
+
+
+.adminTable {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.adminTable tr {
+	line-height: 67px;
+}
+
+.adminTable thead tr {
+	background-color: #f4f9fe;;
+}
+
+.adminTable thead tr th {
+	color: #253754;
+	font-size: 18px;	
+}
+
+.adminTable tbody tr td {
+	color:#597083;
+	text-align: center;
+}
+
+.adminTable tbody tr:nth-child(odd) {
+	background: #FDFEFF;
+}
+
+.adminTable tbody tr:nth-child(even) {
+	background-color: #f4f9fe;
+}
+
+.radiusBtn {
+    background: #EEE;
+    border: 1px solid #DDD;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    color: #111;
+    width: 100px;
+    padding: 10px 0;
+}

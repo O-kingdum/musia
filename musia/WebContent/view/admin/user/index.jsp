@@ -14,7 +14,7 @@
     ArrayList<UsersBean> users = (ArrayList<UsersBean>)request.getAttribute("users");
     if( users != null && users.size() > 0 ) {
     %>
-		<table>
+		<table class="adminTable">
 			<caption>
 			</caption>
 			<thead>
@@ -36,7 +36,7 @@
 					<td><%= user.getUser_name() %></td>
 					<td><%= user.getEntry_date() %></td>
 					<td>
-						<button>
+						<button class="radiusBtn">
 							<a href="<%= request.getContextPath() %>/user/detail?id=<%= user.getUser_id() %>">ユーザ詳細</a>
 						</button>
 					</td>
