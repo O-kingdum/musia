@@ -29,16 +29,22 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><input type="radio" name="select" value=""
-                      checked="checked"><img
+                    <td><input type="radio" name="select" value=""></td>
+                    <td><img
                       src="<%=request.getContextPath()%>/img/mc.png"
                       alt="" /></td>
-                    <td><input type="radio" name="select" value=""><img
-                      src="<%=request.getContextPath()%>/img/" alt="" /></td>
-                    <td><input type="radio" name="select" value=""><img
-                      src="<%=request.getContextPath()%>/img/" alt="" /></td>
-                    <td><input type="radio" name="select" value=""><img
-                      src="<%=request.getContextPath()%>/img/" alt="" /></td>
+                  </tr>
+                  <tr>
+                    <td><input type="radio" name="select" value=""></td>
+                    <td><img
+                      src="<%=request.getContextPath()%>/img/visa.png"
+                      alt="" /></td>
+                  </tr>
+                  <tr>
+                    <td><input type="radio" name="select" value=""></td>
+                    <td><img
+                      src="<%=request.getContextPath()%>/img/jcb.png"
+                      alt="" /></td>
                   </tr>
                 </tbody>
               </table>
