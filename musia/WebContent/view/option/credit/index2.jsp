@@ -22,9 +22,6 @@
         <h2 class="article-title">クレジットカード追加</h2>
         <div class="article-content">
           <form action="/list" method="post">
-            <%
-              if (credit_card != null && credit_card.size() > 0) {
-            %>
             <fieldset>
               <legend>クレジットカード情報</legend>
               <table>
@@ -40,9 +37,6 @@
                   </tr>
                 </thead>
                 <tbody>
-                <%
-                  for (CreditCardBean credit : credit_card) {
-                %>
                   <tr>
                     <td class="table-data"></td>
                     <td class="table-data"></td>
@@ -51,18 +45,9 @@
                     <td class="table-data"></td>
                     <td class="table-data"></td>
                   </tr>
-                <%
-                  }
-                %>
                 </tbody>
               </table>
-              <%
-                } else {
-              %>
               <p>クレジットカードが登録されていません</p>
-              <%
-                }
-              %>
             </fieldset>
           </form>
           <form action="#" method="post">

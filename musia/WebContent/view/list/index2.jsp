@@ -32,7 +32,7 @@
                     <th class="table-header">アーティスト</th>
                     <th class="table-header">ジャンル</th>
                     <th class="table-header">価格</th>
-                    <th class="table-header"><label for="buy">購入</label></th>
+                    <th class="table-header"><label for="buy">カートに追加</label></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -47,7 +47,7 @@
                 </tbody>
               </table>
               <p class="form-submit">
-                <input type="submit" name="all" value="購入">
+                <input type="submit" name="all" value="カートに追加">
               </p>
             </fieldset>
           </form>
