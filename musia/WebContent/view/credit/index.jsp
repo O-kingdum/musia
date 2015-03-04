@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
+  pageEncoding="UTF-8" import="java.util.ArrayList;"%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="クレジットカード登録 | MUSIA" name="siteTitle" />
   <jsp:param
@@ -15,7 +15,8 @@
       <article class="article">
         <h2 class="article-title">クレジットカード登録</h2>
         <div class="article-content">
-          <form action="#" method="post">
+          <form action="${pageContext.request.contextPath}/credit"
+            method="post">
             <fieldset>
               <legend>クレジットカード情報</legend>
               <table>
@@ -80,6 +81,23 @@
             </p>
           </form>
         </div>
+        <%
+          @SuppressWarnings("unchecked")
+          ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
+          if (msg != null && msg.size() > 0) {
+        %>
+        <ul>
+        <%
+          for (String str : msg) {
+        %>
+          <li><%=str%></li>
+        <%
+          }
+        %>
+        </ul>
+        <%
+          }
+        %>
         <p class="back">
           <a href="history.back()"><img
             src="<%=request.getContextPath()%>/img/pageback.png"
