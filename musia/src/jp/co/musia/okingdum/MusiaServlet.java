@@ -172,7 +172,7 @@ public class MusiaServlet extends HttpServlet {
 				UsersBean user = new UsersBean();
 				
 				user.setEmail( request.getParameter("email") );
-				user.setUser_name( request.getParameter("name") );
+				user.setUser_name( request.getParameter("user_name") );
 				user.setPassword( request.getParameter("password") );
 				user.setSex( Integer.parseInt( 
 						request.getParameter("sex") ) );
