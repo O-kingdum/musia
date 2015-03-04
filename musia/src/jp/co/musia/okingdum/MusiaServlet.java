@@ -163,7 +163,7 @@ public class MusiaServlet extends HttpServlet {
 			}
 			break;
 			
-		case "/musia/listener_signup":				//ユーザ登録
+		case "/musia/listener_signup":				//ユーザ登録(新規登録)
 			
 			dispPage = "/view/listener_signup/index.jsp";
 			
@@ -255,7 +255,6 @@ public class MusiaServlet extends HttpServlet {
 			UserDao udao = new UserDao();
 			//udao.selectUser(array);
 			//ポイント表示
-			//
 			break;
 			
 		case "/musia/option/history":				//購入履歴
