@@ -8,6 +8,15 @@
       <article class="article">
         <h2 class="article-title">ヘルプ</h2>
         <div class="article-content">
+	        
+          <ul>
+	          <li><a href="">1.このサイトの使い方</a></li>
+	          <li><a href="">2.ユーザー登録の方法</a></li>
+	          <li><a href="">3.クレジットカードの登録方法</a></li>
+	          <li><a href="">4.曲のアップロード方法</a></li>
+	          <li><a href="">5.コンテストに参加する方法</a></li>
+	          <li><a href="">6.困った時は</a></li>
+          </ul>
           
         </div>
         <p class="back">
