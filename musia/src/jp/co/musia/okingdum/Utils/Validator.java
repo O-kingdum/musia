@@ -228,7 +228,7 @@ public class Validator {
 			this.val = false;
 			errmsg.add("日を入力してください。");			
 		} else {
-			if(!day.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}")) {
+			if(!day.matches("[0-9]{2}")) {
 				this.val = false;
 				errmsg.add("日の形式が正しくありません。");
 			}
