@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -154,26 +157,27 @@ public class AdminServlet extends HttpServlet {
 			break;
 		// 商品投稿
 		case "/musia/admin/song/post":
-			//if( val.getPostMusicValidation(request) ) {
-				if(true) {
-				ProductsDao productsdao = new ProductsDao();
-				FileFactory factory = new FileFactory();
-				path = context.getRealPath("/WEB-INF/music_file/H");
+			
+			dispPage = "/view/admin/song/post/index.jsp";
+			
+			ProductsDao productsdao = new ProductsDao();
+			FileFactory factory = new FileFactory();
+			path = context.getRealPath("WEB-INF/");
 				
-				if( factory.saveFileFacotry(request, path) ) {
+			if( factory.saveFileFacotry(request, path) ) {
 					
-					ProductsBean products = factory.getProducts();
+				ProductsBean products = factory.getProducts();
 					
-					products.setProduct_id(productsdao.getNextId("H"));
-					products.setUser_id( "H000001" );
-					products.setProduct_admin_id( "ADM0001" );
-					products.setPosted_date("2015-10-12 22:22:22");
-					products.setExamination(0);
-					
-					productsdao.insertProducts( products );
-				}
+				products.setProduct_id(productsdao.getNextId("H"));
+				products.setUser_id( "H000001" );
+				DateTime dt = new DateTime();
+				dt.toString(DateTimeFormat.mediumDateTime());
+				products.setProduct_admin_id( "ADM0001" );
+				products.setPosted_date(dt.toString(DateTimeFormat.mediumDateTime()));
+				products.setExamination(0);
+				productsdao.insertProducts( products );
+			
 			} else {
-				dispPage = "/view/admin/song/post/index.jsp";
 				request.setAttribute("msg", val.getErrMsg() );
 			}
 			break;

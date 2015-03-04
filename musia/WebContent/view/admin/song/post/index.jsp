@@ -84,7 +84,7 @@
 				</div>
 			</fieldset>
 		</form>
-		<img src="\WEB-INF\music_file\H/001.jpg" alt="" />
+		<a href="<%= request.getHeader("Referer") %>">戻る</a>
 	</article>
     </jsp:attribute>
   </jsp:param>

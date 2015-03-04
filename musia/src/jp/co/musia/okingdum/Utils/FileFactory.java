@@ -122,9 +122,9 @@ public class FileFactory {
 		    			strNam = ( new File( strNam ) ).getName();
 		    			objFi.write( new File( path + "/" + strNam ) );
 		    			/* ディレクトリパス */
-			    		products.setDirectory_path( path + "/" + strNam );
+			    		products.setDirectory_path( path + "music_file/" + strNam );
 			    		/* imgパス */
-			    		products.setImg_path( path + "/" + strNam );
+			    		products.setImg_path( path + "music_img/" + strNam );
 			    		/* ファイル種別 */
 			    		products.setFile_type( this.getSuffix( strNam ) );
 		    		}
@@ -132,11 +132,11 @@ public class FileFactory {
 		       		
 		       		/* 商品名 */
 		       		if( "product_name".equals( objFi.getFieldName() ) ) {
-		       			products.setProduct_name( objFi.getString() );
+		       			products.setProduct_name( objFi.getString("UTF-8") );
 		       		}
 		       		/* アーティスト名 */
 		       		if( "artist_name".equals( objFi.getFieldName() ) ) {
-		       			products.setArtist_name( objFi.getString() );
+		       			products.setArtist_name( objFi.getString("UTF-8") );
 		       		}
 		       		/* 価格 */
 		       		if( "price".equals( objFi.getFieldName() ) ) {
@@ -144,7 +144,7 @@ public class FileFactory {
 		       		}
 		       		/* 商品詳細 */
 		       		if( "product_details".equals( objFi.getFieldName() ) ) {
-		       			products.setProduct_details( objFi.getString() );
+		       			products.setProduct_details( objFi.getString("UTF-8") );
 		       		}
 		       		/* ジャンルID */
 		       		if( "genre_id".equals( objFi.getFieldName() ) ) {
@@ -156,7 +156,7 @@ public class FileFactory {
 		       		}
 		       		/* 備考 */
 		       		if( "remarks".equals( objFi.getFieldName() ) ) {
-		       			products.setRemarks( objFi.getString() );
+		       			products.setRemarks( objFi.getString("UTF-8") );
 		       		}
 		       	}
 		    }
