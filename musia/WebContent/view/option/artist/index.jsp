@@ -31,36 +31,6 @@
               <table>
                 <caption>アーティスト登録</caption>
                 <tr>
-                  <th class="form-header">
-                    <label for="re_image">現在のアイコン画像</label>
-                  </th>
-                  <td class="form-data"><%=%></td>
-                </tr>
-                <tr>
-                  <th class="form-header">
-                    <label for="re_image">新しいアイコン画像</label>
-                  </th>
-                  <td class="form-data">
-                    <input id="re_image" type="file" name="re_image"
-                    autofocus="" required>
-                  </td>
-                </tr>
-                <tr>
-                  <th class="form-header">
-                    <label for="re_comment">現在のコメント内容</label>
-                  </th>
-                  <td class="form-data"><%=user.getSelf_introduction()%></td>
-                </tr>
-                <tr>
-                  <th class="form-header">
-                    <label for="re_comment">新しいコメント内容</label>
-                  </th>
-                  <td class="form-data">
-                    <textarea id="re_comment" type="text"
-                      name="re_comment" autofocus="" required></textarea>
-                  </td>
-                </tr>
-                <tr>
                   <th class="form-header">現在の金融機関</th>
                   <td class="form-data"><%=user.getBank_name()%></td>
                 </tr>

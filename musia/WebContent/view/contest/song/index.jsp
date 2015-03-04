@@ -17,8 +17,9 @@
         <h2 class="article-title">楽曲投稿</h2>
         <div class="article-content">
           <article>
-          
-            <form action="${pageContext.request.contextPath}/contest/song" method="post" enctype="multipart/form-data">
+            <form
+              action="${pageContext.request.contextPath}/contest/song"
+              method="post" enctype="multipart/form-data">
               <div>
 			    <input id="image" type="file" name="image" autofocus required>
 			    <input type="submit" value="送信">

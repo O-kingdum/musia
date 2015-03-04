@@ -23,15 +23,6 @@
                 <caption>クレジットカード登録</caption>
                 <tr>
                   <th class="form-header">
-                    <label for="credit-id">カードID</label>
-                  </th>
-                  <td class="form-data">
-                    <input id="credit-id" type="text" name="#"
-                    autofocus="">
-                  </td>
-                </tr>
-                <tr>
-                  <th class="form-header">
                     <label for="">カード番号</label>
                   </th>
                   <td class="form-data">
