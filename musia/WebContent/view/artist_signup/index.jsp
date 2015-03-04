@@ -16,7 +16,7 @@
       <article class="article">
         <h2 class="article-title">アーティスト登録</h2>
         <div class="article-content">
-          <form action="${pageContext.request.contextPath}/artist"
+          <form action="${pageContext.request.contextPath}/artist_signup"
             method="post">
             <fieldset>
               <legend>アーティスト登録情報</legend>
@@ -43,16 +43,16 @@
                 <tr>
                   <th class="form-header">金融機関</th>
                   <td class="form-data">
-                    <input id="maru_bank" type="radio" name="bank"
+                    <input id="maru_bank" type="radio" name="bank_name"
                     value="maru_bank" checked="checked">
                     <label for="maru_bank">マル銀行</label>
-                    <input id="batsu_bank" type="radio" name="bank"
+                    <input id="batsu_bank" type="radio" name="bank_name"
                     value="batsu_bank">
                     <label for="batsu_bank">バツ銀行</label>
-                    <input id="sankaku_bank" type="radio" name="bank"
+                    <input id="sankaku_bank" type="radio" name="bank_name"
                     value="sankaku_bank">
                     <label for="sankaku_bank">サンカク銀行</label>
-                    <input id="shikaku_bank" type="radio" name="bank"
+                    <input id="shikaku_bank" type="radio" name="bank_name"
                     value="shikaku_bank">
                     <label for="shikaku_bank">シカク銀行</label>
                   </td>
@@ -63,7 +63,7 @@
                   </th>
                   <td class="form-data">
                     <input id="account_number" type="text"
-                    name="account_number" autofocus="" required>
+                    name="bank_number" autofocus="" required>
                   </td>
                 </tr>
                 <tr>
@@ -72,7 +72,7 @@
                   </th>
                   <td class="form-data">
                     <input id="branch_number" type="text"
-                    name="branch_number" autofocus="" required>
+                    name="branch_code" autofocus="" required>
                   </td>
                 </tr>
                 <tr>
@@ -81,7 +81,7 @@
                   </th>
                   <td class="form-data">
                     <input id="account_name" type="text"
-                    name="account_name" autofocus="" required>
+                    name="bank_persons" autofocus="" required>
                   </td>
                 </tr>
               </table>

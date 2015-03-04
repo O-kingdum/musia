@@ -176,39 +176,47 @@ public class MusiaServlet extends HttpServlet {
 				user.setPassword( request.getParameter("password") );
 				user.setSex( Integer.parseInt( 
 						request.getParameter("sex") ) );
-				user.setBirthday( request.getParameter("birthday") );
+				user.setBirthday( request.getParameter("year") 
+						+ "-" + request.getParameter("day") 
+						+ "-" + request.getParameter("month") );
 				
 				udao.insertUser(user);
+				
+				if(udao.getErrflag()){
+					request.setAttribute("msg", udao.getMsg());
+				}
 				
 			} else {
 				request.setAttribute("msg", validator.getErrMsg());
 			}
+			
 			break;
 			
 		case "/musia/artist_signup":				//アーティスト登録(銀行口座登録)
 			
+			dispPage = "/view/artist_signup/index.jsp";
+			
 			if(validator.getBankAddValidation(request)){
 				UserDao udao = new UserDao();
-				UsersBean ubean = new UsersBean();
+				UsersBean ubean = Auth.getAuthUser(request);
 				ubean.setBank_number(Integer.parseInt( 
 						request.getParameter("bank_number")));
 				ubean.setBank_persons(
 						request.getParameter("bank_persons"));
 				ubean.setBranch_code(Integer.parseInt( 
-						request.getParameter("bank_code")));
+						request.getParameter("branch_code")));
 				ubean.setBank_name(
 						request.getParameter("bank_name"));
 				
-				udao.insertUser(ubean);		
+				udao.updateUser(ubean);		
 				
 			}
 			else{
-				response.sendRedirect(request.getContextPath());
+				//response.sendRedirect(request.getContextPath());
 				return;
 			}
 			
 			break;
-			
 			
 		case "/musia/contest/song":					//コンテスト登録
 			
