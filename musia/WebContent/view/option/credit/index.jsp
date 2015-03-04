@@ -3,7 +3,7 @@
   import="jp.co.musia.okingdum.Bean.*,java.util.ArrayList;"%>
 <%
   @SuppressWarnings("unchecked")
-  ArrayList<CreditCardBean> credit_card = (ArrayList<CreditCardBean>) request.getAttribute("credit_card");
+  ArrayList<CreditCardBean> cards = (ArrayList<CreditCardBean>) request.getAttribute("cards");
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="クレジット追加 | MUSIA" name="siteTitle" />
@@ -21,51 +21,7 @@
       <article class="article">
         <h2 class="article-title">クレジットカード追加</h2>
         <div class="article-content">
-          <form action="/list" method="post">
-            <%
-              if (credit_card != null && credit_card.size() > 0) {
-            %>
-            <fieldset>
-              <legend>クレジットカード情報</legend>
-              <table>
-                <caption>登録済みクレジットカード</caption>
-                <thead>
-                  <tr>
-                    <th class="table-header">カードID</th>
-                    <th class="table-header">カード番号</th>
-                    <th class="table-header">カード有効期限</th>
-                    <th class="table-header">カード会社名</th>
-                    <th class="table-header">セキュリティコード</th>
-                    <th class="table-header">カード名義人</th>
-                  </tr>
-                </thead>
-                <tbody>
-                <%
-                  for (CreditCardBean credit : credit_card) {
-                %>
-                  <tr>
-                    <td class="table-data"></td>
-                    <td class="table-data"></td>
-                    <td class="table-data"></td>
-                    <td class="table-data"></td>
-                    <td class="table-data"></td>
-                    <td class="table-data"></td>
-                  </tr>
-                <%
-                  }
-                %>
-                </tbody>
-              </table>
-              <%
-                } else {
-              %>
-              <p>クレジットカードが登録されていません</p>
-              <%
-                }
-              %>
-            </fieldset>
-          </form>
-          <form action="#" method="post">
+          <form action="/option/artist" method="post">
             <fieldset>
               <legend>クレジットカード情報</legend>
               <table>

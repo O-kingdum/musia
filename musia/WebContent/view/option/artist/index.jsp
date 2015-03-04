@@ -24,7 +24,7 @@
           <form action="/artist" method="post">
             <%
               if (users != null && users.size() > 0) {
-                for (UsersBean user : users) {
+                UsersBean user = users.get(0);
             %>
             <fieldset>
               <legend>アーティスト登録情報</legend>
@@ -34,7 +34,7 @@
                   <th class="form-header">
                     <label for="re_image">現在のアイコン画像</label>
                   </th>
-                  <td class="form-data"></td>
+                  <td class="form-data"><%=%></td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -49,7 +49,7 @@
                   <th class="form-header">
                     <label for="re_comment">現在のコメント内容</label>
                   </th>
-                  <td class="form-data"></td>
+                  <td class="form-data"><%=user.getSelf_introduction()%></td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -62,7 +62,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">現在の金融機関</th>
-                  <td class="form-data"></td>
+                  <td class="form-data"><%=user.getBank_name()%></td>
                 </tr>
                 <tr>
                   <th class="form-header">新しい金融機関</th>
@@ -85,7 +85,7 @@
                   <th class="form-header">
                     <label for="re_account_number">現在の口座番号</label>
                   </th>
-                  <td class="form-data"></td>
+                  <td class="form-data"><%=user.getBank_number()%></td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -100,7 +100,7 @@
                   <th class="form-header">
                     <label for="re_branch_number">現在の支店番号</label>
                   </th>
-                  <td class="form-data"></td>
+                  <td class="form-data"><%=user.getBranch_code()%></td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -115,7 +115,7 @@
                   <th class="form-header">
                     <label for="re_account_name">現在の口座名義</label>
                   </th>
-                  <td class="form-data"></td>
+                  <td class="form-data"><%=user.getBank_persons()%></td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -131,12 +131,31 @@
             <p class="form-submit">
               <input type="submit" name="#" value="次へ">
             </p>
-            <%
-              }
-              }
-            %>
           </form>
         </div>
+        <%
+          } else {
+        %>
+          <%
+            @SuppressWarnings("unchecked")
+              ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
+              if (msg != null && msg.size() > 0) {
+          %>
+            <ul>
+              <%
+                for (String str : msg) {
+              %>
+              <li><%=str%></li>
+              <%
+                }
+              %>
+            </ul>
+          <%
+            }
+          %>
+        <%
+          }
+        %>
         <p class="back">
           <a href="history.back()"><img
             src="<%=request.getContextPath()%>/img/pageback.png"
