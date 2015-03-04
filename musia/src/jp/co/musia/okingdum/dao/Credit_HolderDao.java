@@ -122,7 +122,7 @@ public class Credit_HolderDao extends Dao {
 	 */
 	public ArrayList<Credit_HolderBean> selectCredit_Holder(ArrayList<Credit_HolderBean> array) {
 
-		String sql = "SELECT t_credit_holder WHERE f_credit_id in('";
+		String sql = "SELECT * FROM t_credit_holder WHERE f_credit_id in('";
 		ArrayList<Credit_HolderBean> retarr = new ArrayList<Credit_HolderBean>();
 
 		for (int i = 0; i < array.size(); i++) {

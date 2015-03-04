@@ -131,7 +131,7 @@ public class CreditCardDao extends Dao {
 	 */
 	public ArrayList<CreditCardBean> selectCreditCard(ArrayList<CreditCardBean> array) {
 
-		String sql = "SELECT t_creditcard WHERE f_credit_id in('";
+		String sql = "SELECT * FROM t_creditcard WHERE f_credit_id in('";
 		ArrayList<CreditCardBean> retarr = new ArrayList<CreditCardBean>();
 
 		for (int i = 0; i < array.size(); i++) {

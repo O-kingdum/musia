@@ -122,7 +122,7 @@ public class Product_TagDao extends Dao {
 	 */
 	public ArrayList<Product_TagBean> selectProduct_Tag(ArrayList<Product_TagBean> array) {
 
-		String sql = "SELECT t_product_tag WHERE f_product_id in('";
+		String sql = "SELECT * FROM t_product_tag WHERE f_product_id in('";
 		ArrayList<Product_TagBean> retarr = new ArrayList<Product_TagBean>();
 
 		for (int i = 0; i < array.size(); i++) {

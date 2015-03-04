@@ -122,7 +122,7 @@ public class Contest_CheckDao extends Dao {
 	 */
 	public ArrayList<Contest_CheckBean> selectContest_Check(ArrayList<Contest_CheckBean> array) {
 
-		String sql = "SELECT t_contest_check WHERE f_contest_id in('";
+		String sql = "SELECT * FROM t_contest_check WHERE f_contest_id in('";
 		ArrayList<Contest_CheckBean> retarr = new ArrayList<Contest_CheckBean>();
 
 		for (int i = 0; i < array.size(); i++) {

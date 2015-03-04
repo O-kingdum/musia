@@ -122,7 +122,7 @@ public class IineDao extends Dao {
 	 */
 	public ArrayList<IineBean> selectIine(ArrayList<IineBean> array) {
 
-		String sql = "SELECT t_iine WHERE f_user_id in('";
+		String sql = "SELECT * FROM t_iine WHERE f_user_id in('";
 		ArrayList<IineBean> retarr = new ArrayList<IineBean>();
 
 		for (int i = 0; i < array.size(); i++) {

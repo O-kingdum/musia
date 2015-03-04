@@ -128,7 +128,7 @@ public class Contest_MusicDao extends Dao {
 	 */
 	public ArrayList<Contest_MusicBean> selectContest_Music(ArrayList<Contest_MusicBean> array) {
 
-		String sql = "SELECT t_contest_Music WHERE f_contest_id in('";
+		String sql = "SELECT * FROM t_contest_Music WHERE f_contest_id in('";
 		ArrayList<Contest_MusicBean> retarr = new ArrayList<Contest_MusicBean>();
 
 		for (int i = 0; i < array.size(); i++) {

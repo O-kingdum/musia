@@ -3,7 +3,7 @@
   import="jp.co.musia.okingdum.Bean.*, java.util.ArrayList;"%>
 <%
   @SuppressWarnings("unchecked")
-  ArrayList<ProductsBean> products = (ArrayList<ProductsBean>) request.getAttribute("products");
+  ArrayList<V_ProductsBean> products = (ArrayList<V_ProductsBean>) request.getAttribute("products");
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="気になる | MUSIA" name="siteTitle" />
@@ -34,13 +34,13 @@
                 </thead>
                 <tbody>
                 <%
-                  for (ProductsBean product : products) {
+                  for (V_ProductsBean product : products) {
                 %>
                   <tr>
-                    <td class="table-data"></td>
-                    <td class="table-data"><a href=""></a></td>
-                    <td class="table-data"></td>
-                    <td class="table-data"></td>
+                    <td class="table-data"><% product.getProduct_name(); %></td>
+                    <td class="table-data"><% product.getArtist_name(); %><a href=""></a></td>
+                    <td class="table-data"><% product.getGenre_name(); %></td>
+                    <td class="table-data"><% product.getPrice(); %></td>
                     <td class="table-data"><input id="cart_add"
                       type="checkbox" name="cart_add"></td>
                   </tr>

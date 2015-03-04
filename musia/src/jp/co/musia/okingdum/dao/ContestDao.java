@@ -134,13 +134,8 @@ public class ContestDao extends Dao {
 	 */
 	public ArrayList<ContestBean> selectContest(ArrayList<ContestBean> array) {
 
-		String sql = "SELECT t_contest WHERE f_contest_id in('";
-		ArrayList<ContestBean> retarr = new ArrayList<ContestBean>();
-
-		for (int i = 0; i < array.size(); i++) {
-			sql += array.get(i).getContest_id() + "','";
-		}
-		sql += "');";
+		String sql = "SELECT * FROM t_contest";
+		ArrayList<ContestBean> retarr = new ArrayList<ContestBean>();		
 
 		try {
 			// コネクション生成

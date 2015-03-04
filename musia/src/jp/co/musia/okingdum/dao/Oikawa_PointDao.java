@@ -126,7 +126,7 @@ public class Oikawa_PointDao extends Dao {
 	 */
 	public ArrayList<Oikawa_PointBean> selectOikawa_Point(ArrayList<Oikawa_PointBean> array) {
 
-		String sql = "SELECT t_oikawa_point WHERE f_user_id in('";
+		String sql = "SELECT * FROM t_oikawa_point WHERE f_user_id in('";
 		ArrayList<Oikawa_PointBean> retarr = new ArrayList<Oikawa_PointBean>();
 
 		for (int i = 0; i < array.size(); i++) {
