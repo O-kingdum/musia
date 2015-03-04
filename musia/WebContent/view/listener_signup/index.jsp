@@ -64,15 +64,15 @@
                 <tr>
                   <th class="form-header">生年月日</th>
                   <td class="form-data">
-                    <select id="year">
+                    <select id="year" name="year">
                     <option>0001</option>
                     </select>
                     <label for="year">年</label>
-                    <select id="month">
+                    <select id="month" name="month">
                     <option>01</option>
                     </select>
                     <label for="month">月</label>
-                    <select id="day">
+                    <select id="day" name="day">
                     <option>01</option>
                     </select>
                     <label for="day">日</label>
