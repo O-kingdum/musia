@@ -208,10 +208,14 @@ public class ProductsDao extends Dao {
 		String sql = "SELECT * FROM t_products WHERE t_product_id in('";
 		ArrayList<ProductsBean> retarr = new ArrayList<ProductsBean>();
 
-		for (int i = 0; i < array.size(); i++) {
-			sql += array.get(i).getProduct_id() + "','";
+		if(array != null && array.size() > 0) {
+			for (int i = 0; i < array.size(); i++) {
+				sql += array.get(i).getProduct_id() + "','";
+			}
+			sql += "');";
+		} else {
+			sql = "SELECT * FROM t_products;";
 		}
-		sql += "');";
 
 		try {
 			// コネクション生成
@@ -248,10 +252,16 @@ public class ProductsDao extends Dao {
 		return retarr;
 	}
 	
+	/**
+	 * selectV_Wantsメソッド
+	 * 
+	 * @param user
+	 * @return 
+	 */
 	public ArrayList<V_ProductsBean> selectV_Wants(UsersBean user) {
 		
 		String sql = "SELECT p.f_product_id,p.f_user_id,f_product_name,f_artist_name,"
-				+ "f_product_details,f_genre_name,f_measure,f_file_type,"
+				+ "f_price,f_product_details,f_genre_name,f_measure,f_file_type,"
 				+ "f_file_size,f_directory_path,f_img_path,f_posted_date,"
 				+ "f_remarks FROM t_products p join t_genre g on p.f_genre_id = g.f_genre_id"
 				+ " join t_wants_list w on p.f_products_id = w.f_products_id"
@@ -264,18 +274,25 @@ public class ProductsDao extends Dao {
 			this.getConnection();
 			st = con.createStatement();
 			rs = st.executeQuery(sql);
-			/*
+			
 			while(rs.next()) {
 				retarr.add(new V_ProductsBean(
 						rs.getString("p.f_product_id"),
 						rs.getString("p.f_user_id"),
-						rs.getString("p.f_product_id"),
-						rs.getString("p.f_product_id"),
-						rs.getString("p.f_product_id"),
-						rs.getString("p.f_product_id"),
-						
+						rs.getString("f_product_name"),
+						rs.getString("f_artist_name"),
+						rs.getInt("f_price"),
+						rs.getString("f_product_details"),
+						rs.getString("f_genre_name"),
+						rs.getString("f_measure"),
+						rs.getString("f_file_type"),
+						rs.getInt("f_file_size"),
+						rs.getString("f_directory_path"),
+						rs.getString("f_img_path"),
+						rs.getString("f_posted_date"),
+						rs.getString("f_remarks")
 						));
-			}*/
+			}
 			
 		} catch(SQLException e) {
 			setMsg(e.getMessage());

@@ -92,9 +92,9 @@ public class AdminServlet extends HttpServlet {
 			// ProductsDao set
 			ProductsDao productsdao = new ProductsDao();
 			// get Products Bean Array
-			//ArrayList<ProductsBean> products = productsdao.selectProducts(array);
+			ArrayList<ProductsBean> products = productsdao.selectProducts(new ArrayList<ProductsBean>());
 			// request set
-			//request.setAttribute("products", products);
+			request.setAttribute("products", products);
 			break;
 			
 		// 商品詳細
@@ -154,8 +154,8 @@ public class AdminServlet extends HttpServlet {
 			break;
 		// 商品投稿
 		case "/musia/admin/song/post":
-			//if( val.getPostMusicValidation(request) ) {
-				if(true) {
+			if( val.getPostMusicValidation(request) ) {
+				
 				ProductsDao productsdao = new ProductsDao();
 				FileFactory factory = new FileFactory();
 				path = context.getRealPath("/WEB-INF/music_file/H");
