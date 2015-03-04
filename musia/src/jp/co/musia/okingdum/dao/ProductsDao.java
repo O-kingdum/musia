@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import jp.co.musia.okingdum.Bean.ProductsBean;
+import jp.co.musia.okingdum.Bean.UsersBean;
 import jp.co.musia.okingdum.Bean.V_ProductsBean;
 
 /**
@@ -247,12 +248,14 @@ public class ProductsDao extends Dao {
 		return retarr;
 	}
 	
-	public ArrayList<V_ProductsBean> selectV_Products(ArrayList<ProductsBean> array) {
+	public ArrayList<V_ProductsBean> selectV_Wants(UsersBean user) {
 		
-		String sql = "SELECT f_product_id,f_user_id,f_product_name,f_artist_name,"
+		String sql = "SELECT p.f_product_id,p.f_user_id,f_product_name,f_artist_name,"
 				+ "f_product_details,f_genre_name,f_measure,f_file_type,"
 				+ "f_file_size,f_directory_path,f_img_path,f_posted_date,"
-				+ "f_remarks FROM t_products p join t_genre g on p.f_genre_id = g.f_genre_id;";
+				+ "f_remarks FROM t_products p join t_genre g on p.f_genre_id = g.f_genre_id"
+				+ " join t_wants_list w on p.f_products_id = w.f_products_id"
+				+ " WHERE w.f_user_id=" + user.getUser_id() + ";";
 		
 		ArrayList<V_ProductsBean> retarr = new ArrayList<V_ProductsBean>();
 		
@@ -261,11 +264,24 @@ public class ProductsDao extends Dao {
 			this.getConnection();
 			st = con.createStatement();
 			rs = st.executeQuery(sql);
+			/*
+			while(rs.next()) {
+				retarr.add(new V_ProductsBean(
+						rs.getString("p.f_product_id"),
+						rs.getString("p.f_user_id"),
+						rs.getString("p.f_product_id"),
+						rs.getString("p.f_product_id"),
+						rs.getString("p.f_product_id"),
+						rs.getString("p.f_product_id"),
+						
+						));
+			}*/
 			
 		} catch(SQLException e) {
-			
+			setMsg(e.getMessage());
+		} finally {
+			this.close();
 		}
-		
 		return retarr;
 	}
 }

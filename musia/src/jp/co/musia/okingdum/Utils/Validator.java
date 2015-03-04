@@ -148,7 +148,9 @@ public class Validator {
 		String user_name = request.getParameter("user_name");
 		String password = request.getParameter("password");
 		String sex = request.getParameter("sex");
-		String birthday = request.getParameter("birthday");
+		String year = request.getParameter("year");
+		String month = request.getParameter("month");
+		String day = request.getParameter("day");
 		
 		/* email validation */
 		if(StringUtils.isEmpty(email)) {
@@ -201,13 +203,34 @@ public class Validator {
 			}
 		}
 		/* birthday validation */
-		if(StringUtils.isEmpty(birthday)) {
+		/* year */
+		if(StringUtils.isEmpty(year)) {
 			this.val = false;
-			errmsg.add("誕生日を入力してください。");			
+			errmsg.add("年を入力してください。");			
 		} else {
-			if(!birthday.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}")) {
+			if(!year.matches("[0-9]{4}")) {
 				this.val = false;
-				errmsg.add("誕生日の形式が正しくありません。");
+				errmsg.add("年の形式が正しくありません。");
+			}
+		}
+		/* month */
+		if(StringUtils.isEmpty(month)) {
+			this.val = false;
+			errmsg.add("月を入力してください。");			
+		} else {
+			if(!month.matches("[0-9]{2}")) {
+				this.val = false;
+				errmsg.add("月の形式が正しくありません。");
+			}
+		}
+		/* day */
+		if(StringUtils.isEmpty(day)) {
+			this.val = false;
+			errmsg.add("日を入力してください。");			
+		} else {
+			if(!day.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}")) {
+				this.val = false;
+				errmsg.add("日の形式が正しくありません。");
 			}
 		}
 		return this.val;
