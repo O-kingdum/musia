@@ -16,7 +16,7 @@
     if( users != null && users.size() > 0 ) {
     	UsersBean user = users.get(0);
     %>
-		<table>
+		<table class="adminTable">
 			<caption>
 			ユーザ詳細
 			</caption>
