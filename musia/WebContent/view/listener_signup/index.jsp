@@ -28,7 +28,7 @@
                     <label for="name">名前</label>
                   </th>
                   <td class="form-data">
-                    <input id="name" type="text" name="name"
+                    <input id="name" type="text" name="user_name"
                     autofocus="" required>
                   </td>
                 </tr>
@@ -37,7 +37,7 @@
                     <label for="email">メールアドレス</label>
                   </th>
                   <td class="form-data">
-                    <input id="email" type="email" name="mail"
+                    <input id="email" type="email" name="email"
                     autofocus="" required>
                   </td>
                 </tr>
@@ -54,10 +54,10 @@
                   <th class="form-header">性別</th>
                   <td class="form-data">
                     <input id="female" type="radio" name="sex"
-                    value="female" checked="checked">
+                    value="0" checked="checked">
                     <label for="female">女性</label>
                     <input id="male" type="radio" name="sex"
-                    value="male">
+                    value="1">
                     <label for="male">男性</label>
                   </td>
                 </tr>
