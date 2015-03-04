@@ -16,7 +16,7 @@ public class ProductsDao extends Dao {
 
 	public String getNextId(String id) {
 		
-		String sql = "SELECT count(*) from t_products WHERE f_product_id LIKE '%" + id + "';";
+		String sql = "SELECT count(*) from t_products WHERE f_product_id LIKE '" + id + "%';";
 		String id_str = "";
 		
 		try {
