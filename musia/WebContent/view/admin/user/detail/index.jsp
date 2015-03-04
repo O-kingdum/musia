@@ -63,6 +63,7 @@
 	<%
     }
 	%>
+	<a href="<%= request.getHeader("Referer") %>">戻る</a>
 	</article>
     </jsp:attribute>
   </jsp:param>
