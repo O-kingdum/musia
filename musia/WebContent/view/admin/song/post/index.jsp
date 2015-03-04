@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8" import="jp.co.musia.okingdum.Bean.*, java.util.ArrayList,org.apache.commons.lang3.StringEscapeUtils;"%>
+  pageEncoding="UTF-8" import="jp.co.musia.okingdum.Bean.*, java.util.ArrayList,jp.co.musia.okingdum.Utils.*;"%>
 <jsp:include page="/template/admin/template.jsp">
   <jsp:param value="商品登録画面 | MUSIA" name="siteTitle" />
   <jsp:param value="${pageContext.request.contextPath}/css/vendor/reset.css" name="resetCss" />
@@ -50,7 +50,7 @@
 							for(GenreBean genre : genres) {
 						%>						
 							<option value="<%= genre.getGenre_id() %>">
-							<%= genre.getGenre_name() %>
+							<%= Sanitizer.convertSanitize(genre.getGenre_name()) %>
 							</option>
 						<%
 							}

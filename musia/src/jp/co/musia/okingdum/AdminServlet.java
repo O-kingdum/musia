@@ -154,8 +154,8 @@ public class AdminServlet extends HttpServlet {
 			break;
 		// 商品投稿
 		case "/musia/admin/song/post":
-			if( val.getPostMusicValidation(request) ) {
-				
+			//if( val.getPostMusicValidation(request) ) {
+				if(true) {
 				ProductsDao productsdao = new ProductsDao();
 				FileFactory factory = new FileFactory();
 				path = context.getRealPath("/WEB-INF/music_file/H");
@@ -166,7 +166,7 @@ public class AdminServlet extends HttpServlet {
 					
 					products.setProduct_id(productsdao.getNextId("H"));
 					products.setUser_id( "H000001" );
-					products.setProduct_admin_id( "AD00001" );
+					products.setProduct_admin_id( "ADM0001" );
 					products.setPosted_date("2015-10-12 22:22:22");
 					products.setExamination(0);
 					
