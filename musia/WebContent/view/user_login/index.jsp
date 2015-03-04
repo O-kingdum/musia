@@ -16,7 +16,8 @@
       <article class="article">
         <h2 class="article-title">MUSIA - ログイン</h2>
         <div class="article-content">
-          <form action="${pageContext.request.contextPath}/login_user" method="post">
+          <form action="${pageContext.request.contextPath}/login_user"
+            method="post">
             <fieldset>
               <legend>ログイン情報</legend>
               <table>
@@ -51,17 +52,21 @@
           </form>
         </div>
         <%
-        @SuppressWarnings("unchecked")
-        ArrayList<String> msg = (ArrayList<String>)request.getAttribute("msg");
-        if(msg != null && msg.size() > 0) {
+          @SuppressWarnings("unchecked")
+          ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
+          if (msg != null && msg.size() > 0) {
         %>
         <ul>
-        <%	for(String str : msg) {	 %>
-        	<li><%= str %></li>
-        <%	}	%>
+        <%
+          for (String str : msg) {
+        %>
+        	<li><%=str%></li>
+        <%
+          }
+        %>
         </ul>
         <%
-        }
+          }
         %>
         <p class="back">
           <a href="history.back()"><img
