@@ -16,7 +16,9 @@
       <article class="article">
         <h2 class="article-title">リスナー登録</h2>
         <div class="article-content">
-          <form action="#" method="post">
+          <form
+            action="${pageContext.request.contextPath}/artist_signup"
+            method="post">
             <fieldset>
               <legend>リスナー情報登録</legend>
               <table>
