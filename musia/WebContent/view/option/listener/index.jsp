@@ -23,7 +23,7 @@
         <div class="article-content">
           <%
             if (users != null && users.size() > 0) {
-              for (UsersBean user : users) {
+              UsersBean user = users.get(0);
           %>
           <form action="/" method="post">
             <fieldset>
@@ -101,9 +101,28 @@
             </p>
           </form>
           <%
-            }
+            } else {
+          %>
+            <%
+              @SuppressWarnings("unchecked")
+                ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
+                if (msg != null && msg.size() > 0) {
+            %>
+            <ul>
+              <%
+                for (String str : msg) {
+              %>
+                <li><%=str%></li>
+              <%
+                }
+              %>
+            </ul>
+          <%
             }
           %>
+        <%
+          }
+        %>
         </div>
         <p class="back">
           <a href="history.back()"><img
