@@ -48,7 +48,7 @@ public class UserDao extends Dao {
 
 			// ステートメントの作成
 			ps = con.prepareStatement(sql);
-			if (sex == 0) {
+			if (sex == 1) {
 				sexStr = "M";
 				ps.setString(1, sexStr);
 			} else {
