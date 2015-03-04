@@ -271,7 +271,7 @@ public class Validator {
 		} else {
 			if(!branch_code.matches("[0-9]{3}")) {
 				this.val = false;
-				errmsg.add("支店番号は半角数字3文字以内で入力してください。");				
+				errmsg.add("支店番号は半角数字3文字で入力してください。");				
 			}
 		}
 		/* bank_persons validation */
