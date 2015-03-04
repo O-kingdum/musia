@@ -24,7 +24,7 @@ public class V_ProductsBean {
 				String artist_name, int price, String product_details,
 				String genre_name, String measure, String file_type, int file_size,
 				String directory_path, String img_path, String posted_date,
-				String remarks, int examination, String product_admin_id, int delflg) {
+				String remarks) {
 			super();
 			this.product_id = product_id;
 			this.user_id = user_id;
@@ -40,9 +40,6 @@ public class V_ProductsBean {
 			this.img_path = img_path;
 			this.posted_date = posted_date;
 			this.remarks = remarks;
-			this.examination = examination;
-			this.product_admin_id = product_admin_id;
-			this.delflg = delflg;
 		}
 		public V_ProductsBean() {
 			// TODO 自動生成されたコンストラクター・スタブ

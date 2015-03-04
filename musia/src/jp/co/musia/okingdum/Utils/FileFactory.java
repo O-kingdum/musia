@@ -20,7 +20,7 @@ public class FileFactory {
 	private ServletFileUpload uploader;
 	private ProductsBean products;
 	private String path;
-	private ArrayList<String> msg;
+	private String msg;
 	
 	/**
 	 * const
@@ -54,6 +54,14 @@ public class FileFactory {
 		return this.products;
 	}
 	
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
 	/**
 	 * getSuffix メソッド
 	 * 
@@ -155,8 +163,10 @@ public class FileFactory {
 
 		} catch( FileUploadException e ) {
 			flg = false;
+			this.setMsg(e.getMessage());
 		} catch( Exception e ) {
 			flg = false;
+			this.setMsg(e.getMessage());
 		}
 		
 		return flg;
