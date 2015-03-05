@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import jp.co.musia.okingdum.Bean.CreditCardBean;
+import jp.co.musia.okingdum.Bean.UsersBean;
+import jp.co.musia.okingdum.Bean.V_CreditCardBean;
 
 public class CreditCardDao extends Dao {
 	/**
@@ -162,5 +164,34 @@ public class CreditCardDao extends Dao {
 			this.close();
 		}
 		return retarr;
+	}
+	
+	public V_CreditCardBean selectCreditHolder(UsersBean user) {
+		
+		String sql = "SELECT * FROM v_creditcard WHERE user_id=" + user.getUser_id() + ";";
+		V_CreditCardBean card = new V_CreditCardBean();
+		
+		try {
+			this.getConnection();
+			st = con.createStatement();
+			rs = st.executeQuery(sql);
+			
+			if(rs.next()) {
+				card.setUser_id(rs.getString("user_id"));
+				card.setCredit_id(rs.getString("credit_id"));
+				card.setCard_number(rs.getInt("card_number"));
+				card.setLimit_date(rs.getString("limit_date"));
+				card.setCard_company(rs.getString("credit_id"));
+				card.setCredit_id(rs.getString("credit_id"));
+				card.setCredit_id(rs.getString("credit_id"));
+				card.setCredit_id(rs.getString("credit_id"));
+			}
+		} catch(SQLException e) {
+			
+		} finally {
+			this.close();
+		}
+		
+		return card;
 	}
 }

@@ -50,35 +50,9 @@ public class ProductsDao extends Dao {
 	 *            ProductsBean
 	 * @return ret int : -1:異常終了 0:更新失敗 1:更新成功
 	 */
-	public int insertProducts(ProductsBean products) {
+	public int insertProducts(ProductsBean products, String id) {
 
-		String get_id_sql = "SELECT count(*) FROM t_products WHERE f_products_id LIKE '" + products.getProduct_id() + "%';";
-		
-		try {
-			// コネクション作成
-			this.getConnection();
-			// ステートメント作成
-			st = con.createStatement();
-			// クエリ発行
-			rs = st.executeQuery(get_id_sql);
-			
-			if(rs.next()) {
-				String id_str = String.valueOf( rs.getInt("count(*)") + 1 );
-				
-				for( int i = id_str.length() ; i <= 5; i++ ) {
-					id_str = "0" + id_str;
-				}
-				
-				id_str = products.getProduct_id() + id_str;
-				products.setProduct_id(id_str);
-			}
-			
-		} catch(SQLException e) {
-			setMsg(e.getMessage());
-		}
-		finally {
-			this.close();
-		}
+		products.setProduct_id(this.getNextId(id));
 		
 		int ret = 0;
 		String sql = "INSERT INTO t_products values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,0);";
@@ -205,7 +179,7 @@ public class ProductsDao extends Dao {
 	 */
 	public ArrayList<ProductsBean> selectProducts(ArrayList<ProductsBean> array) {
 
-		String sql = "SELECT * FROM t_products WHERE t_product_id in('";
+		String sql = "SELECT * FROM t_products WHERE f_product_id in('";
 		ArrayList<ProductsBean> retarr = new ArrayList<ProductsBean>();
 
 		if(array != null && array.size() > 0) {

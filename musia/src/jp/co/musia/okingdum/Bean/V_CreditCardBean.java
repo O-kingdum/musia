@@ -22,6 +22,8 @@ public class V_CreditCardBean {
 		this.sec_code = sec_code;
 		this.card_persons = card_persons;
 	}
+	
+	public V_CreditCardBean(){}
 
 	public String getUser_id() {
 		return user_id;
