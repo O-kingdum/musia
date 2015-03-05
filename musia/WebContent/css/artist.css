@@ -139,7 +139,7 @@ input:focus,textarea:focus{
 
 .side_left {
 	float: left;
-	width: 282px;
+	width: 270px;
 }
 
 .side_left_image {
@@ -173,11 +173,12 @@ input:focus,textarea:focus{
 
 .side_right {
 	float: left;
-	width: 678px;
+	width: 670px;
 }
 
 .test-table {
 	width: inherit;
+	margin: 30px 10px 0;
 }
 
 .test-table thead {
