@@ -37,10 +37,10 @@
                   for (V_ProductsBean product : products) {
                 %>
                   <tr>
-                    <td class="table-data"><% product.getProduct_name(); %></td>
-                    <td class="table-data"><% product.getArtist_name(); %><a href=""></a></td>
-                    <td class="table-data"><% product.getGenre_name(); %></td>
-                    <td class="table-data"><% product.getPrice(); %></td>
+                    <td class="table-data"><%= product.getProduct_name() %></td>
+                    <td class="table-data"><%= product.getArtist_name() %><a href=""></a></td>
+                    <td class="table-data"><%= product.getGenre_name() %></td>
+                    <td class="table-data"><%= product.getPrice() %></td>
                     <td class="table-data"><input id="cart_add"
                       type="checkbox" name="cart_add"></td>
                   </tr>
