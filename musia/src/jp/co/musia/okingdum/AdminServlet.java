@@ -47,10 +47,14 @@ public class AdminServlet extends HttpServlet {
 		
 		// loginページ
 		String dispPage = "/view/admin/index.jsp";
-		String requestUri = request.getRequestURI(); 
+		// URI
+		String requestUri = request.getRequestURI();
 		// UserDao set
 		UserDao userdao;
+		// ProductsDao set
+		ProductsDao productsdao;
 		ArrayList<UsersBean> users;
+		ArrayList<ProductsBean> products;
 		
 		switch( requestUri ) {
 		
@@ -93,9 +97,9 @@ public class AdminServlet extends HttpServlet {
 			// forwarding jsp page
 			dispPage = "/view/admin/song/index.jsp";
 			// ProductsDao set
-			ProductsDao productsdao = new ProductsDao();
+			productsdao = new ProductsDao();
 			// get Products Bean Array
-			ArrayList<ProductsBean> products = productsdao.selectProducts(new ArrayList<ProductsBean>());
+			products = productsdao.selectProducts(new ArrayList<ProductsBean>());
 			// request set
 			request.setAttribute("products", products);
 			break;
@@ -103,6 +107,18 @@ public class AdminServlet extends HttpServlet {
 		// 商品詳細
 		case "/musia/admin/song/review":
 			dispPage = "/view/admin/song/review/index.jsp";
+			// ProductDao set
+			productsdao = new ProductsDao();
+			// ProductBean
+			ProductsBean product = new ProductsBean();
+			// get product_id
+			String product_id = request.getParameter("id");
+			// set product_id
+			product.setProduct_id(product_id);
+			// select Products
+			products = productsdao.selectProducts(new ArrayList<ProductsBean>( Arrays.asList(product) ));
+			// request set
+			request.setAttribute("products", products);
 			break;
 			
 		// 商品登録
@@ -168,14 +184,13 @@ public class AdminServlet extends HttpServlet {
 					
 				ProductsBean products = factory.getProducts();
 					
-				products.setProduct_id(productsdao.getNextId("H"));
 				products.setUser_id( "H000001" );
 				DateTime dt = new DateTime();
 				dt.toString(DateTimeFormat.mediumDateTime());
 				products.setProduct_admin_id( "ADM0001" );
 				products.setPosted_date(dt.toString(DateTimeFormat.mediumDateTime()));
 				products.setExamination(0);
-				productsdao.insertProducts( products );
+				productsdao.insertProducts( products, "H" );
 			
 			} else {
 				request.setAttribute("msg", val.getErrMsg() );

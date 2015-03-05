@@ -37,7 +37,7 @@
 					<td><%= product.getPrice() %></td>
 					<td>
 						<button class="radiusBtn">
-							<a href="<%= request.getContextPath() %>/admin/song/detail?id=<%= product.getProduct_id() %>">商品詳細</a>
+							<a href="<%= request.getContextPath() %>/admin/song/review?id=<%= product.getProduct_id() %>">商品詳細</a>
 						</button>
 					</td>
 				</tr>

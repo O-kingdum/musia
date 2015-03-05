@@ -3,6 +3,7 @@ package jp.co.musia.okingdum;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,6 +38,7 @@ public class MusiaServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		String dispPage = "/view/index.jsp";
+		ProductsDao prodao;
 		UsersBean user;
 		
 		if ("/musia/listener_signup".equals(request.getRequestURI()))// ユーザ登録
@@ -77,10 +79,17 @@ public class MusiaServlet extends HttpServlet {
 		else if ("/musia/option/list".equals(request.getRequestURI()))		// ほしいものリスト
 		{
 			dispPage = "/view/option/list/index.jsp";
+			prodao = new ProductsDao();
+			// set Wants List
+			request.setAttribute("wants", prodao.selectV_Wants(Auth.getAuthUser(request)));
 		}
 		else if ("/musia/cart".equals(request.getRequestURI()))		// カート
 		{
 			dispPage = "/view/cart/index.jsp";
+			// set CartList
+			request.setAttribute("cart", CartManager.getCartList(request));
+			// set TotalAmount
+			request.setAttribute("total", CartManager.getTotalAmount(request));
 		}
 		else if ("/musia/cart/select".equals(request.getRequestURI()))		// お支払選択
 		{

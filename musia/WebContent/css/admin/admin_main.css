@@ -131,3 +131,8 @@ legend {
     width: 100px;
     padding: 10px 0;
 }
+
+footer {
+	padding: 100px 0;
+	text-align: center;
+}
