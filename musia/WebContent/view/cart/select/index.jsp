@@ -29,22 +29,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><input type="radio" name="select" value=""></td>
-                    <td><img
-                      src="<%=request.getContextPath()%>/img/mc.png"
-                      alt="" /></td>
+                    <td><input type="radio" name="select" value="">クレジットカード</td>
+                    <td></td>
                   </tr>
                   <tr>
-                    <td><input type="radio" name="select" value=""></td>
-                    <td><img
-                      src="<%=request.getContextPath()%>/img/visa.png"
-                      alt="" /></td>
-                  </tr>
-                  <tr>
-                    <td><input type="radio" name="select" value=""></td>
-                    <td><img
-                      src="<%=request.getContextPath()%>/img/jcb.png"
-                      alt="" /></td>
+                    <td><input type="radio" name="select" value="">及川ポイント</td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>

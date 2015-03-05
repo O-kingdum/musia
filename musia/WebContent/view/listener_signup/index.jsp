@@ -29,7 +29,7 @@
                   </th>
                   <td class="form-data">
                     <input id="name" type="text" name="user_name"
-                    autofocus="" required>
+                    autofocus required>
                   </td>
                 </tr>
                 <tr>
@@ -38,7 +38,7 @@
                   </th>
                   <td class="form-data">
                     <input id="email" type="email" name="email"
-                    autofocus="" required>
+                    autofocus required>
                   </td>
                 </tr>
                 <tr>
@@ -53,11 +53,10 @@
                 <tr>
                   <th class="form-header">性別</th>
                   <td class="form-data">
-                    <input id="female" type="radio" name="sex"
-                    value="0" checked="checked">
+                    <input id="female" type="radio" name="sex" value="0"
+                    checked="checked">
                     <label for="female">女性</label>
-                    <input id="male" type="radio" name="sex"
-                    value="1">
+                    <input id="male" type="radio" name="sex" value="1">
                     <label for="male">男性</label>
                   </td>
                 </tr>

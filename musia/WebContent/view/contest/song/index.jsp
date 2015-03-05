@@ -21,11 +21,11 @@
               action="${pageContext.request.contextPath}/contest/song"
               method="post" enctype="multipart/form-data">
               <div>
-			    <input id="image" type="file" name="image" autofocus required>
-			    <input type="submit" value="送信">
-			  </div>
+                <input id="image" type="file" name="image" autofocus
+                  required>
+                <input type="submit" value="送信">
+              </div>
             </form>
-            
           </article>
         </div>
         <p class="back">

@@ -13,8 +13,7 @@
   <jsp:param
     value="${pageContext.request.contextPath}/css/template/template.css"
     name="templateCss" />
-  <jsp:param
-    value="${pageContext.request.contextPath}/css/cart.css"
+  <jsp:param value="${pageContext.request.contextPath}/css/cart.css"
     name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
@@ -43,12 +42,30 @@
                   for (V_ProductsBean product : products) {
                 %>
                   <tr>
-                    <td class="table-data"><% product.getProduct_name(); %></td>
-                    <td class="table-data"><% product.getArtist_name(); %><a href=""></a></td>
-                    <td class="table-data"><% product.getGenre_name(); %></td>
-                    <td class="table-data"><% product.getPrice(); %></td>
+                    <td class="table-data"><a href="">
+                        <%
+                          product.getProduct_name();
+                        %>
+                    </a></td>
+                    <td class="table-data"><a href="">
+                        <%
+                          product.getArtist_name();
+                        %>
+                    </a></td>
+                    <td class="table-data">
+                      <%
+                        product.getGenre_name();
+                      %>
+                    </td>
+                    <td class="table-data">
+                      <%
+                        product.getPrice();
+                      %>
+                    </td>
                     <td class="table-data"><input id="buy"
-                      type="checkbox" name="buy"></td>
+                      type="checkbox" name="buy" /></td>
+                    <td class="table-data"><input id="delete"
+                      type="submit" name="delete" /></td>
                   </tr>
                 <%
                   }
@@ -56,7 +73,7 @@
                 </tbody>
               </table>
               <p class="form-submit">
-                <input type="submit" name="all" value="購入">
+                <input type="submit" name="all" value="購入" />
               </p>
               <%
                 } else {
