@@ -5,6 +5,10 @@
   @SuppressWarnings("unchecked")
   ArrayList<CreditCardBean> cards = (ArrayList<CreditCardBean>) request.getAttribute("cards");
 %>
+<%
+  @SuppressWarnings("unchecked")
+  ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
+%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="クレジットカード情報 | MUSIA" name="siteTitle" />
   <jsp:param
@@ -36,10 +40,10 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="credit-no">新しいカード番号</label>
+                    <label for="re_credit-no">新しいカード番号</label>
                   </th>
                   <td class="form-data">
-                    <input id="credit-no" type="text" name=""
+                    <input id="re_credit-no" type="text" name=""
                     autofocus="">
                   </td>
                 </tr>
@@ -49,7 +53,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="credit-date">新しいカード有効期限</label>
+                    <label for="re_credit-date">新しいカード有効期限</label>
                   </th>
                   <td class="form-data">
                     <input id="credit-date" type="" name="" autofocus="">
@@ -61,7 +65,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="credit-cname">新しいカード会社</label>
+                    <label for="re_credit-cname">新しいカード会社</label>
                   </th>
                   <td class="form-data">
                     <input id="credit-cname" type="text" name=""
@@ -74,7 +78,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="credit-security">新しいセキュリティコード</label>
+                    <label for="re_credit-security">新しいセキュリティコード</label>
                   </th>
                   <td class="form-data">
                     <input id="credit-security" type="text" name=""
@@ -87,10 +91,10 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="credit-Nominee">新しいカード名義人</label>
+                    <label for="re_credit-nominee">新しいカード名義人</label>
                   </th>
                   <td class="form-data">
-                    <input id="credit-Nominee" type="text" name=""
+                    <input id="re_credit-nominee" type="text" name=""
                     autofocus="">
                   </td>
                 </tr>
@@ -105,9 +109,7 @@
           } else {
         %>
           <%
-            @SuppressWarnings("unchecked")
-              ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
-              if (msg != null && msg.size() > 0) {
+            if (msg != null && msg.size() > 0) {
           %>
             <ul>
               <%

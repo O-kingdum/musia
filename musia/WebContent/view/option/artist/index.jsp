@@ -5,6 +5,10 @@
   @SuppressWarnings("unchecked")
   ArrayList<UsersBean> users = (ArrayList<UsersBean>) request.getAttribute("users");
 %>
+<%
+  @SuppressWarnings("unchecked")
+  ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
+%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="アーティスト情報 | MUSIA" name="siteTitle" />
   <jsp:param
@@ -37,29 +41,27 @@
                 <tr>
                   <th class="form-header">新しい金融機関</th>
                   <td class="form-data">
-                    <input id="re_maru_bank" type="radio" name="re_bank"
-                    value="maru_bank" checked="checked">
-                    <label for="re_maru_bank">マル銀行</label>
-                    <input id="re_batsu_bank" type="radio"
-                    name="re_bank" value="batsu_bank">
-                    <label for="re_batsu_bank">バツ銀行</label>
-                    <input id="re_sankaku_bank" type="radio"
-                    name="re_bank" value="sankaku_bank">
-                    <label for="re_sankaku_bank">サンカク銀行</label>
-                    <input id="re_shikaku_bank" type="radio"
-                    name="re_bank" value="shikaku_bank">
-                    <label for="re_shikaku_bank">シカク銀行</label>
+                    <input id="re_mitsubishi" type="radio"
+                    name="re_mitsubishi" value="mitsubishi"
+                    checked="checked">
+                    <label for="re_mitsubishi">三菱東京UFJ銀行</label>
+                    <input id="re_mitsui" type="radio" name="re_mitsui"
+                    value="mitsui">
+                    <label for="re_mitsui">三井住友銀行</label>
+                    <input id="re_mizuho" type="radio" name="re_mizuho"
+                    value="mizuho">
+                    <label for="re_mizuho">みずほ銀行</label>
                   </td>
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="re_account_number">現在の口座番号</label>
+                    <label for="account_number">現在の口座番号</label>
                   </th>
                   <td class="form-data"><%=user.getBank_number()%></td>
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="re_account_number">新しい口座番号</label>
+                    <label for="account_number">新しい口座番号</label>
                   </th>
                   <td class="form-data">
                     <input id="re_account_number" type="text"
@@ -68,7 +70,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="re_branch_number">現在の支店番号</label>
+                    <label for="branch_number">現在の支店番号</label>
                   </th>
                   <td class="form-data"><%=user.getBranch_code()%></td>
                 </tr>
@@ -83,7 +85,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="re_account_name">現在の口座名義</label>
+                    <label for="account_name">現在の口座名義</label>
                   </th>
                   <td class="form-data"><%=user.getBank_persons()%></td>
                 </tr>
@@ -99,7 +101,7 @@
               </table>
             </fieldset>
             <p class="form-submit">
-              <input type="submit" name="#" value="次へ">
+              <input type="submit" name="#" value="変更">
             </p>
           </form>
         </div>
@@ -107,9 +109,7 @@
           } else {
         %>
           <%
-            @SuppressWarnings("unchecked")
-              ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
-              if (msg != null && msg.size() > 0) {
+            if (msg != null && msg.size() > 0) {
           %>
             <ul>
               <%

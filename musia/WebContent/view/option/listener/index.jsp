@@ -5,6 +5,10 @@
   @SuppressWarnings("unchecked")
   ArrayList<UsersBean> users = (ArrayList<UsersBean>) request.getAttribute("users");
 %>
+<%
+  @SuppressWarnings("unchecked")
+  ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
+%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="リスナー情報 | MUSIA" name="siteTitle" />
   <jsp:param
@@ -104,9 +108,7 @@
             } else {
           %>
             <%
-              @SuppressWarnings("unchecked")
-                ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
-                if (msg != null && msg.size() > 0) {
+              if (msg != null && msg.size() > 0) {
             %>
             <ul>
               <%
