@@ -239,8 +239,10 @@ public class ProductsDao extends Dao {
 				+ "f_file_size,f_directory_path,f_img_path,f_posted_date,"
 				+ "f_remarks FROM t_products p join t_genre g on p.f_genre_id = g.f_genre_id"
 				+ " join t_wants_list w on p.f_products_id = w.f_products_id"
-				+ " WHERE w.f_user_id=" + user.getUser_id() + ";";
-		
+				//+ " WHERE w.f_user_id=" + user.getUser_id() + ";";
+				+ " WHERE w.f_user_id=" + "H000001" + ";";
+				
+				
 		ArrayList<V_ProductsBean> retarr = new ArrayList<V_ProductsBean>();
 		
 		try {

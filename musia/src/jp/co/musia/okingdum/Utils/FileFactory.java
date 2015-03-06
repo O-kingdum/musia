@@ -14,6 +14,11 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+/**
+ * 
+ * @author watanabe.yuta
+ *
+ */
 public class FileFactory {
 
 	private DiskFileItemFactory factory;

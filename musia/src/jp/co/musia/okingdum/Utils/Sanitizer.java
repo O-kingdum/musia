@@ -3,7 +3,7 @@ package jp.co.musia.okingdum.Utils;
 public class Sanitizer {
 	
 	/**
-	 * タグを無害化します。
+	 * タグを無害化。
 	 * @param str
 	 * @return
 	 */
@@ -20,7 +20,7 @@ public class Sanitizer {
 	 }
 	 
 	/**
-	 * 無害化されたタグを元に戻します
+	 * 無害化されたタグを元に戻す
 	 * @param str
 	 * @return
 	 */

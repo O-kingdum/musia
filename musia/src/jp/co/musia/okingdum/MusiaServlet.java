@@ -68,13 +68,16 @@ public class MusiaServlet extends HttpServlet {
 		else if ("/musia/option/credit".equals(request.getRequestURI()))	// クレジットカード情報
 		{
 			dispPage = "/view/option/credit/index.jsp";
+			// get UsersBean
 			user = Auth.getAuthUser(request);
-			
-			
+			// get CreditCardBean
+			V_CreditCardBean creditcard = new V_CreditCardBean();
+			// set CreditCardBean
+			request.setAttribute("creditcard", creditcard);
 		}
 		else if ("/musia/option/point".equals(request.getRequestURI()))	// ポイント購入
 		{
-			dispPage = "/view/option/point/index.jsp";			
+			dispPage = "/view/option/point/index.jsp";		
 		}
 		else if ("/musia/login_user".equals(request.getRequestURI()))	// ユーザログイン
 		{
@@ -83,6 +86,7 @@ public class MusiaServlet extends HttpServlet {
 		else if ("/musia/option/list".equals(request.getRequestURI()))		// ほしいものリスト
 		{
 			dispPage = "/view/option/list/index.jsp";
+			// instance
 			prodao = new ProductsDao();
 			// set Wants List
 			request.setAttribute("wants", prodao.selectV_Wants(Auth.getAuthUser(request)));
@@ -114,8 +118,11 @@ public class MusiaServlet extends HttpServlet {
 		else if ("/musia/release/song".equals(request.getRequestURI()))		// リリース登録
 		{
 			dispPage = "/view/release/song/index.jsp";
+			// instance
 			GenreDao genredao = new GenreDao();
+			// get ArrayList<GenreBean>
 			ArrayList<GenreBean> genres = genredao.selectGenre(new ArrayList<GenreBean>());
+			// set Genre List
 			request.setAttribute("genres", genres);
 		}
 		else if ("/musia/contest".equals(request.getRequestURI()))		// コンテスト
