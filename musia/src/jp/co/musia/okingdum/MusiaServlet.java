@@ -256,7 +256,6 @@ public class MusiaServlet extends HttpServlet {
 			FileFactory factory = new FileFactory();
 			ServletContext context = getServletContext();
 			path = context.getRealPath("WEB-INF/music_file/");
-			Validator val = new Validator();
 			
 			if( factory.saveFileFacotry(request, path) ) {
 				
@@ -273,9 +272,15 @@ public class MusiaServlet extends HttpServlet {
 				products.setExamination(0);
 				
 				prodao.insertProducts( products, "T" );
-			
-			} else {
-				request.setAttribute("msg", val.getErrMsg() );
+				if(prodao.getErrflag()){
+					
+				}
+				else{
+					//request.setAttribute("msg", prodao.getMsg() );
+				}
+			}
+			else{
+				//request.setAttribute("msg", factory.getMsg() );
 			}
 		
 			break;
