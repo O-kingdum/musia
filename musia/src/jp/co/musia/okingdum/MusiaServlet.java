@@ -5,12 +5,16 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 
 import jp.co.musia.okingdum.Utils.*;
 import jp.co.musia.okingdum.dao.*;
@@ -109,7 +113,10 @@ public class MusiaServlet extends HttpServlet {
 		}
 		else if ("/musia/release/song".equals(request.getRequestURI()))		// リリース登録
 		{
-			dispPage = "/view/release/song/index.jsp";	
+			dispPage = "/view/release/song/index.jsp";
+			GenreDao genredao = new GenreDao();
+			ArrayList<GenreBean> genres = genredao.selectGenre(new ArrayList<GenreBean>());
+			request.setAttribute("genres", genres);
 		}
 		else if ("/musia/contest".equals(request.getRequestURI()))		// コンテスト
 		{
@@ -136,6 +143,7 @@ public class MusiaServlet extends HttpServlet {
 		String dispPage = "";
 		String url = request.getRequestURI();
 		Validator validator = new Validator();
+		String path = "";
 		
 		
 		switch(url){
@@ -241,36 +249,33 @@ public class MusiaServlet extends HttpServlet {
 			
 			
 		case "/musia/release/song":					//リリース登録(商品登録)
-			if(validator.getPostMusicValidation(request)){
+			
 				ProductsDao prodao = new ProductsDao();
+				FileFactory factory = new FileFactory();
+				ServletContext context = getServletContext();
+				path = context.getRealPath("WEB-INF/music_file/");
+				Validator val = new Validator();
 				
-				prodao.insertProducts(
-						new ProductsBean(
-								request.getParameter("credit_id"),
-								request.getParameter("user_id"),
-								request.getParameter("product_name"),
-								request.getParameter("artist_name"),
-								Integer.parseInt(request.getParameter("price")),
-								request.getParameter("product_details"),
-								request.getParameter("genre_id"),
-								request.getParameter("measure"),
-								request.getParameter("file_type"),
-								Integer.parseInt(request.getParameter("file_size")),
-								request.getParameter("directory_path"),
-								request.getParameter("img_path"),
-								request.getParameter("posted_date"),
-								request.getParameter("remarks"),
-								Integer.parseInt(request.getParameter("examination")),
-								request.getParameter("product_admin_id"),
-								Integer.parseInt(request.getParameter("delflg"))
-								)
-						);
+				if( factory.saveFileFacotry(request, path) ) {
+					
+					ProductsBean products = factory.getProducts();
+					// ユーザＩＤ	
+					products.setUser_id( "M000001" );
+					// 日付
+					DateTime dt = new DateTime();
+					dt.toString(DateTimeFormat.mediumDateTime());
+					products.setPosted_date(dt.toString(DateTimeFormat.mediumDateTime()));
+					// 管理者ＩＤ
+					products.setProduct_admin_id( "ADM0001" );
+					// 審査状況
+					products.setExamination(0);
+					
+					prodao.insertProducts( products, "T" );
 				
-			}
-			else{
-				response.sendRedirect(request.getContextPath());
-				return;
-			}
+				} else {
+					request.setAttribute("msg", val.getErrMsg() );
+				}
+			
 			
 		case "/musia/option/":						//マイページ
 			//マイページで必要なもの
