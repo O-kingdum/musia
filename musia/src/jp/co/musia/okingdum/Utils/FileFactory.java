@@ -20,7 +20,7 @@ public class FileFactory {
 	private ServletFileUpload uploader;
 	private ProductsBean products;
 	private String path;
-	private String msg;
+	private ArrayList<String> msg;
 	
 	/**
 	 * const
@@ -28,6 +28,7 @@ public class FileFactory {
 	public FileFactory() {
 		factory = new DiskFileItemFactory();
 		products = new ProductsBean();
+		msg = new ArrayList<String>();
 	}
 	
 	/**
@@ -54,12 +55,12 @@ public class FileFactory {
 		return this.products;
 	}
 	
-	public String getMsg() {
-		return msg;
+	public ArrayList<String> getMsg() {
+		return this.msg;
 	}
 
 	public void setMsg(String msg) {
-		this.msg = msg;
+		this.msg.add( msg );
 	}
 
 	/**
@@ -122,9 +123,9 @@ public class FileFactory {
 		    			strNam = ( new File( strNam ) ).getName();
 		    			objFi.write( new File( path + "/" + strNam ) );
 		    			/* ディレクトリパス */
-			    		products.setDirectory_path( path + "music_file/" + strNam );
+			    		products.setDirectory_path( "music_file/" + strNam );
 			    		/* imgパス */
-			    		products.setImg_path( path + "music_img/" + strNam );
+			    		products.setImg_path( "music_img/" + strNam );
 			    		/* ファイル種別 */
 			    		products.setFile_type( this.getSuffix( strNam ) );
 		    		}

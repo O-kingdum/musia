@@ -5,12 +5,16 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 
 import jp.co.musia.okingdum.Utils.*;
 import jp.co.musia.okingdum.dao.*;
@@ -109,7 +113,10 @@ public class MusiaServlet extends HttpServlet {
 		}
 		else if ("/musia/release/song".equals(request.getRequestURI()))		// リリース登録
 		{
-			dispPage = "/view/release/song/index.jsp";	
+			dispPage = "/view/release/song/index.jsp";
+			GenreDao genredao = new GenreDao();
+			ArrayList<GenreBean> genres = genredao.selectGenre(new ArrayList<GenreBean>());
+			request.setAttribute("genres", genres);
 		}
 		else if ("/musia/contest".equals(request.getRequestURI()))		// コンテスト
 		{
@@ -136,6 +143,7 @@ public class MusiaServlet extends HttpServlet {
 		String dispPage = "";
 		String url = request.getRequestURI();
 		Validator validator = new Validator();
+		String path = "";
 		
 		
 		switch(url){
@@ -228,43 +236,53 @@ public class MusiaServlet extends HttpServlet {
 			break;
 			
 		case "/musia/contest/song":					//コンテスト登録
-			
+			Contest_MusicDao condao = new Contest_MusicDao();
+			condao.insertContest_Music(
+					new Contest_MusicBean(
+							request.getParameter("contest_id"),
+							request.getParameter("product_id"),
+							request.getParameter("contest_admin_id"),
+							Integer.parseInt(request.getParameter("contest_examination")),
+							request.getParameter("record_date")));
 			
 			break;
 			
 			
-			
 		case "/musia/release/song":					//リリース登録(商品登録)
-			if(validator.getPostMusicValidation(request)){
-				ProductsDao prodao = new ProductsDao();
+			
+			dispPage = "/view/release/song/index.jsp";
+			UsersBean ubean = new UsersBean();
+			ProductsDao prodao = new ProductsDao();
+			FileFactory factory = new FileFactory();
+			ServletContext context = getServletContext();
+			path = context.getRealPath("/");
+			
+			if( factory.saveFileFacotry(request, path) ) {
+				ubean = Auth.getAuthUser(request);
+				ProductsBean products = factory.getProducts();
+				// ユーザＩＤ
+				products.setUser_id(ubean.getUser_id());
+				products.setArtist_name(ubean.getUser_name());
+				// 日付
+				DateTime dt = new DateTime();
+				dt.toString(DateTimeFormat.mediumDateTime());
+				products.setPosted_date(dt.toString(DateTimeFormat.mediumDateTime()));
+				// 管理者ＩＤ
+				products.setProduct_admin_id( "ADM0001" );
+				// 審査状況
+				products.setExamination(0);
 				
-				prodao.insertProducts(
-						new ProductsBean(
-								request.getParameter("credit_id"),
-								request.getParameter("user_id"),
-								request.getParameter("product_name"),
-								request.getParameter("artist_name"),
-								Integer.parseInt(request.getParameter("price")),
-								request.getParameter("product_details"),
-								request.getParameter("genre_id"),
-								request.getParameter("measure"),
-								request.getParameter("file_type"),
-								Integer.parseInt(request.getParameter("file_size")),
-								request.getParameter("directory_path"),
-								request.getParameter("img_path"),
-								request.getParameter("posted_date"),
-								request.getParameter("remarks"),
-								Integer.parseInt(request.getParameter("examination")),
-								request.getParameter("product_admin_id"),
-								Integer.parseInt(request.getParameter("delflg"))
-								)
-						);
-				
+				prodao.insertProducts( products, "T" );
+				if(!prodao.getErrflag()){
+					request.setAttribute("msg", prodao.getMsg() );
+				}
+					
 			}
 			else{
-				response.sendRedirect(request.getContextPath());
-				return;
+				request.setAttribute("msg", factory.getMsg() );
 			}
+		
+			break;
 			
 		case "/musia/option/":						//マイページ
 			//マイページで必要なもの
