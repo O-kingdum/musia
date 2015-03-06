@@ -23,8 +23,7 @@
       <article class="article">
         <h2 class="article-title">楽曲投稿</h2>
         <div class="article-content">
-          <form
-            action="${pageContext.request.contextPath}/release/song"
+          <form action="${pageContext.request.contextPath}/release/song"
             method="post" enctype="multipart/form-data">
             <fieldset>
               <legend>楽曲情報登録</legend>
@@ -100,6 +99,14 @@
                   <td class="form-data">
                     <input id="song_price" type="text" name="price"
                     autofocus required>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="form-header">
+                    <label for="song_select">ファイル選択</label>
+                  </th>
+                  <td class="form-data">
+                    <input id="song_select" type="file" name="file" />
                   </td>
                 </tr>
               </table>
