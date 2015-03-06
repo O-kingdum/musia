@@ -21,26 +21,26 @@
       <article class="article">
         <h2 class="article-title">トップ</h2>
         <div class="article-content">
-          <%
-            if (products != null && products.size() > 0) {
-          %>
-            <%
-              for (ProductsBean product : products) {
-            %>
-              <div>
-                <a href="<%=user.get()%>"><img src="<%=user.get()%>"
-              alt="<%=user.get()%>" /></a>
-              </div>
-            <%
-              }
-            %>
-          <%
-            } else {
-          %>
-          <p>商品が登録されていません</p>
-          <%
-            }
-          %>
+          <div>
+            <a href=""><img
+              src="<%=request.getContextPath()%>/music_img/001.jpg"
+              alt="" /></a>
+          </div>
+          <div>
+            <a href=""><img
+              src="<%=request.getContextPath()%>/music_img/002.jpg"
+              alt="" /></a>
+          </div>
+          <div>
+            <a href=""><img
+              src="<%=request.getContextPath()%>/music_img/003.jpg"
+              alt="" /></a>
+          </div>
+          <div>
+            <a href=""><img
+              src="<%=request.getContextPath()%>/music_img/004.jpg"
+              alt="" /></a>
+          </div>
         </div>
       </article>
     </jsp:attribute>
