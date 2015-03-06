@@ -250,32 +250,35 @@ public class MusiaServlet extends HttpServlet {
 			
 		case "/musia/release/song":					//リリース登録(商品登録)
 			
-				ProductsDao prodao = new ProductsDao();
-				FileFactory factory = new FileFactory();
-				ServletContext context = getServletContext();
-				path = context.getRealPath("WEB-INF/music_file/");
-				Validator val = new Validator();
-				
-				if( factory.saveFileFacotry(request, path) ) {
-					
-					ProductsBean products = factory.getProducts();
-					// ユーザＩＤ	
-					products.setUser_id( "M000001" );
-					// 日付
-					DateTime dt = new DateTime();
-					dt.toString(DateTimeFormat.mediumDateTime());
-					products.setPosted_date(dt.toString(DateTimeFormat.mediumDateTime()));
-					// 管理者ＩＤ
-					products.setProduct_admin_id( "ADM0001" );
-					// 審査状況
-					products.setExamination(0);
-					
-					prodao.insertProducts( products, "T" );
-				
-				} else {
-					request.setAttribute("msg", val.getErrMsg() );
-				}
+			dispPage = "/view/release/song/index.jsp";
 			
+			ProductsDao prodao = new ProductsDao();
+			FileFactory factory = new FileFactory();
+			ServletContext context = getServletContext();
+			path = context.getRealPath("WEB-INF/music_file/");
+			Validator val = new Validator();
+			
+			if( factory.saveFileFacotry(request, path) ) {
+				
+				ProductsBean products = factory.getProducts();
+				// ユーザＩＤ	
+				products.setUser_id( "M000001" );
+				// 日付
+				DateTime dt = new DateTime();
+				dt.toString(DateTimeFormat.mediumDateTime());
+				products.setPosted_date(dt.toString(DateTimeFormat.mediumDateTime()));
+				// 管理者ＩＤ
+				products.setProduct_admin_id( "ADM0001" );
+				// 審査状況
+				products.setExamination(0);
+				
+				prodao.insertProducts( products, "T" );
+			
+			} else {
+				request.setAttribute("msg", val.getErrMsg() );
+			}
+		
+			break;
 			
 		case "/musia/option/":						//マイページ
 			//マイページで必要なもの
