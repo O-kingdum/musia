@@ -251,17 +251,18 @@ public class MusiaServlet extends HttpServlet {
 		case "/musia/release/song":					//リリース登録(商品登録)
 			
 			dispPage = "/view/release/song/index.jsp";
-			
+			UsersBean ubean = new UsersBean();
 			ProductsDao prodao = new ProductsDao();
 			FileFactory factory = new FileFactory();
 			ServletContext context = getServletContext();
 			path = context.getRealPath("/");
 			
 			if( factory.saveFileFacotry(request, path) ) {
-				
+				ubean = Auth.getAuthUser(request);
 				ProductsBean products = factory.getProducts();
-				// ユーザＩＤ	
-				products.setUser_id( "M000001" );
+				// ユーザＩＤ
+				products.setUser_id(ubean.getUser_id());
+				products.setArtist_name(ubean.getUser_name());
 				// 日付
 				DateTime dt = new DateTime();
 				dt.toString(DateTimeFormat.mediumDateTime());
@@ -272,12 +273,10 @@ public class MusiaServlet extends HttpServlet {
 				products.setExamination(0);
 				
 				prodao.insertProducts( products, "T" );
-				if(prodao.getErrflag()){
-					
-				}
-				else{
+				if(!prodao.getErrflag()){
 					request.setAttribute("msg", prodao.getMsg() );
 				}
+					
 			}
 			else{
 				request.setAttribute("msg", factory.getMsg() );
