@@ -11,8 +11,12 @@
   <jsp:param
     value="${pageContext.request.contextPath}/css/listener_signup.css"
     name="mainCss" />
+    
+  <jsp:param value="${pageContext.request.contextPath}/js/vendor/jquery-1.11.2.min.js" name="jqueryJs" />
+    
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
+    
       <article class="article">
         <h2 class="article-title">リスナー登録</h2>
         <div class="article-content">
@@ -63,16 +67,16 @@
                 <tr>
                   <th class="form-header">生年月日</th>
                   <td class="form-data">
-                    <select id="year" name="year">
-                    <option>0001</option>
+                    <select id="year" name="year" class="year date">
+                    <option value="0">---</option>
                     </select>
                     <label for="year">年</label>
-                    <select id="month" name="month">
-                    <option>01</option>
+                    <select id="month" name="month" class="month date">
+                    <option value="0">---</option>
                     </select>
                     <label for="month">月</label>
-                    <select id="day" name="day">
-                    <option>01</option>
+                    <select id="day" name="day" class="day">
+                    <option value="0">---</option>
                     </select>
                     <label for="day">日</label>
                   </td>
@@ -107,6 +111,7 @@
             alt="戻る" /></a>
         </p>
       </article>
+      
     </jsp:attribute>
   </jsp:param>
 </jsp:include>
