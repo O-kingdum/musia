@@ -20,7 +20,7 @@ public class FileFactory {
 	private ServletFileUpload uploader;
 	private ProductsBean products;
 	private String path;
-	private String msg;
+	private ArrayList<String> msg;
 	
 	/**
 	 * const
@@ -28,6 +28,7 @@ public class FileFactory {
 	public FileFactory() {
 		factory = new DiskFileItemFactory();
 		products = new ProductsBean();
+		msg = new ArrayList<String>();
 	}
 	
 	/**
@@ -54,12 +55,12 @@ public class FileFactory {
 		return this.products;
 	}
 	
-	public String getMsg() {
-		return msg;
+	public ArrayList<String> getMsg() {
+		return this.msg;
 	}
 
 	public void setMsg(String msg) {
-		this.msg = msg;
+		this.msg.add( msg );
 	}
 
 	/**
