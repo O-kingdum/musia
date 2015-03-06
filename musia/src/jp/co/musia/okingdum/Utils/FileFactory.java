@@ -122,9 +122,9 @@ public class FileFactory {
 		    			strNam = ( new File( strNam ) ).getName();
 		    			objFi.write( new File( path + "/" + strNam ) );
 		    			/* ディレクトリパス */
-			    		products.setDirectory_path( path + "music_file/" + strNam );
+			    		products.setDirectory_path( "WEB-INF/music_file/" + strNam );
 			    		/* imgパス */
-			    		products.setImg_path( path + "music_img/" + strNam );
+			    		products.setImg_path( "img/" + strNam );
 			    		/* ファイル種別 */
 			    		products.setFile_type( this.getSuffix( strNam ) );
 		    		}
