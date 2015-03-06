@@ -178,18 +178,22 @@ public class AdminServlet extends HttpServlet {
 			
 			ProductsDao productsdao = new ProductsDao();
 			FileFactory factory = new FileFactory();
-			path = context.getRealPath("WEB-INF/");
+			path = context.getRealPath("WEB-INF/music_file/");
 				
 			if( factory.saveFileFacotry(request, path) ) {
 					
 				ProductsBean products = factory.getProducts();
-					
+				// ユーザＩＤ	
 				products.setUser_id( "H000001" );
+				// 日付
 				DateTime dt = new DateTime();
 				dt.toString(DateTimeFormat.mediumDateTime());
-				products.setProduct_admin_id( "ADM0001" );
 				products.setPosted_date(dt.toString(DateTimeFormat.mediumDateTime()));
+				// 管理者ＩＤ
+				products.setProduct_admin_id( "ADM0001" );
+				// 審査状況
 				products.setExamination(0);
+				
 				productsdao.insertProducts( products, "H" );
 			
 			} else {
