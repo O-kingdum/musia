@@ -228,10 +228,16 @@ public class MusiaServlet extends HttpServlet {
 			break;
 			
 		case "/musia/contest/song":					//コンテスト登録
-			
+			Contest_MusicDao condao = new Contest_MusicDao();
+			condao.insertContest_Music(
+					new Contest_MusicBean(
+							request.getParameter("contest_id"),
+							request.getParameter("product_id"),
+							request.getParameter("contest_admin_id"),
+							Integer.parseInt(request.getParameter("contest_examination")),
+							request.getParameter("record_date")));
 			
 			break;
-			
 			
 			
 		case "/musia/release/song":					//リリース登録(商品登録)
