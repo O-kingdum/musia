@@ -130,7 +130,7 @@
                   </tr>
                 </tbody>
               </table>
-              <div class="paging"></div>
+              <div class="paging"></div><!-- tableに対するjQuery plug-inのページ送り用 -->
 	          </div>
           </div>
         </div>
@@ -157,13 +157,17 @@
             alt="戻る" /></a>
         </p>
         
+        <!-- tableに対するjQuery plug-inの指定 -->
         <script>
 		$('#data-table').datatable({
-		  pageSize: 5,
+		  pageSize: 5, // 1ページに表示する最大数
 		  //sort: [true, true, true, true],
 		  //filters: [false, false, 'select']
 		});
 		</script>
+		<!-- /tableに対するjQuery plug-inの指定 -->
+		
+		
       </article>
     </jsp:attribute>
   </jsp:param>
