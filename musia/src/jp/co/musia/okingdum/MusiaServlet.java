@@ -42,8 +42,9 @@ public class MusiaServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		String dispPage = "/view/index.jsp";
-		ProductsDao prodao;
+		ProductsDao prodao = new ProductsDao();
 		UsersBean user;
+		ArrayList<ProductsBean> products = prodao.selectProducts(new ArrayList<ProductsBean>());
 		
 		if ("/musia/listener_signup".equals(request.getRequestURI()))// ユーザ登録
 		{
@@ -85,7 +86,7 @@ public class MusiaServlet extends HttpServlet {
 		}
 		else if ("/musia/option/list".equals(request.getRequestURI()))		// ほしいものリスト
 		{
-			dispPage = "/view/option/list/index.jsp";
+			dispPage = "/view/list/index.jsp";
 			// instance
 			prodao = new ProductsDao();
 			// set Wants List
@@ -137,7 +138,7 @@ public class MusiaServlet extends HttpServlet {
 		{
 			dispPage = "/view/help/index.jsp";
 		}
-				
+		
 		request.getRequestDispatcher(dispPage).forward(request, response);
 	}
 
