@@ -1,42 +1,54 @@
 @CHARSET "UTF-8";
 
-
-.clearfix:after {
-    content: ".";
-    display: block;
-    clear: both;
-    visibility: hidden;
-    line-height: 0;
-    height: 0;
-}
- 
-.clearfix {
-    display: inline-block;
-}
 body{
 	background: url(../img/background.jpg) no-repeat center;
 	background-size: cover;
 }
 
-@media (max-width: 480px) {
-		
-}
-
-@media (min-width: 481px) and (max-width: 959px) {
-	.side_left_image {
-		float: left;
-		width: 30%;
+@media only screen and (max-width: 480px) {
+	.wrapper {
+		width: 100%;
+	}
+	.header {
+		display: none;
 	}
 	
-	.side_left_userInfo {
-		width: 70%;
-		margin-left: 30%;
+	.footer {
+		display: none;
+	}
+	
+	.side_left_username {
+		width: 232px;
+	 	margin: 0 auto;
+	 	border: 1px solid rgba(233, 233, 237, 0.29);
+		text-align: center;
+		background-color: rgba(41, 59, 60, 0.23);
+	}
+	
+	.side_left_profile {
+		width: 232px;
+		margin: 27px auto 36px;
+		border: 1px solid rgba(233, 233, 237, 0.29);
+		background-color: rgba(41, 59, 60, 0.23);
+	}
+	
+	.side_left_title {
+		text-align: center;
+		line-height: 48px;
+	}
+	
+	.side_left_expo {
+		padding: 0 10px 20px;
+	}
+	
+	.side_left_image {
+		text-align: center;
 	}
 	
 	.test-table {
 		width: 80%;
 		margin: 30px 10% 0;
-	}	
+	}
 	
 	.test-table thead {
 		line-height: 50px;
@@ -54,7 +66,56 @@ body{
 	}
 }
 
-@media (min-width: 960px) {
+@media only screen and (min-width: 481px) and (max-width: 959px) {
+	.wrapper {
+		width: 100%;
+	}
+	.header {
+		display: none;
+	}
+	
+	.footer {
+		display: none;
+	}
+	
+	.side_left_image {
+		float: left;
+		width: 30%;
+	}
+	
+	.side_left_image img {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.side_left_userInfo {
+		width: 70%;
+		margin-left: 30%;
+	}
+	
+	
+	.test-table {
+		width: 80%;
+		margin: 30px 10% 0;
+	}
+	
+	.test-table thead {
+		line-height: 50px;
+		background-color: rgba(5, 66, 68, 0.19);
+	}
+	
+	.test-table td {
+		padding: 14px 0;
+		text-align: center;
+		border-bottom: 1px solid rgba(233, 233, 237, 0.29);
+	}
+	
+	.test-table tbody tr {
+		line-height: 40px;
+	}
+}
+
+@media only screen and (min-width: 960px) {
 	.article{
 		margin:0 auto;
 		margin-top:40px;
@@ -168,8 +229,18 @@ body{
 	
 	
 	.side {
+		display: inline-block;
 		width: 960px;
 		color: #fff;
+	}
+	
+	.side:after {
+		content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
 	}
 	
 	.side_left {
