@@ -5,6 +5,10 @@
   <jsp:param value="${pageContext.request.contextPath}/css/vendor/reset.css" name="resetCss" />
   <jsp:param value="${pageContext.request.contextPath}/css/admin/template.css" name="templateCss"/>
   <jsp:param value="${pageContext.request.contextPath}/css/admin/admin_main.css" name="mainCss" />
+  
+  <jsp:param value="${pageContext.request.contextPath}/css/vendor/datatable.css" name="datableCss" />
+  <jsp:param value="${pageContext.request.contextPath}/js/vendor/datatable.min.js" name="datableJs" />
+  
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
 	<article>
@@ -14,7 +18,7 @@
     ArrayList<UsersBean> users = (ArrayList<UsersBean>)request.getAttribute("users");
     if( users != null && users.size() > 0 ) {
     %>
-		<table class="adminTable">
+		<table class="adminTable" id="demo">
 			<caption>
 			ユーザ一覧
 			</caption>
@@ -55,6 +59,15 @@
     }
 	%>
 	</article>
+	
+	<script>
+$('#demo').datatable({
+  pageSize: 5,
+  sort: [true, true, true],
+  filters: [false, false, 'select']
+});
+</script>
+	
     </jsp:attribute>
   </jsp:param>
 </jsp:include>

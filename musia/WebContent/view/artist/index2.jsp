@@ -19,6 +19,11 @@
   <jsp:param
     value="${pageContext.request.contextPath}/css/artist.css"
     name="mainCss" />
+    
+  <jsp:param value="${pageContext.request.contextPath}/css/vendor/datatable.css" name="datableCss" />
+  <jsp:param value="${pageContext.request.contextPath}/js/vendor/jquery-1.11.2.min.js" name="jqueryJs" />
+  <jsp:param value="${pageContext.request.contextPath}/js/vendor/datatable.min.js" name="datableJs" />
+  
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
@@ -30,21 +35,23 @@
 		          <div class="side_left_image">
 			          <img src="<%=request.getContextPath()%>/img/userImage.jpg" alt="" title="" width="210" height="210">
 		          </div>
-		          <div class="side_left_username">
-			          <p class="side_left_title">ユーザー名</p>
-		          </div>
-		          <div class="side_left_profile">
-		          	<p class="side_left_title">プロフィール</p>
-			          <p class="side_left_expo">
-				          プロフィールの見本です。プロフィールの見本です。プロフィールの見本です。
-									プロフィールの見本です。プロフィールの見本です。プロフィールの見本です。
-			          </p>
+		          <div class="side_left_userInfo">
+			          <div class="side_left_username">
+				          <p class="side_left_title">ユーザー名</p>
+			          </div>
+			          <div class="side_left_profile">
+			          	<p class="side_left_title">プロフィール</p>
+				          <p class="side_left_expo">
+					          プロフィールの見本です。プロフィールの見本です。プロフィールの見本です。
+										プロフィールの見本です。プロフィールの見本です。プロフィールの見本です。
+				          </p>
+			          </div>
 		          </div>
 	          </div>
 	          
 	          <div class="side_right">
 		          
-		          <table class="test-table">
+		          <table class="test-table" id="data-table">
                 <caption>投稿曲</caption>
                 <thead>
                   <tr>
@@ -73,8 +80,57 @@
                     <td class="table-data">250円</td>
                     <td class="table-data">wav</td>
                   </tr>
+                  <tr>
+                  	<td class="table-data">4</td>
+                    <td class="table-data"><a href="">test3</a></td>
+                    <td class="table-data">250円</td>
+                    <td class="table-data">wav</td>
+                  </tr>
+                  <tr>
+                  	<td class="table-data">5</td>
+                    <td class="table-data"><a href="">test3</a></td>
+                    <td class="table-data">250円</td>
+                    <td class="table-data">wav</td>
+                  </tr>
+                  <tr>
+                  	<td class="table-data">6</td>
+                    <td class="table-data"><a href="">test3</a></td>
+                    <td class="table-data">250円</td>
+                    <td class="table-data">wav</td>
+                  </tr>
+                  <tr>
+                  	<td class="table-data">7</td>
+                    <td class="table-data"><a href="">test3</a></td>
+                    <td class="table-data">250円</td>
+                    <td class="table-data">wav</td>
+                  </tr>
+                  <tr>
+                  	<td class="table-data">8</td>
+                    <td class="table-data"><a href="">test3</a></td>
+                    <td class="table-data">250円</td>
+                    <td class="table-data">wav</td>
+                  </tr>
+                  <tr>
+                  	<td class="table-data">9</td>
+                    <td class="table-data"><a href="">test3</a></td>
+                    <td class="table-data">250円</td>
+                    <td class="table-data">wav</td>
+                  </tr>
+                  <tr>
+                  	<td class="table-data">10</td>
+                    <td class="table-data"><a href="">test3</a></td>
+                    <td class="table-data">250円</td>
+                    <td class="table-data">wav</td>
+                  </tr>
+                  <tr>
+                  	<td class="table-data">11</td>
+                    <td class="table-data"><a href="">test3</a></td>
+                    <td class="table-data">250円</td>
+                    <td class="table-data">wav</td>
+                  </tr>
                 </tbody>
               </table>
+              <div class="paging"></div>
 	          </div>
           </div>
         </div>
@@ -100,6 +156,14 @@
             src="<%=request.getContextPath()%>/img/pageback.png"
             alt="戻る" /></a>
         </p>
+        
+        <script>
+		$('#data-table').datatable({
+		  pageSize: 5,
+		  //sort: [true, true, true, true],
+		  //filters: [false, false, 'select']
+		});
+		</script>
       </article>
     </jsp:attribute>
   </jsp:param>

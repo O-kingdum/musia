@@ -5,6 +5,12 @@
   <jsp:param value="${pageContext.request.contextPath}/css/vendor/reset.css" name="resetCss" />
   <jsp:param value="${pageContext.request.contextPath}/css/admin/template.css" name="templateCss"/>
   <jsp:param value="${pageContext.request.contextPath}/css/admin/admin_main.css" name="mainCss" />
+  
+  <jsp:param value="${pageContext.request.contextPath}/css/vendor/datatable.css" name="datableCss" />
+  
+  <jsp:param value="${pageContext.request.contextPath}/js/vendor/jquery-1.11.2.min.js" name="jqueryJs" />
+  <jsp:param value="${pageContext.request.contextPath}/js/vendor/datatable.min.js" name="datableJs" />
+  
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
 	<article>
@@ -15,7 +21,7 @@
     ArrayList<ProductsBean> products = (ArrayList<ProductsBean>)request.getAttribute("products");
 		if( products != null && products.size() > 0 ) {
 	%>
-		<table class="adminTable">
+		<table class="adminTable" id="data-table">
 			<caption>商品一覧</caption>
 			<thead>
 				<tr>
@@ -46,6 +52,8 @@
 			%>
 			</tbody>
 		</table>
+		<div class="paging"></div>
+		
 	<%
 	} else {
 	%>
@@ -53,6 +61,14 @@
 	<%
 	}
 	%>
+	
+	<script>
+		$('#data-table').datatable({
+		  pageSize: 5,
+		  sort: [true, true, true, true],
+		  //filters: [false, false, 'select']
+		});
+	</script>
 	</article>
     </jsp:attribute>
   </jsp:param>
