@@ -12,6 +12,11 @@
   <jsp:param
     value="${pageContext.request.contextPath}/css/cart_download.css"
     name="mainCss" />
+    
+  <jsp:param value="${pageContext.request.contextPath}/css/vendor/datatable.css" name="datableCss" />
+  <jsp:param value="${pageContext.request.contextPath}/js/vendor/jquery-1.11.2.min.js" name="jqueryJs" />
+  <jsp:param value="${pageContext.request.contextPath}/js/vendor/datatable.min.js" name="datableJs" />
+    
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
@@ -51,6 +56,7 @@
               %>
               </tbody>
             </table>
+            <div class="paging"></div><!-- tableに対するjQuery plug-inのページ送り用 -->
             <%
               } else {
             %>
@@ -72,6 +78,17 @@
             alt="戻る" /></a>
         </p>
       </article>
+      
+      <!-- tableに対するjQuery plug-inの指定 -->
+        <script>
+		$('#data-table').datatable({
+		  pageSize: 5, // 1ページに表示する最大数
+		  //sort: [true, true, true, true],
+		  //filters: [false, false, 'select']
+		});
+		</script>
+		<!-- /tableに対するjQuery plug-inの指定 -->
+		
     </jsp:attribute>
   </jsp:param>
 </jsp:include>
