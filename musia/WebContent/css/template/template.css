@@ -65,3 +65,10 @@
 	text-align:center;
 	line-height:90px;
 }
+
+/* angularJsのためのクラス */
+.ang-errorMsg {
+	margin: 16px 0 0 0;
+  font-size: 16px;
+  color: rgb(245, 50, 147);
+}

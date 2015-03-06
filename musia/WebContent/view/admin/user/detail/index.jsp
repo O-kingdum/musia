@@ -5,6 +5,9 @@
   <jsp:param value="${pageContext.request.contextPath}/css/vendor/reset.css" name="resetCss" />
   <jsp:param value="${pageContext.request.contextPath}/css/admin/template.css" name="templateCss"/>
   <jsp:param value="${pageContext.request.contextPath}/css/admin/admin_main.css" name="mainCss" />
+  
+  <jsp:param value="${pageContext.request.contextPath}/js/vendor/jquery.watable.js" name="watableJs" />
+  
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
 	<article>
@@ -16,7 +19,7 @@
     if( users != null && users.size() > 0 ) {
     	UsersBean user = users.get(0);
     %>
-		<table class="adminTable">
+		<table class="adminTable watable">
 			<caption>
 			ユーザ詳細
 			</caption>

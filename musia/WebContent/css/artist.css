@@ -13,187 +13,223 @@
 .clearfix {
     display: inline-block;
 }
-
 body{
 	background: url(../img/background.jpg) no-repeat center;
 	background-size: cover;
 }
 
-.article{
-	/* width:480px; */
-	margin:0 auto;
-	margin-top:40px;
+@media (max-width: 480px) {
+		
 }
 
-.article-title{
-	font-size:35px;
-	color:#fff;
+@media (min-width: 481px) and (max-width: 959px) {
+	.side_left_image {
+		float: left;
+		width: 30%;
+	}
+	
+	.side_left_userInfo {
+		width: 70%;
+		margin-left: 30%;
+	}
+	
+	.test-table {
+		width: 80%;
+		margin: 30px 10% 0;
+	}	
+	
+	.test-table thead {
+		line-height: 50px;
+		background-color: rgba(5, 66, 68, 0.19);
+	}
+	
+	.test-table td {
+		padding: 14px 0;
+		text-align: center;
+		border-bottom: 1px solid rgba(233, 233, 237, 0.29);
+	}
+	
+	.test-table tbody tr {
+		line-height: 40px;
+	}
 }
 
-.article-content{
-	border-top:double 5px #fff;
-	border-bottom:double 5px #fff;
-}
-
-table{
-	margin-top:30px;
-}
-
-legend{
-	display:none;
-}
-
-caption{
-	display:none;
-}
-
-.form-header{
-	padding-left:5px;
-	width:90px;
-	color:white;
-	font-size:16px;
-	font-weight:bold;
-	font-family:Arial, sans-serif;
-}
-
-#comment{
-	border:0;
-	font-size:15px;
-	font-family:Arial, sans-serif;
-	border:solid 1px #ccc;
-	width:250px;
-	/*角丸*/
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-}
-
-#maru_bank + label{
-	color:white;
-	margin-left:-5px;
-	margin-right:-5px;
-}
-
-#batsu_bank + label{
-	color:white;
-	margin-left:-5px;
-	margin-right:-5px;
-}
-
-#sankaku_bank + label{
-	color:white;
-	margin-left:-5px;
-	margin-right:-5px;
-}
-
-#shikaku_bank + label{
-	color:white;
-	margin-left:-5px;
-	margin-right:-5px;
-}
-
-#account_number,#branch_number,#account_name{
-	border:0;
-	font-size:20px;
-	font-family:Arial, sans-serif;
-	border:solid 1px #ccc;
-	width:250px;
-	/*角丸*/
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-}
-
-input,textarea{
-	background-color:rgba(255,255,255,0.05);
-}
-
-input:focus,textarea:focus{
-	background:rgba(255,255,255,0.85);
-}
-
-.form-data{
-	padding:9px;
-}
-
-.form-submit{
-	text-align:right;
-	margin:15px 38px 15px 0;
-}
-
-.form-submit input{
-	color:white;
-	padding:3px 5px 3px 5px;
-}
-
-.back{
-	text-align:center;
-	margin-top:10px;
-}
-
-
-.side {
-	width: 960px;
-	color: #fff;
-}
-
-.side_left {
-	float: left;
-	width: 270px;
-}
-
-.side_left_image {
-	text-align: center;
-  	padding: 30px 0;
-}
-
-.side_left_username {
-	width: 232px;
- 	margin: 0 auto;
- 	border: 1px solid rgba(233, 233, 237, 0.29);
-	text-align: center;
-	background-color: rgba(41, 59, 60, 0.23);
-}
-
-.side_left_profile {
-	width: 232px;
-	margin: 27px auto 36px;
-	border: 1px solid rgba(233, 233, 237, 0.29);
-	background-color: rgba(41, 59, 60, 0.23);
-}
-
-.side_left_title {
-	text-align: center;
-	line-height: 48px;
-}
-
-.side_left_expo {
-	padding: 0 10px 20px;
-}
-
-.side_right {
-	float: left;
-	width: 670px;
-}
-
-.test-table {
-	width: inherit;
-	margin: 30px 10px 0;
-}
-
-.test-table thead {
-	line-height: 50px;
-	background-color: rgba(5, 66, 68, 0.19);
-}
-
-.test-table td {
-	padding: 14px 0;
-	text-align: center;
-	border-bottom: 1px solid rgba(233, 233, 237, 0.29);
-}
-
-.test-table tbody tr {
-	line-height: 40px;
+@media (min-width: 960px) {
+	.article{
+		margin:0 auto;
+		margin-top:40px;
+	}
+	
+	.article-title{
+		font-size:35px;
+		color:#fff;
+	}
+	
+	.article-content{
+		border-top:double 5px #fff;
+		border-bottom:double 5px #fff;
+	}
+	
+	table{
+		margin-top:30px;
+	}
+	
+	legend{
+		display:none;
+	}
+	
+	caption{
+		display:none;
+	}
+	
+	.form-header{
+		padding-left:5px;
+		width:90px;
+		color:white;
+		font-size:16px;
+		font-weight:bold;
+		font-family:Arial, sans-serif;
+	}
+	
+	#comment{
+		border:0;
+		font-size:15px;
+		font-family:Arial, sans-serif;
+		border:solid 1px #ccc;
+		width:250px;
+		/*角丸*/
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	
+	#maru_bank + label{
+		color:white;
+		margin-left:-5px;
+		margin-right:-5px;
+	}
+	
+	#batsu_bank + label{
+		color:white;
+		margin-left:-5px;
+		margin-right:-5px;
+	}
+	
+	#sankaku_bank + label{
+		color:white;
+		margin-left:-5px;
+		margin-right:-5px;
+	}
+	
+	#shikaku_bank + label{
+		color:white;
+		margin-left:-5px;
+		margin-right:-5px;
+	}
+	
+	#account_number,#branch_number,#account_name{
+		border:0;
+		font-size:20px;
+		font-family:Arial, sans-serif;
+		border:solid 1px #ccc;
+		width:250px;
+		/*角丸*/
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	
+	input,textarea{
+		background-color:rgba(255,255,255,0.05);
+	}
+	
+	input:focus,textarea:focus{
+		background:rgba(255,255,255,0.85);
+	}
+	
+	.form-data{
+		padding:9px;
+	}
+	
+	.form-submit{
+		text-align:right;
+		margin:15px 38px 15px 0;
+	}
+	
+	.form-submit input{
+		color:white;
+		padding:3px 5px 3px 5px;
+	}
+	
+	.back{
+		text-align:center;
+		margin-top:10px;
+	}
+	
+	
+	.side {
+		width: 960px;
+		color: #fff;
+	}
+	
+	.side_left {
+		float: left;
+		width: 270px;
+	}
+	
+	.side_left_image {
+		text-align: center;
+	  	padding: 30px 0;
+	}
+	
+	.side_left_username {
+		width: 232px;
+	 	margin: 0 auto;
+	 	border: 1px solid rgba(233, 233, 237, 0.29);
+		text-align: center;
+		background-color: rgba(41, 59, 60, 0.23);
+	}
+	
+	.side_left_profile {
+		width: 232px;
+		margin: 27px auto 36px;
+		border: 1px solid rgba(233, 233, 237, 0.29);
+		background-color: rgba(41, 59, 60, 0.23);
+	}
+	
+	.side_left_title {
+		text-align: center;
+		line-height: 48px;
+	}
+	
+	.side_left_expo {
+		padding: 0 10px 20px;
+	}
+	
+	.side_right {
+		float: left;
+		width: 670px;
+	}
+	
+	.test-table {
+		width: inherit;
+		margin: 30px 10px 0;
+	}
+	
+	.test-table thead {
+		line-height: 50px;
+		background-color: rgba(5, 66, 68, 0.19);
+	}
+	
+	.test-table td {
+		padding: 14px 0;
+		text-align: center;
+		border-bottom: 1px solid rgba(233, 233, 237, 0.29);
+	}
+	
+	.test-table tbody tr {
+		line-height: 40px;
+	}
 }
 
 .bg-gradation {

@@ -8,6 +8,12 @@
 <link rel="stylesheet" type="text/css" href="${param.resetCss}">
 <link rel="stylesheet" type="text/css" href="${param.templateCss}">
 <link rel="stylesheet" type="text/css" href="${param.mainCss}">
+<link rel="stylesheet" type="text/css" href="${param.datableCss}">
+
+<script src="${param.jqueryJs}" type="text/javascript" charset="utf-8"></script>
+<script src="${param.datableJs}" type="text/javascript" charset="utf-8"></script>
+
+
 </head>
 <body>
   <div class="wrapper">

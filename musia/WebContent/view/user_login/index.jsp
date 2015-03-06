@@ -11,13 +11,14 @@
   <jsp:param
     value="${pageContext.request.contextPath}/css/user_login.css"
     name="mainCss" />
+    
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
         <h2 class="article-title">MUSIA - ログイン</h2>
         <div class="article-content">
           <form action="${pageContext.request.contextPath}/login_user"
-            method="post">
+            method="post" novalidate name="myForm">
             <fieldset>
               <legend>ログイン情報</legend>
               <table>
@@ -27,17 +28,29 @@
                     <label for="login-email">メールアドレス</label>
                   </th>
                   <td class="form-data">
-                    <input id="login-email" type="email" name="email"
-                    autofocus="">
+                    <input type="email" id="login-email" name="email"
+                    autofocus=""  ng-model="email" required ng-maxlength="50">
+                    
+                    <!-- angularJSのemailエラーメッセージ -->
+                    <p class="ang-errorMsg" ng-show="myForm.email.$error.required">未入力</p>
+  					<p class="ang-errorMsg" ng-show="myForm.email.$error.maxlength">50文字以内で入力して下さい</p>
+  					<!-- /angularJSのemailエラーメッセージ -->
                   </td>
                 </tr>
+                
                 <tr>
                   <th class="form-header">
                     <label for="login-password">パスワード</label>
                   </th>
                   <td class="form-data">
                     <input id="login-password" type="password"
-                    name="password" autofocus="">
+                    name="password" autofocus="" ng-model="password" required ng-minlength="6" ng-maxlength="8">
+                    
+                    <!-- angularJSのpasswordエラーメッセージ -->
+                    <p class="ang-errorMsg" ng-show="myForm.password.$error.required">未入力</p>
+  					<p class="ang-errorMsg" ng-show="myForm.password.$error.minlength">パスワードは6文字以上で入力して下さい</p>
+  					<p class="ang-errorMsg" class="ang-errorMsg" ng-show="myForm.password.$error.maxlength">パスワードは8文字以内で入力して下さい</p>
+  					<!-- /angularJSのpasswordエラーメッセージ -->
                   </td>
                 </tr>
               </table>
@@ -51,6 +64,7 @@
             </p>
           </form>
         </div>
+        
         <%
           @SuppressWarnings("unchecked")
           ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
