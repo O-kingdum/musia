@@ -61,13 +61,22 @@
                   <td class="form-data">
                     <input id="account_number" type="text"
                     name="bank_number" autofocus="" ng-model="bank_number" required ng-maxlength="10">
-                    <!-- angularJSの口座番号エラーメッセージ -->
+                    <!-- angularJSの口座番号メッセージ -->
                     <p class="ang-errorMsg"
-                      ng-show="myForm.bank_number.$error.required">未入力</p>
+                      ng-show="myForm.bank_number.$error.required">
+                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+                      未入力
+                    </p>
                     <p class="ang-errorMsg"
-                      ng-show="myForm.bank_number.$error.maxlength">10文字以内で入力して下さい</p>
+                      ng-show="myForm.bank_number.$error.maxlength">
+                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+                      10文字以内で入力して下さい
+                    </p>
                     <p class="ang-okMsg"
-                      ng-show="myForm.bank_number.$valid">OK</p>
+                      ng-show="myForm.bank_number.$valid">
+                      <img src="${pageContext.request.contextPath}/img/ok.png" alt="ok_img" title="オーケー画像">
+                      OK
+                    </p>
                     <!-- /angularJSの口座番号エラーメッセージ -->
                   </td>
                 </tr>
@@ -78,16 +87,28 @@
                   <td class="form-data">
                     <input id="branch_number" type="text"
                     name="branch_code" autofocus="" ng-model="branch_code" required ng-minlength="3" ng-maxlength="3">
-                    <!-- angularJSの支店番号エラーメッセージ -->
+                    <!-- angularJSの支店番号メッセージ -->
                     <p class="ang-errorMsg"
-                      ng-show="myForm.branch_code.$error.required">未入力</p>
+                      ng-show="myForm.branch_code.$error.required">
+                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+                      未入力
+                    </p>
                     <p class="ang-errorMsg"
-                      ng-show="myForm.branch_code.$error.minlength">3文字で入力して下さい</p>
+                      ng-show="myForm.branch_code.$error.minlength">
+                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+                      3文字で入力して下さい
+                    </p>
                     <p class="ang-errorMsg"
-                      ng-show="myForm.branch_code.$error.maxlength">3文字で入力して下さい</p>
+                      ng-show="myForm.branch_code.$error.maxlength">
+                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+                      3文字で入力して下さい
+                    </p>
                     <p class="ang-okMsg"
-                      ng-show="myForm.branch_code.$valid">OK</p>
-                    <!-- /angularJSの支店番号エラーメッセージ -->
+                      ng-show="myForm.branch_code.$valid">
+                      <img src="${pageContext.request.contextPath}/img/ok.png" alt="ok_img" title="オーケー画像">
+                      OK
+                   	</p>
+                    <!-- /angularJSの支店番号メッセージ -->
                   </td>
                 </tr>
                 <tr>
@@ -99,11 +120,20 @@
                     name="bank_persons" autofocus="" ng-model="bank_persons" required ng-maxlength="20">
                     <!-- angularJSの口座名義メッセージ -->
                     <p class="ang-errorMsg"
-                      ng-show="myForm.bank_persons.$error.required">未入力</p>
+                      ng-show="myForm.bank_persons.$error.required">
+                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+                      未入力
+                    </p>
                     <p class="ang-errorMsg"
-                      ng-show="myForm.bank_persons.$error.maxlength">20文字以内で入力して下さい</p>
+                      ng-show="myForm.bank_persons.$error.maxlength">
+                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+                      20文字以内で入力して下さい
+                    </p>
                     <p class="ang-okMsg"
-                      ng-show="myForm.bank_persons.$valid">OK</p>
+                      ng-show="myForm.bank_persons.$valid">
+                      <img src="${pageContext.request.contextPath}/img/ok.png" alt="ok_img" title="オーケー画像">
+                      OK
+                    </p>
                     <!-- /angularJSの口座名義メッセージ -->
                   </td>
                 </tr>

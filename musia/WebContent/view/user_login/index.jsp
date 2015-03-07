@@ -33,13 +33,25 @@
                     ng-maxlength="50">
                     <!-- angularJSのemailメッセージ -->
                     <p class="ang-errorMsg"
-                      ng-show="myForm.email.$error.required">未入力</p>
+                      ng-show="myForm.email.$error.required">
+	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+	                      未入力
+	                  </p>
                     <p class="ang-errorMsg"
-                      ng-show="myForm.email.$error.maxlength">50文字以内で入力して下さい</p>
+                      ng-show="myForm.email.$error.maxlength">
+	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+	                      50文字以内で入力して下さい
+	                  </p>
                     <p class="ang-errorMsg"
-                      ng-show="myForm.email.$error.email">メールアドレスを入力して下さい</p>
+                      ng-show="myForm.email.$error.email">
+	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+	                      メールアドレスを入力して下さい
+	                  </p>
                     <p class="ang-okMsg"
-                      ng-show="myForm.email.$valid">OK</p>
+                      ng-show="myForm.email.$valid">
+	                      <img src="${pageContext.request.contextPath}/img/ok.png" alt="ok_img" title="オーケー画像">
+	                      OK
+	                  </p>
                     <!-- /angularJSのemailメッセージ -->
                   </td>
                 </tr>
@@ -53,13 +65,25 @@
                     required ng-minlength="6" ng-maxlength="8">
                     <!-- angularJSのpasswordメッセージ -->
                     <p class="ang-errorMsg"
-                      ng-show="myForm.password.$error.required">未入力</p>
+                      ng-show="myForm.password.$error.required">
+	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+	                      未入力
+	                  </p>
                     <p class="ang-errorMsg"
-                      ng-show="myForm.password.$error.minlength">パスワードは6文字以上で入力して下さい</p>
+                      ng-show="myForm.password.$error.minlength">
+	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+	                      パスワードは6文字以上で入力して下さい
+	                  </p>
                     <p class="ang-errorMsg" class="ang-errorMsg"
-                      ng-show="myForm.password.$error.maxlength">パスワードは8文字以内で入力して下さい</p>
+                      ng-show="myForm.password.$error.maxlength">
+	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+	                      パスワードは8文字以内で入力して下さい
+	                  </p>
                     <p class="ang-okMsg"
-                      ng-show="myForm.email.$valid">OK</p>
+                      ng-show="myForm.password.$valid">
+	                      <img src="${pageContext.request.contextPath}/img/ok.png" alt="ok_img" title="オーケー画像">
+	                      OK
+	                  </p>
                     <!-- /angularJSのpasswordメッセージ -->
                   </td>
                 </tr>
