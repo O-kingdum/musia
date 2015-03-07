@@ -44,7 +44,6 @@ public class MusiaServlet extends HttpServlet {
 		String dispPage = "/view/index.jsp";
 		ProductsDao prodao = new ProductsDao();
 		UsersBean user;
-		ArrayList<ProductsBean> products = prodao.selectProducts(new ArrayList<ProductsBean>());
 		
 		if ("/musia/listener_signup".equals(request.getRequestURI()))// ユーザ登録
 		{
@@ -137,6 +136,11 @@ public class MusiaServlet extends HttpServlet {
 		else if ("/musia/help".equals(request.getRequestURI()))		// 注文情報変更ページ
 		{
 			dispPage = "/view/help/index.jsp";
+		}
+		else
+		{
+			ArrayList<ProductsBean> products = prodao.selectProducts(new ArrayList<ProductsBean>());
+			request.setAttribute("products", products);
 		}
 		
 		request.getRequestDispatcher(dispPage).forward(request, response);
