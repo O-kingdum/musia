@@ -35,7 +35,7 @@
                     <p class="ang-errorMsg"
                       ng-show="myForm.email.$error.required">
 	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
-	                      未入力
+	                      メールアドレスを入力して下さい
 	                  </p>
                     <p class="ang-errorMsg"
                       ng-show="myForm.email.$error.maxlength">
@@ -67,17 +67,17 @@
                     <p class="ang-errorMsg"
                       ng-show="myForm.password.$error.required">
 	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
-	                      未入力
+	                      パスワードを入力して下さい
 	                  </p>
                     <p class="ang-errorMsg"
                       ng-show="myForm.password.$error.minlength">
 	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
-	                      パスワードは6文字以上で入力して下さい
+	                      パスワードは6~8文字で入力して下さい
 	                  </p>
                     <p class="ang-errorMsg" class="ang-errorMsg"
                       ng-show="myForm.password.$error.maxlength">
 	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
-	                      パスワードは8文字以内で入力して下さい
+	                      パスワードは6~8文字で入力して下さい
 	                  </p>
                     <p class="ang-okMsg"
                       ng-show="myForm.password.$valid">
