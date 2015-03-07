@@ -3,7 +3,7 @@
   import="jp.co.musia.okingdum.Bean.*, java.util.ArrayList;"%>
 <%
   @SuppressWarnings("unchecked")
-  ArrayList<AlbumBean> albums = (ArrayList<AlbumBean>) request.getAttribute("albums");
+  ArrayList<ProductsBean> products = (ArrayList<ProductsBean>) request.getAttribute("products");
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="MUSIA-音楽ダウンロードサイトMUSIA" name="siteTitle" />
@@ -17,60 +17,22 @@
       <article class="article">
         <h2 class="article-title">トップ</h2>
         <div class="article-content">
-          <div class="clearfix">
-            <%
-              if (albums != null && albums.size() > 0) {
-                for (AlbumBean album : albums) {
-            %>
-            <div class="grid_2">
-              <a href="<%=album.getAlbum_id()%>">
-                <img
-                src="${pageContext.request.contextPath}/music_img/001.jpg"
-                alt="<%=album.getAlbum_name()%>" />
-              </a>
-            </div>
-            <div class="grid_2">
-              <a href="<%=album.getAlbum_id()%>">
-                <img
-                src="${pageContext.request.contextPath}/music_img/002.jpg"
-                alt="<%=album.getAlbum_name()%>" />
-              </a>
-            </div>
-            <div class="grid_2">
-              <a href="<%=album.getAlbum_id()%>">
-                <img
-                src="${pageContext.request.contextPath}/music_img/003.jpg"
-                alt="<%=album.getAlbum_name()%>" />
-              </a>
-            </div>
-            <div class="grid_2">
-              <a href="<%=album.getAlbum_id()%>">
-                <img
-                src="${pageContext.request.contextPath}/music_img/004.jpg"
-                alt="<%=album.getAlbum_name()%>" />
-              </a>
-            </div>
-            <div class="grid_2">
-              <a href="<%=album.getAlbum_id()%>">
-                <img
-                src="${pageContext.request.contextPath}/music_img/005.jpg"
-                alt="<%=album.getAlbum_name()%>" />
-              </a>
-            </div>
-            <div class="grid_2">
-              <a href="<%=album.getAlbum_id()%>">
-                <img
-                src="${pageContext.request.contextPath}/music_img/006.jpg"
-                alt="<%=album.getAlbum_name()%>" />
-              </a>
-            </div>
-            <%
-              }
-            %>
-            <%
-              }
-            %>
+          <%
+            if (products != null && products.size() > 0) {
+              for (ProductsBean product : products) {
+          %>
+          <div class="grid_2">
+            <a href="<%=product.getProduct_id()%>">
+              <img src="<%=product.getImg_path()%>"
+              alt="<%=product.getProduct_name()%>" />
+            </a>
           </div>
+            <%
+              }
+            %>
+          <%
+            }
+          %>
         </div>
       </article>
     </jsp:attribute>
