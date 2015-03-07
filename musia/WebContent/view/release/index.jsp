@@ -84,7 +84,7 @@
                 }
               %>
               <p class="form-submit">
-                <input type="submit" name="all" value="カートに追加">
+                <input type="submit" name="all" value="リリース">
               </p>
             </fieldset>
           </form>

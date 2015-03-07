@@ -18,7 +18,7 @@
       <article class="article">
         <h2 class="article-title">購入履歴</h2>
         <div class="article-content">
-          <form action="/list" method="post">
+          <form action="${pageContext.request.contextPath}/list" method="post">
             <%
               if (products != null && products.size() > 0) {
             %>
