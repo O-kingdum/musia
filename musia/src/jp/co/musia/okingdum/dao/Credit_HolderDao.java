@@ -117,16 +117,16 @@ public class Credit_HolderDao extends Dao {
 	 * selectCredit_Holderメソッド
 	 * 
 	 * @param array
-	 *            ArrayList<Object> Credit_HolderBean
-	 * @return retarr ArrayList<Object> 検索結果
+	 *            ArrayList<Credit_HolderBean> Credit_HolderBean
+	 * @return retarr ArrayList<Credit_HolderBean> 検索結果
 	 */
-	public ArrayList<Object> selectCredit_Holder(ArrayList<Object> array) {
+	public ArrayList<Credit_HolderBean> selectCredit_Holder(ArrayList<Credit_HolderBean> array) {
 
-		String sql = "SELECT t_credit_holder WHERE f_credit_id in('";
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		String sql = "SELECT * FROM t_credit_holder WHERE f_credit_id in('";
+		ArrayList<Credit_HolderBean> retarr = new ArrayList<Credit_HolderBean>();
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((Credit_HolderBean) array.get(i)).getCredit_id() + "','";
+			sql += array.get(i).getCredit_id() + "','";
 		}
 		sql += "');";
 

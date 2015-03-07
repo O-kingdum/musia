@@ -34,14 +34,14 @@ public class Validator {
 		
 		if(StringUtils.isEmpty(value)) {
 			errmsg.add("楽曲名を入力してください。");
-			val = false;
+			this.val = false;
 		} else {
 			if(value.length() > 20) {
 				errmsg.add("楽曲名は20文字以内で入力してください。");
-				val = false;
+				this.val = false;
 			}
 		}
-		return val;
+		return this.val;
 	}
 	/**
 	 * getLoginvalidationメソッド : ログイン処理に対するバリデーション
@@ -60,15 +60,17 @@ public class Validator {
 		
 		/* email validation */
 		if(StringUtils.isEmpty(email)) {	//　空またはnull
-			val = false;
+			this.val = false;
 			errmsg.add("メールアドレスを入力してください。");
 		} else {
-			if(!email.matches("[0-9a-zA-Z]+")) {
-				val = false;
-				errmsg.add("メールアドレスは半角英数字で入力してください。");
+			if(!email.matches("^[a-zA-Z0-9!#$%&'_`/=~\\*\\+\\-\\?\\^\\{\\|\\}]+(\\."
+					+ "[a-zA-Z0-9!#$%&'_`/=~\\*\\+\\-\\?\\^\\{\\|\\}]+)*+(.*)@[a-zA-Z0-9]"
+					+ "[a-zA-Z0-9\\-]*(\\.[a-zA-Z0-9\\-]+)+$")) {
+				this.val = false;
+				errmsg.add("メールアドレスのフォーマットが正しくありません。");
 			}			
 			if(email.length() > 50) {
-				val = false;
+				this.val = false;
 				errmsg.add("メールアドレスは50文字以内で入力してください。");
 			}
 		}
@@ -78,15 +80,59 @@ public class Validator {
 			errmsg.add("パスワードを入力してください。");
 		} else {
 			if(!password.matches("[0-9a-zA-Z]+")) {
-				val = false;
+				this.val = false;
 				errmsg.add("パスワードは半角英数字で入力してください。");
 			}
-			if(password.length() >= 6 && password.length() <= 8) {
-				val = false;
+			if(password.length() < 6 || password.length() > 8) {
+				this.val = false;
 				errmsg.add("パスワードは6文字~8文字で入力してください。");
 			}
 		}
-		return val;
+		return this.val;
+	}
+	/**
+	 * getAdminLoginValidationメソッド: 管理者ログインページに対するバリデーション
+	 * 
+	 * @param request : 入力（ログインID,パスワード）
+	 * @return　val boolean : true:成功/ false:失敗
+	 */
+	public boolean getAdminLoginValidation(HttpServletRequest request) {
+		this.errmsg = new ArrayList<String>();
+		this.val = true;
+		
+		String id = request.getParameter("id");
+		String password = request.getParameter("password");
+		
+		/* id validation */
+		if(StringUtils.isEmpty(id)) {
+			this.val = false;
+			errmsg.add("ログインIDを入力してください。");
+		} else {
+			if(!id.matches("[0-9a-zA-Z]+")) {
+				this.val = false;
+				errmsg.add("IDは半角英数字で入力してください。");
+			}
+			if(id.length() > 10) {
+				this.val = false;
+				errmsg.add("ログインIDは10文字以内で入力してください。");
+			}
+		}
+		
+		/* password validation */
+		if(StringUtils.isEmpty(password)) {
+			this.val = false;
+			errmsg.add("パスワードを入力してください。");
+		} else {
+			if(!password.matches("[0-9a-zA-Z]+")) {
+				this.val = false;
+				errmsg.add("パスワードは半角英数字で入力してください。");
+			}
+			if(password.length() > 10) {
+				this.val = false;
+				errmsg.add("パスワードは10文字以内で入力してください。");
+			}
+		}
+		return this.val;
 	}
 	/**
 	 * getCreateUserメソッド : 新規ユーザ登録バリデーション
@@ -102,67 +148,92 @@ public class Validator {
 		String user_name = request.getParameter("user_name");
 		String password = request.getParameter("password");
 		String sex = request.getParameter("sex");
-		String birthday = request.getParameter("birthday");
+		String year = request.getParameter("year");
+		String month = request.getParameter("month");
+		String day = request.getParameter("day");
 		
 		/* email validation */
 		if(StringUtils.isEmpty(email)) {
-			val = false;
+			this.val = false;
 			errmsg.add("メールアドレスを入力してください。");
 		} else {
-			if(!email.matches("[0-9a-zA-Z]+")) {
-				val = false;
-				errmsg.add("メールアドレスは半角英数字で入力してください。");
+			if(!email.matches("^[a-zA-Z0-9!#$%&'_`/=~\\*\\+\\-\\?\\^\\{\\|\\}]+(\\."
+					+ "[a-zA-Z0-9!#$%&'_`/=~\\*\\+\\-\\?\\^\\{\\|\\}]+)*+(.*)@[a-zA-Z0-9]"
+					+ "[a-zA-Z0-9\\-]*(\\.[a-zA-Z0-9\\-]+)+$")) {
+				this.val = false;
+				errmsg.add("メールアドレスのフォーマットが正しくありません。");
 			}			
 			if(email.length() > 50) {
-				val = false;
+				this.val = false;
 				errmsg.add("メールアドレスは50文字以内で入力してください。");
 			}
 		}
 		/* user_name validation */
 		if(StringUtils.isEmpty(user_name)) {
-			val = false;
+			this.val = false;
 			errmsg.add("ユーザ名を入力してください。");
 		} else {
 			if(user_name.length() > 20) {
-				val = false;
+				this.val = false;
 				errmsg.add("ユーザ名は20文字以内で入力してください。");
 			}
 		}
 		/* password validation */
 		if(StringUtils.isEmpty(password)) {
-			val = false;
+			this.val = false;
 			errmsg.add("パスワードを入力してください。");
 		} else {
 			if(!password.matches("[0-9a-zA-Z]+")) {
-				val = false;
+				this.val = false;
 				errmsg.add("パスワードは半角英数字で入力してください。");
 			}
 			if(password.length() >= 6 && password.length() <= 8) {
-				val = false;
+				this.val = false;
 				errmsg.add("パスワードは6文字~8文字で入力してください。");
 			}
 		}
 		/* sex validation */
 		if(StringUtils.isEmpty(sex)) {
-			val = false;
+			this.val = false;
 			errmsg.add("性別を選択してください。");
 		} else {
 			if(!sex.matches("[0-1]{1}")) {
-				val = false;
+				this.val = false;
 				errmsg.add("性別で選択された値が不正です。");
 			}
 		}
 		/* birthday validation */
-		if(StringUtils.isEmpty(birthday)) {
-			val = false;
-			errmsg.add("誕生日を入力してください。");			
+		/* year */
+		if(StringUtils.isEmpty(year)) {
+			this.val = false;
+			errmsg.add("年を入力してください。");			
 		} else {
-			if(!birthday.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}")) {
-				val = false;
-				errmsg.add("誕生日の形式が正しくありません。");
+			if(!year.matches("[0-9]{4}")) {
+				this.val = false;
+				errmsg.add("年の形式が正しくありません。");
 			}
 		}
-		return true;
+		/* month */
+		if(StringUtils.isEmpty(month)) {
+			this.val = false;
+			errmsg.add("月を入力してください。");			
+		} else {
+			if(!month.matches("[0-9]{2}")) {
+				this.val = false;
+				errmsg.add("月の形式が正しくありません。");
+			}
+		}
+		/* day */
+		if(StringUtils.isEmpty(day)) {
+			this.val = false;
+			errmsg.add("日を入力してください。");			
+		} else {
+			if(!day.matches("[0-9]{2}")) {
+				this.val = false;
+				errmsg.add("日の形式が正しくありません。");
+			}
+		}
+		return this.val;
 	}
 	/**
 	 * getBankAddvalidationメソッド : 銀行口座　追加処理
@@ -185,40 +256,40 @@ public class Validator {
 		
 		/* bank_number validation */
 		if(StringUtils.isEmpty(bank_number)) {
-			val = false;
+			this.val = false;
 			errmsg.add("口座番号を入力してください。");			
 		} else {
 			if(!bank_number.matches("[0-9]{1,10}")) {
-				val = false;
+				this.val = false;
 				errmsg.add("口座番号は半角数字10文字以内で入力してください。");
 			}
 		}
 		/* branch_code validation */
 		if(StringUtils.isEmpty(branch_code)) {
-			val = false;
+			this.val = false;
 			errmsg.add("支店番号を入力してください。");
 		} else {
 			if(!branch_code.matches("[0-9]{3}")) {
-				val = false;
-				errmsg.add("支店番号は半角数字3文字以内で入力してください。");				
+				this.val = false;
+				errmsg.add("支店番号は半角数字3文字で入力してください。");				
 			}
 		}
 		/* bank_persons validation */
 		if(StringUtils.isEmpty(bank_persons)) {
-			val = false;
+			this.val = false;
 			errmsg.add("名義人を入力してください。");			
 		} else {
 			if(bank_persons.length() > 20) {
-				val = false;
+				this.val = false;
 				errmsg.add("名義人は20文字以内で入力してください。");				
 			}
 		}
 		/* bank_name validation */
 		if(StringUtils.isEmpty(bank_name)) {
-			val = false;
+			this.val = false;
 			errmsg.add("銀行名を選択してください。");				
 		}
-		return val;
+		return this.val;
 	}
 	/**
 	 * getCreditAddvalidationメソッド : クレジットカード　追加処理
@@ -243,48 +314,50 @@ public class Validator {
 		
 		/* card_number validation */
 		if(StringUtils.isEmpty(card_number)) {
-			val = false;
+			this.val = false;
 			errmsg.add("クレジットカード番号を入力してください。");
 		} else {
 			if(!card_number.matches("[0-9]{16}")) {
-				val = false;
+				this.val = false;
 				errmsg.add("クレジットカード番号は半角数字16文字で入力してください。");
 			}
 		}
 		/* limit_date validation */
 		if(StringUtils.isEmpty(limit_date)) {
-			val = false;
+			this.val = false;
 			errmsg.add("有効期限を入力してください。");
 		} else {
 			if(!limit_date.matches("[0-9]{4}-{1}[0-9]{2}")) {
-				val = false;
+				this.val = false;
 				errmsg.add("有効期限の形式が間違っています。");
 			}
 		}
 		/* card_company validation */
 		if(StringUtils.isEmpty(card_company)) {
-			val = false;
+			this.val = false;
 			errmsg.add("カード会社名を入力してください。");
 		}
 		/* sec_code validation */
 		if(StringUtils.isEmpty(sec_code)) {
-			val = false;
+			this.val = false;
 			errmsg.add("セキュリティコードを入力してください。");
 		} else {
 			if(!sec_code.matches("[0-9]{3}")) {
+				this.val = false;
 				errmsg.add("セキュリティコードは半角数字3文字で入力してください。");
 			}
 		}
 		/* card_persons validation */
 		if(StringUtils.isEmpty(card_persons)) {
-			val = false;
+			this.val = false;
 			errmsg.add("カード名義人を入力してください。");
 		} else {
 			if(!card_persons.matches("[A-Z]+ [A-Z]+")) {
+				this.val = false;
 				errmsg.add("カード名義人の形式が間違っています。");
 			}
 		}
-		return val;
+		return this.val;
 	}
 	/**
 	 * getPostMusicvalidationメソッド: 商品登録処理
@@ -297,26 +370,78 @@ public class Validator {
 		this.val = true;
 		
 		String product_name = request.getParameter("product_name");
+		String artist_name = request.getParameter("artist_name");
 		String price = request.getParameter("price");
+		String product_details = request.getParameter("product_details");
+		String genre_id = request.getParameter("genre_id");
+		String measure = request.getParameter("measure");
+		String remarks = request.getParameter("remarks");
 		
 		/* product_name validation */
 		if(StringUtils.isEmpty(product_name)) {
-			val = false;
+			this.val = false;
 			errmsg.add("楽曲名を入力してください。");
 		} else {
 			if(product_name.length() > 20) {
+				this.val = false;
 				errmsg.add("楽曲名は20文字以内で入力してください。");
 			}
 		}
+		/* artist_name validation */
+		if(StringUtils.isEmpty(artist_name)) {
+			this.val = false;
+			errmsg.add("アーティスト名を入力してください。");
+		} else {
+			if(artist_name.length() > 20) {
+				this.val = false;
+				errmsg.add("アーティスト名は20文字以内で入力してください。");
+			}
+		}
+		/* product_details validation */
+		if(StringUtils.isEmpty(product_details)) {
+			this.val = false;
+			errmsg.add("商品詳細を入力してください。");
+		} else {
+			if(product_details.length() > 255) {
+				this.val = false;
+				errmsg.add("商品詳細は255文字以内で入力してください。");
+			}
+		}
+		/* genre_id validation */
+		if(StringUtils.isEmpty(genre_id)) {
+			this.val = false;
+			errmsg.add("ジャンルを選択してください。");
+		} else {
+			if(!genre_id.matches("[GE][0-9]{5}")) {
+				this.val = false;
+				errmsg.add("ジャンルの値が不正です。");
+			}
+		}
+		/* measure validation */
+		if(StringUtils.isEmpty(measure)) {
+			this.val = false;
+			errmsg.add("曲尺を入力してください。");
+		} else {
+			if(!measure.matches("[0-9]+")) {
+				this.val = false;
+				errmsg.add("曲尺の値が不正です。");
+			}
+		}
+		/* remarks validation */
+		if(!StringUtils.isEmpty(remarks) && remarks.length() > 255) {
+			this.val = false;
+			errmsg.add("備考は255文字以内で入力してください。");
+		}
 		/* price validation */
 		if(StringUtils.isEmpty(price)) {
-			val = false;
+			this.val = false;
 			errmsg.add("価格を入力してください。");
 		} else {
 			if(!price.matches("[0-9]{1,6}")) {
+				this.val = false;
 				errmsg.add("価格は半角数字6桁以内で入力してください。");
 			}
 		}
-		return val;
+		return this.val;
 	}
 }

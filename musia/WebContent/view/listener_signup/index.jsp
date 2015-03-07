@@ -1,25 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
+  pageEncoding="UTF-8" import="java.util.ArrayList;"%>
+<%
+  @SuppressWarnings("unchecked")
+  ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
+%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="リスナー登録 | MUSIA" name="siteTitle" />
-  <jsp:param value="#" name="resetCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/template/template.css"
+    name="templateCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/listener_signup.css"
+    name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
+    
       <article class="article">
         <h2 class="article-title">リスナー登録</h2>
         <div class="article-content">
-          <form action="#" method="post">
+          <form
+            action="${pageContext.request.contextPath}/listener_signup"
+            method="post">
             <fieldset>
-              <legend>リスナー登録情報</legend>
+              <legend>リスナー情報登録</legend>
               <table>
-                <caption>リスナー登録</caption>
+                <caption>リスナー情報登録</caption>
                 <tr>
                   <th class="form-header">
                     <label for="name">名前</label>
                   </th>
                   <td class="form-data">
-                    <input id="name" type="text" name="lname"
-                    autofocus="" required>
+                    <input id="name" type="text" name="user_name"
+                    autofocus required>
                   </td>
                 </tr>
                 <tr>
@@ -27,8 +39,8 @@
                     <label for="email">メールアドレス</label>
                   </th>
                   <td class="form-data">
-                    <input id="email" type="email" name="mail"
-                    autofocus="" required>
+                    <input id="email" type="email" name="email"
+                    autofocus required>
                   </td>
                 </tr>
                 <tr>
@@ -36,34 +48,33 @@
                     <label for="password">パスワード</label>
                   </th>
                   <td class="form-data">
-                    <input id="password" type="password" name="passwd"
+                    <input id="password" type="password" name="password"
                     autofocus="" required>
                   </td>
                 </tr>
                 <tr>
                   <th class="form-header">性別</th>
                   <td class="form-data">
-                    <input id="female" type="radio" name="sex"
-                    value="female" checked="checked">
+                    <input id="female" type="radio" name="sex" value="0"
+                    checked="checked">
                     <label for="female">女性</label>
-                    <input id="male" type="radio" name="sex"
-                    value="male">
+                    <input id="male" type="radio" name="sex" value="1">
                     <label for="male">男性</label>
                   </td>
                 </tr>
                 <tr>
                   <th class="form-header">生年月日</th>
                   <td class="form-data">
-                    <select id="year">
-                    <option>0001</option>
+                    <select id="year" name="year" class="year date">
+                    <option value="0">---</option>
                     </select>
                     <label for="year">年</label>
-                    <select id="month">
-                    <option>01</option>
+                    <select id="month" name="month" class="month date">
+                    <option value="0">---</option>
                     </select>
                     <label for="month">月</label>
-                    <select id="day">
-                    <option>01</option>
+                    <select id="day" name="day" class="day">
+                    <option value="0">---</option>
                     </select>
                     <label for="day">日</label>
                   </td>
@@ -75,7 +86,28 @@
             </p>
           </form>
         </div>
+        <%
+          if (msg != null && msg.size() > 0) {
+        %>
+        <ul>
+        <%
+          for (String str : msg) {
+        %>
+          <li><%=str%></li>
+        <%
+          }
+        %>
+        </ul>
+        <%
+          }
+        %>
+        <p class="back">
+          <a href="history.back()"><img
+            src="${pageContext.request.contextPath}/img/pageback.png"
+            alt="戻る" /></a>
+        </p>
       </article>
+      
     </jsp:attribute>
   </jsp:param>
 </jsp:include>

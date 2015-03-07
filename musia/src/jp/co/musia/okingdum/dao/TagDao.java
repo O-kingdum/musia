@@ -111,16 +111,16 @@ public class TagDao extends Dao {
 	 * selectTagメソッド
 	 * 
 	 * @param array
-	 *            ArrayList<Object> TagBean
-	 * @return retarr ArrayList<Object> 検索結果
+	 *            ArrayList<TagBean> TagBean
+	 * @return retarr ArrayList<TagBean> 検索結果
 	 */
-	public ArrayList<Object> selectTag(ArrayList<Object> array) {
+	public ArrayList<TagBean> TagBean(ArrayList<TagBean> array) {
 
 		String sql = "SELECT f_tag_id, f_tag_name FROM t_tag WHERE f_tag_id in('";
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		ArrayList<TagBean> retarr = new ArrayList<TagBean>();
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((TagBean) array.get(i)).getTag_id() + "','";
+			sql += array.get(i).getTag_id() + "','";
 		}
 		sql += "');";
 

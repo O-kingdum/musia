@@ -117,16 +117,16 @@ public class Check_ListDao extends Dao {
 	 * selectCheck_Listメソッド
 	 * 
 	 * @param array
-	 *            ArrayList<Object> Check_ListBean
-	 * @return retarr ArrayList<Object> 検索結果
+	 *            ArrayList<Check_ListBean> Check_ListBean
+	 * @return retarr ArrayList<Check_ListBean> 検索結果
 	 */
-	public ArrayList<Object> selectCheck_List(ArrayList<Object> array) {
+	public ArrayList<Check_ListBean> selectCheck_List(ArrayList<Check_ListBean> array) {
 
 		String sql = "SELECT t_check_list WHERE f_list_id in('";
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		ArrayList<Check_ListBean> retarr = new ArrayList<Check_ListBean>();
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((Check_ListBean) array.get(i)).getList_id() + "','";
+			sql += array.get(i).getList_id() + "','";
 		}
 		sql += "');";
 

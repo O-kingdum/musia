@@ -157,13 +157,13 @@ public class AlbumDao extends Dao {
 	 * @return 成功:ArrayListにオブジェクトを格納　失敗:nullのArrayList
 	 */
 	@SuppressWarnings("finally")
-	public ArrayList<Object> selectAlbum(ArrayList<Object> array) {
+	public ArrayList<AlbumBean> selectAlbum(ArrayList<AlbumBean> array) {
 
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		ArrayList<AlbumBean> retarr = new ArrayList<AlbumBean>();
 		String sql = "SELECT * FROM t_album WHERE f_delflg=0 and f_album_id in('";
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((AlbumBean) array.get(i)).getAlbum_id() + "','";
+			sql += array.get(i).getAlbum_id() + "','";
 		}
 		sql += "');";
 

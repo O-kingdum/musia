@@ -20,6 +20,8 @@ public class ProductsBean {
 	private String product_admin_id;
 	private int delflg;
 	
+	private String sale_date;
+	
 	public ProductsBean(String product_id, String user_id, String product_name,
 			String artist_name, int price, String product_details,
 			String genre_id, String measure, String file_type, int file_size,
@@ -43,6 +45,9 @@ public class ProductsBean {
 		this.examination = examination;
 		this.product_admin_id = product_admin_id;
 		this.delflg = delflg;
+	}
+	public ProductsBean() {
+		// TODO 自動生成されたコンストラクター・スタブ
 	}
 	public String getProduct_id() {
 		return product_id;
@@ -145,5 +150,11 @@ public class ProductsBean {
 	}
 	public void setDelflg(int delflg) {
 		this.delflg = delflg;
+	}
+	public String getSale_date() {
+		return sale_date;
+	}
+	public void setSale_date(String sale_date) {
+		this.sale_date = sale_date;
 	}
 }

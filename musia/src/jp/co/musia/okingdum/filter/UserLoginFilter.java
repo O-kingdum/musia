@@ -45,11 +45,9 @@ public class UserLoginFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-
-		Auth auth = new Auth();
-		
-		// ログインチェック
-		if(!auth.checkAuth((HttpServletRequest)request)) {
+	
+		/* Login Check */
+		if(!Auth.checkAuth((HttpServletRequest)request)) {
 			((HttpServletResponse)response).sendRedirect(((HttpServletRequest)request).getContextPath() + "/");
 		}
 		

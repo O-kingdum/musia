@@ -121,16 +121,16 @@ public class Oikawa_PointDao extends Dao {
 	 * selectOikawa_Pointメソッド
 	 * 
 	 * @param array
-	 *            ArrayList<Object> Oikawa_PointBean
-	 * @return retarr ArrayList<Object> 検索結果
+	 *            ArrayList<Oikawa_PointBean> Oikawa_PointBean
+	 * @return retarr ArrayList<Oikawa_PointBean> 検索結果
 	 */
-	public ArrayList<Object> selectOikawa_Point(ArrayList<Object> array) {
+	public ArrayList<Oikawa_PointBean> selectOikawa_Point(ArrayList<Oikawa_PointBean> array) {
 
-		String sql = "SELECT t_oikawa_point WHERE f_user_id in('";
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		String sql = "SELECT * FROM t_oikawa_point WHERE f_user_id in('";
+		ArrayList<Oikawa_PointBean> retarr = new ArrayList<Oikawa_PointBean>();
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((Oikawa_PointBean) array.get(i)).getUser_id() + "','";
+			sql += array.get(i).getUser_id() + "','";
 		}
 		sql += "');";
 

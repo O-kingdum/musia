@@ -1,0 +1,92 @@
+@CHARSET "UTF-8";
+
+body{
+	background: url(../img/background.jpg) no-repeat center;
+	background-size: cover;
+}
+
+.article{
+	width:480px;
+	margin:0 auto;
+	margin-top:40px;
+}
+
+.article-title{
+	font-size:35px;
+	color:#fff;
+}
+
+.article-content{
+	border-top:double 5px #fff;
+	border-bottom:double 5px #fff;
+}
+
+table{
+	margin-top:30px;
+}
+
+legend{
+	display:none;
+}
+
+caption{
+	display:none;
+}
+
+.form-header{
+	padding-left:25px;
+	color:white;
+	font-size:20px;
+	font-weight:bold;
+	font-family:Arial, sans-serif;
+}
+
+#login-email,#login-password{
+	border:0;
+	font-size:20px;
+	font-family:Arial, sans-serif;
+	border:solid 1px #ccc;
+	width:300px;
+	/*角丸*/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+input{
+	background-color:rgba(255,255,255,0.05);
+}
+
+input:focus{
+	background:rgba(255,255,255,0.85);
+}
+
+.form-data{
+	padding:10px;
+}
+
+.form-checkbox{
+	text-align:right;
+	margin-top:30px;
+	margin-right:95px;
+	color:white;
+}
+
+.form-submit{
+	text-align:right;
+	margin:-22px 19px 20px 0;
+}
+
+.form-submit input{
+	color:white;
+	padding:3px 5px 3px 5px;
+}
+
+.back{
+	text-align:center;
+	margin-top:10px;
+}
+
+img{
+	width:90px;	
+}

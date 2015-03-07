@@ -1,18 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
+  pageEncoding="UTF-8" import="java.util.ArrayList;"%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="アーティスト登録 | MUSIA" name="siteTitle" />
-  <jsp:param value="#" name="resetCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/template/template.css"
+    name="templateCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/artist_signup.css"
+    name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
         <h2 class="article-title">アーティスト登録</h2>
         <div class="article-content">
-          <form action="#" method="post">
+          <form action="${pageContext.request.contextPath}/artist_signup"
+            method="post">
             <fieldset>
               <legend>アーティスト登録情報</legend>
               <table>
-                <caption>アーティスト登録</caption>
+                <caption>アーティスト情報登録</caption>
                 <tr>
                   <th class="form-header">
                     <label for="image">アイコン画像</label>
@@ -28,33 +34,33 @@
                   </th>
                   <td class="form-data">
                     <textarea id="comment" type="text" name="comment"
-                      autofocus="" required>コメント内容を、入力してください。</textarea>
+                      autofocus="" required></textarea>
                   </td>
                 </tr>
                 <tr>
                   <th class="form-header">金融機関</th>
                   <td class="form-data">
-                    <input id="maru_bank" type="radio" name="bank"
+                    <input id="maru_bank" type="radio" name="bank_name"
                     value="maru_bank" checked="checked">
                     <label for="maru_bank">マル銀行</label>
-                    <input id="batsu_bank" type="radio" name="bank"
+                    <input id="batsu_bank" type="radio" name="bank_name"
                     value="batsu_bank">
                     <label for="batsu_bank">バツ銀行</label>
-                    <input id="sankaku_bank" type="radio" name="bank"
+                    <input id="sankaku_bank" type="radio" name="bank_name"
                     value="sankaku_bank">
                     <label for="sankaku_bank">サンカク銀行</label>
-                    <input id="shikaku_bank" type="radio" name="bank"
+                    <input id="shikaku_bank" type="radio" name="bank_name"
                     value="shikaku_bank">
                     <label for="shikaku_bank">シカク銀行</label>
                   </td>
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="course_number">講座番号</label>
+                    <label for="account_number">口座番号</label>
                   </th>
                   <td class="form-data">
-                    <input id="course_number" type="text"
-                    name="course_number" autofocus="" required>
+                    <input id="account_number" type="text"
+                    name="bank_number" autofocus="" required>
                   </td>
                 </tr>
                 <tr>
@@ -63,16 +69,16 @@
                   </th>
                   <td class="form-data">
                     <input id="branch_number" type="text"
-                    name="branch_number" autofocus="" required>
+                    name="branch_code" autofocus="" required>
                   </td>
                 </tr>
                 <tr>
                   <th class="form-header">
-                    <label for="course_name">講座名義</label>
+                    <label for="account_name">口座名義</label>
                   </th>
                   <td class="form-data">
-                    <input id="course_name" type="text"
-                    name="course_name" autofocus="" required>
+                    <input id="account_name" type="text"
+                    name="bank_persons" autofocus="" required>
                   </td>
                 </tr>
               </table>
@@ -82,6 +88,28 @@
             </p>
           </form>
         </div>
+        <%
+          @SuppressWarnings("unchecked")
+          ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
+          if (msg != null && msg.size() > 0) {
+        %>
+        <ul>
+        <%
+          for (String str : msg) {
+        %>
+          <li><%=str%></li>
+        <%
+          }
+        %>
+        </ul>
+        <%
+          }
+        %>
+        <p class="back">
+          <a href="history.back()"><img
+            src="<%=request.getContextPath()%>/img/pageback.png"
+            alt="戻る" /></a>
+        </p>
       </article>
     </jsp:attribute>
   </jsp:param>

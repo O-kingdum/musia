@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
-  <!-- Start Filter Class -->
+  <!-- Filter Class -->
   <filter>
     <filter-name>EncodeFilter</filter-name>
     <filter-class>jp.co.musia.okingdum.filter.EncodeFilter</filter-class>
@@ -9,7 +9,6 @@
     <filter-name>EncodeFilter</filter-name>
     <url-pattern>*</url-pattern>
   </filter-mapping>
-  
   <filter>
     <filter-name>LoginFilter</filter-name>
     <filter-class>jp.co.musia.okingdum.filter.UserLoginFilter</filter-class>
@@ -19,8 +18,10 @@
     <url-pattern>/decision/*</url-pattern>
   </filter-mapping>
   <!-- End Filter Class -->
-  
-  <!-- Start Servlet Class -->
+  <welcome-file-list>
+    <welcome-file>/view/index.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- Servlet Class -->
   <servlet>
     <servlet-name>AdminServlet</servlet-name>
     <servlet-class>jp.co.musia.okingdum.AdminServlet</servlet-class>
@@ -33,14 +34,81 @@
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/admin/*</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>MusiaServlet</servlet-name>
     <servlet-class>jp.co.musia.okingdum.MusiaServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>MusiaServlet</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/listener_signup</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/option</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/option/history</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/option/listener</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/option/artist</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/option/credit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/option/point</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/user_login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/option/list</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/cart</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/cart/select</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/cart/download</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/artist_signup</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/release</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/release/song</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/contest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/contest/song</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/help</url-pattern>
   </servlet-mapping>
   <!-- End Servlet Class -->
 </web-app>

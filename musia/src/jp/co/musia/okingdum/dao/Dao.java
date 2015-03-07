@@ -17,7 +17,10 @@ public class Dao {
 	protected ResultSet rs = null;
 
 	/** メッセージを格納 */
-	private String msg = null;
+	private String msg;
+	
+	/** エラー判定フラグ*/
+	private boolean errflag = true;
 
 	Dao() {
 		con = null;
@@ -33,7 +36,7 @@ public class Dao {
 	 * MySQLに接続する
 	 */
 	protected void getConnection() {
-		String url = "jdbc:mysql://localhost/musia?user=root&password=root&useUnicode=true&characterEncoding=utf-8";
+		String url = "jdbc:mysql://localhost/musia?user=root&password=&useUnicode=true&characterEncoding=utf-8";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -74,7 +77,7 @@ public class Dao {
 	 * @return
 	 */
 	public String getMsg() {
-		return msg;
+		return this.msg;
 	}
 
 	/**
@@ -83,4 +86,13 @@ public class Dao {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
+
+	public boolean getErrflag() {
+		return this.errflag;
+	}
+
+	public void setErrflag(boolean errflag) {
+		this.errflag = errflag;
+	}
+	
 }

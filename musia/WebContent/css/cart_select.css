@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+body{
+	background: url(../img/background.jpg) no-repeat center;
+	background-size: cover;
+}
+
+.article{
+	width:480px;
+	margin:0 auto;
+	margin-top:40px;
+}
+
+.article-title{
+	font-size:35px;
+	color:#fff;
+}
+
+.article-content{
+	border-top:double 5px #fff;
+	border-bottom:double 5px #fff;
+}
+
+ul li a
+
+.back{
+	text-align:center;
+	margin-top:10px;
+}
+
+img{
+	width:90px;	
+}

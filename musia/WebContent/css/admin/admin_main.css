@@ -1,0 +1,142 @@
+@charset "utf-8";
+
+.login-form-article {
+	width: 620px;
+	margin: 80px auto 0;
+	border: 1px solid #676FA3;
+	border-radius: 20px;
+}
+
+fieldset {
+	width: 600px;
+	margin: 40px auto 29px;
+}
+
+legend {
+	width: 522px;
+	margin: 0 auto 36px;
+	font-size: 30px;
+}
+
+.form-group {
+	width: 522px;
+	margin: 0 auto 28px;
+}
+
+.form-group:last-child {
+	width: 522px;
+	margin: 0 auto;
+}
+
+.form-group label {
+	display: block;
+	font-size: 22px;
+}
+
+.form-group input {
+	display: block;
+	width: 522px;
+	height: 55px;
+}
+
+.form-group-add {
+	width: 522px;
+	margin: 0 auto 28px;
+}
+
+.form-group-add:last-child {
+	width: 522px;
+	margin: 0 auto;
+}
+
+.form-group-add label {
+	display: block;
+	font-size: 16px;
+}
+
+.form-group-add input {
+	display: block;
+	width: 522px;
+	height: 25px;
+}
+
+.form-group-add textarea {
+	width: 522px;
+	height: 50px;
+}
+
+/* ログインボタンだけ真ん中にする */
+.form-btn {
+	text-align: center;
+}
+
+.login-btn {
+	width: 100px;
+  padding: 10px 0;
+	background: -moz-linear-gradient(top,#09C 0%,#09C 50%,#069 50%,#069);
+  background: -webkit-gradient(linear, left top, left bottom,from(#09C), color-stop(0.5,#09C), color-stop(0.5,#069),  to(#069));
+  border: 1px solid #DDD;
+  color: #FFF;
+}
+
+.login-error-msg {
+	margin-bottom: 27px;
+	color: red;
+	text-align: center;
+}
+
+.login-error-msg li {
+	font-size: 18px;
+}
+
+
+.adminTable {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.adminTable tr {
+	line-height: 67px;
+}
+
+.adminTable thead tr {
+	background-color: #f4f9fe;;
+}
+
+.adminTable thead tr th {
+	color: #253754;
+	font-size: 18px;	
+}
+
+.adminTable tbody tr td {
+	color:#597083;
+	text-align: center;
+}
+
+.adminTable tbody tr:nth-child(odd) {
+	background: #FDFEFF;
+}
+
+.adminTable tbody tr:nth-child(even) {
+	background-color: #f4f9fe;
+}
+
+.paging {
+	
+}
+
+.radiusBtn {
+    background: #EEE;
+    border: 1px solid #DDD;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    color: #111;
+    width: 100px;
+    padding: 10px 0;
+}
+
+footer {
+	padding: 100px 0;
+	text-align: center;
+}

@@ -1,0 +1,69 @@
+@CHARSET "UTF-8";
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+.clearfix {
+    display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+    display: block;
+}
+ 
+* html .clearfix {
+    height: 1%;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 960px;
+}
+
+h1 {
+	padding: 42px 0 33px;
+	color: #4E5167;
+	font-size: 33px;
+}
+
+.head_navs {
+	
+}
+.head_nav {
+	float: left;
+	width: 240px;
+	text-align: center;
+	background-color: #4386EA;
+}
+
+.head_nav:hover {
+	background-color: #94B6EA;
+}
+
+.head_nav a {
+	display: block;
+	padding: 20px 0;
+	font-size: 17px;
+	color: #F2F2F2;
+	text-decoration: none;
+}
+
+.head_nav a:hover {
+	cursor: pointer;
+}
+
+h2 {
+	text-align: center;
+	color: #232C71;
+	font-size: 22px;
+	border-bottom: 2px solid #00c;
+	display: inline-block;
+	padding-bottom: 6px;
+	margin: 38px 0 37px 5%;
+}

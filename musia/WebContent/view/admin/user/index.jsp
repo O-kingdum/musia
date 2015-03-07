@@ -2,6 +2,13 @@
   pageEncoding="UTF-8" import="jp.co.musia.okingdum.Bean.*,java.util.ArrayList;" %>
 <jsp:include page="/template/admin/template.jsp">
   <jsp:param value="ユーザ管理画面 | MUSIA" name="siteTitle" />
+  <jsp:param value="${pageContext.request.contextPath}/css/vendor/reset.css" name="resetCss" />
+  <jsp:param value="${pageContext.request.contextPath}/css/admin/template.css" name="templateCss"/>
+  <jsp:param value="${pageContext.request.contextPath}/css/admin/admin_main.css" name="mainCss" />
+  
+  <jsp:param value="${pageContext.request.contextPath}/css/vendor/datatable.css" name="datableCss" />
+  <jsp:param value="${pageContext.request.contextPath}/js/vendor/datatable.min.js" name="datableJs" />
+  
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
 	<article>
@@ -11,8 +18,9 @@
     ArrayList<UsersBean> users = (ArrayList<UsersBean>)request.getAttribute("users");
     if( users != null && users.size() > 0 ) {
     %>
-		<table>
+		<table class="adminTable" id="demo">
 			<caption>
+			ユーザ一覧
 			</caption>
 			<thead>
 				<tr>
@@ -33,8 +41,8 @@
 					<td><%= user.getUser_name() %></td>
 					<td><%= user.getEntry_date() %></td>
 					<td>
-						<button>
-							<a href="<%= request.getContextPath() %>/user/detail">ユーザ詳細</a>
+						<button class="radiusBtn">
+							<a href="<%= request.getContextPath() %>/admin/user/detail?id=<%= user.getUser_id() %>">ユーザ詳細</a>
 						</button>
 					</td>
 				</tr>
@@ -51,6 +59,15 @@
     }
 	%>
 	</article>
+	
+	<script>
+$('#demo').datatable({
+  pageSize: 5,
+  sort: [true, true, true],
+  filters: [false, false, 'select']
+});
+</script>
+	
     </jsp:attribute>
   </jsp:param>
 </jsp:include>

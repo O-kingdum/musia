@@ -1,0 +1,126 @@
+@CHARSET "UTF-8";
+
+body{
+	background: url(../img/background.jpg) no-repeat center;
+	background-size: cover;
+}
+
+.article{
+	width:640px;
+	margin:0 auto;
+	margin-top:20px;
+}
+
+.article-title{
+	font-size:35px;
+	color:#fff;
+}
+
+.article-content{
+	border-top:double 5px #fff;
+	border-bottom:double 5px #fff;
+}
+
+table{
+	margin-top:30px;
+}
+
+legend{
+	display:none;
+}
+
+caption{
+	display:none;
+}
+
+tr{
+	height:30px;
+}
+
+.form-header{
+	padding-left:80px;
+	color:white;
+	font-size:16px;
+	font-weight:bold;
+	font-family:Arial, sans-serif;
+	padding-top:8px;
+}
+
+#re_maru_bank + label{
+	color:white;
+	margin-left:-4px;
+	margin-right:-4px;
+}
+
+#re_batsu_bank + label{
+	color:white;
+	margin-left:-4px;
+	margin-right:-4px;
+}
+
+#re_sankaku_bank + label{
+	color:white;
+	margin-left:-4px;
+	margin-right:-4px;
+}
+
+#re_shikaku_bank + label{
+	color:white;
+	margin-left:-4px;
+	margin-right:-4px;
+}
+
+#re_account_number,#re_branch_number,#re_account_name{
+	border:0;
+	font-size:20px;
+	font-family:Arial, sans-serif;
+	border:solid 1px #ccc;
+	width:300px;
+	/*角丸*/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#re_comment{
+	border:0;
+	font-size:15px;
+	font-family:Arial, sans-serif;
+	border:solid 1px #ccc;
+	width:300px;
+	/*角丸*/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+input,textarea{
+	background-color:rgba(255,255,255,0.05);
+}
+
+input:focus,textarea:focus{
+	background:rgba(255,255,255,0.85);
+}
+
+.form-data{
+	padding:10px;
+}
+
+.form-submit{
+	text-align:right;
+	margin:10px 27px 20px 0;
+}
+
+.form-submit input{
+	color:white;
+	padding:3px 5px 3px 5px;
+}
+
+.back{
+	text-align:center;
+	margin-top:10px;
+}
+
+img{
+	width:90px;	
+}

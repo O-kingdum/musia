@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import jp.co.musia.okingdum.Bean.ProductsBean;
+import jp.co.musia.okingdum.Bean.UsersBean;
+import jp.co.musia.okingdum.Bean.V_ProductsBean;
 
 /**
  * 
@@ -12,6 +14,35 @@ import jp.co.musia.okingdum.Bean.ProductsBean;
  */
 public class ProductsDao extends Dao {
 
+	public String getNextId(String id) {
+		
+		String sql = "SELECT count(*) from t_products WHERE f_product_id LIKE '" + id + "%';";
+		String id_str = "";
+		
+		try {
+			// コネクション生成
+			this.getConnection();
+			// ステートメント作成
+			st = this.con.createStatement();
+			// クエリ発行
+			rs = st.executeQuery(sql);
+			
+			if( rs.next() ) {
+				id_str = String.valueOf( rs.getInt("count(*)") + 1 );
+				
+				for( int i = id_str.length() ; i < 6; i++ ) {
+					id_str = "0" + id_str;
+				}
+				id_str = id + id_str;
+			}
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.close();
+		}
+		return id_str;
+	}
 	/**
 	 * insertProductsメソッド
 	 * 
@@ -19,10 +50,12 @@ public class ProductsDao extends Dao {
 	 *            ProductsBean
 	 * @return ret int : -1:異常終了 0:更新失敗 1:更新成功
 	 */
-	public int insertProducts(ProductsBean products) {
+	public int insertProducts(ProductsBean products, String id) {
 
+		products.setProduct_id(this.getNextId(id));
+		
 		int ret = 0;
-		String sql = "INSERT INTO t_products values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,0,?,0);";
+		String sql = "INSERT INTO t_products values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,0);";
 
 		try {
 			// コネクション作成
@@ -46,8 +79,6 @@ public class ProductsDao extends Dao {
 			ps.setString(14, products.getRemarks());
 			ps.setInt(15, products.getExamination());
 			ps.setString(16, products.getProduct_admin_id());
-			ps.setString(16, products.getProduct_admin_id());
-			ps.setInt(17, products.getDelflg());
 
 			// クエリ発行
 			ret = ps.executeUpdate();
@@ -143,18 +174,22 @@ public class ProductsDao extends Dao {
 	 * selectProductsメソッド
 	 * 
 	 * @param array
-	 *            ArrayList<Object> : ProductsBean
-	 * @return retarr ArrayList<Object> : ProductsBean
+	 *            ArrayList<ProductsBean> : ProductsBean
+	 * @return retarr ArrayList<ProductsBean> : ProductsBean
 	 */
-	public ArrayList<Object> selectProducts(ArrayList<Object> array) {
+	public ArrayList<ProductsBean> selectProducts(ArrayList<ProductsBean> array) {
 
-		String sql = "SELECT * FROM t_products WHERE t_product_id in('";
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		String sql = "SELECT * FROM t_products WHERE f_product_id in('";
+		ArrayList<ProductsBean> retarr = new ArrayList<ProductsBean>();
 
-		for (int i = 0; i < array.size(); i++) {
-			sql += ((ProductsBean) array.get(i)).getProduct_id() + "','";
+		if(array != null && array.size() > 0) {
+			for (int i = 0; i < array.size(); i++) {
+				sql += array.get(i).getProduct_id() + "','";
+			}
+			sql += "');";
+		} else {
+			sql = "SELECT * FROM t_products;";
 		}
-		sql += "');";
 
 		try {
 			// コネクション生成
@@ -166,8 +201,8 @@ public class ProductsDao extends Dao {
 
 			while (rs.next()) {
 				retarr.add(new ProductsBean(rs.getString("f_product_id"), rs
-						.getString("f_user_id"), rs.getString("product_name"),
-						rs.getString("artist_name"), rs.getInt("f_price"), rs
+						.getString("f_user_id"), rs.getString("f_product_name"),
+						rs.getString("f_artist_name"), rs.getInt("f_price"), rs
 								.getString("f_product_details"), rs
 								.getString("f_genre_id"), rs
 								.getString("f_measure"), rs
@@ -184,6 +219,58 @@ public class ProductsDao extends Dao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
+		} finally {
+			this.close();
+		}
+		return retarr;
+	}
+	
+	/**
+	 * selectV_Wantsメソッド
+	 * 
+	 * @param user
+	 * @return 
+	 */
+	public ArrayList<V_ProductsBean> selectV_Wants(UsersBean user) {
+		
+		String sql = "SELECT p.f_product_id,p.f_user_id,f_product_name,f_artist_name,"
+				+ "f_price,f_product_details,f_genre_name,f_measure,f_file_type,"
+				+ "f_file_size,f_directory_path,f_img_path,f_posted_date,"
+				+ "f_remarks FROM t_products p join t_genre g on p.f_genre_id = g.f_genre_id"
+				+ " join t_wants_list w on p.f_products_id = w.f_products_id"
+				//+ " WHERE w.f_user_id=" + user.getUser_id() + ";";
+				+ " WHERE w.f_user_id=" + "H000001" + ";";
+				
+				
+		ArrayList<V_ProductsBean> retarr = new ArrayList<V_ProductsBean>();
+		
+		try {
+			
+			this.getConnection();
+			st = con.createStatement();
+			rs = st.executeQuery(sql);
+			
+			while(rs.next()) {
+				retarr.add(new V_ProductsBean(
+						rs.getString("p.f_product_id"),
+						rs.getString("p.f_user_id"),
+						rs.getString("f_product_name"),
+						rs.getString("f_artist_name"),
+						rs.getInt("f_price"),
+						rs.getString("f_product_details"),
+						rs.getString("f_genre_name"),
+						rs.getString("f_measure"),
+						rs.getString("f_file_type"),
+						rs.getInt("f_file_size"),
+						rs.getString("f_directory_path"),
+						rs.getString("f_img_path"),
+						rs.getString("f_posted_date"),
+						rs.getString("f_remarks")
+						));
+			}
+			
+		} catch(SQLException e) {
 			setMsg(e.getMessage());
 		} finally {
 			this.close();

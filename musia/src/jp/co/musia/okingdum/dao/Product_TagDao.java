@@ -117,16 +117,16 @@ public class Product_TagDao extends Dao {
 	 * selectProduct_Tagメソッド
 	 * 
 	 * @param array
-	 *            ArrayList<Object> Product_TagBean
-	 * @return retarr ArrayList<Object> 検索結果
+	 *            ArrayList<Product_TagBean> Product_TagBean
+	 * @return retarr ArrayList<Product_TagBean> 検索結果
 	 */
-	public ArrayList<Object> selectProduct_Tag(ArrayList<Object> array) {
+	public ArrayList<Product_TagBean> selectProduct_Tag(ArrayList<Product_TagBean> array) {
 
-		String sql = "SELECT t_product_tag WHERE f_product_id in('";
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		String sql = "SELECT * FROM t_product_tag WHERE f_product_id in('";
+		ArrayList<Product_TagBean> retarr = new ArrayList<Product_TagBean>();
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((Product_TagBean) array.get(i)).getProduct_id() + "','";
+			sql += array.get(i).getProduct_id() + "','";
 		}
 		sql += "');";
 

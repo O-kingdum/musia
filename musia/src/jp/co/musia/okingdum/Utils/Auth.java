@@ -17,6 +17,7 @@ import jp.co.musia.okingdum.dao.UserDao;
 public class Auth {
 
 	private static HttpSession session;
+	private static ArrayList<String> errmsg;
 	
 	/**
 	 * setAuthメソッド: ログイン状態セット
@@ -51,6 +52,20 @@ public class Auth {
 	}
 	
 	/**
+	 * getAuthUserメソッド：　ログインユーザ取得
+	 * 
+	 * @param request
+	 * @return UsersBean : login user
+	 */
+	public static UsersBean getAuthUser(HttpServletRequest request) {
+		
+		session = request.getSession();
+		UsersBean user = (UsersBean)session.getAttribute("user");
+		
+		return user;
+	}
+	
+	/**
 	 * loginAuthメソッド: ログイン処理
 	 * 
 	 * @param request: 入力（メールアドレス,パスワード）
@@ -61,24 +76,30 @@ public class Auth {
 		UsersBean user = new UsersBean();
 		UserDao dao = new UserDao();
 		Validator val = new Validator();
-		ArrayList<Object> array;
 		
 		if( val.getLoginValidation(request) ) {	// バリデーションクリア
 			
 			user.setEmail(request.getParameter("email"));
 			user.setPassword(request.getParameter("password"));
 			
-			array = dao.selectUser(new ArrayList<Object>(Arrays.asList(user)));
-			
-			if( array != null && !array.isEmpty() ) { // ユーザが存在している
-				
-				setAuth( request, true );
-				session = request.getSession();
-				session.setAttribute("user", ((UsersBean)array.get(0)) );
-				
-				// ログイン成功
-				return true;
+			user = dao.loginUser( user );
+			if(dao.getErrflag()) {
+				if( user != null ) { // ユーザが存在している
+					
+					setAuth( request, true );
+					session = request.getSession();
+					session.setAttribute("user", user );
+					
+					// ログイン成功
+					return true;
+				} else {
+					setErrMsg(new ArrayList<String>( Arrays.asList("メールアドレスまたはパスワードが間違っています。") ));
+				}
+			} else {
+				setErrMsg( new ArrayList<String>( Arrays.asList("データベース接続エラーです。") ) );
 			}
+		} else {
+			setErrMsg( val.getErrMsg() );
 		}
 		// ログイン失敗
 		return false;
@@ -95,5 +116,19 @@ public class Auth {
 		session.invalidate();
 		
 		return;
+	}
+	/**
+	 * setErrMsgメソッド
+	 * @param array ArrayList<String>
+	 */
+	private static void setErrMsg(ArrayList<String> array) {
+		errmsg = array;
+	}
+	/**
+	 * getErrMsgメソッド
+	 * @return ArrayList<String>
+	 */
+	public static ArrayList<String> getErrMsg() {
+		return errmsg;
 	}
 }

@@ -13,6 +13,7 @@ import java.util.Date;
  * @author Tkray
  */
 public class UserDao extends Dao {
+	
 	/**
 	 * insertUserメソッド : t_usersテーブルにインサートを行う
 	 * 
@@ -47,7 +48,7 @@ public class UserDao extends Dao {
 
 			// ステートメントの作成
 			ps = con.prepareStatement(sql);
-			if (sex == 0) {
+			if (sex == 1) {
 				sexStr = "M";
 				ps.setString(1, sexStr);
 			} else {
@@ -92,16 +93,14 @@ public class UserDao extends Dao {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			// エラーメッセージをmsgに格納
 			setMsg(e.getMessage());
-			System.out.println("DBの処理に失敗しました");
+			setErrflag(false);
 			ret = -1;
 		} catch (Exception e) {
-			e.printStackTrace();
 			// エラーメッセージをmsgに格納
 			setMsg(e.getMessage());
-			System.out.println("DBの処理に失敗しました");
+			setErrflag(false);
 			ret = -1;
 		} finally {
 			this.close();
@@ -166,14 +165,14 @@ public class UserDao extends Dao {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			// エラーメッセージをmsgに格納
 			setMsg(e.getMessage());
+			setErrflag(false);
 			ret = -1;
 		} catch (Exception e) {
-			e.printStackTrace();
 			// エラーメッセージをmsgに格納
 			setMsg(e.getMessage());
+			setErrflag(false);
 			ret = -1;
 		} finally {
 			this.close();
@@ -188,15 +187,15 @@ public class UserDao extends Dao {
 	 * @return 成功:ArrayListオブジェクトを格納　失敗:nullのArrayList
 	 */
 	@SuppressWarnings("finally")
-	public ArrayList<Object> selectUser(ArrayList<Object> array) {
+	public ArrayList<UsersBean> selectUser(ArrayList<UsersBean> array) {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		ArrayList<UsersBean> retarr = new ArrayList<UsersBean>();
 		String sql = "SELECT * FROM t_users WHERE f_user_id in('";
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((UsersBean) array.get(i)).getUser_id() + "','";
+			sql += array.get(i).getUser_id() + "','";
 		}
 		sql += "');";
 
@@ -221,49 +220,121 @@ public class UserDao extends Dao {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			// エラーメッセージをmsgに格納
 			setMsg(e.getMessage());
+			setErrflag(false);
 			retarr = null;
 
 		} catch (Exception e) {
-			e.printStackTrace();
 			// エラーメッセージをmsgに格納
 			setMsg(e.getMessage());
+			setErrflag(false);
 			retarr = null;
 		} finally {
 			this.close();
 			return retarr;
 		}
 	}
-
-	public static void main(String[] args) {
-		UserDao ud = new UserDao();
-
-		String id = "M000001";
-		String id2 = "M000002";
-		/*
-		 * String mail = "aaa@gmail.com"; String name = "hoge"; int sex = 0;
-		 * String passwd = "12345678"; String birthday = "2015-01-01";
-		 */
-
-		UsersBean user1 = new UsersBean();
-		UsersBean user2 = new UsersBean();
-		user1.setUser_id(id);
-		user2.setUser_id(id2);
-		ArrayList<Object> array = new ArrayList<Object>();
-		array.add(user1);
-		array.add(user2);
-		ArrayList<Object> ret = ud.selectUser(array);
-
-		for (int i = 0; i < ret.size(); i++) {
-			UsersBean user = (UsersBean) ret.get(i);
-			System.out.println(user.getEmail());
-			System.out.println(user.getEntry_date());
+	
+	public ArrayList<UsersBean> selectAllUser() {
+		
+		ArrayList<UsersBean> retarr = new ArrayList<UsersBean>();
+		String sql = "SELECT * FROM t_users;";
+		
+		try {
+			this.getConnection();
+			st = this.con.createStatement();
+			rs = st.executeQuery(sql);
+			
+			while( rs.next() ) {
+				retarr.add(new UsersBean(
+						rs.getString("f_user_id"),
+						rs.getString("f_mail"),
+						rs.getString("f_name"),
+						rs.getString("f_password"),
+						rs.getString("f_birthday"),
+						rs.getString("f_self_introduction"),
+						rs.getString("f_entry_date"),
+						rs.getInt("f_bank_number"),
+						rs.getInt("f_branch_code"),
+						rs.getString("f_bank_persons"),
+						rs.getString("f_bank_name")					
+						));
+			}
+			
+		} catch (SQLException e) {
+			setMsg(e.getMessage());
+			setErrflag(false);
+		} finally {
+			this.close();
 		}
-		user1 = (UsersBean) ret.get(0);
-
-		// ud.insertUser(user1);
-		// ud.changeUserData(user1);
+		return retarr;
 	}
+	
+	public UsersBean loginUser(UsersBean user) {
+		
+		String sql = "SELECT * FROM t_users WHERE f_mail=? && f_password=?;";
+		UsersBean loginuser = null;
+		
+		try {
+			this.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, user.getEmail());
+			ps.setString(2, user.getPassword());
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				loginuser = new UsersBean();
+				loginuser.setUser_id(rs.getString("f_user_id"));
+				loginuser.setEmail(rs.getString("f_mail"));
+				loginuser.setUser_name(rs.getString("f_name"));
+				loginuser.setBirthday(rs.getString("f_birthday"));
+				loginuser.setSelf_introduction(rs.getString("f_self_introduction"));
+				loginuser.setEntry_date(rs.getString("f_entry_date"));
+				loginuser.setBank_number(rs.getInt("f_bank_number"));
+				loginuser.setBranch_code(rs.getInt("f_branch_code"));
+				loginuser.setBank_persons(rs.getString("f_bank_persons"));
+				loginuser.setBank_name(rs.getString("f_bank_name"));
+			}
+		} catch (SQLException e) {
+			setMsg(e.getMessage());
+			setErrflag(false);
+		} catch (Exception e) {
+			setMsg(e.getMessage());
+			setErrflag(false);
+		} finally {
+			this.close();
+		}
+		return loginuser;
+	}
+
+//	public static void main(String[] args) {
+//		UserDao ud = new UserDao();
+//
+//		String id = "M000001";
+//		String id2 = "M000002";
+//		/*
+//		 * String mail = "aaa@gmail.com"; String name = "hoge"; int sex = 0;
+//		 * String passwd = "12345678"; String birthday = "2015-01-01";
+//		 */
+//
+//		UsersBean user1 = new UsersBean();
+//		UsersBean user2 = new UsersBean();
+//		user1.setUser_id(id);
+//		user2.setUser_id(id2);
+//		ArrayList<Object> array = new ArrayList<Object>();
+//		array.add(user1);
+//		array.add(user2);
+//		ArrayList<Object> ret = ud.selectUser(array);
+//
+//		for (int i = 0; i < ret.size(); i++) {
+//			UsersBean user = (UsersBean) ret.get(i);
+//			System.out.println(user.getEmail());
+//			System.out.println(user.getEntry_date());
+//		}
+//		user1 = (UsersBean) ret.get(0);
+//
+//		// ud.insertUser(user1);
+//		// ud.changeUserData(user1);
+//	}
 }

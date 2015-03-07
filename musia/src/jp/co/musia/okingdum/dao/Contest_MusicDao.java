@@ -123,16 +123,16 @@ public class Contest_MusicDao extends Dao {
 	 * selectContest_Musicメソッド
 	 * 
 	 * @param array
-	 *            ArrayList<Object> Contest_MusicBean
-	 * @return retarr ArrayList<Object> 検索結果
+	 *            ArrayList<Contest_MusicBean> Contest_MusicBean
+	 * @return retarr ArrayList<Contest_MusicBean> 検索結果
 	 */
-	public ArrayList<Object> selectContest_Music(ArrayList<Object> array) {
+	public ArrayList<Contest_MusicBean> selectContest_Music(ArrayList<Contest_MusicBean> array) {
 
-		String sql = "SELECT t_contest_Music WHERE f_contest_id in('";
-		ArrayList<Object> retarr = new ArrayList<Object>();
+		String sql = "SELECT * FROM t_contest_Music WHERE f_contest_id in('";
+		ArrayList<Contest_MusicBean> retarr = new ArrayList<Contest_MusicBean>();
 
 		for (int i = 0; i < array.size(); i++) {
-			sql += ((Contest_MusicBean) array.get(i)).getContest_id() + "','";
+			sql += array.get(i).getContest_id() + "','";
 		}
 		sql += "');";
 
