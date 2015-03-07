@@ -10,10 +10,22 @@
   color: rgb(245, 50, 147);
 }
 
+.ang-errorMsg img {
+  width: 17px !important;
+  height: 17px !important;
+  margin-top: -2px;
+}
+
 .ang-okMsg {
   margin: 16px 0 0 0;
   font-size: 16px;
   color: rgb(70, 245, 50);
+}
+
+.ang-okMsg img {
+  width: 17px !important;
+  height: 17px !important;
+  margin-top: -2px;
 }
 
 /*
