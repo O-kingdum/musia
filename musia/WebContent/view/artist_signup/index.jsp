@@ -14,7 +14,7 @@
         <h2 class="article-title">アーティスト登録</h2>
         <div class="article-content">
           <form action="${pageContext.request.contextPath}/artist_signup"
-            method="post">
+            method="post"  novalidate name="myForm">
             <fieldset>
               <legend>アーティスト登録情報</legend>
               <table>
@@ -60,7 +60,15 @@
                   </th>
                   <td class="form-data">
                     <input id="account_number" type="text"
-                    name="bank_number" autofocus="" required>
+                    name="bank_number" autofocus="" ng-model="bank_number" required ng-maxlength="10">
+                    <!-- angularJSの口座番号エラーメッセージ -->
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.bank_number.$error.required">未入力</p>
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.bank_number.$error.maxlength">10文字以内で入力して下さい</p>
+                    <p class="ang-okMsg"
+                      ng-show="myForm.bank_number.$valid">OK</p>
+                    <!-- /angularJSの口座番号エラーメッセージ -->
                   </td>
                 </tr>
                 <tr>
@@ -69,7 +77,17 @@
                   </th>
                   <td class="form-data">
                     <input id="branch_number" type="text"
-                    name="branch_code" autofocus="" required>
+                    name="branch_code" autofocus="" ng-model="branch_code" required ng-minlength="3" ng-maxlength="3">
+                    <!-- angularJSの支店番号エラーメッセージ -->
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.branch_code.$error.required">未入力</p>
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.branch_code.$error.minlength">3文字で入力して下さい</p>
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.branch_code.$error.maxlength">3文字で入力して下さい</p>
+                    <p class="ang-okMsg"
+                      ng-show="myForm.branch_code.$valid">OK</p>
+                    <!-- /angularJSの支店番号エラーメッセージ -->
                   </td>
                 </tr>
                 <tr>
@@ -78,7 +96,15 @@
                   </th>
                   <td class="form-data">
                     <input id="account_name" type="text"
-                    name="bank_persons" autofocus="" required>
+                    name="bank_persons" autofocus="" ng-model="bank_persons" required ng-maxlength="20">
+                    <!-- angularJSの口座名義メッセージ -->
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.bank_persons.$error.required">未入力</p>
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.bank_persons.$error.maxlength">20文字以内で入力して下さい</p>
+                    <p class="ang-okMsg"
+                      ng-show="myForm.bank_persons.$valid">OK</p>
+                    <!-- /angularJSの口座名義メッセージ -->
                   </td>
                 </tr>
               </table>

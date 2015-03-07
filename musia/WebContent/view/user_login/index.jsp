@@ -31,12 +31,16 @@
                     <input type="email" id="login-email" name="email"
                     autofocus="" ng-model="email" required
                     ng-maxlength="50">
-                    <!-- angularJSのemailエラーメッセージ -->
+                    <!-- angularJSのemailメッセージ -->
                     <p class="ang-errorMsg"
                       ng-show="myForm.email.$error.required">未入力</p>
                     <p class="ang-errorMsg"
                       ng-show="myForm.email.$error.maxlength">50文字以内で入力して下さい</p>
-                    <!-- /angularJSのemailエラーメッセージ -->
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.email.$error.email">メールアドレスを入力して下さい</p>
+                    <p class="ang-okMsg"
+                      ng-show="myForm.email.$valid">OK</p>
+                    <!-- /angularJSのemailメッセージ -->
                   </td>
                 </tr>
                 <tr>
@@ -47,14 +51,16 @@
                     <input id="login-password" type="password"
                     name="password" autofocus="" ng-model="password"
                     required ng-minlength="6" ng-maxlength="8">
-                    <!-- angularJSのpasswordエラーメッセージ -->
+                    <!-- angularJSのpasswordメッセージ -->
                     <p class="ang-errorMsg"
                       ng-show="myForm.password.$error.required">未入力</p>
                     <p class="ang-errorMsg"
                       ng-show="myForm.password.$error.minlength">パスワードは6文字以上で入力して下さい</p>
                     <p class="ang-errorMsg" class="ang-errorMsg"
                       ng-show="myForm.password.$error.maxlength">パスワードは8文字以内で入力して下さい</p>
-                    <!-- /angularJSのpasswordエラーメッセージ -->
+                    <p class="ang-okMsg"
+                      ng-show="myForm.email.$valid">OK</p>
+                    <!-- /angularJSのpasswordメッセージ -->
                   </td>
                 </tr>
               </table>

@@ -10,6 +10,12 @@
   color: rgb(245, 50, 147);
 }
 
+.ang-okMsg {
+  margin: 16px 0 0 0;
+  font-size: 16px;
+  color: rgb(70, 245, 50);
+}
+
 /*
  * Template
  */
