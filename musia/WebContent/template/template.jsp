@@ -32,7 +32,7 @@
   charset="utf-8"></script>
 </head>
 <body>
-  <div class="wrapper">
+  <div class="container_12">
     <jsp:include page="header.jsp" />
     <jsp:include page="nav.jsp" />
     <main class="main">${param.pageContents}</main>

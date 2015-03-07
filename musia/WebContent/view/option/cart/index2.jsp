@@ -3,24 +3,15 @@
   import="jp.co.musia.okingdum.Bean.*, java.util.ArrayList;"%>
 <%
   @SuppressWarnings("unchecked")
-  ArrayList<ProductsBean> products = (ArrayList<ProductsBean>) request.getAttribute("products");
+  ArrayList<V_ProductsBean> products = (ArrayList<V_ProductsBean>) request.getAttribute("products");
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="カート | MUSIA" name="siteTitle" />
   <jsp:param
-    value="${pageContext.request.contextPath}/css/vendor/reset.css"
-    name="resetCss" />
-  <jsp:param
     value="${pageContext.request.contextPath}/css/template/template.css"
     name="templateCss" />
-  <jsp:param
-    value="${pageContext.request.contextPath}/css/cart.css"
+  <jsp:param value="${pageContext.request.contextPath}/css/cart.css"
     name="mainCss" />
-    
-  <jsp:param value="${pageContext.request.contextPath}/css/vendor/datatable.css" name="datableCss" />
-  <jsp:param value="${pageContext.request.contextPath}/js/vendor/jquery-1.11.2.min.js" name="jqueryJs" />
-  <jsp:param value="${pageContext.request.contextPath}/js/vendor/datatable.min.js" name="datableJs" />
-    
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
@@ -37,45 +28,48 @@
                     <th class="table-header">アーティスト</th>
                     <th class="table-header">ジャンル</th>
                     <th class="table-header">価格</th>
-                    <th class="table-header"><label for="buy">購入</label></th>
+                    <th class="table-header"><label for="delete">削除</label></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="table-data">ロック・イズ・デッド</td>
-                    <td class="table-data"><a href="">マリリン・マンソン</a></td>
-                    <td class="table-data">ロック</td>
-                    <td class="table-data">500</td>
-                    <td class="table-data"><input id="buy"
-                      type="checkbox" name="buy"></td>
+                    <td class="table-data"><a href="">ああああ</a></td>
+                    <td class="table-data"><a href="">いいいい</a></td>
+                    <td class="table-data">うううう</td>
+                    <td class="table-data">ええええ</td>
+                    <td class="table-data"><input id="delete"
+                      type="submit" name="delete" value="削除" /></td>
                   </tr>
                 </tbody>
               </table>
-              <div class="paging"></div><!-- tableに対するjQuery plug-inのページ送り用 -->
-              
+              <div class="paging"></div>
+              <!-- tableに対するjQuery plug-inのページ送り用 -->
               <p class="form-submit">
-                <input type="submit" name="all" value="購入">
+                <input type="submit" name="all" value="クレジットカードで購入する" />
+              </p>
+              <p class="form-submit">
+                <input type="submit" name="all" value="及川ポイントで購入する" />
               </p>
             </fieldset>
           </form>
         </div>
         <p class="back">
           <a href="history.back()"><img
-            src="<%=request.getContextPath()%>/img/pageback.png"
+            src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>
       </article>
       
       <!-- tableに対するjQuery plug-inの指定 -->
         <script>
-		$('#data-table').datatable({
-		  pageSize: 5, // 1ページに表示する最大数
-		  //sort: [true, true, true, true],
-		  //filters: [false, false, 'select']
-		});
-		</script>
-		<!-- /tableに対するjQuery plug-inの指定 -->
-      
+									$('#data-table').datatable({
+										pageSize : 5, // 1ページに表示する最大数
+									//sort: [true, true, true, true],
+									//filters: [false, false, 'select']
+									});
+								</script>
+    <!-- /tableに対するjQuery plug-inの指定 -->
+    
     </jsp:attribute>
   </jsp:param>
 </jsp:include>

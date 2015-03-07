@@ -31,7 +31,7 @@
                     <th class="table-header">アーティスト</th>
                     <th class="table-header">ジャンル</th>
                     <th class="table-header">価格</th>
-                    <th class="table-header"><label for="buy">購入</label></th>
+                    <th class="table-header"><label for="delete">削除</label></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -59,8 +59,6 @@
                         product.getPrice();
                       %>
                     </td>
-                    <td class="table-data"><input id="buy"
-                      type="checkbox" name="buy" /></td>
                     <td class="table-data"><input id="delete"
                       type="submit" name="delete" /></td>
                   </tr>
