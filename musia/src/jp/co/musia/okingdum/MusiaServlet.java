@@ -80,7 +80,7 @@ public class MusiaServlet extends HttpServlet {
 		{
 			dispPage = "/view/option/point/index.jsp";		
 		}
-		else if ("/musia/login_user".equals(request.getRequestURI()))	// ユーザログイン
+		else if ("/musia/user_login".equals(request.getRequestURI()))	// ユーザログイン
 		{
 			dispPage = "/view/user_login/index.jsp";
 		}

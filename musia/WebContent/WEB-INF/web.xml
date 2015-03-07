@@ -68,7 +68,7 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>MusiaServlet</servlet-name>
-    <url-pattern>/login_user</url-pattern>
+    <url-pattern>/user_login</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>MusiaServlet</servlet-name>
