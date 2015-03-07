@@ -1,24 +1,6 @@
 @CHARSET "UTF-8";
 
 /*
- * micro clearfix
- */
-
-.cf:before,
-.cf:after {
-    content: " ";
-    display: table;
-}
-
-.cf:after {
-    clear: both;
-}
-
-.cf {
-    *zoom: 1;
-}
-
-/*
  * AngularJS
  */
 
@@ -32,8 +14,13 @@
  * Template
  */
 
-.wrapper {
+body {
   
+}
+
+img {
+  width: 140px;
+  height: 140px;
 }
 
 .header {
