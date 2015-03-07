@@ -65,7 +65,7 @@
                     <p class="ang-errorMsg"
                       ng-show="myForm.bank_number.$error.required">
                       <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
-                      未入力
+                      口座番号を入力して下さい
                     </p>
                     <p class="ang-errorMsg"
                       ng-show="myForm.bank_number.$error.maxlength">
@@ -91,7 +91,7 @@
                     <p class="ang-errorMsg"
                       ng-show="myForm.branch_code.$error.required">
                       <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
-                      未入力
+                      支店番号を入力して下さい
                     </p>
                     <p class="ang-errorMsg"
                       ng-show="myForm.branch_code.$error.minlength">
@@ -122,7 +122,7 @@
                     <p class="ang-errorMsg"
                       ng-show="myForm.bank_persons.$error.required">
                       <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
-                      未入力
+                      口座名義を入力して下さい
                     </p>
                     <p class="ang-errorMsg"
                       ng-show="myForm.bank_persons.$error.maxlength">
