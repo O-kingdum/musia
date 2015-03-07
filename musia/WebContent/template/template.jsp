@@ -52,6 +52,7 @@
 <body>
   <div class="wrapper">
     <jsp:include page="header.jsp" />
+    <jsp:include page="nav.jsp" />
     <main class="main">${param.pageContents}</main>
     <jsp:include page="footer.jsp" />
   </div>
