@@ -21,67 +21,69 @@
           <h2>商品詳細</h2>
         </header>
         <div class="article-content">
-          <%
-            if (products != null && products.size() > 0) {
-              ProductsBean product = products.get(0);
-          %>
-          <header class="song-title">
-            <h3><%=product.getProduct_name()%></h3>
-            <p>
-              <input type="submit" value="いいね！" />
-            </p>
-          </header>
-          <div class="song-content">
-            <div class="song-img">
-              <figure>
-                <img src="<%=product.getImg_path()%>"
-                  alt="<%=product.getProduct_name()%>" />
-                <figcaption><%=product.getProduct_name()%></figcaption>
-              </figure>
-            </div>
-            <div>
-              <div class="song-artist">
-                <p>
-                  <a href=""><%=product.getArtist_name()%></a>
-                </p>
-              </div>
-              <div class="song-audio">
-                <audio
-                  src="http://localhost:8080<%=request.getContextPath()%>/audio/Alive.m4a"
-                  controls></audio>
-              </div>
-              <div class="song-remarks">
-                <p><%=product.getRemarks()%></p>
-              </div>
-              <div class="song-add">
-                <ul>
-                  <li><input type="submit" value="気になるに追加" /></li>
-                  <li><input type="submit" value="カートに追加" /></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <%
-            } else {
-          %>
+          <form action="" method="post">
             <%
-              if (msg != null && msg.size() > 0) {
+              if (products != null && products.size() > 0) {
+                ProductsBean product = products.get(0);
             %>
-            <ul>
+            <header class="song-title">
+              <h3><%=product.getProduct_name()%></h3>
+              <p>
+                <input type="submit" value="いいね！" />
+              </p>
+            </header>
+            <div class="song-content">
+              <div class="song-img">
+                <figure>
+                  <img src="<%=product.getImg_path()%>"
+                    alt="<%=product.getProduct_name()%>" />
+                  <figcaption><%=product.getProduct_name()%></figcaption>
+                </figure>
+              </div>
+              <div>
+                <div class="song-artist">
+                  <p>
+                    <a href=""><%=product.getArtist_name()%></a>
+                  </p>
+                </div>
+                <div class="song-audio">
+                  <audio
+                    src="http://localhost:8080<%=request.getContextPath()%>/audio/Alive.m4a"
+                    controls></audio>
+                </div>
+                <div class="song-remarks">
+                  <p><%=product.getRemarks()%></p>
+                </div>
+                <div class="song-add">
+                  <ul>
+                    <li><input type="submit" value="気になるに追加" /></li>
+                    <li><input type="submit" value="カートに追加" /></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <%
+              } else {
+            %>
               <%
-                for (String str : msg) {
+                if (msg != null && msg.size() > 0) {
               %>
-                <li><%=str%></li>
+              <ul>
+                <%
+                  for (String str : msg) {
+                %>
+                  <li><%=str%></li>
+                <%
+                  }
+                %>
+              </ul>
               <%
                 }
               %>
-            </ul>
             <%
               }
             %>
-          <%
-            }
-          %>
+          </form>
         </div>
       </article>
     </jsp:attribute>
