@@ -19,17 +19,13 @@
 <link rel="stylesheet" type="text/css" href="${param.mainCss}">
 <!-- vendor js -->
 <script type="text/javascript"
-  src="${pageContext.request.contextPath}/js/vendor/jquery-1.11.2.min.js"
-  charset="utf-8"></script>
+  src="${pageContext.request.contextPath}/js/vendor/jquery-1.11.2.min.js"></script>
 <script type="text/javascript"
-  src="${pageContext.request.contextPath}/js/vendor/jquery.mixitup.js"
-  charset="utf-8"></script>
+  src="${pageContext.request.contextPath}/js/vendor/jquery.mixitup.js"></script>
 <script type="text/javascript"
-  src="${pageContext.request.contextPath}/js/vendor/datatable.min.js"
-  charset="utf-8"></script>
+  src="${pageContext.request.contextPath}/js/vendor/datatable.min.js"></script>
 <script type="text/javascript"
-  src="${pageContext.request.contextPath}/js/vendor/angular.min.js"
-  charset="utf-8"></script>
+  src="${pageContext.request.contextPath}/js/vendor/angular.min.js"></script>
 <!-- js -->
 <script type="text/javascript"
   src="${pageContext.request.contextPath}/js/birthday.js"
