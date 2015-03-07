@@ -8,9 +8,6 @@
 <jsp:include page="/template/template.jsp">
   <jsp:param value="購入履歴 | MUSIA" name="siteTitle" />
   <jsp:param
-    value="${pageContext.request.contextPath}/css/vendor/reset.css"
-    name="resetCss" />
-  <jsp:param
     value="${pageContext.request.contextPath}/css/template/template.css"
     name="templateCss" />
   <jsp:param
@@ -70,7 +67,7 @@
         </div>
         <p class="back">
           <a href="history.back()"><img
-            src="<%=request.getContextPath()%>/img/pageback.png"
+            src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>
       </article>

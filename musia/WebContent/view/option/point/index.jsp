@@ -4,16 +4,11 @@
 <%
   @SuppressWarnings("unchecked")
   ArrayList<Oikawa_PointBean> points = (ArrayList<Oikawa_PointBean>) request.getAttribute("point");
-%>
-<%
   @SuppressWarnings("unchecked")
   ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="及川ポイント購入 | MUSIA" name="siteTitle" />
-  <jsp:param
-    value="${pageContext.request.contextPath}/css/vendor/reset.css"
-    name="resetCss" />
   <jsp:param
     value="${pageContext.request.contextPath}/css/template/template.css"
     name="templateCss" />
@@ -73,7 +68,7 @@
         </div>
         <p class="back">
           <a href="history.back()"><img
-            src="<%=request.getContextPath()%>/img/pageback.png"
+            src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>
       </article>

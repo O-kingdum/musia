@@ -3,9 +3,6 @@
 <jsp:include page="/template/template.jsp">
   <jsp:param value="楽曲投稿 | コンテスト | MUSIA" name="siteTitle" />
   <jsp:param
-    value="${pageContext.request.contextPath}/css/vendor/reset.css"
-    name="resetCss" />
-  <jsp:param
     value="${pageContext.request.contextPath}/css/template/template.css"
     name="templateCss" />
   <jsp:param

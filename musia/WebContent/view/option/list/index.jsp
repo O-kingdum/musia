@@ -7,8 +7,7 @@
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="気になる | MUSIA" name="siteTitle" />
-  <jsp:param
-    value="${pageContext.request.contextPath}/css/vendor/reset.css"
+  <jsp:param value="${pageContext.request.contextPath}/css/list.css"
     name="resetCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
@@ -37,10 +36,11 @@
                   for (V_ProductsBean product : products) {
                 %>
                   <tr>
-                    <td class="table-data"><%= product.getProduct_name() %></td>
-                    <td class="table-data"><%= product.getArtist_name() %><a href=""></a></td>
-                    <td class="table-data"><%= product.getGenre_name() %></td>
-                    <td class="table-data"><%= product.getPrice() %></td>
+                    <td class="table-data"><%=product.getProduct_name()%></td>
+                    <td class="table-data"><%=product.getArtist_name()%><a
+                      href=""></a></td>
+                    <td class="table-data"><%=product.getGenre_name()%></td>
+                    <td class="table-data"><%=product.getPrice()%></td>
                     <td class="table-data"><input id="cart_add"
                       type="checkbox" name="cart_add"></td>
                   </tr>
@@ -64,7 +64,7 @@
         </div>
         <p class="back">
           <a href="history.back()"><img
-            src="<%=request.getContextPath()%>/img/pageback.png"
+            src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>
       </article>

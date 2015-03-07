@@ -1,22 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"
   import="jp.co.musia.okingdum.Bean.*, java.util.ArrayList;"%>
+<%
+  @SuppressWarnings("unchecked")
+  ArrayList<ProductsBean> products = (ArrayList<ProductsBean>) request.getAttribute("products");
+%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="ダウンロード | MUSIA" name="siteTitle" />
-  <jsp:param
-    value="${pageContext.request.contextPath}/css/vendor/reset.css"
-    name="resetCss" />
   <jsp:param
     value="${pageContext.request.contextPath}/css/template/template.css"
     name="templateCss" />
   <jsp:param
     value="${pageContext.request.contextPath}/css/cart_download.css"
     name="mainCss" />
-    
-  <jsp:param value="${pageContext.request.contextPath}/css/vendor/datatable.css" name="datableCss" />
-  <jsp:param value="${pageContext.request.contextPath}/js/vendor/jquery-1.11.2.min.js" name="jqueryJs" />
-  <jsp:param value="${pageContext.request.contextPath}/js/vendor/datatable.min.js" name="datableJs" />
-    
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
@@ -24,8 +20,6 @@
         <div class="article-content">
           <form action="/cart" method="post">
             <%
-              @SuppressWarnings("unchecked")
-              ArrayList<ProductsBean> products = (ArrayList<ProductsBean>) request.getAttribute("products");
               if (products != null && products.size() > 0) {
             %>
             <table>
@@ -56,7 +50,8 @@
               %>
               </tbody>
             </table>
-            <div class="paging"></div><!-- tableに対するjQuery plug-inのページ送り用 -->
+            <div class="paging"></div>
+            <!-- tableに対するjQuery plug-inのページ送り用 -->
             <%
               } else {
             %>
@@ -81,12 +76,12 @@
       
       <!-- tableに対するjQuery plug-inの指定 -->
         <script>
-		$('#data-table').datatable({
-		  pageSize: 5, // 1ページに表示する最大数
-		  //sort: [true, true, true, true],
-		  //filters: [false, false, 'select']
-		});
-		</script>
+									$('#data-table').datatable({
+										pageSize : 5, // 1ページに表示する最大数
+									//sort: [true, true, true, true],
+									//filters: [false, false, 'select']
+									});
+								</script>
 		<!-- /tableに対するjQuery plug-inの指定 -->
 		
     </jsp:attribute>

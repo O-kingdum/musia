@@ -8,18 +8,10 @@
 <jsp:include page="/template/template.jsp">
   <jsp:param value="カート | MUSIA" name="siteTitle" />
   <jsp:param
-    value="${pageContext.request.contextPath}/css/vendor/reset.css"
-    name="resetCss" />
-  <jsp:param
     value="${pageContext.request.contextPath}/css/template/template.css"
     name="templateCss" />
   <jsp:param value="${pageContext.request.contextPath}/css/cart.css"
     name="mainCss" />
-    
-  <jsp:param value="${pageContext.request.contextPath}/css/vendor/datatable.css" name="datableCss" />
-  <jsp:param value="${pageContext.request.contextPath}/js/vendor/jquery-1.11.2.min.js" name="jqueryJs" />
-  <jsp:param value="${pageContext.request.contextPath}/js/vendor/datatable.min.js" name="datableJs" />
-    
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
@@ -77,7 +69,8 @@
                 %>
                 </tbody>
               </table>
-              <div class="paging"></div><!-- tableに対するjQuery plug-inのページ送り用 -->
+              <div class="paging"></div>
+              <!-- tableに対するjQuery plug-inのページ送り用 -->
               
               <p class="form-submit">
                 <input type="submit" name="all" value="購入" />
@@ -94,19 +87,19 @@
         </div>
         <p class="back">
           <a href="history.back()"><img
-            src="<%=request.getContextPath()%>/img/pageback.png"
+            src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>
       </article>
       
       <!-- tableに対するjQuery plug-inの指定 -->
         <script>
-		$('#data-table').datatable({
-		  pageSize: 5, // 1ページに表示する最大数
-		  //sort: [true, true, true, true],
-		  //filters: [false, false, 'select']
-		});
-		</script>
+									$('#data-table').datatable({
+										pageSize : 5, // 1ページに表示する最大数
+									//sort: [true, true, true, true],
+									//filters: [false, false, 'select']
+									});
+								</script>
 		<!-- /tableに対するjQuery plug-inの指定 -->
 		
     </jsp:attribute>

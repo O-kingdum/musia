@@ -1,19 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8" import="java.util.ArrayList;"%>
+<%
+  @SuppressWarnings("unchecked")
+  ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
+%>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="リスナー登録 | MUSIA" name="siteTitle" />
-  <jsp:param
-    value="${pageContext.request.contextPath}/css/vendor/reset.css"
-    name="resetCss" />
   <jsp:param
     value="${pageContext.request.contextPath}/css/template/template.css"
     name="templateCss" />
   <jsp:param
     value="${pageContext.request.contextPath}/css/listener_signup.css"
     name="mainCss" />
-    
-  <jsp:param value="${pageContext.request.contextPath}/js/vendor/jquery-1.11.2.min.js" name="jqueryJs" />
-    
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
     
@@ -89,8 +87,6 @@
           </form>
         </div>
         <%
-          @SuppressWarnings("unchecked")
-          ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
           if (msg != null && msg.size() > 0) {
         %>
         <ul>
@@ -107,7 +103,7 @@
         %>
         <p class="back">
           <a href="history.back()"><img
-            src="<%=request.getContextPath()%>/img/pageback.png"
+            src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>
       </article>

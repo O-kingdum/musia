@@ -11,19 +11,21 @@
 <jsp:include page="/template/template.jsp">
   <jsp:param value="アーティスト詳細 | MUSIA" name="siteTitle" />
   <jsp:param
-    value="${pageContext.request.contextPath}/css/vendor/reset.css"
-    name="resetCss" />
-  <jsp:param
     value="${pageContext.request.contextPath}/css/template/template.css"
     name="templateCss" />
-  <jsp:param
-    value="${pageContext.request.contextPath}/css/artist.css"
+  <jsp:param value="${pageContext.request.contextPath}/css/artist.css"
     name="mainCss" />
-    
-  <jsp:param value="${pageContext.request.contextPath}/css/vendor/datatable.css" name="datableCss" />
-  <jsp:param value="${pageContext.request.contextPath}/js/vendor/jquery-1.11.2.min.js" name="jqueryJs" />
-  <jsp:param value="${pageContext.request.contextPath}/js/vendor/datatable.min.js" name="datableJs" />
-    
+
+  <jsp:param
+    value="${pageContext.request.contextPath}/css/vendor/datatable.css"
+    name="datableCss" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/js/vendor/jquery-1.11.2.min.js"
+    name="jqueryJs" />
+  <jsp:param
+    value="${pageContext.request.contextPath}/js/vendor/datatable.min.js"
+    name="datableJs" />
+
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
@@ -58,24 +60,25 @@
                   for(int i = 0; i< products.size(); i++) {
                 %>
                   <tr>
-                  	<td class="table-data"><%= i+1 %></td>
-                    <td class="table-data"><a href=""><%= products.get(i).getProduct_name() %></a></td>
-                    <td class="table-data"><%= products.get(i).getPrice() %></td>
-                    <td class="table-data"><%= products.get(i).getFile_type() %></td>
+                  	<td class="table-data"><%=i+1%></td>
+                    <td class="table-data"><a href=""><%=products.get(i).getProduct_name()%></a></td>
+                    <td class="table-data"><%=products.get(i).getPrice()%></td>
+                    <td class="table-data"><%=products.get(i).getFile_type()%></td>
                   </tr>
                 <%
                   }
                 %>
                 </tbody>
               </table>
-              <div class="paging"></div><!-- tableに対するjQuery plug-inのページ送り用 -->
+              <div class="paging"></div>
+              <!-- tableに対するjQuery plug-inのページ送り用 -->
 	          </div>
           </div>
         </div>
         <%
           @SuppressWarnings("unchecked")
-          ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
-          if (msg != null && msg.size() > 0) {
+                  ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
+                  if (msg != null && msg.size() > 0) {
         %>
         <ul>
         <%
@@ -97,12 +100,12 @@
         
         <!-- tableに対するjQuery plug-inの指定 -->
         <script>
-		$('#data-table').datatable({
-		  pageSize: 5, // 1ページに表示する最大数
-		  //sort: [true, true, true, true],
-		  //filters: [false, false, 'select']
-		});
-		</script>
+									$('#data-table').datatable({
+										pageSize : 5, // 1ページに表示する最大数
+									//sort: [true, true, true, true],
+									//filters: [false, false, 'select']
+									});
+								</script>
 		<!-- /tableに対するjQuery plug-inの指定 -->
       </article>
     </jsp:attribute>
