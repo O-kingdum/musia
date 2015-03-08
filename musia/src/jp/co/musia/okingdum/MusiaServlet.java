@@ -56,6 +56,10 @@ public class MusiaServlet extends HttpServlet {
 		else if ("/musia/option/history".equals(request.getRequestURI()))	// 購入履歴
 		{
 			dispPage = "/view/option/history/index.jsp";
+			SalesDao saldao = new SalesDao();
+			user = Auth.getAuthUser(request);
+			ArrayList<ProductsBean> history = saldao.selectSales(user);
+			request.setAttribute("history",history);
 		}
 		else if ("/musia/option/listener".equals(request.getRequestURI()))	// リスナー情報
 		{
@@ -297,11 +301,7 @@ public class MusiaServlet extends HttpServlet {
 			break;
 			
 		case "/musia/option/":						//マイページ
-			//マイページで必要なもの
-			//ユーザ情報表示
-			UserDao udao = new UserDao();
-			//udao.selectUser(array);
-			//ポイント表示
+			
 			break;
 			
 		case "/musia/option/history":				//購入履歴
@@ -342,10 +342,6 @@ public class MusiaServlet extends HttpServlet {
 			break;
 			
 		case "/musia/cart/select":					//お支払選択
-			//表示
-			CreditCardDao credao = new CreditCardDao();
-			//ArrayList<CreditCardBean> array = credao.selectCreditCard(array);
-			//request.setAttribute("creditcard", array);
 			
 			break;
 			
