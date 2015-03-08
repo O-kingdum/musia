@@ -4,7 +4,7 @@
 <%
   @SuppressWarnings("unchecked")
   ArrayList<ProductsBean> products = (ArrayList<ProductsBean>) request.getAttribute("products");
-  int total = Integer.parseInt(request.getAttribute("total"));
+  int total = (Integer)request.getAttribute("total");
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="カート | MUSIA" name="siteTitle" />

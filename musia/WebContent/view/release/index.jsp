@@ -76,17 +76,9 @@
                 </tbody>
               </table>
               <%
-                if (msg != null && msg.size() > 0) {
+                } else {
               %>
-              <ul>
-                <%
-                  for (String str : msg) {
-                %>
-                <li><%=str%></li>
-                <%
-                  }
-                %>
-              </ul>
+              <p class="data-else">楽曲が登録されていません</p>
               <%
                 }
               %>
@@ -97,8 +89,8 @@
           </form>
         </div>
         <p class="back">
-          <a href="history.back()"><img
-            src="${pageContext.request.contextPath}/img/pageback.png"
+          <a href="${pageContext.request.contextPath}/history.back()"><img
+            src="/img/pageback.png"
             alt="戻る" /></a>
         </p>
       </article>
