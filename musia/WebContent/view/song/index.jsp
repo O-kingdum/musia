@@ -31,7 +31,7 @@
             <div class="song-content">
               <div class="song-img">
                 <figure>
-                  <img src="<%=products.getImg_path()%>"
+                  <img src="<%= request.getContextPath() %><%=products.getImg_path()%>"
                     alt="<%=products.getProduct_name()%>" />
                   <figcaption><%=products.getProduct_name()%></figcaption>
                 </figure>
