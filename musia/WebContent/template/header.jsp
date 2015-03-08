@@ -3,16 +3,18 @@
 <header class="header clearfix">
   <div class="header-title grid_3 clearfix">
     <h1>
-      <a href="${pageContext.request.contextPath}/"><img src=""
-        alt="MUSIA" /></a>
+      <a href="${pageContext.request.contextPath}/">MUSIA</a>
     </h1>
   </div>
   <div class="header-content">
     <nav class="header-nav">
       <ul class="clearfix">
-        <li class="grid_3"><a href="${pageContext.request.contextPath}/release">リリース</a></li>
-        <li class="grid_3"><a href="${pageContext.request.contextPath}/contest">コンテスト</a></li>
-        <li class="grid_3"><a href="${pageContext.request.contextPath}/help">ヘルプ</a></li>
+        <li class="header-nav-li grid_3"><a
+          href="${pageContext.request.contextPath}/release">リリース</a></li>
+        <li class="header-nav-li grid_3"><a
+          href="${pageContext.request.contextPath}/contest">コンテスト</a></li>
+        <li class="header-nav-li grid_3"><a
+          href="${pageContext.request.contextPath}/help">ヘルプ</a></li>
       </ul>
     </nav>
   </div>
