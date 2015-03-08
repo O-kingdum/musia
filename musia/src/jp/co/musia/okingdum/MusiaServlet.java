@@ -90,7 +90,7 @@ public class MusiaServlet extends HttpServlet {
 		}
 		else if ("/musia/option/list".equals(request.getRequestURI()))		// ほしいものリスト
 		{
-			dispPage = "/view/list/index.jsp";
+			dispPage = "/view/option/list/index.jsp";
 			// instance
 			prodao = new ProductsDao();
 			// set Wants List
@@ -98,7 +98,7 @@ public class MusiaServlet extends HttpServlet {
 		}
 		else if ("/musia/cart".equals(request.getRequestURI()))		// カート
 		{
-			dispPage = "/view/cart/index.jsp";
+			dispPage = "/view/option/cart/index.jsp";
 			// set CartList
 			request.setAttribute("cart", CartManager.getCartList(request));
 			// set TotalAmount
@@ -371,6 +371,20 @@ public class MusiaServlet extends HttpServlet {
 		case "/musia/help":							//注文情報変更ページ
 			
 			break;
+			
+		case "/musia/cartadd":
+					
+			String id = request.getParameter("id");
+			
+			if(StringUtils.isNotEmpty(id)) {
+				ProductsBean product = new ProductsBean();
+				product.setProduct_id(id);
+				CartManager.setCartList(request, product);
+			} else {
+				request.setAttribute( "msg", new ArrayList<String>( Arrays.asList("商品が選択されていません。") ) );
+			}
+			response.sendRedirect(request.getContextPath() + "/cart");
+			return;
 		}
 		request.getRequestDispatcher(dispPage).forward(request, response);
 	}
