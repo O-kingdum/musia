@@ -34,16 +34,16 @@
                   for (ProductsBean product : products) {
                 %>
                   <tr>
-                    <td class="table-data"><a href="">
+                    <td class="table-data"><a href="<%= request.getContextPath() %>/song?id=<%= product.getProduct_id() %>">
                         <%=
                           product.getProduct_name()
                         %>
                     </a></td>
-                    <td class="table-data"><a href="">
+                    <td class="table-data">
                         <%=
                           product.getArtist_name()
                         %>
-                    </a></td>
+                    </td>
                     <td class="table-data">
                       <%=
                         product.getPrice()
