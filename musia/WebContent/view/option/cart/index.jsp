@@ -3,7 +3,8 @@
   import="jp.co.musia.okingdum.Bean.*, java.util.ArrayList;"%>
 <%
   @SuppressWarnings("unchecked")
-  ArrayList<V_ProductsBean> products = (ArrayList<V_ProductsBean>) request.getAttribute("products");
+  ArrayList<ProductsBean> products = (ArrayList<ProductsBean>) request.getAttribute("products");
+  int total = (int)request.getAttribute("total");
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="カート | MUSIA" name="siteTitle" />
@@ -14,7 +15,8 @@
       <article class="article">
         <h2 class="article-title">カート</h2>
         <div class="article-content">
-          <form action="${pageContext.request.contextPath}/option/cart" method="post">
+          <form action="${pageContext.request.contextPath}/option/cart"
+            method="post">
             <%
               if (products != null && products.size() > 0) {
             %>
@@ -33,7 +35,7 @@
                 </thead>
                 <tbody>
                 <%
-                  for (V_ProductsBean product : products) {
+                  for (ProductsBean product : products) {
                 %>
                   <tr>
                     <td class="table-data"><a href="">
@@ -46,11 +48,6 @@
                           product.getArtist_name();
                         %>
                     </a></td>
-                    <td class="table-data">
-                      <%
-                        product.getGenre_name();
-                      %>
-                    </td>
                     <td class="table-data">
                       <%
                         product.getPrice();
@@ -66,9 +63,12 @@
               </table>
               <div class="paging"></div>
               <!-- tableに対するjQuery plug-inのページ送り用 -->
-              
+              <p>合計金額：<%=total%></p>
               <p class="form-submit">
-                <input type="submit" name="all" value="購入" />
+                <input type="submit" name="all" value="及川ポイントで購入する" />
+              </p>
+              <p class="form-submit">
+                <input type="submit" name="all" value="クレジットカードで購入する" />
               </p>
               <%
                 } else {

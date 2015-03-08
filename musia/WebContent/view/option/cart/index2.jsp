@@ -33,7 +33,7 @@
                     <td class="table-data"><a href="">ああああ</a></td>
                     <td class="table-data"><a href="">いいいい</a></td>
                     <td class="table-data">うううう</td>
-                    <td class="table-data">ええええ</td>
+                    <td class="table-data">500</td>
                     <td class="table-data"><input id="delete"
                       type="submit" name="delete" value="削除" /></td>
                   </tr>
