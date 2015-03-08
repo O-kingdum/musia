@@ -46,7 +46,12 @@ public class Auth {
 		
 		// セッション取得
 		session = request.getSession();
-		boolean login = (Boolean)session.getAttribute("logincheck");
+		
+		boolean login = false;
+		
+		if(session.getAttribute("logincheck") != null) {
+			login = (Boolean)session.getAttribute("logincheck");
+		}
 		
 		return login;
 	}
