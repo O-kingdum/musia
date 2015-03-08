@@ -1,8 +1,16 @@
 @CHARSET "UTF-8";
 
+.article-title {
+  display: none;
+}
 
+.article-content ul {
+  margin: 0;
+  padding: 0;
+}
 
 img {
+  margin: 10px 0;
   width: 140px;
   height: 140px;
 }
