@@ -26,7 +26,7 @@
 						</div>
 						<div>
 						<label>ソート</label>
-						<button class="sort" data-sort="default">リリース順</button>
+						<button class="sort active" data-sort="default">リリース順</button>
 						<!-- <button class="sort" data-sort="mytitle:asc">タイトル順</button> -->
 						<button class="sort" data-sort="mydate:asc">ランキング</button>
 						</div>

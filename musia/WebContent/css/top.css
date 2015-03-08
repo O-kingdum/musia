@@ -103,8 +103,8 @@ text-align:center;
 /*コンテンツ自体*/
 .container .mix,
 .container .gap{
-  width:180px;
-  height:180px;
+  width:140px;
+  height:140px;
 }
 
 .container .mix{
@@ -146,6 +146,6 @@ img:hover{
 }
 
 img {
-	 width:180px;
-	 height: 180px;
+	 width:140px;
+	 height: 140px;
 }
