@@ -10,9 +10,6 @@
 <jsp:include page="/template/template.jsp">
   <jsp:param value="楽曲投稿 | リリース | MUSIA" name="siteTitle" />
   <jsp:param
-    value="${pageContext.request.contextPath}/css/template/template.css"
-    name="templateCss" />
-  <jsp:param
     value="${pageContext.request.contextPath}/css/release_song.css"
     name="mainCss" />
   <jsp:param name="pageContents">

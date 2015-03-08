@@ -7,9 +7,6 @@
 <jsp:include page="/template/template.jsp">
   <jsp:param value="ログイン | MUSIA" name="siteTitle" />
   <jsp:param
-    value="${pageContext.request.contextPath}/css/template/template.css"
-    name="templateCss" />
-  <jsp:param
     value="${pageContext.request.contextPath}/css/user_login.css"
     name="mainCss" />
   <jsp:param name="pageContents">
@@ -38,8 +35,7 @@
                       ng-show="myForm.email.$error.maxlength">50文字以内で入力して下さい</p>
                     <p class="ang-errorMsg"
                       ng-show="myForm.email.$error.email">メールアドレスを入力して下さい</p>
-                    <p class="ang-okMsg"
-                      ng-show="myForm.email.$valid">OK</p>
+                    <p class="ang-okMsg" ng-show="myForm.email.$valid">OK</p>
                     <!-- /angularJSのemailメッセージ -->
                   </td>
                 </tr>
@@ -58,8 +54,7 @@
                       ng-show="myForm.password.$error.minlength">パスワードは6文字以上で入力して下さい</p>
                     <p class="ang-errorMsg" class="ang-errorMsg"
                       ng-show="myForm.password.$error.maxlength">パスワードは8文字以内で入力して下さい</p>
-                    <p class="ang-okMsg"
-                      ng-show="myForm.email.$valid">OK</p>
+                    <p class="ang-okMsg" ng-show="myForm.email.$valid">OK</p>
                     <!-- /angularJSのpasswordメッセージ -->
                   </td>
                 </tr>

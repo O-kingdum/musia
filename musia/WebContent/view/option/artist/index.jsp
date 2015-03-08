@@ -10,9 +10,6 @@
 <jsp:include page="/template/template.jsp">
   <jsp:param value="アーティスト情報 | MUSIA" name="siteTitle" />
   <jsp:param
-    value="${pageContext.request.contextPath}/css/template/template.css"
-    name="templateCss" />
-  <jsp:param
     value="${pageContext.request.contextPath}/css/option_artist.css"
     name="mainCss" />
   <jsp:param name="pageContents">

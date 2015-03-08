@@ -15,7 +15,8 @@
 <link rel="stylesheet" type="text/css"
   href="${pageContext.request.contextPath}/css/vendor/datatable.css">
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="${param.templateCss}">
+<link rel="stylesheet" type="text/css"
+  href="${pageContext.request.contextPath}/css/template/template.css">
 <link rel="stylesheet" type="text/css" href="${param.mainCss}">
 <!-- vendor js -->
 <script type="text/javascript"
@@ -28,14 +29,13 @@
   src="${pageContext.request.contextPath}/js/vendor/angular.min.js"></script>
 <!-- js -->
 <script type="text/javascript"
-  src="${pageContext.request.contextPath}/js/birthday.js"
-  charset="utf-8"></script>
+  src="${pageContext.request.contextPath}/js/birthday.js"></script>
 </head>
 <body>
-  <div class="container_12">
+  <div class=" container_12">
     <jsp:include page="header.jsp" />
     <jsp:include page="nav.jsp" />
-    <main class="main">${param.pageContents}</main>
+    <main class="main clearfix">${param.pageContents}</main>
     <jsp:include page="footer.jsp" />
   </div>
 </body>

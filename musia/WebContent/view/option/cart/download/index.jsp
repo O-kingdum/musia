@@ -8,9 +8,6 @@
 <jsp:include page="/template/template.jsp">
   <jsp:param value="ダウンロード | MUSIA" name="siteTitle" />
   <jsp:param
-    value="${pageContext.request.contextPath}/css/template/template.css"
-    name="templateCss" />
-  <jsp:param
     value="${pageContext.request.contextPath}/css/cart_download.css"
     name="mainCss" />
   <jsp:param name="pageContents">
