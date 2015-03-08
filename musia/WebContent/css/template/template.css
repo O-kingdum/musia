@@ -33,7 +33,9 @@
  */
 
 body {
-  background: #4E5167;
+  background: url(../../img/background.jpg) no-repeat center;
+  background-size: cover;
+
 }
 
 .header {
