@@ -155,7 +155,7 @@ public class MusiaServlet extends HttpServlet {
 					product = products.get(0);
 				}
 			}
-			request.setAttribute("product", product);
+			request.setAttribute("products", product);
 		}
 		
 		request.getRequestDispatcher(dispPage).forward(request, response);
