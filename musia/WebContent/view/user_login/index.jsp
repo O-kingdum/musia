@@ -7,9 +7,6 @@
 <jsp:include page="/template/template.jsp">
   <jsp:param value="ログイン | MUSIA" name="siteTitle" />
   <jsp:param
-    value="${pageContext.request.contextPath}/css/template/template.css"
-    name="templateCss" />
-  <jsp:param
     value="${pageContext.request.contextPath}/css/user_login.css"
     name="mainCss" />
   <jsp:param name="pageContents">
@@ -34,22 +31,29 @@
                     <!-- angularJSのemailメッセージ -->
                     <p class="ang-errorMsg"
                       ng-show="myForm.email.$error.required">
-	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">
 	                      メールアドレスを入力して下さい
 	                  </p>
                     <p class="ang-errorMsg"
                       ng-show="myForm.email.$error.maxlength">
-	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">
 	                      50文字以内で入力して下さい
 	                  </p>
                     <p class="ang-errorMsg"
                       ng-show="myForm.email.$error.email">
-	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">
 	                      メールアドレスを入力して下さい
 	                  </p>
-                    <p class="ang-okMsg"
-                      ng-show="myForm.email.$valid">
-	                      <img src="${pageContext.request.contextPath}/img/ok.png" alt="ok_img" title="オーケー画像">
+                    <p class="ang-okMsg" ng-show="myForm.email.$valid">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/ok.png"
+                        alt="ok_img" title="オーケー画像">
 	                      OK
 	                  </p>
                     <!-- /angularJSのemailメッセージ -->
@@ -66,22 +70,30 @@
                     <!-- angularJSのpasswordメッセージ -->
                     <p class="ang-errorMsg"
                       ng-show="myForm.password.$error.required">
-	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">
 	                      パスワードを入力して下さい
 	                  </p>
                     <p class="ang-errorMsg"
                       ng-show="myForm.password.$error.minlength">
-	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">
 	                      パスワードは6~8文字で入力して下さい
 	                  </p>
-                    <p class="ang-errorMsg" class="ang-errorMsg"
+                    <p class="ang-errorMsg" class="ang-errorMsg"<<<<<<< HEAD
                       ng-show="myForm.password.$error.maxlength">
-	                      <img src="${pageContext.request.contextPath}/img/no.png" alt="err_img" title="エラー画像">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">
 	                      パスワードは6~8文字で入力して下さい
 	                  </p>
                     <p class="ang-okMsg"
                       ng-show="myForm.password.$valid">
-	                      <img src="${pageContext.request.contextPath}/img/ok.png" alt="ok_img" title="オーケー画像">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/ok.png"
+                        alt="ok_img" title="オーケー画像">
 	                      OK
 	                  </p>
                     <!-- /angularJSのpasswordメッセージ -->

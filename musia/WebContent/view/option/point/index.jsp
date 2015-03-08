@@ -10,9 +10,6 @@
 <jsp:include page="/template/template.jsp">
   <jsp:param value="及川ポイント購入 | MUSIA" name="siteTitle" />
   <jsp:param
-    value="${pageContext.request.contextPath}/css/template/template.css"
-    name="templateCss" />
-  <jsp:param
     value="${pageContext.request.contextPath}/css/option_point.css"
     name="mainCss" />
   <jsp:param name="pageContents">

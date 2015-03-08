@@ -7,9 +7,6 @@
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="MUSIA-音楽ダウンロードサイトMUSIA" name="siteTitle" />
-  <jsp:param
-    value="${pageContext.request.contextPath}/css/template/template.css"
-    name="templateCss" />
   <jsp:param value="${pageContext.request.contextPath}/css/top.css"
     name="mainCss" />
   <jsp:param name="pageContents">
