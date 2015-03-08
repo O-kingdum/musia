@@ -130,5 +130,9 @@
     <servlet-name>MusiaServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/option/cart/select</url-pattern>
+  </servlet-mapping>
   <!-- End Servlet Class -->
 </web-app>

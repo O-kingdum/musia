@@ -103,4 +103,13 @@ public class CartManager {
 		}
 		return;
 	}
+	
+	public static void clearCartList(HttpServletRequest request) {
+		
+		ArrayList<ProductsBean> products = new ArrayList<ProductsBean>();
+		HttpSession session = request.getSession();
+		session.setAttribute("cart", products);
+		
+		return;
+	}
 }

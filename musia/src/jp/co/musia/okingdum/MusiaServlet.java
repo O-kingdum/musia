@@ -369,7 +369,11 @@ public class MusiaServlet extends HttpServlet {
 			salesbean.setTotal_amount(CartManager.getTotalAmount(request));
 			
 			if(salesdao.insertSales(salesbean, CartManager.getCartList(request))) {
+				
 				dispPage = "/view/option/cart/download/index.jsp";
+				request.setAttribute("products", CartManager.getCartList(request));
+				CartManager.clearCartList(request);
+			
 			} else {
 				response.sendRedirect(request.getContextPath() + "/option/cart");
 				return;

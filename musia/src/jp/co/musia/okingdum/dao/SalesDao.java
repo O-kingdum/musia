@@ -21,7 +21,11 @@ public class SalesDao extends Dao{
 			
 			if(rs.next()) {
 				id_str = String.valueOf( rs.getInt("count(*)") + 1 );
-				id_str = "S" + String.format("%1$06d", id_str);
+				
+				for( int i = id_str.length() ; i < 6; i++ ) {
+					id_str = "0" + id_str;
+				}
+				id_str = "S" + id_str;
 			}
 		} catch(SQLException e) {
 			this.setErrflag(false);
