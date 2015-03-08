@@ -29,7 +29,7 @@
               <div class="song-img">
                 <figure>
                   <img src="#"
-                    alt="#" />
+                    alt="#" class="songimg"/>
                   <figcaption>遠航が、援交してた。</figcaption>
                 </figure>
               </div>

@@ -32,6 +32,23 @@ tr{
 	height:30px;
 }
 
+.form-data{
+	color:white;
+	font-size:15px;
+}
+
+#re_account_number,#re_branch_number,#re_account_name{
+	border:0;
+	font-size:18px;
+	font-family:Arial, sans-serif;
+	border:solid 1px #ccc;
+	width:220px;
+	/*角丸*/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
 .form-header{
 	padding-left:80px;
 	color:white;
