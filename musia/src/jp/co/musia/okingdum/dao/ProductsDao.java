@@ -226,6 +226,46 @@ public class ProductsDao extends Dao {
 		return retarr;
 	}
 	
+	public ArrayList<ProductsBean> allSelectProducts() {
+		
+		ArrayList<ProductsBean> retarr = new ArrayList<ProductsBean>();
+		String sql = "SELECT * FROM t_products;";
+		
+		try {
+			// コネクション生成
+			this.getConnection();
+			// ステートメント作成
+			st = con.createStatement();
+			// クエリ発行
+			rs = st.executeQuery(sql);
+
+			while (rs.next()) {
+				retarr.add(new ProductsBean(rs.getString("f_product_id"), rs
+						.getString("f_user_id"), rs.getString("f_product_name"),
+						rs.getString("f_artist_name"), rs.getInt("f_price"), rs
+								.getString("f_product_details"), rs
+								.getString("f_genre_id"), rs
+								.getString("f_measure"), rs
+								.getString("f_file_type"), rs
+								.getInt("f_file_size"), rs
+								.getString("f_directory_path"), rs
+								.getString("f_img_path"), rs
+								.getString("f_posted_date"), rs
+								.getString("f_remarks"), rs
+								.getInt("f_examination"), rs
+								.getString("f_product_admin_id"), rs
+								.getInt("f_delflg")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			// エラーメッセージをmsgに格納
+			setMsg(e.getMessage());
+		} finally {
+			this.close();
+		}
+		return retarr;
+	}
+	
 	/**
 	 * selectV_Wantsメソッド
 	 * 
@@ -276,5 +316,16 @@ public class ProductsDao extends Dao {
 			this.close();
 		}
 		return retarr;
+	}
+	
+	public static void main(String[] args) {
+		ArrayList<ProductsBean> retarr = new ArrayList<ProductsBean>();
+		
+		ProductsDao pd = new ProductsDao();
+		retarr = pd.allSelectProducts();
+		
+		for (ProductsBean product : retarr) {
+			System.out.println(product.getArtist_name());
+		}
 	}
 }
