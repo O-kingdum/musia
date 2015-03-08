@@ -32,36 +32,35 @@
  * Template
  */
 
-body{
-  background: url(../../img/background.jpg) no-repeat center;
-  background-size: cover;
+body {
+  background: #4E5167;
 }
 
 .header {
-  
+
 }
 
 .header-content {
-  
+
 }
 
 .header-nav {
-  
+
 }
 
 .header-nav-li {
-  
+
 }
 
 .nav {
-  
+  background: #FFFFFF;
 }
 
 .main {
-  
+
 }
 
 .footer {
-  
+
 }
 

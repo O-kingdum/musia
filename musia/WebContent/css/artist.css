@@ -1,10 +1,5 @@
 @CHARSET "UTF-8";
 
-body{
-	background: url(../img/background.jpg) no-repeat center;
-	background-size: cover;
-}
-
 @media only screen and (max-width: 480px) {
 	.wrapper {
 		width: 100%;
