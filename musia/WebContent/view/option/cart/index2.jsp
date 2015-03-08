@@ -42,10 +42,10 @@
               <div class="paging"></div>
               <!-- tableに対するjQuery plug-inのページ送り用 -->
               <p class="form-submit">
-                <input type="submit" name="all" value="クレジットカードで購入する" />
+                <input type="submit" name="all" value="及川ポイントで購入する" />
               </p>
               <p class="form-submit">
-                <input type="submit" name="all" value="及川ポイントで購入する" />
+                <input type="submit" name="all" value="クレジットカードで購入する" />
               </p>
             </fieldset>
           </form>

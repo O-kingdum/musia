@@ -81,7 +81,7 @@
         <p class="back">
           <a href="history.back()"><img
             src="<%=request.getContextPath()%>/img/pageback.png"
-            alt="戻る" /></a>
+            alt="戻る" class="backimg" /></a>
         </p>
         
         <!-- tableに対するjQuery plug-inの指定 -->

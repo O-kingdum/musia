@@ -8,7 +8,7 @@
 <jsp:include page="/template/template.jsp">
   <jsp:param value="気になる | MUSIA" name="siteTitle" />
   <jsp:param value="${pageContext.request.contextPath}/css/list.css"
-    name="resetCss" />
+    name="mainCss" />
   <jsp:param name="pageContents">
     <jsp:attribute name="value">
       <article class="article">
@@ -52,7 +52,7 @@
               <%
                 } else {
               %>
-              <p>楽曲が登録されていません</p>
+              <p class="data-else">楽曲が登録されていません</p>
               <%
                 }
               %>
