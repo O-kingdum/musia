@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 .article{
-	width:480px;
+	width:640px;
 	margin:0 auto;
 	margin-top:20px;
 }
@@ -32,8 +32,25 @@ tr{
 	height:30px;
 }
 
+.form-data{
+	color:white;
+	font-size:15px;
+}
+
+#re_name,#re_email,#re_password{
+	border:0;
+	font-size:18px;
+	font-family:Arial, sans-serif;
+	border:solid 1px #ccc;
+	width:220px;
+	/*角丸*/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
 .form-header{
-	padding-left:30px;
+	padding-left:80px;
 	color:white;
 	font-size:16px;
 	font-weight:bold;
@@ -41,31 +58,11 @@ tr{
 	padding-top:8px;
 }
 
-#re_name,#re_email,#re_password{
-	border:0;
-	font-size:20px;
-	font-family:Arial, sans-serif;
-	border:solid 1px #ccc;
-	width:250px;
-	/*角丸*/
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-}
-
-#re_female + label{
-	color:white;
-}
-
-#re_male + label{
-	color:white;
-}
-
-input{
+input,textarea{
 	background-color:rgba(255,255,255,0.05);
 }
 
-input:focus{
+input:focus,textarea:focus{
 	background:rgba(255,255,255,0.85);
 }
 

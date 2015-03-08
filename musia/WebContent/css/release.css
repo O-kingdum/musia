@@ -1,1 +1,94 @@
 @CHARSET "UTF-8";
+
+.article{
+	width:800px;
+	margin:0 auto;
+	margin-top:20px;
+}
+
+.article-title{
+	font-size:35px;
+	color:#fff;
+}
+
+table{
+	width:800px;
+	margin-bottom:-20px;
+}
+
+th{
+	text-align:center;
+	color:rgba(41, 59, 60, 0.8);
+	font-size:20px;
+	font-weight:bold;
+}
+
+td{
+	text-align:center;
+	color:rgba(41, 59, 60, 0.8);
+	font-size:15px;
+}
+
+legend{
+	display:none;
+}
+
+caption{
+	display:none;
+}
+
+.form-header{
+	padding-left:5px;
+	padding-top:8px;
+	width:90px;
+	color:white;
+	font-size:16px;
+	font-weight:bold;
+	font-family:Arial, sans-serif;
+}
+
+.table-header{
+ 	border: 1px solid rgba(41, 59, 60, 0.23);
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.table-data{
+	border: 1px solid rgba(41, 59, 60, 0.23);
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+input{
+	background-color:rgba(255,255,255,0.05);
+}
+
+input:focus{
+	background:rgba(255,255,255,0.85);
+}
+
+.form-data{
+	padding:9px;
+}
+
+.form-submit{
+	text-align:right;
+	margin:37px 0 -22px 0;
+}
+
+.form-submit input{
+	color:white;
+	padding:3px 15px 3px 15px;
+}
+
+#delete{
+	margin-top:1px;
+	margin-bottom:2px;
+}
+
+.back{
+	text-align:center;
+	margin-top:40px;
+}
+
+img{
+	width:90px;	
+}

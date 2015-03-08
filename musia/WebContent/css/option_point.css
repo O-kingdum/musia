@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 .article{
-	width:640px;
+	width:800px;
 	margin:0 auto;
 	margin-top:20px;
 }
@@ -11,13 +11,22 @@
 	color:#fff;
 }
 
-.article-content{
-	border-top:double 5px #fff;
-	border-bottom:double 5px #fff;
+table{
+	width:800px;
+	margin-bottom:-20px;
 }
 
-table{
-	margin-top:30px;
+th{
+	text-align:center;
+	color:rgba(41, 59, 60, 0.8);
+	font-size:20px;
+	font-weight:bold;
+}
+
+td{
+	text-align:center;
+	color:rgba(41, 59, 60, 0.8);
+	font-size:15px;
 }
 
 legend{
@@ -28,22 +37,40 @@ caption{
 	display:none;
 }
 
-.data-else{
-	text-align:center;
-	font-size:20px;
-}
-
-tr{
-	height:30px;
-}
-
 .form-header{
-	padding-left:80px;
+	padding-left:5px;
+	padding-top:8px;
+	width:90px;
 	color:white;
 	font-size:16px;
 	font-weight:bold;
 	font-family:Arial, sans-serif;
-	padding-top:8px;
+}
+
+.table-header{
+ 	border: 1px solid rgba(41, 59, 60, 0.23);
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.table-data{
+	padding-top:2px;
+}
+
+#prepaid-no{
+	border:0;
+	font-size:18px;
+	font-family:Arial, sans-serif;
+	border:solid 1px #ccc;
+	width:200px;
+	/*角丸*/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.table-data{
+	border: 1px solid rgba(41, 59, 60, 0.23);
+	background-color: rgba(255, 255, 255, 0.9);
 }
 
 input{
@@ -55,22 +82,27 @@ input:focus{
 }
 
 .form-data{
-	padding:10px;
+	padding:9px;
 }
 
 .form-submit{
 	text-align:right;
-	margin:10px 27px 20px 0;
+	margin:37px 0 -22px 0;
 }
 
 .form-submit input{
 	color:white;
-	padding:3px 5px 3px 5px;
+	padding:3px 15px 3px 15px;
+}
+
+#delete{
+	margin-top:1px;
+	margin-bottom:2px;
 }
 
 .back{
 	text-align:center;
-	margin-top:10px;
+	margin-top:40px;
 }
 
 img{
