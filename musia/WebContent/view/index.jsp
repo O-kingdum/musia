@@ -17,7 +17,7 @@
           <div class="controls">
 						<div>
 						<label class="grid_2">カテゴリ</label>
-						<button class="filter active grid_3" data-filter="all">すべて</button>
+						<button class="filter active grid_2" data-filter="all">すべて</button>
 						<button class="filter grid_2" data-filter=".category-1">邦楽</button>
 						<button class="filter grid_2" data-filter=".category-2">洋楽</button>
 						<button class="filter grid_2" data-filter=".category-3">一般</button>
@@ -25,10 +25,10 @@
 						<!-- <button class="filter" data-filter=".category-5">効果音</button> -->
 						</div>
 						<div>
-						<label>ソート</label>
-						<button class="sort active" data-sort="default">リリース順</button>
+						<label class="grid_8">ソート</label>
+						<button class="sort active grid_2" data-sort="default">リリース順</button>
 						<!-- <button class="sort" data-sort="mytitle:asc">タイトル順</button> -->
-						<button class="sort" data-sort="mydate:asc">ランキング</button>
+						<button class="sort " data-sort="mydate:asc">ランキング</button>
 						</div>
 						</div>
           <%
