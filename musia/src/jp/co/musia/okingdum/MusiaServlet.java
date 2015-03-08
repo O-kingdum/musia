@@ -148,7 +148,7 @@ public class MusiaServlet extends HttpServlet {
 			ProductsBean product = new ProductsBean();
 			String id = request.getParameter("id");
 			
-			if(StringUtils.isEmpty(id)) {
+			if(StringUtils.isNotEmpty(id)) {
 				product.setProduct_id(id);
 				ArrayList<ProductsBean> products = prodao.selectProducts( new ArrayList<ProductsBean>( Arrays.asList(product) ) );
 				if(products != null && products.size() > 0) {
