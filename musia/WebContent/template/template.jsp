@@ -21,8 +21,7 @@
 <!-- vendor js -->
 <script type="text/javascript"
   src="${pageContext.request.contextPath}/js/vendor/jquery-1.11.2.min.js"></script>
-<script type="text/javascript"
-  src="${pageContext.request.contextPath}/js/vendor/jquery.mixitup.js"></script>
+
 <script type="text/javascript"
   src="${pageContext.request.contextPath}/js/vendor/datatable.min.js"></script>
 <script type="text/javascript"
@@ -38,5 +37,8 @@
     <main class="main clearfix">${param.pageContents}</main>
     <jsp:include page="footer.jsp" />
   </div>
+  <script type="text/javascript"
+  src="${pageContext.request.contextPath}/js/vendor/jquery.mixitup.js"></script>
+  <script src="${pageContext.request.contextPath}/js/main.js"></script>
 </body>
 </html>
