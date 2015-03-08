@@ -142,7 +142,7 @@ public class MusiaServlet extends HttpServlet {
 		{
 			dispPage = "/view/help/index.jsp";
 		}
-		else if ("/musia/song".equals(request.getRequestURI()))
+		else if ("/musia/song".equals(request.getRequestURI()))		// 商品詳細
 		{
 			dispPage = "/view/song/index.jsp";
 			ProductsBean product = new ProductsBean();
