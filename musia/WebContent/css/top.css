@@ -10,12 +10,6 @@ body{
   margin:0;
 }
 
-header{
-  border:solid 1px;
-  width:100%;
-  clear:fixed;
-}
-
 .clearfix:after {  
   content: ".";   
   display: block;   
