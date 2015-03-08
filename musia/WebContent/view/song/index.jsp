@@ -2,7 +2,6 @@
   pageEncoding="UTF-8"
   import="jp.co.musia.okingdum.Bean.*, java.util.ArrayList;"%>
 <%
-  @SuppressWarnings("unchecked")
   ProductsBean products = (ProductsBean) request.getAttribute("products");
   @SuppressWarnings("unchecked")
   ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
@@ -18,7 +17,8 @@
           <h2>商品詳細</h2>
         </header>
         <div class="article-content">
-          <form action="${pageContext.request.contextPath}/cartadd" method="post">
+          <form action="${pageContext.request.contextPath}/cartadd"
+            method="post">
             <%
               if (products != null) {
             %>
@@ -52,8 +52,16 @@
                 </div>
                 <div class="song-add">
                   <ul>
-                    <li><input type="submit" value="気になるに追加" /></li>
-                    <li><input type="submit" value="カートに追加" /></li>
+                    <li>
+                      <input type="hidden"
+                      value="<%=products.getProduct_id()%>" />
+                      <input type="submit" value="気になるに追加" />
+                    </li>
+                    <li>
+                      <input type="hidden"
+                      value="<%=products.getProduct_id()%>" />
+                      <input type="submit" value="カートに追加" />
+                    </li>
                   </ul>
                 </div>
               </div>
