@@ -1,8 +1,151 @@
 @CHARSET "UTF-8";
 
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
+body{
+  margin:0;
+}
+
+header{
+  border:solid 1px;
+  width:100%;
+  clear:fixed;
+}
+
+.clearfix:after {  
+  content: ".";   
+  display: block;   
+  height: 0;   
+  clear: both;   
+  visibility: hidden;  
+}  
+  
+.clearfix { display: inline-table; }  
+
+.logo{
+  float:left;
+  width:20%;
+  border:solid 1px;
+}
+
+.right{
+  float:right;
+  width:80%;
+  border:solid 1px;
+}
+
+.search{
+  float:left;
+  border:solid 1px;
+}
+
+.globalMenu{
+  float:left;
+  border:solid 1px;
+}
+
+/*コンテンツ全体*/
+.controls{
+margin-bottom:30px;
+text-align:center;
+}
+
+.controls div {
+display:block;
+margin-bottom:10px;
+}
+
+/*ボタンを囲む部分*/
+label{
+  font-weight: 300;
+  margin: 0 .4em 0 0;
+}
+/*ランキングなどの選択ボタン*/
+button{
+  width:150px;
+  display: inline-block;
+  padding: .4em .8em;
+  background: #666;
+  border: 0;
+  color: #ddd;
+  font-size: 16px;
+  font-weight: 300;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom:5px;
+}
+
+button.active{
+  background: #1aa;
+}
+
+button:focus{
+  outline: 0 none;
+}
+
+button + label{
+  margin-left: 1em;
+}
+
+/*コンテンツ後ろ部分*/
+.container{
+font-size: 0.1px;
+background:#fafafa;
+text-align:center;
+  
+-webkit-backface-visibility: hidden;
+}
+
+/*コンテンツ自体*/
+.container .mix,
+.container .gap{
+  width:180px;
+  height:180px;
+}
+
+.container .mix{
+  text-align: center;
+  display: none;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+}
+
+.container .mix.category-1{
+  border-top: 4px solid limegreen;
+  margin:8px;
+}
+
+.container .mix.category-2{
+  border-top: 4px solid olive;
+  margin:8px;
+}
+
+.container .mix.category-3{
+  border-top: 4px solid red;
+  margin:8px;
+}
+
+.container .mix.category-4 {
+  border-top: 4px solid blue;
+  margin:8px;
+}
+
+.container .mix.category-5 {
+  border-top: 4px solid aqua;
+  margin:8px;
+}
+/*画像*/
+img:hover{
+	position:relative;
+	top:0px;
+	right:0px;
+	animation:ease;
+}
 
 img {
-  width: 140px;
-  height: 140px;
+	 width:180px;
+	 height: 180px;
 }

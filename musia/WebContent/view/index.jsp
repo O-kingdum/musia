@@ -14,21 +14,44 @@
       <article class="article">
         <h2 class="article-title">トップ</h2>
         <div class="article-content clearfix">
-          <ul class="clearfix">
-            <li class="grid_2 filter" data-filter=".category-1"><a href="">邦楽</a></li>
-            <li class="grid_2"><a href="">洋楽</a></li>
-            <li class="grid_2"><a href="">一般</a></li>
-            <li class="grid_2"><a href="">効果音</a></li>
-            <li class="grid_2"><a href="">新着</a></li>
-            <li class="grid_2"><a href="">ランキング</a></li>
-          </ul>
+          <div class="controls">
+						<div>
+						<label>カテゴリ</label>
+						<button class="filter active" data-filter="all">すべて</button>
+						<button class="filter" data-filter=".category-1">邦楽</button>
+						<button class="filter" data-filter=".category-2">洋楽</button>
+						<button class="filter" data-filter=".category-3">一般</button>
+						<button class="filter" data-filter=".category-4">投稿曲</button>
+						<!-- <button class="filter" data-filter=".category-5">効果音</button> -->
+						</div>
+						<div>
+						<label>ソート</label>
+						<button class="sort" data-sort="default">リリース順</button>
+						<!-- <button class="sort" data-sort="mytitle:asc">タイトル順</button> -->
+						<button class="sort" data-sort="mydate:asc">ランキング</button>
+						</div>
+						</div>
           <%
             if (products != null && products.size() > 0) {
-              //for (ProductsBean product : products) {
-            	  //System.out.println(product.getGenre_id());
+            	%>  
+              <div id="Container" class="container">
+              <%
               for (int i = 0; i < products.size(); i++) {
           %>
           <div class="grid_2 prod mix">
+          <script>
+          		$(function() {
+          			
+          			var str = <%= products.get(i).getMeasure() %>;
+          			console.log(str);
+          			var num =  Number(str);
+          			var i = <%= i %>;
+          			console.log(i);
+          			//$(".prod").eq(i).attr('data-mytitle', title);
+          			$(".prod").eq(i).attr('data-mydate', num);
+	          		//$(".prod").eq(i).addClass("category-1");
+          		});
+          	</script>
           <%
           	if( (products.get(i).getGenre_id().equals("GE00001")) ||
           	(products.get(i).getGenre_id().equals("GE00002")) ||
@@ -36,21 +59,52 @@
           	(products.get(i).getGenre_id().equals("GE00019")) ||
           	(products.get(i).getGenre_id().equals("GE00018")) ||
           	(products.get(i).getGenre_id().equals("GE00005")) ) {
-          		
           %>
           	<script>
-	          	//var a = <%= i %>;
           		$(function() {
           			var str = <%= i %>;
-	          		//var a = 0;
-          			console.log(str);
+          			//console.log(str);
           			var i =  Number(str);
-          			console.log(i);
+          			//console.log(i);
           			$(".prod").eq(i).addClass("mix");
 	          		$(".prod").eq(i).addClass("category-1");
           		});
           	</script>
           <%
+          	}else if( (products.get(i).getGenre_id().equals("GE00021")) ||
+                  	(products.get(i).getGenre_id().equals("GE00022")) ||
+					(products.get(i).getGenre_id().equals("GE00020")) ){
+
+          		%>
+              	<script>
+    	          	//var a = <%= i %>;
+              		$(function() {
+              			var str = <%= i %>;
+    	          		//var a = 0;
+              			console.log(str);
+              			var i =  Number(str);
+              			console.log(i);
+              			$(".prod").eq(i).addClass("mix");
+    	          		$(".prod").eq(i).addClass("category-2");
+              		});
+              	</script>
+              <%	
+          	}else {
+
+          		%>
+              	<script>
+    	          	//var a = <%= i %>;
+              		$(function() {
+              			var str = <%= i %>;
+    	          		//var a = 0;
+              			console.log(str);
+              			var i =  Number(str);
+              			console.log(i);
+              			$(".prod").eq(i).addClass("mix");
+    	          		$(".prod").eq(i).addClass("category-3");
+              		});
+              	</script>
+              <%	
           	}
           %>
             <a
@@ -66,6 +120,7 @@
           <%
             }
           %>
+          </div>
         </div>
       </article>
     </jsp:attribute>
