@@ -15,13 +15,9 @@
       <article class="article">
         <h2 class="article-title">カート</h2>
         <div class="article-content">
-          <form action="${pageContext.request.contextPath}/option/cart"
-            method="post">
             <%
               if (products != null && products.size() > 0) {
             %>
-            <fieldset>
-              <legend>カート情報</legend>
               <table>
                 <caption>カート</caption>
                 <thead>
@@ -34,6 +30,7 @@
                 </thead>
                 <tbody>
                 <%
+                  int idx = 0;
                   for (ProductsBean product : products) {
                 %>
                   <tr>
@@ -52,10 +49,16 @@
                         product.getPrice()
                       %>
                     </td>
-                    <td class="table-data"><input id="delete"
-                      type="submit" name="delete" /></td>
+                    <td class="table-data">
+                    	<form action="${pageContext.request.contextPath}/option/cartdel" method="post">
+	                    	<input type="hidden" name="idx" value="<%= idx %>" />
+	                    	<input id="delete"
+	                      type="submit" name="delete" />
+                      	</form>
+                    </td>
                   </tr>
                 <%
+                	idx++;
                   }
                 %>
                 </tbody>
@@ -63,12 +66,16 @@
               <div class="paging"></div>
               <!-- tableに対するjQuery plug-inのページ送り用 -->
               <p>合計金額：<%=total%></p>
-              <p class="form-submit">
-                <input type="submit" name="all" value="及川ポイントで購入する" />
-              </p>
-              <p class="form-submit">
-                <input type="submit" name="all" value="クレジットカードで購入する" />
-              </p>
+	          <form action="${pageContext.request.contextPath}/option/cart">
+	              <p class="form-submit">
+	                <input type="submit" name="all" value="及川ポイントで購入する" />
+	              </p>
+	          </form>
+	          <form action="${pageContext.request.contextPath}/option/cart">
+	          	<p class="form-submit">
+                	<input type="submit" name="all" value="クレジットカードで購入する" />
+             	</p>
+              </form>
               <%
                 } else {
               %>
@@ -76,8 +83,6 @@
               <%
                 }
               %>
-            </fieldset>
-          </form>
         </div>
         <p class="back">
           <a href="history.back()"><img
