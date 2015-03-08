@@ -1,5 +1,18 @@
 @CHARSET "UTF-8";
 
+.back{
+	text-align:center;
+	margin-top:10px;
+}
+
+.backimg{
+	width:90px;	
+}
+
+th{
+	text-align:center;
+}
+
 @media only screen and (max-width: 480px) {
 	.wrapper {
 		width: 100%;

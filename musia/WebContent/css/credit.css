@@ -9,6 +9,7 @@
 .article-title{
 	font-size:35px;
 	color:#fff;
+	margin-top:-20px;
 }
 
 .article-content{
@@ -67,7 +68,7 @@ input:focus{
 
 .form-submit{
 	text-align:right;
-	margin:10px 27px 20px 0;
+	margin:-30px 27px 20px 0;
 }
 
 .form-submit input{

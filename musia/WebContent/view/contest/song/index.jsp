@@ -17,7 +17,7 @@
               <div>
                 <input id="image" type="file" name="image" autofocus
                   required>
-                <input type="submit" value="送信">
+                <input type="submit" value="送信" class="form-submit">
               </div>
             </form>
           </article>
