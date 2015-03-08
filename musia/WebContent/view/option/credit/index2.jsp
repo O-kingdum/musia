@@ -18,17 +18,13 @@
         <h2 class="article-title">クレジットカード情報</h2>
         <div class="article-content">
           <form action="${pageContext.request.contextPath}/option/credit" method="post">
-            <%
-              if (cards != null && cards.size() > 0) {
-                CreditCardBean card = cards.get(0);
-            %>
             <fieldset>
               <legend>クレジットカード情報変更</legend>
               <table>
                 <caption>クレジットカード情報変更</caption>
                 <tr>
                   <th class="form-header">現在のカード番号</th>
-                  <td class="form-data"><%=card.getCard_number()%></td>
+                  <td class="form-data">カード番号</td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -41,7 +37,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">現在のカード有効期限</th>
-                  <td class="form-data"><%=card.getLimit_date()%></td>
+                  <td class="form-data">有効期限</td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -53,7 +49,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">現在のカード会社</th>
-                  <td class="form-data"><%=card.getCard_company()%></td>
+                  <td class="form-data">カード会社</td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -66,7 +62,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">現在のセキュリティーコード</th>
-                  <td class="form-data"><%=card.getSec_cord()%></td>
+                  <td class="form-data">セキュリティーコード</td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -79,7 +75,7 @@
                 </tr>
                 <tr>
                   <th class="form-header">現在のカード名義人</th>
-                  <td class="form-data"><%=card.getCard_persons()%></td>
+                  <td class="form-data">カード名義人</td>
                 </tr>
                 <tr>
                   <th class="form-header">
@@ -97,27 +93,6 @@
             </p>
           </form>
         </div>
-        <%
-          } else {
-        %>
-          <%
-            if (msg != null && msg.size() > 0) {
-          %>
-            <ul>
-              <%
-                for (String str : msg) {
-              %>
-              <li><%=str%></li>
-              <%
-                }
-              %>
-            </ul>
-          <%
-            }
-          %>
-        <%
-          }
-        %>
         <p class="back">
           <a href="history.back()"><img
             src="${pageContext.request.contextPath}/img/pageback.png"

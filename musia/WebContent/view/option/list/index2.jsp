@@ -15,9 +15,6 @@
         <h2 class="article-title">気になる</h2>
         <div class="article-content">
           <form action="${pageContext.request.contextPath}/option/list" method="post">
-            <%
-              if (products != null && products.size() > 0) {
-            %>
             <fieldset>
               <legend>気になる情報</legend>
               <table>
@@ -32,30 +29,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                <%
-                  for (V_ProductsBean product : products) {
-                %>
                   <tr>
-                    <td class="table-data"><%=product.getProduct_name()%></td>
-                    <td class="table-data"><%=product.getArtist_name()%><a
-                      href=""></a></td>
-                    <td class="table-data"><%=product.getGenre_name()%></td>
-                    <td class="table-data"><%=product.getPrice()%></td>
+                    <td class="table-data">ああああ</td>
+                    <td class="table-data"><a href="">いいいい</a></td>
+                    <td class="table-data">うううう</td>
+                    <td class="table-data">ええええ</td>
                     <td class="table-data"><input id="cart_add"
                       type="checkbox" name="cart_add"></td>
                   </tr>
-                <%
-                  }
-                %>
                 </tbody>
               </table>
-              <%
-                } else {
-              %>
-              <p class="data-else">楽曲が登録されていません</p>
-              <%
-                }
-              %>
               <p class="form-submit">
                 <input type="submit" name="all" value="カートに追加">
               </p>

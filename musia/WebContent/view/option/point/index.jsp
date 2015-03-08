@@ -21,7 +21,8 @@
             if (points != null && points.size() > 0) {
               Oikawa_PointBean point = points.get(0);
           %>
-          <form action="/option/point" method="post">
+          <form action="${pageContext.request.contextPath}/option/point"
+            method="post">
             <fieldset>
               <legend>及川ポイント</legend>
               <table>

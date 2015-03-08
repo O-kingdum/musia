@@ -15,7 +15,7 @@
       <article class="article">
         <h2 class="article-title">ダウンロード</h2>
         <div class="article-content">
-          <form action="/cart" method="post">
+          <form action="${pageContext.request.contextPath}/option/cart" method="post">
             <%
               if (products != null && products.size() > 0) {
             %>

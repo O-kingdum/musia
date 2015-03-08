@@ -18,7 +18,7 @@
           <h2>商品詳細</h2>
         </header>
         <div class="article-content">
-          <form action="" method="post">
+          <form action="${pageContext.request.contextPath}/cartadd" method="post">
             <%
               if (products != null) {
             %>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="song-audio">
                   <audio
-                    src="http://localhost:8080<%=request.getContextPath()%>/audio/Alive.m4a"
+                    src="http://localhost:8080<%=products.getDirectory_path()%>"
                     controls></audio>
                 </div>
                 <div class="song-remarks">

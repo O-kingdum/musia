@@ -16,9 +16,6 @@
         <h2 class="article-title">購入履歴</h2>
         <div class="article-content">
           <form action="${pageContext.request.contextPath}/option/history" method="post">
-            <%
-              if (products != null && products.size() > 0) {
-            %>
             <fieldset>
               <legend>購入履歴情報</legend>
               <table>
@@ -33,29 +30,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                <%
-                  for (V_ProductsBean product : products) {
-                %>
                   <tr>
-                    <td class="table-data"><% product.getProduct_name(); %></td>
-                    <td class="table-data"><% product.getArtist_name(); %><a href=""></a></td>
-                    <td class="table-data"><% product.getGenre_name(); %></td>
-                    <td class="table-data"><% product.getPrice(); %></td>
+                    <td class="table-data">ああああ</td>
+                    <td class="table-data"><a href="">いいいい</a></td>
+                    <td class="table-data">うううう</td>
+                    <td class="table-data">ええええ</td>
                     <td class="table-data"><input id="download"
                       type="checkbox" name="download"></td>
                   </tr>
-                <%
-                  }
-                %>
                 </tbody>
               </table>
-              <%
-                } else {
-              %>
-              <p>商品が登録されていません</p>
-              <%
-                }
-              %>
               <p class="form-submit">
                 <input type="submit" name="all" value="ダウンロード">
               </p>
