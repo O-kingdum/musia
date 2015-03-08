@@ -100,7 +100,7 @@ public class MusiaServlet extends HttpServlet {
 		{
 			dispPage = "/view/option/cart/index.jsp";
 			// set CartList
-			request.setAttribute("cart", CartManager.getCartList(request));
+			request.setAttribute("products", CartManager.getCartList(request));
 			// set TotalAmount
 			request.setAttribute("total", CartManager.getTotalAmount(request));
 		}
@@ -171,7 +171,7 @@ public class MusiaServlet extends HttpServlet {
 		String url = request.getRequestURI();
 		Validator validator = new Validator();
 		String path = "";
-		
+		ProductsDao prodao;
 		
 		switch(url){
 		
@@ -279,7 +279,7 @@ public class MusiaServlet extends HttpServlet {
 			
 			dispPage = "/view/release/song/index.jsp";
 			UsersBean ubean = new UsersBean();
-			ProductsDao prodao = new ProductsDao();
+			prodao = new ProductsDao();
 			FileFactory factory = new FileFactory();
 			ServletContext context = getServletContext();
 			path = context.getRealPath("/");
@@ -373,18 +373,31 @@ public class MusiaServlet extends HttpServlet {
 			break;
 			
 		case "/musia/cartadd":
-					
+			
 			String id = request.getParameter("id");
+			prodao = new ProductsDao();
+			ArrayList<ProductsBean> productarr;
 			
 			if(StringUtils.isNotEmpty(id)) {
-				ProductsBean product = new ProductsBean();
-				product.setProduct_id(id);
-				CartManager.setCartList(request, product);
+				if(request.getParameter("cart") != null) {
+					
+					ProductsBean product = new ProductsBean();
+					product.setProduct_id(id);
+					productarr = prodao.selectProducts(new ArrayList<ProductsBean>(Arrays.asList(product)));
+					
+					if(productarr != null && productarr.size() > 0) {
+						CartManager.setCartList(request, productarr.get(0));
+						response.sendRedirect(request.getContextPath() + "/cart");
+						return;
+					}
+					
+				} else if(request.getParameter("list") != null) {
+					
+				}
 			} else {
-				request.setAttribute( "msg", new ArrayList<String>( Arrays.asList("商品が選択されていません。") ) );
+				response.sendRedirect(request.getContextPath() + "/song?id=" + id);
+				return;
 			}
-			response.sendRedirect(request.getContextPath() + "/cart");
-			return;
 		}
 		request.getRequestDispatcher(dispPage).forward(request, response);
 	}

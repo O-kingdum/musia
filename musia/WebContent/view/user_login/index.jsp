@@ -14,7 +14,7 @@
       <article class="article">
         <h2 class="article-title">MUSIA - ログイン</h2>
         <div class="article-content">
-          <form action="${pageContext.request.contextPath}/login_user"
+          <form action="${pageContext.request.contextPath}/user_login"
             method="post" novalidate name="myForm">
             <fieldset>
               <legend>ログイン情報</legend>
