@@ -96,7 +96,7 @@ public class MusiaServlet extends HttpServlet {
 			// set Wants List
 			request.setAttribute("wants", prodao.selectV_Wants(Auth.getAuthUser(request)));
 		}
-		else if ("/musia/cart".equals(request.getRequestURI()))		// カート
+		else if ("/musia/option/cart".equals(request.getRequestURI()))		// カート
 		{
 			dispPage = "/view/option/cart/index.jsp";
 			// set CartList
@@ -104,13 +104,13 @@ public class MusiaServlet extends HttpServlet {
 			// set TotalAmount
 			request.setAttribute("total", CartManager.getTotalAmount(request));
 		}
-		else if ("/musia/cart/select".equals(request.getRequestURI()))		// お支払選択
+		else if ("/musia/option/cart/select".equals(request.getRequestURI()))		// お支払選択
 		{
-			dispPage = "/view/cart/select/index.jsp";
+			dispPage = "/view/option/cart/select/index.jsp";
 		}
-		else if ("/musia/cart/download".equals(request.getRequestURI()))		// ダウンロード
+		else if ("/musia/option/cart/download".equals(request.getRequestURI()))		// ダウンロード
 		{
-			dispPage = "/view/cart/download/index.jsp";	
+			dispPage = "/view/option/cart/download/index.jsp";	
 		}
 		else if ("/musia/artist_signup".equals(request.getRequestURI()))		// アーティスト登録
 		{
@@ -387,7 +387,7 @@ public class MusiaServlet extends HttpServlet {
 					
 					if(productarr != null && productarr.size() > 0) {
 						CartManager.setCartList(request, productarr.get(0));
-						response.sendRedirect(request.getContextPath() + "/cart");
+						response.sendRedirect(request.getContextPath() + "/option/cart");
 						return;
 					}
 					
@@ -398,6 +398,16 @@ public class MusiaServlet extends HttpServlet {
 				response.sendRedirect(request.getContextPath() + "/song?id=" + id);
 				return;
 			}
+			break;
+			
+		case "/musia/option/cartdel":
+			
+			String idx = request.getParameter("idx");
+			if(StringUtils.isNotEmpty(idx)) {
+				CartManager.delCartList(request, idx);
+			}
+			response.sendRedirect(request.getContextPath() + "/option/cart");
+			return;			
 		}
 		request.getRequestDispatcher(dispPage).forward(request, response);
 	}
