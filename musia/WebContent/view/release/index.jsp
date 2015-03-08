@@ -7,9 +7,6 @@
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="リリース | MUSIA" name="siteTitle" />
-  <jsp:param
-    value="${pageContext.request.contextPath}/css/template/template.css"
-    name="templateCss" />
   <jsp:param value="${pageContext.request.contextPath}/css/release.css"
     name="mainCss" />
   <jsp:param name="pageContents">
@@ -84,7 +81,7 @@
                 }
               %>
               <p class="form-submit">
-                <input type="submit" name="all" value="カートに追加">
+                <input type="submit" name="all" value="リリース">
               </p>
             </fieldset>
           </form>
