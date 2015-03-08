@@ -60,9 +60,9 @@ public class DownloadManager extends HttpServlet {
 				        response.setContentType("application/octet-stream");
 				        response.setHeader(
 				            "Content-Disposition",
-				            "filename=\"" + product.getProduct_name() + "\"");
+				            "filename=\"" + product.getProduct_name() + "." + product.getFile_type() + "\"");
 				        
-				        in = new FileInputStream( "http://localhost:8080" + request.getContextPath() + product.getImg_path() );
+				        in = new FileInputStream( "http://localhost:8080" + request.getContextPath() + product.getDirectory_path() );
 				        out = response.getOutputStream();
 				        byte[] buff = new byte[1024];
 				        int len = 0;

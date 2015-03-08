@@ -134,5 +134,14 @@
     <servlet-name>MusiaServlet</servlet-name>
     <url-pattern>/option/cart/select</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Download</servlet-name>
+    <servlet-class>jp.co.musia.okingdum.Utils.DownloadManager</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Download</servlet-name>
+    <url-pattern>/option/cart/download</url-pattern>
+  </servlet-mapping>
   <!-- End Servlet Class -->
 </web-app>
