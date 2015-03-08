@@ -17,7 +17,7 @@
         <div class="article-content">
           <form
             action="${pageContext.request.contextPath}/listener_signup"
-            method="post">
+            method="post" novalidate name="myForm">
             <fieldset>
               <legend>リスナー情報登録</legend>
               <table>
@@ -28,7 +28,28 @@
                   </th>
                   <td class="form-data">
                     <input id="name" type="text" name="user_name"
-                    autofocus required>
+                    autofocus ng-model="name" required
+                    ng-maxlength="20">
+                    <!-- angularJSの名前メッセージ -->
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.user_name.$error.required">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">名前を入力して下さい
+	                  </p>
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.user_name.$error.maxlength">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">名前は20文字以内で入力して下さい
+	                  </p>
+                    <p class="ang-okMsg" ng-show="myForm.user_name.$valid">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/ok.png"
+                        alt="ok_img" title="オーケー画像">
+	                      OK
+	                  </p>
+                    <!-- /angularJSの名前メッセージ -->
                   </td>
                 </tr>
                 <tr>
@@ -37,7 +58,34 @@
                   </th>
                   <td class="form-data">
                     <input id="email" type="email" name="email"
-                    autofocus required>
+                    autofocus ng-model="email" required
+                    ng-maxlength="50">
+                    <!-- angularJSのemailメッセージ -->
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.email.$error.required">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">メールアドレスを入力して下さい
+	                  </p>
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.email.$error.maxlength">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">50文字以内で入力して下さい
+	                  </p>
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.email.$error.email">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">メールアドレスを入力して下さい
+	                  </p>
+                    <p class="ang-okMsg" ng-show="myForm.email.$valid">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/ok.png"
+                        alt="ok_img" title="オーケー画像">
+	                      OK
+	                  </p>
+                    <!-- /angularJSのemailメッセージ -->
                   </td>
                 </tr>
                 <tr>
@@ -46,7 +94,37 @@
                   </th>
                   <td class="form-data">
                     <input id="password" type="password" name="password"
-                    autofocus="" required>
+                    autofocus="" ng-model="password"
+                    required ng-minlength="6" ng-maxlength="8">
+                    <!-- angularJSのpasswordメッセージ -->
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.password.$error.required">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">
+	                      パスワードを入力して下さい
+	                  </p>
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.password.$error.minlength">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">
+	                      パスワードは6~8文字で入力して下さい
+	                  </p>
+                    <p class="ang-errorMsg" ng-show="myForm.password.$error.maxlength">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/no.png"
+                        alt="err_img" title="エラー画像">
+	                      パスワードは6~8文字で入力して下さい
+	                  </p>
+                    <p class="ang-okMsg"
+                      ng-show="myForm.password.$valid">
+	                      <img
+                        src="${pageContext.request.contextPath}/img/ok.png"
+                        alt="ok_img" title="オーケー画像">
+	                      OK
+	                  </p>
+                    <!-- /angularJSのpasswordメッセージ -->
                   </td>
                 </tr>
                 <tr>
