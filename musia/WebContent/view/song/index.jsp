@@ -54,12 +54,10 @@
                   <ul>
                     <li>
                       <input type="hidden"
-                      value="<%=products.getProduct_id()%>" />
+                      name="id" value="<%=products.getProduct_id()%>" />
                       <input type="submit" name="list" value="気になるに追加" />
                     </li>
                     <li>
-                      <input type="hidden"
-                      value="<%=products.getProduct_id()%>" />
                       <input type="submit" name="cart" value="カートに追加" />
                     </li>
                   </ul>

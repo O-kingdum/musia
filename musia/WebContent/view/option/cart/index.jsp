@@ -28,7 +28,6 @@
                   <tr>
                     <th class="table-header">タイトル</th>
                     <th class="table-header">アーティスト</th>
-                    <th class="table-header">ジャンル</th>
                     <th class="table-header">価格</th>
                     <th class="table-header"><label for="delete">削除</label></th>
                   </tr>
@@ -39,18 +38,18 @@
                 %>
                   <tr>
                     <td class="table-data"><a href="">
-                        <%
-                          product.getProduct_name();
+                        <%=
+                          product.getProduct_name()
                         %>
                     </a></td>
                     <td class="table-data"><a href="">
-                        <%
-                          product.getArtist_name();
+                        <%=
+                          product.getArtist_name()
                         %>
                     </a></td>
                     <td class="table-data">
-                      <%
-                        product.getPrice();
+                      <%=
+                        product.getPrice()
                       %>
                     </td>
                     <td class="table-data"><input id="delete"
