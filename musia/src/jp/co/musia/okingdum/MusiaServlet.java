@@ -156,6 +156,12 @@ public class MusiaServlet extends HttpServlet {
 				}
 			}
 			request.setAttribute("products", product);
+		} else if ("/musia/logout".equals(request.getRequestURI())) {
+			
+			Auth.logoutAuth(request);
+			response.sendRedirect(request.getContextPath());
+			return;
+			
 		}
 		
 		request.getRequestDispatcher(dispPage).forward(request, response);
@@ -175,10 +181,10 @@ public class MusiaServlet extends HttpServlet {
 		
 		switch(url){
 		
-		case "/musia/login_user":					//ユーザログイン
+		case "/musia/user_login":					//ユーザログイン
 			
 			if(Auth.loginAuth(request)) {
-				response.sendRedirect(request.getContextPath() + "/musia/option");
+				response.sendRedirect(request.getContextPath());
 				return;
 			} else {
 				request.setAttribute("msg", Auth.getErrMsg());
