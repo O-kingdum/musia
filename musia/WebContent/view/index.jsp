@@ -19,7 +19,7 @@
               for (ProductsBean product : products) {
           %>
           <div class="grid_2">
-            <a href="/song?id=<%=product.getProduct_id()%>">
+            <a href="${pageContext.request.contextPath}/song?id=<%=product.getProduct_id()%>">
               <img
               src="${pageContext.request.contextPath}/music_img/<%=product.getProduct_id()%>.jpg"
               alt="<%=product.getProduct_name()%>" />
