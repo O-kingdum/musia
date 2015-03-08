@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"
-  import="jp.co.musia.okingdum.Bean.*, java.util.ArrayList;"%>
+  import="jp.co.musia.okingdum.Bean.*, java.util.ArrayList, jp.co.musia.okingdum.dao.*;"%>
 <%
-  @SuppressWarnings("unchecked")
-  ArrayList<ProductsBean> products = (ArrayList<ProductsBean>) request.getAttribute("products");
+  ProductsDao pd = new ProductsDao();
+  ArrayList<ProductsBean> products = pd.allSelectProducts();
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="MUSIA-音楽ダウンロードサイトMUSIA" name="siteTitle" />
@@ -20,7 +20,8 @@
           %>
           <div class="grid_2">
             <a href="<%=product.getProduct_id()%>">
-              <img src="<%=product.getImg_path()%>"
+              <img
+              src="${pageContext.request.contextPath}/music_img/<%=product.getImg_path()%>.jpg"
               alt="<%=product.getProduct_name()%>" />
             </a>
           </div>
