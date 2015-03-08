@@ -15,7 +15,6 @@
       <article class="article">
         <h2 class="article-title">ダウンロード</h2>
         <div class="article-content">
-          <form action="${pageContext.request.contextPath}/option/cart" method="post">
             <%
               if (products != null && products.size() > 0) {
             %>
@@ -24,7 +23,6 @@
                 <tr>
                   <th>タイトル</th>
                   <th>アーティスト</th>
-                  <th>ジャンル</th>
                   <th>価格</th>
                   <th>ダウンロード</th>
                 </tr>
@@ -34,13 +32,17 @@
                 for (ProductsBean product : products) {
               %>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><input id="download" type="checkbox"
-                    name="download"></td>
+                  <td><%= product.getProduct_name() %></td>
+                  <td><%= product.getArtist_name() %></td>
+                  <td><%= product.getPrice() %></td>
+                  <td>
+          			<form action="${pageContext.request.contextPath}/option/cart/download" method="post">
+                  	  <input type="hidden" name="id" value="<%= product.getProduct_id() %>" />
+                  	  <p class="form-submit">
+		          		<input type="submit" name="all" value="ダウンロード">
+		          	  </p>
+		          	</form>
+                  </td>
                 </tr>
               <%
                 }
@@ -56,16 +58,9 @@
             <%
               }
             %>
-            <p class="form-submit">
-              <input type="submit" name="all" value="ダウンロード">
-            </p>
-            <p class="form-back">
-              <input type="button" value="戻る" onClick="history.back()">
-            </p>
-          </form>
         </div>
         <p class="back">
-          <a href="history.back()"><img
+          <a href="<%= request.getHeader("referer") %>"><img
             src="<%=request.getContextPath()%>/img/pageback.png"
             alt="戻る" /></a>
         </p>
