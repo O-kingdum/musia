@@ -6,8 +6,7 @@
     <li class="grid_2"><a
       href="${pageContext.request.contextPath}/listener_signup">新規登録</a></li>
     <li class="grid_2"><a href="${pageContext.request.contextPath}/user_login">ログイン</a></li>
-    <li class="grid_4"><input type="search" name="search" size="30"
-      maxlength="255"><input type="submit" value="検索"></li>
+    <li class="grid_4"></li>
     <!--
     <li>ようこそ○○さん</li>
     <li><a href="${pageContext.request.contextPath}/option/list">気になる</a></li>

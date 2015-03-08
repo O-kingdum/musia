@@ -7,6 +7,10 @@
     </h1>
   </div>
   <div class="header-content">
+    <div class="header-search grid_6">
+      <input type="search" name="search" size="30" maxlength="255"><input
+        type="submit" value="検索">
+    </div>
     <nav class="header-nav">
       <ul class="clearfix">
         <li class="header-nav-li grid_3"><a
