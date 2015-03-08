@@ -1,1 +1,32 @@
 @CHARSET "UTF-8";
+
+.article{
+	width:800px;
+	margin:0 auto;
+	margin-top:20px;
+}
+
+.article-title{
+	font-size:35px;
+	color:#fff;
+}
+
+.article-content ul li a{
+	color:white;
+	font-size:17px;
+}
+
+li{
+	list-style:none;
+	text-align:center;
+	margin-left:0;
+}
+
+.back{
+	text-align:center;
+	margin-top:40px;
+}
+
+img{
+	width:90px;	
+}
