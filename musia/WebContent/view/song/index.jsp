@@ -3,7 +3,7 @@
   import="jp.co.musia.okingdum.Bean.*, java.util.ArrayList;"%>
 <%
   @SuppressWarnings("unchecked")
-  ArrayList<ProductsBean> products = (ArrayList<ProductsBean>) request.getAttribute("products");
+  ProductsBean products = (ProductsBean) request.getAttribute("products");
   @SuppressWarnings("unchecked")
   ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
 %>
@@ -20,11 +20,10 @@
         <div class="article-content">
           <form action="" method="post">
             <%
-              if (products != null && products.size() > 0) {
-                ProductsBean product = products.get(0);
+              if (products != null) {
             %>
             <header class="song-title">
-              <h3><%=product.getProduct_name()%></h3>
+              <h3><%=products.getProduct_name()%></h3>
               <p>
                 <input type="submit" value="いいね！" />
               </p>
@@ -32,15 +31,15 @@
             <div class="song-content">
               <div class="song-img">
                 <figure>
-                  <img src="<%=product.getImg_path()%>"
-                    alt="<%=product.getProduct_name()%>" />
-                  <figcaption><%=product.getProduct_name()%></figcaption>
+                  <img src="<%=products.getImg_path()%>"
+                    alt="<%=products.getProduct_name()%>" />
+                  <figcaption><%=products.getProduct_name()%></figcaption>
                 </figure>
               </div>
               <div>
                 <div class="song-artist">
                   <p>
-                    <a href=""><%=product.getArtist_name()%></a>
+                    <a href=""><%=products.getArtist_name()%></a>
                   </p>
                 </div>
                 <div class="song-audio">
@@ -49,7 +48,7 @@
                     controls></audio>
                 </div>
                 <div class="song-remarks">
-                  <p><%=product.getRemarks()%></p>
+                  <p><%=products.getRemarks()%></p>
                 </div>
                 <div class="song-add">
                   <ul>
