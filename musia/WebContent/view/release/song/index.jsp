@@ -5,7 +5,7 @@
   @SuppressWarnings("unchecked")
   ArrayList<GenreBean> genres = (ArrayList<GenreBean>) request.getAttribute("genres");
   @SuppressWarnings("unchecked")
-  ArrayList<String> msgs = (ArrayList<String>) request.getAttribute("msg");
+  ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="楽曲投稿 | リリース | MUSIA" name="siteTitle" />
@@ -111,19 +111,17 @@
           </form>
         </div>
         <%
-          @SuppressWarnings("unchecked")
-          ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
           if (msg != null && msg.size() > 0) {
         %>
-        <ul>
-        <%
-          for (String str : msg) {
-        %>
-          <li><%=str%></li>
-        <%
-          }
-        %>
-        </ul>
+          <ul>
+            <%
+              for (String str : msg) {
+            %>
+            <li><%=str%></li>
+            <%
+              }
+            %>
+          </ul>
         <%
           }
         %>

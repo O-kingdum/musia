@@ -4,8 +4,6 @@
 <%
   @SuppressWarnings("unchecked")
   ArrayList<V_ProductsBean> products = (ArrayList<V_ProductsBean>) request.getAttribute("products");
-  @SuppressWarnings("unchecked")
-  ArrayList<String> msgs = (ArrayList<String>) request.getAttribute("msg");
 %>
 <jsp:include page="/template/template.jsp">
   <jsp:param value="リリース | MUSIA" name="siteTitle" />
@@ -76,17 +74,9 @@
                 </tbody>
               </table>
               <%
-                if (msg != null && msg.size() > 0) {
+                } else {
               %>
-              <ul>
-                <%
-                  for (String str : msg) {
-                %>
-                <li><%=str%></li>
-                <%
-                  }
-                %>
-              </ul>
+              <p>楽曲が登録されていません</p>
               <%
                 }
               %>
