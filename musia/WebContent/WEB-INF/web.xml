@@ -114,5 +114,9 @@
     <servlet-name>MusiaServlet</servlet-name>
     <url-pattern>/song</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MusiaServlet</servlet-name>
+    <url-pattern>/cartadd</url-pattern>
+  </servlet-mapping>
   <!-- End Servlet Class -->
 </web-app>
