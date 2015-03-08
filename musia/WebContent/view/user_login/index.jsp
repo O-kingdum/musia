@@ -33,22 +33,19 @@
                       ng-show="myForm.email.$error.required">
 	                      <img
                         src="${pageContext.request.contextPath}/img/no.png"
-                        alt="err_img" title="エラー画像">
-	                      メールアドレスを入力して下さい
+                        alt="err_img" title="エラー画像">メールアドレスを入力して下さい
 	                  </p>
                     <p class="ang-errorMsg"
                       ng-show="myForm.email.$error.maxlength">
 	                      <img
                         src="${pageContext.request.contextPath}/img/no.png"
-                        alt="err_img" title="エラー画像">
-	                      50文字以内で入力して下さい
+                        alt="err_img" title="エラー画像">50文字以内で入力して下さい
 	                  </p>
                     <p class="ang-errorMsg"
                       ng-show="myForm.email.$error.email">
 	                      <img
                         src="${pageContext.request.contextPath}/img/no.png"
-                        alt="err_img" title="エラー画像">
-	                      メールアドレスを入力して下さい
+                        alt="err_img" title="エラー画像">メールアドレスを入力して下さい
 	                  </p>
                     <p class="ang-okMsg" ng-show="myForm.email.$valid">
 	                      <img
@@ -82,8 +79,7 @@
                         alt="err_img" title="エラー画像">
 	                      パスワードは6~8文字で入力して下さい
 	                  </p>
-                    <p class="ang-errorMsg" class="ang-errorMsg"<<<<<<< HEAD
-                      ng-show="myForm.password.$error.maxlength">
+                    <p class="ang-errorMsg" class="anng-show="myForm.password.$error.maxlength">
 	                      <img
                         src="${pageContext.request.contextPath}/img/no.png"
                         alt="err_img" title="エラー画像">
