@@ -36,7 +36,7 @@ public class SalesDao extends Dao{
 		sales.setSale_id(this.getNextId());
 		
 		String sql = "INSERT INTO t_sales VALUES('" + sales.getSale_id() + "','" + sales.getUser_id() + "','" 
-						+ sales.getSale_date() + "','" + sales.getTotal_amount() + "');";
+						+ sales.getSale_date() + "',0,'" + sales.getTotal_amount() + "');";
 		// 保存件数
 		int ret = 0;
 		// フラグ設定

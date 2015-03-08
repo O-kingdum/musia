@@ -358,8 +358,22 @@ public class MusiaServlet extends HttpServlet {
 			session.setAttribute("cart", cart);
 			break;
 			
-		case "/musia/cart/select":					//お支払選択
+		case "/musia/option/cart/select":					//お支払選択
 			
+			SalesDao salesdao = new SalesDao();
+			SalesBean salesbean = new SalesBean();
+			DateTime dt = new DateTime();
+			
+			salesbean.setUser_id(Auth.getAuthUser(request).getUser_id());
+			salesbean.setSale_date(dt.toString(DateTimeFormat.mediumDateTime()));
+			salesbean.setTotal_amount(CartManager.getTotalAmount(request));
+			
+			if(salesdao.insertSales(salesbean, CartManager.getCartList(request))) {
+				dispPage = "/view/option/cart/download/index.jsp";
+			} else {
+				response.sendRedirect(request.getContextPath() + "/option/cart");
+				return;
+			}
 			break;
 			
 		case "/musia/cart/download":				//ダウンロード

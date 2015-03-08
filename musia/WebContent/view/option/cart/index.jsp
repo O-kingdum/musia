@@ -66,12 +66,10 @@
               <div class="paging"></div>
               <!-- tableに対するjQuery plug-inのページ送り用 -->
               <p>合計金額：<%=total%></p>
-	          <form action="${pageContext.request.contextPath}/option/cart">
-	              <p class="form-submit">
+	          <form action="${pageContext.request.contextPath}/option/cart/select" method="post">
+	            <p class="form-submit">
 	                <input type="submit" name="all" value="及川ポイントで購入する" />
-	              </p>
-	          </form>
-	          <form action="${pageContext.request.contextPath}/option/cart">
+	            </p>
 	          	<p class="form-submit">
                 	<input type="submit" name="all" value="クレジットカードで購入する" />
              	</p>
