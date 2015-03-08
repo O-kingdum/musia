@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 
@@ -141,10 +142,19 @@ public class MusiaServlet extends HttpServlet {
 		{
 			dispPage = "/view/help/index.jsp";
 		}
-		else
+		else if ("/song".equals(request.getRequestURI()))
 		{
-			ArrayList<ProductsBean> products = prodao.selectProducts(new ArrayList<ProductsBean>());
-			request.setAttribute("products", products);
+			ProductsBean product = new ProductsBean();
+			String id = request.getParameter("id");
+			
+			if(StringUtils.isEmpty(id)) {
+				product.setProduct_id(id);
+				ArrayList<ProductsBean> products = prodao.selectProducts( new ArrayList<ProductsBean>( Arrays.asList(product) ) );
+				if(products != null && products.size() > 0) {
+					product = products.get(0);
+				}
+			}
+			request.setAttribute("product", product);
 		}
 		
 		request.getRequestDispatcher(dispPage).forward(request, response);
