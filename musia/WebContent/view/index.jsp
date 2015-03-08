@@ -13,15 +13,15 @@
     <jsp:attribute name="value">
       <article class="article">
         <h2 class="article-title">トップ</h2>
-        <div class="article-content">
+        <div class="article-content clearfix">
           <%
             if (products != null && products.size() > 0) {
               for (ProductsBean product : products) {
           %>
           <div class="grid_2">
-            <a href="<%=product.getProduct_id()%>">
+            <a href="/song?id=<%=product.getProduct_id()%>">
               <img
-              src="${pageContext.request.contextPath}/music_img/<%=product.getImg_path()%>.jpg"
+              src="${pageContext.request.contextPath}/music_img/<%=product.getProduct_id()%>.jpg"
               alt="<%=product.getProduct_name()%>" />
             </a>
           </div>
