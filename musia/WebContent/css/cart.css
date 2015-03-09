@@ -1,21 +1,22 @@
 @CHARSET "UTF-8";
 
-.article{
-	width:800px;
-	margin:0 auto;
-	margin-top:20px;
+.article {
+	width: 800px;
+	margin: 0 auto;
+	margin-top: 20px;
 }
 
-.article-title{
-	font-size:35px;
-	color:#fff;
+.article-title {
+	font-size: 35px;
+	color: #fff;
 }
 
-table{
-	width:800px;
-	margin-bottom:-20px;
+table {
+	/*width:800px;*/
+	
 }
 
+/*
 th{
 	text-align:center;
 	color:rgba(41, 59, 60, 0.8);
@@ -28,26 +29,26 @@ td{
 	color:rgba(41, 59, 60, 0.8);
 	font-size:15px;
 }
-
-legend{
-	display:none;
+*/
+legend {
+	display: none;
 }
 
-caption{
-	display:none;
+caption {
+	display: none;
 }
 
-.form-header{
-	padding-left:5px;
-	padding-top:8px;
-	width:90px;
-	color:white;
-	font-size:16px;
-	font-weight:bold;
-	font-family:Arial, sans-serif;
+.form-header {
+	padding-left: 5px;
+	padding-top: 8px;
+	width: 90px;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
 }
 
-.table-header{
+.t /*able-header{
  	border: 1px solid rgba(41, 59, 60, 0.23);
 	background-color: rgba(255, 255, 255, 0.9);
 }
@@ -56,39 +57,82 @@ caption{
 	border: 1px solid rgba(41, 59, 60, 0.23);
 	background-color: rgba(255, 255, 255, 0.9);
 }
+*/ 
 
-input{
-	background-color:rgba(255,255,255,0.05);
+input {
+	background-color: rgba(255, 255, 255, 0.05);
 }
 
-input:focus{
-	background:rgba(255,255,255,0.85);
+input:focus {
+	background: rgba(255, 255, 255, 0.85);
 }
 
-.form-data{
-	padding:9px;
+.form-data {
+	padding: 9px;
 }
 
-.form-submit{
-	text-align:right;
-	margin:37px 0 -22px 0;
+.form-submit {
+	text-align: right;
+	margin: 37px 0 -22px 0;
 }
 
-.form-submit input{
-	color:white;
-	padding:3px 15px 3px 15px;
+.form-submit input {
+	color: white;
+	padding: 3px 15px 3px 15px;
 }
 
-#delete{
-	margin-top:1px;
-	margin-bottom:2px;
+#delete {
+	margin-top: 1px;
+	margin-bottom: 2px;
 }
 
-.back{
-	text-align:center;
-	margin-top:40px;
+.back {
+	text-align: center;
+	margin-top: 40px;
 }
 
-img{
-	width:90px;	
+img {
+	width: 90px;
+}
+
+.test-table {
+	width: 100%;
+	margin: 30px 0;
+}
+
+.test-table thead {
+	line-height: 50px;
+	background-color: rgba(5, 66, 68, 0.19);
+}
+
+.test-table thead th {
+	text-align: center;
+	color: rgb(198, 240, 240);
+	font-size: 20px;
+}
+
+.test-table td {
+	padding: 14px 0;
+	text-align: center;
+	border-bottom: 1px solid rgba(233, 233, 237, 0.29);
+}
+
+.test-table tbody tr {
+	line-height: 40px;
+}
+
+.test-table tbody td {
+	text-align: center;
+	color: white;
+	font-size: 17px;
+}
+
+.cart-total {
+	text-align: right;
+ 	margin-right: 30px;
+}
+
+.cart-total p {
+	color: white;
+	font-size: 20px;
 }
