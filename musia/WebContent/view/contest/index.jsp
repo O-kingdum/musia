@@ -11,17 +11,20 @@
         <div class="article-content">
           <form action="/cart" method="post">
             <fieldset>
-              <legend>コンテスト</legend>
+            
+            	<div class="contest_text">
+	              <legend>コンテスト</legend>
+	              
+	              <p class="saitou">齋藤達朗に相応しい曲を</p>
+	              <h2>SEクリエイターコンテスト開催決定！</h2>
+	              
+	              <p class="saitou2">
+		              世界的サウンドクリエイターの齋藤達朗から、自分に相応しい曲を作ってくれ！という依頼がきぞ！<br>
+		              みんなの熱い挑戦を待ってるぜ！
+	              </p>
+              </div>
               
-              <p>齋藤達朗に相応しい曲を</p>
-              <h2>SEクリエイターコンテスト開催決定！</h2>
-              
-              <p>
-	              世界的サウンドクリエイターの齋藤達朗から、自分に相応しい曲を作ってくれ！という依頼がきぞ！<br>
-	              みんなの熱い挑戦を待ってるぜ！
-              </p>
-              
-              <table>
+              <table class="test-table">
                 <caption>コンテスト</caption>
                 <tbody>
                   <tr>
