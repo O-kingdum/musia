@@ -68,28 +68,28 @@ button + label {
 }
 
 .container .mix.category-1 {
+  margin: 10px;
   border-top: 4px solid limegreen;
-  margin: 8px;
 }
 
 .container .mix.category-2 {
+  margin: 10px;
   border-top: 4px solid olive;
-  margin: 8px;
 }
 
 .container .mix.category-3 {
+  margin: 10px;
   border-top: 4px solid red;
-  margin: 8px;
 }
 
 .container .mix.category-4 {
+  margin: 10px;
   border-top: 4px solid blue;
-  margin: 8px;
 }
 
 .container .mix.category-5 {
+  margin: 10px;
   border-top: 4px solid aqua;
-  margin: 8px;
 }
 /*画像*/
 img:hover {
