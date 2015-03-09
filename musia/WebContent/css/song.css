@@ -74,8 +74,9 @@ h3,figcaption{
 	margin-top:10px;
 }
 
-img{
-	width:300px;	
+.song-img img{
+	width: 300px;
+	opacity: 0;
 }
 
 .button {

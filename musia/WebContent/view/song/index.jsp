@@ -88,6 +88,15 @@
           </form>
         </div>
       </article>
+      <script>
+	      $(function() {
+		      $(".song-img img").animate({
+			      	//width: "300px",
+			      	//height: "300px",
+			   		opacity: 1
+		      },1500);
+	      });
+      </script>
     </jsp:attribute>
   </jsp:param>
 </jsp:include>
