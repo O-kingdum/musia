@@ -145,7 +145,7 @@
             <a
                 href="${pageContext.request.contextPath}/song?id=<%=products.get(i).getProduct_id()%>">
               <img class="top"
-                src="<%= request.getContextPath() %><%=products.get(i).getImg_path()%>"
+                src="<%= request.getContextPath() %>/<%=products.get(i).getImg_path()%>"
                 alt="" />
             </a>
           </div>
