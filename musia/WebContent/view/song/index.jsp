@@ -44,7 +44,7 @@
                 </div>
                 <div class="song-audio">
                   <audio
-                    src="http://localhost:8080<%=products.getDirectory_path()%>"
+                    src="http://localhost:8080<%= request.getContextPath() %><%=products.getDirectory_path()%>"
                     controls></audio>
                 </div>
                 <div class="song-remarks">
