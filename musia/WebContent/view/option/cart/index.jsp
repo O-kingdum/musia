@@ -50,6 +50,7 @@
 	                    	<input type="hidden" name="idx" value="<%= idx %>" />
 	                    	<input id="delete"
 	                      type="submit" name="delete" value="削除" />
+    
                       	</form>
                     </td>
                   </tr>
@@ -66,6 +67,7 @@
               	<p>合計金額：<%=total%></p>
               </div>
 	          <form action="${pageContext.request.contextPath}/option/cart/select" method="post">
+
 	            <p class="form-submit">
 	                <input type="submit" name="all" value="及川ポイントで購入する" />
 	            </p>
