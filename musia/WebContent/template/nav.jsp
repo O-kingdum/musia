@@ -6,7 +6,7 @@
     <%
       if (!Auth.checkAuth(request)) {
     %>
-    <li class="grid_4">ログインしていません</li>
+    <li class="grid_8">ログインしていません</li>
     <li class="grid_2"><a
       href="${pageContext.request.contextPath}/listener_signup">新規登録</a></li>
     <li class="grid_2"><a
@@ -15,12 +15,16 @@
       } else {
         UsersBean user = Auth.getAuthUser(request);
     %>
-    <li>ようこそ<%=user.getUser_name()%>さん
+    <li class="grid_4">ようこそ<%=user.getUser_name()%>さん
     </li>
-    <li><a href="${pageContext.request.contextPath}/option/list">気になる</a></li>
-    <li><a href="${pageContext.request.contextPath}/option/cart">カート</a></li>
-    <li><a href="${pageContext.request.contextPath}/option">オプション</a></li>
-    <li><a href="${pageContext.request.contextPath}/logout">ログアウト</a></li>
+    <li class="grid_2"><a
+      href="${pageContext.request.contextPath}/option/list">気になる</a></li>
+    <li class="grid_2"><a
+      href="${pageContext.request.contextPath}/option/cart">カート</a></li>
+    <li class="grid_2"><a
+      href="${pageContext.request.contextPath}/option">オプション</a></li>
+    <li class="grid_2"><a
+      href="${pageContext.request.contextPath}/logout">ログアウト</a></li>
     <%
       }
     %>
