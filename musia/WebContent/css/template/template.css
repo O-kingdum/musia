@@ -106,7 +106,7 @@ body {
 }
 
 .nav ul li {
-  text-align: center; 
+  text-align: center;
 }
 
 .nav ul li a {
@@ -114,6 +114,17 @@ body {
 }
 
 .footer {
+  background-color: rgba(0,0,0,0.4);
+}
+
+.footer-contents-copyright {
+  margin: 0;
+  padding: 10px;
   text-align: center;
 }
+
+.footer-contents-copyright a {
+  color: #FFFFFF;
+}
+
 
