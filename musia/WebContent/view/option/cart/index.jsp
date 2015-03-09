@@ -18,7 +18,7 @@
             <%
               if (products != null && products.size() > 0) {
             %>
-              <table>
+              <table class="test-table">
                 <caption>カート</caption>
                 <thead>
                   <tr>
@@ -45,11 +45,11 @@
                       <%=product.getPrice()%>
                     </td>
                     <td class="table-data">
-                    	<form
-                    action="${pageContext.request.contextPath}/option/cartdel"
-                    method="post">
-	                    	<input type="hidden" name="idx" value="<%=idx%>" />
-	                    	<input id="delete" type="submit" name="delete" />
+
+                    	<form action="${pageContext.request.contextPath}/option/cartdel" method="post">
+	                    	<input type="hidden" name="idx" value="<%= idx %>" />
+	                    	<input id="delete"
+	                      type="submit" name="delete" value="削除" />
                       	</form>
                     </td>
                   </tr>
@@ -61,10 +61,11 @@
               </table>
               <div class="paging"></div>
               <!-- tableに対するjQuery plug-inのページ送り用 -->
-              <p>合計金額：<%=total%></p>
-	          <form
-            action="${pageContext.request.contextPath}/option/cart/select"
-            method="post">
+
+              <div class="cart-total">
+              	<p>合計金額：<%=total%></p>
+              </div>
+	          <form action="${pageContext.request.contextPath}/option/cart/select" method="post">
 	            <p class="form-submit">
 	                <input type="submit" name="all" value="及川ポイントで購入する" />
 	            </p>
