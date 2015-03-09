@@ -63,8 +63,8 @@
         </div>
         <%
           @SuppressWarnings("unchecked")
-                      ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
-                      if (msg != null && msg.size() > 0) {
+                          ArrayList<String> msg = (ArrayList<String>) request.getAttribute("msg");
+                          if (msg != null && msg.size() > 0) {
         %>
         <ul>
         <%
@@ -79,9 +79,9 @@
           }
         %>
         <p class="back">
-          <a href="history.back()"><img
-            src="<%=request.getContextPath()%>/img/pageback.png"
-            alt="戻る" class="backimg" /></a>
+          <a href="<%=request.getHeader("Referer")%>"><img
+            src="${pageContext.request.contextPath}/img/pageback.png"
+            alt="戻る" /></a>
         </p>
         
         <!-- tableに対するjQuery plug-inの指定 -->

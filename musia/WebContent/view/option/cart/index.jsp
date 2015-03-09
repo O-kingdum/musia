@@ -31,42 +31,40 @@
                 <tbody>
                 <%
                   int idx = 0;
-                  for (ProductsBean product : products) {
+                              for (ProductsBean product : products) {
                 %>
                   <tr>
-                    <td class="table-data"><a href="<%= request.getContextPath() %>/song?id=<%= product.getProduct_id() %>">
-                        <%=
-                          product.getProduct_name()
-                        %>
+                    <td class="table-data"><a
+                  href="<%=request.getContextPath()%>/song?id=<%=product.getProduct_id()%>">
+                        <%=product.getProduct_name()%>
                     </a></td>
                     <td class="table-data">
-                        <%=
-                          product.getArtist_name()
-                        %>
+                        <%=product.getArtist_name()%>
                     </td>
                     <td class="table-data">
-                      <%=
-                        product.getPrice()
-                      %>
+                      <%=product.getPrice()%>
                     </td>
                     <td class="table-data">
-                    	<form action="${pageContext.request.contextPath}/option/cartdel" method="post">
-	                    	<input type="hidden" name="idx" value="<%= idx %>" />
-	                    	<input id="delete"
-	                      type="submit" name="delete" />
+                    	<form
+                    action="${pageContext.request.contextPath}/option/cartdel"
+                    method="post">
+	                    	<input type="hidden" name="idx" value="<%=idx%>" />
+	                    	<input id="delete" type="submit" name="delete" />
                       	</form>
                     </td>
                   </tr>
                 <%
-                	idx++;
-                  }
+                  idx++;
+                              }
                 %>
                 </tbody>
               </table>
               <div class="paging"></div>
               <!-- tableに対するjQuery plug-inのページ送り用 -->
               <p>合計金額：<%=total%></p>
-	          <form action="${pageContext.request.contextPath}/option/cart/select" method="post">
+	          <form
+            action="${pageContext.request.contextPath}/option/cart/select"
+            method="post">
 	            <p class="form-submit">
 	                <input type="submit" name="all" value="及川ポイントで購入する" />
 	            </p>
@@ -83,7 +81,7 @@
               %>
         </div>
         <p class="back">
-          <a href="history.back()"><img
+          <a href="<%=request.getHeader("Referer")%>"><img
             src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>

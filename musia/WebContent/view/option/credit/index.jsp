@@ -17,7 +17,9 @@
       <article class="article">
         <h2 class="article-title">クレジットカード情報</h2>
         <div class="article-content">
-          <form action="${pageContext.request.contextPath}/option/credit" method="post">
+          <form
+            action="${pageContext.request.contextPath}/option/credit"
+            method="post">
             <%
               if (cards != null && cards.size() > 0) {
                 CreditCardBean card = cards.get(0);
@@ -119,7 +121,7 @@
           }
         %>
         <p class="back">
-          <a href="history.back()"><img
+          <a href="<%=request.getHeader("Referer")%>"><img
             src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>

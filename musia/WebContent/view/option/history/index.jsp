@@ -15,7 +15,9 @@
       <article class="article">
         <h2 class="article-title">購入履歴</h2>
         <div class="article-content">
-          <form action="${pageContext.request.contextPath}/option/history" method="post">
+          <form
+            action="${pageContext.request.contextPath}/option/history"
+            method="post">
             <%
               if (products != null && products.size() > 0) {
             %>
@@ -37,10 +39,26 @@
                   for (V_ProductsBean product : products) {
                 %>
                   <tr>
-                    <td class="table-data"><% product.getProduct_name(); %></td>
-                    <td class="table-data"><% product.getArtist_name(); %><a href=""></a></td>
-                    <td class="table-data"><% product.getGenre_name(); %></td>
-                    <td class="table-data"><% product.getPrice(); %></td>
+                    <td class="table-data">
+                      <%
+                        product.getProduct_name();
+                      %>
+                    </td>
+                    <td class="table-data">
+                      <%
+                        product.getArtist_name();
+                      %><a href=""></a>
+                    </td>
+                    <td class="table-data">
+                      <%
+                        product.getGenre_name();
+                      %>
+                    </td>
+                    <td class="table-data">
+                      <%
+                        product.getPrice();
+                      %>
+                    </td>
                     <td class="table-data"><input id="download"
                       type="checkbox" name="download"></td>
                   </tr>
@@ -63,7 +81,7 @@
           </form>
         </div>
         <p class="back">
-          <a href="history.back()"><img
+          <a href="<%=request.getHeader("Referer")%>"><img
             src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>

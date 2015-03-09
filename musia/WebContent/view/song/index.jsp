@@ -31,7 +31,8 @@
             <div class="song-content">
               <div class="song-img">
                 <figure>
-                  <img src="<%= request.getContextPath() %><%=products.getImg_path()%>"
+                  <img
+                    src="<%=request.getContextPath()%><%=products.getImg_path()%>"
                     alt="<%=products.getProduct_name()%>" />
                   <figcaption><%=products.getProduct_name()%></figcaption>
                 </figure>
@@ -53,8 +54,8 @@
                 <div class="song-add">
                   <ul>
                     <li>
-                      <input type="hidden"
-                      name="id" value="<%=products.getProduct_id()%>" />
+                      <input type="hidden" name="id"
+                      value="<%=products.getProduct_id()%>" />
                       <input type="submit" name="list" value="気になるに追加" />
                     </li>
                     <li>
@@ -87,6 +88,11 @@
             %>
           </form>
         </div>
+        <p class="back">
+          <a href="<%=request.getHeader("Referer")%>"><img
+            src="${pageContext.request.contextPath}/img/pageback.png"
+            alt="戻る" /></a>
+        </p>
       </article>
     </jsp:attribute>
   </jsp:param>

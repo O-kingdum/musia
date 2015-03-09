@@ -28,7 +28,7 @@
 						<label class="grid_8">ソート</label>
 						<button class="sort active grid_2" data-sort="default">リリース順</button>
 						<!-- <button class="sort" data-sort="mytitle:asc">タイトル順</button> -->
-						<button class="sort " data-sort="mydate:asc">ランキング</button>
+						<button class="sort grid_2" data-sort="mydate:asc">ランキング</button>
 						</div>
 						</div>
           <%
