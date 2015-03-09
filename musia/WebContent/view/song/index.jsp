@@ -25,7 +25,7 @@
             <header class="song-title">
               <h3><%=products.getProduct_name()%></h3>
               <p>
-                <input type="submit" value="いいね！" />
+                <input type="submit" value="いいね！"/>
               </p>
             </header>
             <div class="song-content">
@@ -55,10 +55,10 @@
                     <li>
                       <input type="hidden"
                       name="id" value="<%=products.getProduct_id()%>" />
-                      <input type="submit" name="list" value="気になるに追加" />
+                      <input type="submit" name="list" value="気になるに追加" class="button"/>
                     </li>
                     <li>
-                      <input type="submit" name="cart" value="カートに追加" />
+                      <input type="submit" name="cart" value="カートに追加" class="button"/>
                     </li>
                   </ul>
                 </div>
