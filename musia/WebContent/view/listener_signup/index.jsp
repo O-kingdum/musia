@@ -28,8 +28,7 @@
                   </th>
                   <td class="form-data">
                     <input id="name" type="text" name="user_name"
-                    autofocus ng-model="name" required
-                    ng-maxlength="20">
+                    autofocus ng-model="name" required ng-maxlength="20">
                     <!-- angularJSの名前メッセージ -->
                     <p class="ang-errorMsg"
                       ng-show="myForm.user_name.$error.required">
@@ -43,7 +42,8 @@
                         src="${pageContext.request.contextPath}/img/no.png"
                         alt="err_img" title="エラー画像">名前は20文字以内で入力して下さい
 	                  </p>
-                    <p class="ang-okMsg" ng-show="myForm.user_name.$valid">
+                    <p class="ang-okMsg"
+                      ng-show="myForm.user_name.$valid">
 	                      <img
                         src="${pageContext.request.contextPath}/img/ok.png"
                         alt="ok_img" title="オーケー画像">
@@ -94,8 +94,8 @@
                   </th>
                   <td class="form-data">
                     <input id="password" type="password" name="password"
-                    autofocus="" ng-model="password"
-                    required ng-minlength="6" ng-maxlength="8">
+                    autofocus="" ng-model="password" required
+                    ng-minlength="6" ng-maxlength="8">
                     <!-- angularJSのpasswordメッセージ -->
                     <p class="ang-errorMsg"
                       ng-show="myForm.password.$error.required">
@@ -111,7 +111,8 @@
                         alt="err_img" title="エラー画像">
 	                      パスワードは6~8文字で入力して下さい
 	                  </p>
-                    <p class="ang-errorMsg" ng-show="myForm.password.$error.maxlength">
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.password.$error.maxlength">
 	                      <img
                         src="${pageContext.request.contextPath}/img/no.png"
                         alt="err_img" title="エラー画像">
@@ -177,7 +178,7 @@
           }
         %>
         <p class="back">
-          <a href="history.back()"><img
+          <a href="<%=request.getHeader("Referer")%>"><img
             src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>

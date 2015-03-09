@@ -89,8 +89,8 @@
           </form>
         </div>
         <p class="back">
-          <a href="${pageContext.request.contextPath}/history.back()"><img
-            src="/img/pageback.png"
+          <a href="<%=request.getHeader("Referer")%>"><img
+            src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>
       </article>
