@@ -26,7 +26,7 @@
 						</div>
 						<div>
 						<label class="grid_8">ソート</label>
-						<button class="sort active grid_2" data-sort="default">リリース順</button>
+						<button class="sort grid_2" data-sort="default">リリース順</button>
 						<!-- <button class="sort" data-sort="mytitle:asc">タイトル順</button> -->
 						<button class="sort grid_2" data-sort="mydate:asc">ランキング</button>
 						</div>
@@ -45,13 +45,10 @@
 												var str =
 										<%=products.get(i).getMeasure()%>
 											;
-												console.log(str);
 												var num = Number(str);
 												var i =
 										<%=i%>
 											;
-												console.log(i);
-												//$(".prod").eq(i).attr('data-mytitle', title);
 												$(".prod").eq(i).attr(
 														'data-mydate', num);
 												//$(".prod").eq(i).addClass("category-1");
@@ -70,9 +67,7 @@
 													var str =
 											<%=i%>
 												;
-													//console.log(str);
 													var i = Number(str);
-													//console.log(i);
 													$(".prod").eq(i).addClass(
 															"mix");
 													$(".prod").eq(i).addClass(
@@ -93,11 +88,7 @@
 															<%=i%>
 																;
 																	//var a = 0;
-																	console
-																			.log(str);
 																	var i = Number(str);
-																	console
-																			.log(i);
 																	$(".prod")
 																			.eq(
 																					i)
@@ -121,12 +112,7 @@
 																	var str =
 															<%=i%>
 																;
-																	//var a = 0;
-																	console
-																			.log(str);
 																	var i = Number(str);
-																	console
-																			.log(i);
 																	$(".prod")
 																			.eq(
 																					i)
