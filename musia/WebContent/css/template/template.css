@@ -83,6 +83,7 @@ body {
 }
 
 .header-nav-li img {
+  border-radius: 8px;
   width: 220px;
   height: 38px;
 }
