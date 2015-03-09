@@ -39,7 +39,7 @@ body {
 }
 
 .header {
-  background-color:rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.4);
 }
 
 .header-title {
@@ -58,7 +58,7 @@ body {
 .header-search {
   margin-left: auto;
   padding: 10px;
-  width: 220px; 
+  width: 220px;
 }
 
 .input-search {
@@ -96,19 +96,35 @@ body {
   top: 0;
   right: 0;
   left: 0;
-  background: #FFFFFF;
+  background-color: rgba(0,0,0,0.2);
 }
 
 .nav ul {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
+  width: 960px;
 }
 
-.main {
+.nav ul li {
+  text-align: center;
+}
 
+.nav ul li a {
+  color: #FFFFFF;
 }
 
 .footer {
+  background-color: rgba(0,0,0,0.4);
+}
+
+.footer-contents-copyright {
+  margin: 0;
+  padding: 10px;
   text-align: center;
 }
+
+.footer-contents-copyright a {
+  color: #FFFFFF;
+}
+
 

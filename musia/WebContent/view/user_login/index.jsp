@@ -79,7 +79,8 @@
                         alt="err_img" title="エラー画像">
 	                      パスワードは6~8文字で入力して下さい
 	                  </p>
-                    <p class="ang-errorMsg" ng-show="myForm.password.$error.maxlength">
+                    <p class="ang-errorMsg"
+                      ng-show="myForm.password.$error.maxlength">
 	                      <img
                         src="${pageContext.request.contextPath}/img/no.png"
                         alt="err_img" title="エラー画像">
@@ -122,7 +123,7 @@
           }
         %>
         <p class="back">
-          <a href="history.back()"><img
+          <a href="<%=request.getHeader("Referer")%>"><img
             src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>

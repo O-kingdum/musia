@@ -32,12 +32,15 @@
                 for (ProductsBean product : products) {
               %>
                 <tr>
-                  <td><%= product.getProduct_name() %></td>
-                  <td><%= product.getArtist_name() %></td>
-                  <td><%= product.getPrice() %></td>
+                  <td><%=product.getProduct_name()%></td>
+                  <td><%=product.getArtist_name()%></td>
+                  <td><%=product.getPrice()%></td>
                   <td>
-          			<form action="${pageContext.request.contextPath}/option/cart/download" method="post">
-                  	  <input type="hidden" name="id" value="<%= product.getProduct_id() %>" />
+          			<form
+                    action="${pageContext.request.contextPath}/option/cart/download"
+                    method="post">
+                  	  <input type="hidden" name="id"
+                      value="<%=product.getProduct_id()%>" />
                   	  <p class="form-submit">
 		          		<input type="submit" name="all" value="ダウンロード">
 		          	  </p>
@@ -60,8 +63,8 @@
             %>
         </div>
         <p class="back">
-          <a href="<%= request.getHeader("referer") %>"><img
-            src="<%=request.getContextPath()%>/img/pageback.png"
+          <a href="<%=request.getHeader("Referer")%>"><img
+            src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>
       </article>

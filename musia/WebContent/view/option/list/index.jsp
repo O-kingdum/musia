@@ -14,7 +14,8 @@
       <article class="article">
         <h2 class="article-title">気になる</h2>
         <div class="article-content">
-          <form action="${pageContext.request.contextPath}/option/list" method="post">
+          <form action="${pageContext.request.contextPath}/option/list"
+            method="post">
             <%
               if (products != null && products.size() > 0) {
             %>
@@ -63,7 +64,7 @@
           </form>
         </div>
         <p class="back">
-          <a href="history.back()"><img
+          <a href="<%=request.getHeader("Referer")%>"><img
             src="${pageContext.request.contextPath}/img/pageback.png"
             alt="戻る" /></a>
         </p>
